@@ -22,10 +22,13 @@
 // DynASM directives.
 //|.arch arm
 //|.actionlist actions
-static const uint16_t actions[3] = {
-0x4008,
+static const uint16_t actions[6] = {
+0x2805,
+0xbfd4,
+0x2000,
+0x2001,
 0x4770,
-0x0000
+0xbf00
 };
 
 #line 13 "main.dasc"
@@ -34,10 +37,24 @@ static const uint16_t actions[3] = {
 // resolve to a dasm_State** that points to a dasm_State*.
 #define Dst &state
 
-int test (int a, int b)
+int test (int n)
 {
-  return a & b;
-}
+  // int i = 2;
+  //  int f1 = 0;
+  //  int f2 = 1;
+  //  int fn = 0;
+  //  for ( i = 2; i < n; i++ )
+  //  {
+  //     fn = f1 + f2;
+  //     f1 = f2;
+  //     f2 = fn;
+  //  }
+  //  return fn;
+  if (n > 5) {
+    return 1;
+  }
+  return 0;
+} 
  
 int main ()
 {
@@ -45,7 +62,7 @@ int main ()
 
   int num = 0xFF;
 
-  printf(" --> test value %d\n", test(0xff, 1));
+  printf(" --> test value %d\n", test(10));
 
   dasm_State *state;
 
@@ -59,10 +76,22 @@ int main ()
   //
   // The run-time value of C variable "num" is substituted
   // into the immediate value of the instruction.
-  //|  ands r0, r1
-  //|  bx  r14
-  dasm_put(Dst, 0);
-#line 45 "main.dasc"
+//| cmp  r0, #5
+//| ite le
+//| mov r0, #0
+//| mov r0, #1
+//| bx  lr
+dasm_put(Dst, 0);
+#line 62 "main.dasc"
+
+/*
+cmp r0, #5
+     95e: bfd4        ite le
+     960: 2000        movle r0, #0
+     962: 2001        movgt r0, #1
+     964: 4770        bx  lr
+     966: bf00        nop
+*/
 
   // Link the code and write it to executable memory.
   size_t size;
@@ -77,8 +106,8 @@ int main ()
   printf("3 %p\n", code);
 
   // Call the JIT-ted function.
-  int (*fptr)(int, int) = (code + 1);
-  int ret = fptr(0xff, 1);
+  int (*fptr)(int) = (code + 1);
+  int ret = fptr(10);
   // assert(ret == 0x1);
   printf("4 %d\n", ret);
 

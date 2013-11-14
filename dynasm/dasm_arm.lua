@@ -81,7 +81,8 @@ local function writeactions(out, name)
   for i = 1,nn-1 do
     assert(out:write("0x", tohex(actlist[i], 4), ",\n"))
   end
-  assert(out:write("0x", tohex(actlist[nn], 4), "\n};\n\n"))
+  -- assert(out:write("0x", tohex(actlist[nn], 4), "\n};\n\n"))
+  assert(out:write("0x", tohex(0xbf00, 4), "\n};\n\n"))
 end
 
 ------------------------------------------------------------------------------
@@ -90,8 +91,6 @@ end
 local function wputxw(n)
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
   actlist[#actlist+1] = n
-  io.stderr:write(' !! wputxw insert\n')
-  io.stderr:write('wputxw ' .. tohex(n) .. '\n')
 end
 
 -- Add action to list with optional arg. Advance buffer pos, too.
@@ -122,8 +121,6 @@ end
 local function wpos()
   local pos = #actlist+1
   actlist[pos] = ""
-  io.stderr:write(' !! wpos insert\n')
-  io.stderr:write('wpos ' .. pos .. '\n')
   return pos
 end
 
@@ -131,14 +128,8 @@ end
 local function wputpos(pos, n)
   io.stderr:write('wputpos ' .. pos .. ', ' .. tohex(n) .. '\n')
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
-  io.stderr:write(' --> ' .. (#actlist+1) .. '\n')
-  if n <= 0x000fffff then
-    io.stderr:write(' !! wputpos insert\n')
-    actlist[pos] = n
-    n = map_action.ESC * 0x10000
-  end
-  -- actlist[pos] = n
-  io.stderr:write(' --> ' .. (#actlist+1) .. '\n')
+  actlist[pos] = band(n, 0xffff)
+  -- n = map_action.ESC * 0x10000
 end
 
 ------------------------------------------------------------------------------
@@ -252,8 +243,19 @@ local map_cond = {
 local map_op = {
   -- Basic data processing instructions.
   ands_2 = "4000DN",
+  mov_2 = "2000SW",
 
+  cmp_2 = "2800SW",
+
+  -- Multiply and multiply-accumulate.
+
+  -- Halfword multiply and multiply-accumulate.
+
+  -- Packing and unpacking instructions.
+
+  -- Branch instructions.
   bx_1   = "4700N",
+  ite_1  = "BF04i",
 
 
   -- Basic data processing instructions.
@@ -267,10 +269,10 @@ local map_op = {
   rsc_3 = "e0e00000DNPs",
   tst_2 = "e1100000NP",
   teq_2 = "e1300000NP",
-  cmp_2 = "e1500000NP",
+  -- cmp_2 = "e1500000NP",
   cmn_2 = "e1700000NP",
   orr_3 = "e1800000DNPs",
-  mov_2 = "e1a00000DPs",
+  -- mov_2 = "e1a00000DPs",
   bic_3 = "e1c00000DNPs",
   mvn_2 = "e1e00000DPs",
 
@@ -284,7 +286,7 @@ local map_op = {
   rsc_4 = "e0e00000DNMps",
   tst_3 = "e1100000NMp",
   teq_3 = "e1300000NMp",
-  cmp_3 = "e1500000NMp",
+  -- cmp_3 = "e1500000NMp",
   cmn_3 = "e1700000NMp",
   orr_4 = "e1800000DNMps",
   mov_3 = "e1a00000DMps",
@@ -436,7 +438,7 @@ local map_op = {
   blx_1 = "e12fff30C",
 
   -- Miscellaneous instructions.
-  nop_0 = "e1a00000",
+  nop_0 = "bf00bf00",
   mrs_1 = "e10f0000D",
   bkpt_1 = "e1200070K", -- v5T
   svc_1 = "ef000000T", swi_1 = "ef000000T",
@@ -855,6 +857,17 @@ local function parse_template(params, template, nparams, pos)
       op = op + shl(parse_gpr(q), 3); n = n + 1
     elseif p == "S" then
       op = op + shl(parse_gpr(q), 8); n = n + 1
+    elseif p == "i" then
+      io.stderr:write('--> ' .. tohex(op) .. '\n')
+      if q == "le" then
+        op = op + shl(0xD, 4); n = n + 1
+        io.stderr:write('--> ' .. tohex(op) .. '\n')
+      else
+        assert(false)
+      end
+    elseif p == "W" then
+      op = op + parse_imm16(q); n = n + 1
+
     elseif p == "M" then
       op = op + parse_gpr(q); n = n + 1
     elseif p == "d" then
@@ -901,8 +914,6 @@ local function parse_template(params, template, nparams, pos)
       op = op + parse_reglist(q); n = n + 1
     elseif p == "r" then
       op = op + parse_vrlist(q); n = n + 1
-    elseif p == "W" then
-      op = op + parse_imm16(q); n = n + 1
     elseif p == "v" then
       op = op + parse_imm(q, 5, 7, 0, false); n = n + 1
     elseif p == "w" then
