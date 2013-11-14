@@ -1,2 +1,3 @@
+file main
 target remote localhost:1234
-file test.elf
+break __cs3_reset
