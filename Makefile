@@ -1,8 +1,8 @@
 all: build
 
 build:
-	luajit dynasm/dynasm.lua main.dasc > main.c
-	arm-none-eabi-gcc -mthumb -gdwarf-2 -fno-inline-small-functions -march=armv7 -mfix-cortex-m3-ldrd -T lm3s6965.ld main.c reset.S syscalls.c -o main -O1 -Idynasm -DDASM_VERSION=10300
+	# luajit dynasm/dynasm.lua main.dasc > main.c
+	arm-none-eabi-gcc -mthumb -gdwarf-2 -fno-inline-small-functions -march=armv7 -mfix-cortex-m3-ldrd -T lm3s6965.ld main.c reset.S syscalls.c -o main -O1 -std=c99 -Idynasm -DDASM_VERSION=10300
 	arm-none-eabi-objcopy -O binary main main.bin
 
 run: build

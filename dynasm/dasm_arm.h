@@ -8,6 +8,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 #define DASM_ARCH		"arm"
 
@@ -50,7 +51,7 @@ enum {
 #define DASM_POS2PTR(D, pos)	(D->sections[DASM_POS2SEC(pos)].rbuf + (pos))
 
 /* Action list type. */
-typedef const unsigned int *dasm_ActList;
+typedef const uint16_t *dasm_ActList;
 
 /* Per-section structure. */
 typedef struct dasm_Section {
@@ -195,21 +196,27 @@ void dasm_put(Dst_DECL, int start, ...)
 
   va_start(ap, start);
   while (1) {
-    unsigned int ins = *p++;
-    unsigned int action = (ins >> 16);
-    if (action >= DASM__MAX) {
-      ofs += 4;
+    uint16_t ins = *p++;
+    // unsigned int action = ((ins >> 4) & 0xf);
+    // if ((action & 0xff00) != 0xff00) {
+    if (ins != 0xffff) {
+    // unsigned int action = (ins >> 16);
+    // if (action >= DASM__MAX) {
+      ofs += 2;
     } else {
+      ins = *p++;
+      unsigned int action = (ins >> 12);
       int *pl, n = action >= DASM_REL_PC ? va_arg(ap, int) : 0;
       switch (action) {
       case DASM_STOP: goto stop;
       case DASM_SECTION:
 	n = (ins & 255); CK(n < D->maxsection, RANGE_SEC);
 	D->section = &D->sections[n]; goto stop;
-      case DASM_ESC: p++; ofs += 4; break;
+      case DASM_ESC: p++; ofs += 2; break;
       case DASM_REL_EXT: break;
       case DASM_ALIGN: ofs += (ins & 255); b[pos++] = ofs; break;
       case DASM_REL_LG:
+        // 0000 0111 1111 1111
 	n = (ins & 2047) - 10; pl = D->lglabels + n;
 	/* Bkwd rel or global. */
 	if (n >= 0) { CK(n>=10||*pl<0, RANGE_LG); CKPL(lg, LG); goto putrel; }
@@ -271,6 +278,7 @@ stop:
   va_end(ap);
   sec->pos = pos;
   sec->ofs = ofs;
+  printf("OFS %d %p %p\n", ofs, D->actionlist + start, p);
 }
 #undef CK
 
@@ -310,18 +318,22 @@ int dasm_link(Dst_DECL, size_t *szp)
     while (pos != lastpos) {
       dasm_ActList p = D->actionlist + b[pos++];
       while (1) {
-	unsigned int ins = *p++;
-	unsigned int action = (ins >> 16);
-	switch (action) {
-	case DASM_STOP: case DASM_SECTION: goto stop;
-	case DASM_ESC: p++; break;
-	case DASM_REL_EXT: break;
-	case DASM_ALIGN: ofs -= (b[pos++] + ofs) & (ins & 255); break;
-	case DASM_REL_LG: case DASM_REL_PC: pos++; break;
-	case DASM_LABEL_LG: case DASM_LABEL_PC: b[pos++] += ofs; break;
-	case DASM_IMM: case DASM_IMM12: case DASM_IMM16:
-	case DASM_IMML8: case DASM_IMML12: case DASM_IMMV8: pos++; break;
-	}
+	uint16_t ins = *p++;
+        if (ins == 0xffff) {
+                ins = *p++;
+                printf("--> %x\n", p);
+        	unsigned int action = (ins >> 12);
+        	switch (action) {
+        	case DASM_STOP: case DASM_SECTION: goto stop;
+        	case DASM_ESC: p++; break;
+        	case DASM_REL_EXT: break;
+        	case DASM_ALIGN: ofs -= (b[pos++] + ofs) & (ins & 255); break;
+        	case DASM_REL_LG: case DASM_REL_PC: pos++; break;
+        	case DASM_LABEL_LG: case DASM_LABEL_PC: b[pos++] += ofs; break;
+        	case DASM_IMM: case DASM_IMM12: case DASM_IMM16:
+        	case DASM_IMML8: case DASM_IMML12: case DASM_IMMV8: pos++; break;
+                }
+        }
       }
       stop: (void)0;
     }
@@ -345,7 +357,7 @@ int dasm_encode(Dst_DECL, void *buffer)
 {
   dasm_State *D = Dst_REF;
   char *base = (char *)buffer;
-  unsigned int *cp = (unsigned int *)buffer;
+  uint16_t *cp = (uint16_t *)buffer;
   int secnum;
 
   /* Encode all code sections. No support for data sections (yet). */
@@ -357,60 +369,68 @@ int dasm_encode(Dst_DECL, void *buffer)
     while (b != endb) {
       dasm_ActList p = D->actionlist + *b++;
       while (1) {
-	unsigned int ins = *p++;
-	unsigned int action = (ins >> 16);
-	int n = (action >= DASM_ALIGN && action < DASM__MAX) ? *b++ : 0;
-	switch (action) {
-	case DASM_STOP: case DASM_SECTION: goto stop;
-	case DASM_ESC: *cp++ = *p++; break;
-	case DASM_REL_EXT:
-	  n = DASM_EXTERN(Dst, (unsigned char *)cp, (ins&2047), !(ins&2048));
-	  goto patchrel;
-	case DASM_ALIGN:
-	  ins &= 255; while ((((char *)cp - base) & ins)) *cp++ = 0xe1a00000;
-	  break;
-	case DASM_REL_LG:
-	  CK(n >= 0, UNDEF_LG);
-	case DASM_REL_PC:
-	  CK(n >= 0, UNDEF_PC);
-	  n = *DASM_POS2PTR(D, n) - (int)((char *)cp - base) - 4;
-	patchrel:
-	  if ((ins & 0x800) == 0) {
-	    CK((n & 3) == 0 && ((n+0x02000000) >> 26) == 0, RANGE_REL);
-	    cp[-1] |= ((n >> 2) & 0x00ffffff);
-	  } else if ((ins & 0x1000)) {
-	    CK((n & 3) == 0 && -256 <= n && n <= 256, RANGE_REL);
-	    goto patchimml8;
-	  } else if ((ins & 0x2000) == 0) {
-	    CK((n & 3) == 0 && -4096 <= n && n <= 4096, RANGE_REL);
-	    goto patchimml;
-	  } else {
-	    CK((n & 3) == 0 && -1020 <= n && n <= 1020, RANGE_REL);
-	    n >>= 2;
-	    goto patchimml;
-	  }
-	  break;
-	case DASM_LABEL_LG:
-	  ins &= 2047; if (ins >= 20) D->globals[ins-10] = (void *)(base + n);
-	  break;
-	case DASM_LABEL_PC: break;
-	case DASM_IMM:
-	  cp[-1] |= ((n>>((ins>>10)&31)) & ((1<<((ins>>5)&31))-1)) << (ins&31);
-	  break;
-	case DASM_IMM12:
-	  cp[-1] |= dasm_imm12((unsigned int)n);
-	  break;
-	case DASM_IMM16:
-	  cp[-1] |= ((n & 0xf000) << 4) | (n & 0x0fff);
-	  break;
-	case DASM_IMML8: patchimml8:
-	  cp[-1] |= n >= 0 ? (0x00800000 | (n & 0x0f) | ((n & 0xf0) << 4)) :
-			     ((-n & 0x0f) | ((-n & 0xf0) << 4));
-	  break;
-	case DASM_IMML12: case DASM_IMMV8: patchimml:
-	  cp[-1] |= n >= 0 ? (0x00800000 | n) : (-n);
-	  break;
-	default: *cp++ = ins; break;
+	uint16_t ins = *p++;
+        if (ins == 0xffff) {
+                ins = *p++;
+        	printf("--> %x\n", p);
+                unsigned int action = (ins >> 12);
+        	int n = (action >= DASM_ALIGN && action < DASM__MAX) ? *b++ : 0;
+        	switch (action) {
+        	case DASM_STOP: case DASM_SECTION: goto stop;
+        	case DASM_ESC: *cp++ = *p++; break;
+        	case DASM_REL_EXT:
+        	  n = DASM_EXTERN(Dst, (unsigned char *)cp, (ins&2047), !(ins&2048));
+        	  goto patchrel;
+        	case DASM_ALIGN:
+        	  ins &= 255; while ((((char *)cp - base) & ins)) *cp++ = 0xe1a00000;
+        	  break;
+        	case DASM_REL_LG:
+        	  CK(n >= 0, UNDEF_LG);
+        	case DASM_REL_PC:
+        	  CK(n >= 0, UNDEF_PC);
+        	  n = *DASM_POS2PTR(D, n) - (int)((char *)cp - base) - 4;
+        	patchrel:
+        	  if ((ins & 0x800) == 0) {
+        	    CK((n & 3) == 0 && ((n+0x02000000) >> 26) == 0, RANGE_REL);
+                    printf("ASM -> %x\n", cp[-1]);
+                    printf("  n -> %x\n", (ins & 2047) - 10);
+        	    cp[-1] |= ((n >> 2) & 0x000000ff);
+                    printf("!!! -> %x\n", cp[-1]);
+        	  } else if ((ins & 0x1000)) {
+        	    CK((n & 3) == 0 && -256 <= n && n <= 256, RANGE_REL);
+        	    goto patchimml8;
+        	  } else if ((ins & 0x2000) == 0) {
+        	    CK((n & 3) == 0 && -4096 <= n && n <= 4096, RANGE_REL);
+        	    goto patchimml;
+        	  } else {
+        	    CK((n & 3) == 0 && -1020 <= n && n <= 1020, RANGE_REL);
+        	    n >>= 2;
+        	    goto patchimml;
+        	  }
+        	  break;
+        	case DASM_LABEL_LG:
+        	  ins &= 2047; if (ins >= 20) D->globals[ins-10] = (void *)(base + n);
+        	  break;
+        	case DASM_LABEL_PC: break;
+        	case DASM_IMM:
+        	  cp[-1] |= ((n>>((ins>>10)&31)) & ((1<<((ins>>5)&31))-1)) << (ins&31);
+        	  break;
+        	case DASM_IMM12:
+        	  cp[-1] |= dasm_imm12((unsigned int)n);
+        	  break;
+        	case DASM_IMM16:
+        	  cp[-1] |= ((n & 0xf000) << 4) | (n & 0x0fff);
+        	  break;
+        	case DASM_IMML8: patchimml8:
+        	  cp[-1] |= n >= 0 ? (0x00800000 | (n & 0x0f) | ((n & 0xf0) << 4)) :
+        			     ((-n & 0x0f) | ((-n & 0xf0) << 4));
+        	  break;
+        	case DASM_IMML12: case DASM_IMMV8: patchimml:
+        	  cp[-1] |= n >= 0 ? (0x00800000 | n) : (-n);
+        	  break;
+                }
+        } else {
+                *cp++ = ins;
 	}
       }
       stop: (void)0;

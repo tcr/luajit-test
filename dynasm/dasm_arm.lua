@@ -49,7 +49,7 @@ local maxsecpos = 25 -- Keep this low, to avoid excessively long C lines.
 -- Action name -> action number.
 local map_action = {}
 for n,name in ipairs(action_names) do
-  map_action[name] = n-1
+  map_action[name] = ((n-1) * 0x1000)
 end
 
 -- Action list buffer.
@@ -82,7 +82,7 @@ local function writeactions(out, name)
     assert(out:write("0x", tohex(actlist[i], 4), ",\n"))
   end
   -- assert(out:write("0x", tohex(actlist[nn], 4), "\n};\n\n"))
-  assert(out:write("0x", tohex(0xbf00, 4), "\n};\n\n"))
+  assert(out:write("0x", tohex(map_action.STOP, 4), "\n};\n\n"))
 end
 
 ------------------------------------------------------------------------------
@@ -90,13 +90,15 @@ end
 -- Add word to action list.
 local function wputxw(n)
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
+  io.stderr:write('++++++++++++      +1\n');
   actlist[#actlist+1] = n
 end
 
 -- Add action to list with optional arg. Advance buffer pos, too.
 local function waction(action, val, a, num)
   local w = assert(map_action[action], "bad action name `"..action.."'")
-  wputxw(w * 0x10000 + (val or 0))
+  wputxw(0xffff)
+  wputxw(w + (val or 0))
   if a then actargs[#actargs+1] = a end
   if a or num then secpos = secpos + (num or 1) end
 end
@@ -120,6 +122,7 @@ end
 -- Reserve position for word.
 local function wpos()
   local pos = #actlist+1
+  io.stderr:write('wwww++++++++      +1\n');
   actlist[pos] = ""
   return pos
 end
@@ -242,28 +245,11 @@ local map_cond = {
 -- Template strings for ARM instructions.
 local map_op = {
   -- Basic data processing instructions.
-  ands_2 = "4000DN",
-  mov_2 = "2000SW",
-
-  cmp_2 = "2800SW",
-
-  -- Multiply and multiply-accumulate.
-
-  -- Halfword multiply and multiply-accumulate.
-
-  -- Packing and unpacking instructions.
-
-  -- Branch instructions.
-  bx_1   = "4700N",
-  ite_1  = "BF04i",
-
-
-  -- Basic data processing instructions.
   and_3 = "e0000000DNPs",
   eor_3 = "e0200000DNPs",
   sub_3 = "e0400000DNPs",
   rsb_3 = "e0600000DNPs",
-  add_3 = "e0800000DNPs",
+  -- add_3 = "e0800000DNPs",
   adc_3 = "e0a00000DNPs",
   sbc_3 = "e0c00000DNPs",
   rsc_3 = "e0e00000DNPs",
@@ -433,7 +419,7 @@ local map_op = {
   pop_1 = "e8bd0000R", push_1 = "e92d0000R",
 
   -- Branch instructions.
-  b_1 = "ea000000B",
+  -- b_1 = "ea000000B",
   bl_1 = "eb000000B",
   blx_1 = "e12fff30C",
 
@@ -531,6 +517,53 @@ local map_op = {
   -- msr, nopv6, yield, wfe, wfi, sev, dbg, bxj, smc, srs, rfe
   -- cps, setend, pli, pld, pldw, clrex, dsb, dmb, isb
   -- stc, ldc, mcr, mcr2, mrc, mrc2, mcrr, mcrr2, mrrc, mrrc2, cdp, cdp2
+
+
+
+
+
+
+  -------------------------
+  --[[
+
+  D = ........ .....RRR
+  N = ........ .rRRR...
+  M = ........ ..iii... or ........ ..RRR...
+  W = ......rR RR......
+  w = ........ wwwwwwww
+  S = ....rRRR ........
+  i = ........ iiii....
+
+  ]]
+
+
+  -- Basic data processing instructions.
+  ands_2 = "4000DN",
+  add_3 = "1800DNW",
+  adds_3 = "1800DNW",
+  ["add.w_3"] = "f103A,0000ASw",
+  mov_2 = "4600DN|2000Sw",
+  ["mov.w_2"] = "F04FA,0000Sw",
+
+  cmp_2 = "4280DN|2800Sw",
+
+  push_1  = "B400R",
+  pop_1  = "BC00R",
+
+  -- Multiply and multiply-accumulate.
+
+  -- Halfword multiply and multiply-accumulate.
+
+  -- Packing and unpacking instructions.
+
+  -- Branch instructions.
+  b_1 = "d000B",
+  bx_1   = "4700N",
+  it_1  = "BF08i",
+  ite_1  = "BF04i",
+
+  -- Miscellaneous
+  nop_0 = "bf00",
 }
 
 -- Add mnemonics for "s" variants.
@@ -848,13 +881,22 @@ local function parse_template(params, template, nparams, pos)
   local vr = "s"
 
   -- Process each character.
-  io.stderr:write(template .. '\n')
+  io.stderr:write('-->' .. template .. ' ' .. tonumber(nparams or 0) .. ' ' .. pos .. '\n')
   for p in gmatch(sub(template, 5), ".") do
     local q = params[n]
     if p == "D" then
       op = op + shl(parse_gpr(q), 0); n = n + 1
     elseif p == "N" then
       op = op + shl(parse_gpr(q), 3); n = n + 1
+    elseif p == "M" then
+      local imm = match(q, "^#(.*)$")
+      if imm then
+        io.stderr:write(imm .. '\n')
+        op = op + shl(parse_imm12(imm), 3)
+      else
+        op = op + shl(parse_gpr(q), 3)
+      end
+      n = n + 1
     elseif p == "S" then
       op = op + shl(parse_gpr(q), 8); n = n + 1
     elseif p == "i" then
@@ -866,7 +908,31 @@ local function parse_template(params, template, nparams, pos)
         assert(false)
       end
     elseif p == "W" then
-      op = op + parse_imm16(q); n = n + 1
+      local imm = match(q, "^#(.*)$")
+      if imm then
+        io.stderr:write(imm .. '\n')
+        op = op + shl(parse_imm12(imm), 6)
+      else
+        op = op + shl(parse_gpr(q), 6)
+      end
+      n = n + 1
+    elseif p == "w" then
+      local imm = match(q, "^#(.*)$")
+      if imm then
+        io.stderr:write(imm .. '\n')
+        op = op + parse_imm12(imm)
+      else
+        op = op + parse_gpr(q)
+      end
+      n = n + 1
+    elseif p == "R" then
+      op = op + parse_reglist(q); n = n + 1
+    elseif p == "B" then
+      local mode, n, s = parse_label(q, false)
+      io.stderr:write('&&&&&&& mode=' .. mode .. '  n=' .. tostring(n) .. '  s=' .. (s or '') .. '\n')
+      waction("REL_"..mode, n, s, 1)
+    elseif p == "A" then
+      n = n + 1
 
     elseif p == "M" then
       op = op + parse_gpr(q); n = n + 1
@@ -879,9 +945,9 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "P" then
       local imm = match(q, "^#(.*)$")
       if imm then
-  op = op + parse_imm12(imm) + 0x02000000
+        op = op + parse_imm12(imm) + 0x02000000
       else
-  op = op + parse_gpr(q)
+        op = op + parse_gpr(q)
       end
       n = n + 1
     elseif p == "p" then
@@ -890,9 +956,6 @@ local function parse_template(params, template, nparams, pos)
       op = parse_load(params, nparams, n, op)
     elseif p == "l" then
       op = op + parse_vload(q)
-    elseif p == "B" then
-      local mode, n, s = parse_label(q, false)
-      waction("REL_"..mode, n, s, 1)
     elseif p == "C" then -- blx gpr vs. blx label.
       if match(q, "^([%w_]+):(r1?[0-9])$") or match(q, "^r(1?[0-9])$") then
   op = op + parse_gpr(q)
@@ -910,8 +973,6 @@ local function parse_template(params, template, nparams, pos)
       local r, wb = match(q, "^([^!]*)(!?)$")
       op = op + shl(parse_gpr(r), 16) + (wb == "!" and 0x00200000 or 0)
       n = n + 1
-    elseif p == "R" then
-      op = op + parse_reglist(q); n = n + 1
     elseif p == "r" then
       op = op + parse_vrlist(q); n = n + 1
     elseif p == "v" then
@@ -958,8 +1019,16 @@ map_op[".template__"] = function(params, template, nparams)
   local apos, spos = #actargs, secpos
 
   local ok, err
-  for t in gmatch(template, "[^|]+") do
-    ok, err = pcall(parse_template, params, t, nparams, pos)
+  for t_ in gmatch(template, "[^|]+") do
+    local donext = false
+    for t in gmatch(t_, "[^,]+") do
+      if donext then
+        pos = wpos()
+      end
+      ok, err = pcall(parse_template, params, t, nparams, pos)
+      if not ok then break end
+      donext = true
+    end
     if ok then return end
     secpos = spos
     actargs[apos+1] = nil
@@ -1133,8 +1202,8 @@ function _M.mergemaps(map_coreop, map_def)
     if cv then
       local v = rawget(t, k1..k2)
       if type(v) == "string" then
-  local scv = format("%x", cv)
-  return gsub(scv..sub(v, 2), "|e", "|"..scv)
+        local scv = format("%x", cv)
+        return gsub(sub(v, 1, 1) .. scv .. sub(v, 3), "|e", "|"..scv)
       end
     end
   end })
