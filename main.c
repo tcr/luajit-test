@@ -104,32 +104,35 @@ int main ()
   //
   // The run-time value of C variable "num" is substituted
   // into the immediate value of the instruction.
+
+
 // | cmp  r0, #5
 // | ite le
 // | mov r0, #0
 // | mov r0, #1
 // | bx  lr
 
-     //| push  {r4}
-     //| cmp r0, #2
-     //| it  le
-     //| mov r1, #0
-     //| ble >2
-     //| mov.w r2, #1
-     //| mov.w r4, #0
-     //| mov.w r3, #2
-     //|1:
-     //| adds   r1, r4, r2
-     //| add.w  r3, r3, #1
-     //| mov r4, r2
-     //| mov r2, r1
-     //| cmp r3, r0
-     //| bne <1
-     //|2:
-     //| mov r0, r1
-     //| pop {r4}
-     //| bx  lr
-     //| nop
+//| push  {r4}
+//| cmp r0, #2
+//| it  le
+//| mov r1, #0
+//| ble >2
+//| mov.w r2, #1
+//| mov.w r4, #0
+//| mov.w r3, #2
+//|1:
+//| adds   r1, r4, r2
+//| add.w  r3, r3, #1
+//| mov r4, r2
+//| mov r2, r1
+//| cmp r3, r0
+//| bne <1
+//|2:
+//| mov r0, r1
+//| pop {r4}
+//| bx  lr
+//| nop
+
      dasm_put(Dst, 0);
 #line 83 "main.dasc"
 
@@ -163,9 +166,9 @@ cmp r0, #5
   int (*fptr)(int) = (code + 1);
   int ret = fptr(10);
   // assert(ret == 0x1);
-  printf("4 %d\n", ret);
+  printf("4) %d == 1\n", ret);
 
-  printf("COOL\n");
+  printf("done.\n");
 
   // Free the machine code.
   // free_jitcode(fptr);
