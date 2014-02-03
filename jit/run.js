@@ -10,8 +10,10 @@ function collect (fn) {
 	return stream;
 }
 
-var ret = spawn('arm-none-eabi-objdump', ['-D', 'main']);
+var ret = spawn('qemu-system-arm', ['-M', 'lm3s6965evb', '--kernel', 'main.bin', '--serial', 'stdio', '-no-reboot'])
 ret.stdout.pipe(collect(function (buf) {
-	buf = String(buf)
-	console.log(buf.match(/test>:\s*\n([\s\S]*?)\n\n/)[1]);
+	console.log(String(buf));
 }))
+setTimeout(function () {
+	spawn('kill', ['-9', ret.pid])
+}, process.argv[2] ? Number(process.argv[2]) : 200);

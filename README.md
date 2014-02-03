@@ -10,3 +10,6 @@ Need an automated test rig to determine if assembled code is being properly gene
 
 to start this, need a compiler and script that will generate assembly for a function for output by inspection.
 (so do this)
+
+./dump.js dumps the test() function in main
+./run.js runs the code in main in qemu (then kills it, dumps output)
