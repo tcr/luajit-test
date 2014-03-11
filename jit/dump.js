@@ -18,7 +18,8 @@ ret.stdout.pipe(collect(function (buf) {
 		out.substr(10, 11).split(/\s+/).filter(function (a) {
 			return a;
 		}).forEach(function (line) {
-			console.log(i++ + ':', line, '\t#',out.substr(21))
+			// console.log(i++ + ':', line, '\t#',out.substr(21))
+			console.log(line)
 			out = '';
 		})
 	})

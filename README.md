@@ -1,5 +1,7 @@
 # running
 
+cd jit
+
 `make run` will launch the JIT example
 
 ## test rig
