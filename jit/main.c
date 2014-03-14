@@ -27,10 +27,9 @@ static const uint16_t actions[32] = {
 0x2802,
 0xbfd8,
 0x2100,
-// 0xdd00,
-// 0xffff,
-// 0x5002,
-0xdd0c,
+0xdd00,
+0xffff,
+0x5002,
 0xf04f,
 0x0201,
 0xf04f,
@@ -46,11 +45,10 @@ static const uint16_t actions[32] = {
 0x460a,
 0x4283,
 0xd100,
-// 0xffff,
-// 0x500b,
-// 0xffff,
-// 0x600c,
-0xddf8,
+0xffff,
+0x500b,
+0xffff,
+0x600c,
 0x4608,
 0xbc10,
 0x4770,
@@ -95,6 +93,7 @@ int main ()
   dasm_State *state;
 
   dasm_init(&state, 1);
+  dasm_setupglobal(&state, (void **)malloc(32*sizeof(void *)), 32);
   dasm_setup(&state, actions);
 
   // Generate the code.  Each line appends to a buffer in
@@ -104,35 +103,32 @@ int main ()
   //
   // The run-time value of C variable "num" is substituted
   // into the immediate value of the instruction.
-
-
 // | cmp  r0, #5
 // | ite le
 // | mov r0, #0
 // | mov r0, #1
 // | bx  lr
 
-//| push  {r4}
-//| cmp r0, #2
-//| it  le
-//| mov r1, #0
-//| ble >2
-//| mov.w r2, #1
-//| mov.w r4, #0
-//| mov.w r3, #2
-//|1:
-//| adds   r1, r4, r2
-//| add.w  r3, r3, #1
-//| mov r4, r2
-//| mov r2, r1
-//| cmp r3, r0
-//| bne <1
-//|2:
-//| mov r0, r1
-//| pop {r4}
-//| bx  lr
-//| nop
-
+     //| push  {r4}
+     //| cmp r0, #2
+     //| it  le
+     //| mov r1, #0
+     //| ble >2
+     //| mov.w r2, #1
+     //| mov.w r4, #0
+     //| mov.w r3, #2
+     //|1:
+     //| adds   r1, r4, r2
+     //| add.w  r3, r3, #1
+     //| mov r4, r2
+     //| mov r2, r1
+     //| cmp r3, r0
+     //| bne <1
+     //|2:
+     //| mov r0, r1
+     //| pop {r4}
+     //| bx  lr
+     //| nop
      dasm_put(Dst, 0);
 #line 83 "main.dasc"
 
@@ -158,17 +154,21 @@ cmp r0, #5
   printf("3 %p\n", code);
 
   printf("----\n");
-  for (int i = 0; i < size; i++) {
-    printf("%d: %04x\n", i, ((uint16_t *) code)[i]);
+  int max = size - 1;
+  while (max >= 0 && ((uint16_t *) code)[max] == 0) {
+    max--;
+  }
+  for (int i = 0; i <= max; i++) {
+    printf(";;; %04x\n", ((uint16_t *) code)[i]);
   }
 
   // Call the JIT-ted function.
   int (*fptr)(int) = (code + 1);
   int ret = fptr(10);
   // assert(ret == 0x1);
-  printf("4) %d == 1\n", ret);
+  printf("4 %d\n", ret);
 
-  printf("done.\n");
+  printf("COOL\n");
 
   // Free the machine code.
   // free_jitcode(fptr);

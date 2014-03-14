@@ -103,8 +103,12 @@ cmp r0, #5
   printf("3 %p\n", code);
 
   printf("----\n");
-  for (int i = 0; i < size; i++) {
-    printf("%d: %04x\n", i, ((uint16_t *) code)[i]);
+  int max = size - 1;
+  while (max >= 0 && ((uint16_t *) code)[max] == 0) {
+    max--;
+  }
+  for (int i = 0; i <= max; i++) {
+    printf(";;; %04x\n", ((uint16_t *) code)[i]);
   }
 
   // Call the JIT-ted function.
