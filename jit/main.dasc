@@ -60,6 +60,30 @@ static void jit_free (void *code)
 	free(code);
 }
 
+#define TEST_JIT(A, T, ASM) \
+void A ## _jit (void) \
+{ \
+	dasm_State *state; \
+	size_t size = 0; \
+	void* code; \
+\
+	printf(":: TEST [%s]\n", #A); \
+	A ## _test(A); \
+	jit_init(&state); \
+\
+ 	ASM; \
+\
+	code = jit_build(&state, &size); \
+	jit_dump(code, size); \
+	printf(":: JIT TEST.\n"); \
+	A ## _test(((T) (code+1))); \
+	jit_free(code); \
+}
+
+
+
+
+
 
 
 
@@ -74,36 +98,26 @@ int cmp (int n)
 	return 0;
 }
 
-void cmp_test (char* tag, void* call)
+void cmp_test (int (*fn)(int))
 {
-	int (*fn)(int) = call;
-	printf(":: CMP TEST: %s.\n", tag);
 	assert(fn(1) == 0);
 	assert(fn(5) == 0);
 	assert(fn(10) == 1);
 }
 
-void cmp_jit (void)
+TEST_JIT(cmp, int (*)(int),
 {
-	dasm_State *state;
-	size_t size = 0;
-	void* code;
-
-	cmp_test("CONTROL", cmp);
-	jit_init(&state);
-	
 	| cmp  r0, #5
 	| ite le
 	| mov r0, #0
 	| mov r0, #1
 	| bx  lr
 	| nop
+})
 
-	code = jit_build(&state, &size);
-	jit_dump(code, size);
-	cmp_test("JITTED", code+1);
-	jit_free(code);
-}
+
+
+
 
 
 
@@ -121,25 +135,16 @@ int fib (int n)
 	return fn;
 }
 
-void fib_test (char* tag, void* call)
+void fib_test (int (*fn)(int))
 {
-	int (*fn)(int) = call;
-	printf(":: FIB TEST: %s.\n", tag);
 	assert(fn(10) == 34);
 	assert(fn(4) == 2);
 	assert(fn(0) == 0);
 	assert(fn(3) == 1);
 }
 
-void fib_jit (void)
+TEST_JIT(fib, int (*)(int),
 {
-	dasm_State *state;
-	size_t size = 0;
-	void* code;
-
-	fib_test("CONTROL", fib);
-	jit_init(&state);
-
 	| push {r4}
 	| cmp r0, #2
 	| it  le
@@ -160,12 +165,10 @@ void fib_jit (void)
 	| pop {r4}
 	| bx  lr
 	| nop
+})
 
-	code = jit_build(&state, &size);
-	jit_dump(code, size);
-	fib_test("JITTED", code+1);
-	jit_free(code);
-}
+
+
 
 
 
@@ -175,7 +178,7 @@ void fib_jit (void)
 
 int main ()
 {
-	printf(":: START.\n");
+	printf(":: START.\n\n\n\n");
 
   // The run-time value of C variable "num" is substituted
   // into the immediate value of the instruction.
