@@ -191,6 +191,25 @@ TEST_JIT(fib, int (*)(int),
 
 
 
+int mul (int a, int b)
+{
+	return a * b;
+}
+
+void mul_test (int (*fn)(int, int))
+{
+	assert(fn(2, 3) == 6);
+	assert(fn(4, 12) == 48);
+}
+
+TEST_JIT(mul, int (*)(int, int),
+{
+	| mul.w r0, r1, r0
+	| bx    lr
+	| nop
+})
+
+
 
 
 
@@ -203,6 +222,7 @@ int main ()
 
 	fib_jit();
 	cmp_jit();
+	mul_jit();
 
 	printf("# FINISHED.\n");
 

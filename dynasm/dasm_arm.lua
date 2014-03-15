@@ -526,6 +526,7 @@ local map_op = {
   -------------------------
   --[[
 
+  A = skip a word?
   D = ........ .....RRR
   N = ........ .rRRR...
   M = ........ ..iii... or ........ ..RRR...
@@ -534,6 +535,12 @@ local map_op = {
   S = ....rRRR ........
   i = ........ iiii....
 
+  -- non-positional :) below:
+
+  n = ........ ....RRRR (#2)
+  d = ....RRRR ........ (#1)
+  m = .............RRRR (#3)
+
   ]]
 
 
@@ -541,9 +548,15 @@ local map_op = {
   ands_2 = "4000DN",
   add_3 = "1800DNW",
   adds_3 = "1800DNW",
-  ["add.w_3"] = "f103A,0000ASw",
-  mov_2 = "4600DN|2000Sw",
-  ["mov.w_2"] = "F04FA,0000Sw",
+  
+  -- ADD{S}<c>.W <Rd>,<Rn>,#<const>
+  -- 11110i01000S[4:Rn]
+  -- 0[3:imm][4:Rd][8:imm]
+  ["add.w_3"]  = "f100n,0000dAAw",
+  ["mul_3"]    = "4340DNW",
+  ["mul.w_3"]  = "fb00n,f000dm",
+  ["mov_2"]    = "4600DN|2000Sw",
+  ["mov.w_2"]  = "F04FA,0000Sw",
 
   cmp_2 = "4280DN|2800Sw",
 
@@ -888,6 +901,12 @@ local function parse_template(params, template, nparams, pos)
       op = op + shl(parse_gpr(q), 0); n = n + 1
     elseif p == "N" then
       op = op + shl(parse_gpr(q), 3); n = n + 1
+    elseif p == "n" then
+      op = op + shl(parse_gpr(params[2]), 0);
+    elseif p == "d" then
+      op = op + shl(parse_gpr(params[1]), 8);
+    elseif p == "m" then
+      op = op + shl(parse_gpr(params[3]), 0);
     elseif p == "M" then
       local imm = match(q, "^#(.*)$")
       if imm then
@@ -933,6 +952,9 @@ local function parse_template(params, template, nparams, pos)
       waction("REL_"..mode, n, s, 1)
     elseif p == "A" then
       n = n + 1
+
+
+
 
     elseif p == "M" then
       op = op + parse_gpr(q); n = n + 1
