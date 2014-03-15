@@ -221,7 +221,7 @@ void dasm_put(Dst_DECL, int start, ...)
 	/* Bkwd rel or global. */
 	if (n >= 0) { CK(n>=10||*pl<0, RANGE_LG); CKPL(lg, LG); goto putrel; }
 	pl += 10; n = *pl;
-        printf("DASM_REL_LG %x\n", n);
+        // printf("DASM_REL_LG %x\n", n);
 	if (n < 0) n = 0;  /* Start new chain for fwd rel if label exists. */
 	goto linkrel;
       case DASM_REL_PC:
@@ -279,7 +279,7 @@ stop:
   va_end(ap);
   sec->pos = pos;
   sec->ofs = ofs;
-  printf("OFS %d %p %p\n", ofs, D->actionlist + start, p);
+  // printf("OFS %d %p %p\n", ofs, D->actionlist + start, p);
 }
 #undef CK
 
@@ -322,7 +322,7 @@ int dasm_link(Dst_DECL, size_t *szp)
 	uint16_t ins = *p++;
         if (ins == 0xffff) {
                 ins = *p++;
-                printf("--> %x\n", p);
+                // printf("--> %x\n", p);
         	unsigned int action = (ins >> 12);
         	switch (action) {
         	case DASM_STOP: case DASM_SECTION: goto stop;
@@ -373,7 +373,7 @@ int dasm_encode(Dst_DECL, void *buffer)
 	uint16_t ins = *p++;
         if (ins == 0xffff) {
                 ins = *p++;
-        	printf("--> %x\n", p);
+        	// printf("--> %x\n", p);
                 unsigned int action = (ins >> 12);
         	int n = (action >= DASM_ALIGN && action < DASM__MAX) ? *b++ : 0;
         	switch (action) {
@@ -389,15 +389,15 @@ int dasm_encode(Dst_DECL, void *buffer)
         	  CK(n >= 0, UNDEF_LG);
         	case DASM_REL_PC:
         	  CK(n >= 0, UNDEF_PC);
-                printf("DASM_REL_PC ---> %x %x\n", ins, n);
+                // printf("DASM_REL_PC ---> %x %x\n", ins, n);
         	  n = *DASM_POS2PTR(D, n) - (int)((char *)cp - base) - 4;
         	patchrel:
-                printf("DASM_REL_PC -> %x %x\n", ins & 0x800, n);
+                // printf("DASM_REL_PC -> %x %x\n", ins & 0x800, n);
         	  if ((ins & 0x800) == 0) {
         	    CK((n & 3) == 0 && ((n+0x02000000) >> 26) == 0, RANGE_REL);
                     // printf("ASM -> %x\n", cp[-1]);
                     // printf("  n -> %x\n", (ins & 2047) - 10);
-                    printf("HERE %x \n", n);
+                    // printf("HERE %x \n", n);
         	    cp[-1] |= ((n >> 1) & 0x000000ff) + 1;
                     // printf("!!! -> %x\n", cp[-1]);
         	  } else if ((ins & 0x1000)) {
