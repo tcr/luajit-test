@@ -17,9 +17,11 @@
 #define Dst &state
 
 
+int cmp (int n);
+
 static void jit_init (dasm_State** state)
 {
-	printf(":: JIT_INIT.\n");
+	printf("# JIT_INIT.\n");
 	dasm_init(state, 1);
 	dasm_setupglobal(state, (void **)malloc(32*sizeof(void *)), 32);
 	dasm_setup(state, actions);
@@ -28,35 +30,44 @@ static void jit_init (dasm_State** state)
 
 static void* jit_build (dasm_State** state, size_t* size)
 {
-	printf(":: JIT_LINK.\n");
+	printf("# JIT_LINK.\n");
 	// Link the code and write it to executable memory.
 	int dasm_status = dasm_link(state, size);
 	assert(*size != 0);
 	assert(dasm_status == DASM_S_OK);
-	void *code = malloc(*size);
+	void *code = calloc(1, *size);
 
-	printf(":: JIT_ENCODE.\n");
+	printf("# JIT_ENCODE.\n");
 	dasm_encode(state, code);
 	dasm_free(state);
 	return code;
 }
 
+static int jit_compare (void* fn, void* code, size_t size)
+{
+	printf("# JIT_COMPARE (%d words):", size/2);
+	for (int i = 0; i < size/2; i++) {
+		if (((uint16_t*) code)[i] != ((uint16_t*) fn)[i]) {
+			printf(" failed! word %d/%d: %04x isn't %04x\n", i, size/2, ((uint16_t*) code)[i], ((uint16_t*) fn)[i]);
+			return 1;
+		}
+	}
+	printf(" succeeded.\n");
+	return 0;
+}
+
 static void jit_dump (void* code, size_t size)
 {
-	printf(":: JIT_DUMP\n");
+	printf("# JIT_DUMP\n");
 	// Dump generated code.
-	int max = size - 1;
-	while (max >= 0 && ((uint16_t *) code)[max] == 0) {
-		max--;
-	}
-	for (int i = 0; i <= max; i++) {
+	for (int i = 0; i < size/2; i++) {
 		printf(";;; %04x\n", ((uint16_t *) code)[i]);
 	}
 }
 
 static void jit_free (void *code)
 {
-	printf(":: JIT_DONE.\n\n\n\n");
+	printf("# JIT_DONE.\n\n");
 	free(code);
 }
 
@@ -67,15 +78,16 @@ void A ## _jit (void) \
 	size_t size = 0; \
 	void* code; \
 \
-	printf(":: TEST [%s]\n", #A); \
+	printf("# TEST [%s]\n", #A); \
 	A ## _test(A); \
 	jit_init(&state); \
 \
  	ASM; \
 \
 	code = jit_build(&state, &size); \
-	jit_dump(code, size); \
-	printf(":: JIT TEST.\n"); \
+	if (jit_compare((uint32_t) A - 1, code, size) != 0) \
+		jit_dump(code, size); \
+	printf("# JIT TEST.\n"); \
 	A ## _test(((T) (code+1))); \
 	jit_free(code); \
 }
@@ -87,7 +99,13 @@ void A ## _jit (void) \
 
 
 
-
+int ARNGNG (int n)
+{
+	if (n > 5) {
+		return 1;
+	}
+	return 0;
+}
 
 
 int cmp (int n)
@@ -107,7 +125,10 @@ void cmp_test (int (*fn)(int))
 
 TEST_JIT(cmp, int (*)(int),
 {
-	| cmp  r0, #5
+	// The run-time value of C variable "num" is substituted
+  	// into the immediate value of the instruction.
+  	|.type num, int, r0
+	| cmp num, #5
 	| ite le
 	| mov r0, #0
 	| mov r0, #1
@@ -178,20 +199,12 @@ TEST_JIT(fib, int (*)(int),
 
 int main ()
 {
-	printf(":: START.\n\n\n\n");
-
-  // The run-time value of C variable "num" is substituted
-  // into the immediate value of the instruction.
-// | cmp  r0, #5
-// | ite le
-// | mov r0, #0
-// | mov r0, #1
-// | bx  lr
+	printf("# START.\n\n");
 
 	fib_jit();
 	cmp_jit();
 
-	printf(":: FINISHED.\n");
+	printf("# FINISHED.\n");
 
 	return 0;
 }
