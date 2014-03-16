@@ -531,7 +531,7 @@ local map_op = {
   N = ........ .rRRR...
   M = ........ ..iii... or ........ ..RRR...
   W = ......rR RR......
-  w = ........ wwwwwwww
+  w = .........wwwwwwww (#3)
   S = ....rRRR ........
   i = ........ iiii....
 
@@ -540,6 +540,7 @@ local map_op = {
   n = ........ ....RRRR (#2)
   d = ....RRRR ........ (#1)
   m = .............RRRR (#3)
+  j = .iii.....iiiiiiii (#3)
 
   ]]
 
@@ -550,10 +551,9 @@ local map_op = {
   adds_3 = "1800DNW",
   
   -- ADD{S}<c>.W <Rd>,<Rn>,#<const>
-  -- 11110i01000S[4:Rn]
+  -- 11110[1:i]01000[1:S][4:Rn]
   -- 0[3:imm][4:Rd][8:imm]
-  ["add.w_3"]  = "f100n,0000dAAw",
-  ["mul_3"]    = "4340DNW",
+  ["add.w_3"]  = "f100n,0000dj",
   ["mul.w_3"]  = "fb00n,f000dm",
   ["mov_2"]    = "4600DN|2000Sw",
   ["mov.w_2"]  = "F04FA,0000Sw",
@@ -897,16 +897,24 @@ local function parse_template(params, template, nparams, pos)
   io.stderr:write('-->' .. template .. ' ' .. tonumber(nparams or 0) .. ' ' .. pos .. '\n')
   for p in gmatch(sub(template, 5), ".") do
     local q = params[n]
-    if p == "D" then
-      op = op + shl(parse_gpr(q), 0); n = n + 1
-    elseif p == "N" then
-      op = op + shl(parse_gpr(q), 3); n = n + 1
-    elseif p == "n" then
+
+    if p == "n" then
       op = op + shl(parse_gpr(params[2]), 0);
     elseif p == "d" then
       op = op + shl(parse_gpr(params[1]), 8);
     elseif p == "m" then
       op = op + shl(parse_gpr(params[3]), 0);
+    elseif p == "j" then
+      local imm = match(params[3], "^#(.*)$")
+      if imm then
+        val = parse_imm12(imm)
+        op = op + shl(band(shr(val, 8), 0xfff), 12) + shl(band(val, 0xff), 0)
+      end
+
+    elseif p == "D" then
+      op = op + shl(parse_gpr(q), 0); n = n + 1
+    elseif p == "N" then
+      op = op + shl(parse_gpr(q), 3); n = n + 1
     elseif p == "M" then
       local imm = match(q, "^#(.*)$")
       if imm then
