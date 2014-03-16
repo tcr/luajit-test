@@ -193,7 +193,10 @@ TEST_JIT(fib, int (*)(int),
 
 int mul (int a, int b)
 {
-	return a * b;
+	__asm__ (
+	"mul.w r0, r1, r0\n\t"
+	);
+	// return a * b;
 }
 
 void mul_test (int (*fn)(int, int))

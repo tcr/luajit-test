@@ -799,7 +799,7 @@ dostmt = function(stmt)
 
   -- Split into (pseudo-)opcode and params.
   local op, params = splitstmt(stmt)
-  io.stderr:write('-##> ' .. op .. '\n')
+  -- io.stderr:write('-##> ' .. op .. '\n')
 
   -- Get opcode handler (matching # of parameters or generic handler).
   local f = map_op[op.."_"..#params] or map_op[op.."_*"]

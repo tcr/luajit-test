@@ -90,7 +90,7 @@ end
 -- Add word to action list.
 local function wputxw(n)
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
-  io.stderr:write('++++++++++++      +1\n');
+  -- io.stderr:write('++++++++++++      +1\n');
   actlist[#actlist+1] = n
 end
 
@@ -116,20 +116,20 @@ end
 local function wputw(n)
   if n <= 0x000fffff then waction("ESC") end
   wputxw(n)
-  io.stderr:write('wputw' .. tohex(n) .. '\n')
+  -- io.stderr:write('wputw' .. tohex(n) .. '\n')
 end
 
 -- Reserve position for word.
 local function wpos()
   local pos = #actlist+1
-  io.stderr:write('wwww++++++++      +1\n');
+  -- io.stderr:write('wwww++++++++      +1\n');
   actlist[pos] = ""
   return pos
 end
 
 -- Store word to reserved position.
 local function wputpos(pos, n)
-  io.stderr:write('wputpos ' .. pos .. ', ' .. tohex(n) .. '\n')
+  -- io.stderr:write('wputpos ' .. pos .. ', ' .. tohex(n) .. '\n')
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
   actlist[pos] = band(n, 0xffff)
   -- n = map_action.ESC * 0x10000
@@ -894,7 +894,7 @@ local function parse_template(params, template, nparams, pos)
   local vr = "s"
 
   -- Process each character.
-  io.stderr:write('-->' .. template .. ' ' .. tonumber(nparams or 0) .. ' ' .. pos .. '\n')
+  -- io.stderr:write('-->' .. template .. ' ' .. tonumber(nparams or 0) .. ' ' .. pos .. '\n')
   for p in gmatch(sub(template, 5), ".") do
     local q = params[n]
 
@@ -918,7 +918,7 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "M" then
       local imm = match(q, "^#(.*)$")
       if imm then
-        io.stderr:write(imm .. '\n')
+        -- io.stderr:write(imm .. '\n')
         op = op + shl(parse_imm12(imm), 3)
       else
         op = op + shl(parse_gpr(q), 3)
@@ -927,17 +927,17 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "S" then
       op = op + shl(parse_gpr(q), 8); n = n + 1
     elseif p == "i" then
-      io.stderr:write('--> ' .. tohex(op) .. '\n')
+      -- io.stderr:write('--> ' .. tohex(op) .. '\n')
       if q == "le" then
         op = op + shl(0xD, 4); n = n + 1
-        io.stderr:write('--> ' .. tohex(op) .. '\n')
+        -- io.stderr:write('--> ' .. tohex(op) .. '\n')
       else
         assert(false)
       end
     elseif p == "W" then
       local imm = match(q, "^#(.*)$")
       if imm then
-        io.stderr:write(imm .. '\n')
+        -- io.stderr:write(imm .. '\n')
         op = op + shl(parse_imm12(imm), 6)
       else
         op = op + shl(parse_gpr(q), 6)
@@ -946,7 +946,7 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "w" then
       local imm = match(q, "^#(.*)$")
       if imm then
-        io.stderr:write(imm .. '\n')
+        -- io.stderr:write(imm .. '\n')
         op = op + parse_imm12(imm)
       else
         op = op + parse_gpr(q)
@@ -956,7 +956,7 @@ local function parse_template(params, template, nparams, pos)
       op = op + parse_reglist(q); n = n + 1
     elseif p == "B" then
       local mode, n, s = parse_label(q, false)
-      io.stderr:write('&&&&&&& mode=' .. mode .. '  n=' .. tostring(n) .. '  s=' .. (s or '') .. '\n')
+      -- io.stderr:write('&&&&&&& mode=' .. mode .. '  n=' .. tostring(n) .. '  s=' .. (s or '') .. '\n')
       waction("REL_"..mode, n, s, 1)
     elseif p == "A" then
       n = n + 1
