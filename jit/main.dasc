@@ -49,10 +49,12 @@ static int jit_compare (void* fn, void* code, size_t size)
 	for (int i = 0; i < size/2; i++) {
 		if (((uint16_t*) code)[i] != ((uint16_t*) fn)[i]) {
 			printf(" failed! word %d/%d: %04x isn't %04x\n", i, size/2, ((uint16_t*) code)[i], ((uint16_t*) fn)[i]);
+			printf("not ok\n");
 			return 1;
 		}
 	}
 	printf(" succeeded.\n");
+	printf("ok\n");
 	return 0;
 }
 
@@ -92,20 +94,32 @@ void A ## _jit (void) \
 	jit_free(code); \
 }
 
-
-
-
-
-
-
-
-int ARNGNG (int n)
-{
-	if (n > 5) {
-		return 1;
-	}
-	return 0;
+#define COMPARE_JIT(A, REALASM, ASM) \
+void A (void) \
+{ \
+	REALASM; \
+} \
+void A ## _jit (void) \
+{ \
+	dasm_State *state; \
+	size_t size = 0; \
+	void* code; \
+\
+	jit_init(&state); \
+\
+ 	ASM; \
+\
+	code = jit_build(&state, &size); \
+	volatile uint32_t ptr = (uint32_t) A; \
+	if (jit_compare(ptr - 1, code, size) != 0) \
+		jit_dump(code, size); \
+	jit_free(code); \
 }
+
+
+
+
+
 
 
 int cmp (int n)
@@ -218,6 +232,25 @@ TEST_JIT(mul, int (*)(int, int),
 
 
 
+COMPARE_JIT(arith,
+__asm__ (
+	"add.w r2, r3, #1\n\t"
+	"add.w r2, r3, r4\n\t"
+	"mul.w r0, r1, r0\n\t"
+	"mul.w r2, r3, r2\n\t"
+), {
+	| add.w r2, r3, #1
+	| add.w r2, r3, r4
+	| mul.w r0, r1, r0
+	| mul.w r2, r3, r2
+})
+
+
+
+
+
+
+
 
 int main ()
 {
@@ -226,6 +259,7 @@ int main ()
 	fib_jit();
 	cmp_jit();
 	mul_jit();
+	arith_jit();
 
 	printf("# FINISHED.\n");
 

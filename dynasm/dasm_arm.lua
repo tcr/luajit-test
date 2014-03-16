@@ -553,7 +553,11 @@ local map_op = {
   -- ADD{S}<c>.W <Rd>,<Rn>,#<const>
   -- 11110[1:i]01000[1:S][4:Rn]
   -- 0[3:imm][4:Rd][8:imm]
-  ["add.w_3"]  = "f100n,0000dj",
+  --
+  -- ADD{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
+  -- 11101011000[1:S][4:Rn]
+  -- 0[3:imm][4:Rd][2:imm][2:type][4:Rm]
+  ["add.w_3"]  = "f100n,0000dj|eb00n,0000dm",
   ["mul.w_3"]  = "fb00n,f000dm",
   ["mov_2"]    = "4600DN|2000Sw",
   ["mov.w_2"]  = "F04FA,0000Sw",
@@ -909,6 +913,8 @@ local function parse_template(params, template, nparams, pos)
       if imm then
         val = parse_imm12(imm)
         op = op + shl(band(shr(val, 8), 0xfff), 12) + shl(band(val, 0xff), 0)
+      else
+      	werror("expected immediate literal")
       end
 
     elseif p == "D" then
@@ -1046,7 +1052,7 @@ map_op[".template__"] = function(params, template, nparams)
   -- A single opcode needs a maximum of 3 positions.
   if secpos+3 > maxsecpos then wflush() end
   local pos = wpos()
-  local apos, spos = #actargs, secpos
+  local origpos, apos, spos = pos, #actargs, secpos
 
   local ok, err
   for t_ in gmatch(template, "[^|]+") do
@@ -1056,7 +1062,11 @@ map_op[".template__"] = function(params, template, nparams)
         pos = wpos()
       end
       ok, err = pcall(parse_template, params, t, nparams, pos)
-      if not ok then break end
+      if not ok then
+      	for i=origpos,pos do table.remove(actlist, #actlist) end
+      	pos = origpos
+      	break
+      end
       donext = true
     end
     if ok then return end
