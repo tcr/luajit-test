@@ -539,8 +539,9 @@ local map_op = {
 
   n = ........ ....RRRR (#2)
   d = ....RRRR ........ (#1)
-  m = .............RRRR (#3)
-  j = .iii.....iiiiiiii (#3)
+  m = ........ ....RRRR (#3)
+  j = .iii.... iiiiiiii (#3)
+  R = .......P rrrrrrrr (#1)
 
   ]]
 
@@ -558,14 +559,15 @@ local map_op = {
   -- 11101011000[1:S][4:Rn]
   -- 0[3:imm][4:Rd][2:imm][2:type][4:Rm]
   ["add.w_3"]  = "f100n,0000dj|eb00n,0000dm",
+  ["adds.w_3"] = "f110n,0000dj|eb10n,0000dm",
   ["mul.w_3"]  = "fb00n,f000dm",
   ["mov_2"]    = "4600DN|2000Sw",
   ["mov.w_2"]  = "F04FA,0000Sw",
 
-  cmp_2 = "4280DN|2800Sw",
+  ["cmp_2"]    = "4280DN|2800Sw",
 
-  push_1  = "B400R",
-  pop_1  = "BC00R",
+  ["push_1"]   = "B400R",
+  ["pop_1"]    = "BC00R",
 
   -- Multiply and multiply-accumulate.
 
@@ -916,6 +918,8 @@ local function parse_template(params, template, nparams, pos)
       else
       	werror("expected immediate literal")
       end
+    elseif p == "R" then
+      op = op + parse_reglist(params[1]); n = n + 1
 
     elseif p == "D" then
       op = op + shl(parse_gpr(q), 0); n = n + 1
@@ -958,8 +962,6 @@ local function parse_template(params, template, nparams, pos)
         op = op + parse_gpr(q)
       end
       n = n + 1
-    elseif p == "R" then
-      op = op + parse_reglist(q); n = n + 1
     elseif p == "B" then
       local mode, n, s = parse_label(q, false)
       -- io.stderr:write('&&&&&&& mode=' .. mode .. '  n=' .. tostring(n) .. '  s=' .. (s or '') .. '\n')

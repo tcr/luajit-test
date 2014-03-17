@@ -236,11 +236,15 @@ COMPARE_JIT(arith,
 __asm__ (
 	"add.w r2, r3, #1\n\t"
 	"add.w r2, r3, r4\n\t"
+	"adds.w r2, r3, #1\n\t"
+	"adds.w r2, r3, r4\n\t"
 	"mul.w r0, r1, r0\n\t"
 	"mul.w r2, r3, r2\n\t"
 ), {
 	| add.w r2, r3, #1
 	| add.w r2, r3, r4
+	| adds.w r2, r3, #1
+	| adds.w r2, r3, r4
 	| mul.w r0, r1, r0
 	| mul.w r2, r3, r2
 })
