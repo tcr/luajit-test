@@ -69,3 +69,33 @@ dump its assembly,
 match it in code,
 test its resulting output with a dumping function
 and testing that it runs.
+
+
+## ok
+
+"add (immediate)",        "0001110iiinnnddd", "xxxxxxxxxxxxxxxx", false, 1, AddImm
+
+add<C> <t><Rd>, <Rn>, <Ii>
+
+=>
+
+"add_3" = ["cdni", "0001110iiinnnddd"]
+
+1. parse params
+
+parse bit depths.
+then parse parameters, which checks against bit depths.
+then it populates bit depths based on variables.
+
+alternately: it populates the byte itself after parsing, then fills in the corresponding thing.
+for example,
+
+"0001110iiinnnddd" counts the number of each key in a map, then populates it, then...
+
+code
+
+2. populate format with mapped fills
+
+i_6_3 = function (op, val)
+	op |= shl(val, 
+end

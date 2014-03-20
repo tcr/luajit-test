@@ -546,18 +546,17 @@ local map_op = {
   ]]
 
 
-  -- Basic data processing instructions.
+  --[[ Basic data processing instructions. ]]
   ands_2 = "4000DN",
   add_3 = "1800DNW",
   adds_3 = "1800DNW",
   
   -- ADD{S}<c>.W <Rd>,<Rn>,#<const>
-  -- 11110[1:i]01000[1:S][4:Rn]
-  -- 0[3:imm][4:Rd][8:imm]
-  --
+  --   11110[1:i]01000[1:S][4:Rn]
+  --   0[3:imm][4:Rd][8:imm]
   -- ADD{S}<c>.W <Rd>,<Rn>,<Rm>{,<shift>}
-  -- 11101011000[1:S][4:Rn]
-  -- 0[3:imm][4:Rd][2:imm][2:type][4:Rm]
+  --   11101011000[1:S][4:Rn]
+  --   0[3:imm][4:Rd][2:imm][2:type][4:Rm]
   ["add.w_3"]  = "f100n,0000dj|eb00n,0000dm",
   ["adds.w_3"] = "f110n,0000dj|eb10n,0000dm",
   ["mul.w_3"]  = "fb00n,f000dm",
@@ -582,7 +581,7 @@ local map_op = {
   ite_1  = "BF04i",
 
   -- Miscellaneous
-  nop_0 = "bf00",
+  ["nop_0"]   = "bf00",
 }
 
 -- Add mnemonics for "s" variants.
@@ -892,6 +891,28 @@ local function parse_vload(q)
 end
 
 ------------------------------------------------------------------------------
+
+function parse_op_word (word, bits) 
+  for i=1,#word do
+    local bit = word:sub(i, i)
+    bits[bit] = (bits[bit] or 0) + 1
+  end
+end
+
+function populate_op_word (word, values)
+  local op = 0
+  for i=#word,1,-1 do
+    local bit = word:sub(i, i)
+    if bit == '1' then
+      op = op + shl(1, #word)
+    elseif bit ~= '0' then
+      op = op + shl(bit32.band(values[bit], 1), #word)
+      values[bit] = shr(values[bit], 1)
+    end
+    op = shr(op, 1)
+  end
+  return op
+end
 
 -- Handle opcodes defined with template strings.
 local function parse_template(params, template, nparams, pos)
