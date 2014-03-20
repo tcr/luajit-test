@@ -2,10 +2,6 @@ var fs = require('fs');
 
 var dump = fs.readFileSync(__dirname + '/instrtable.cpp', 'utf-8').split(/\n/);
 
-function luadump (arg) {
-	return JSON.stringify(arg).replace(/\[/g, '{').replace(/\]/g, '}')
-}
-
 var instrs = dump.slice(2482, 2791)
 	.filter(function (line) {
 		return line.match(/^\s*\{.*\},?\s*$/);
