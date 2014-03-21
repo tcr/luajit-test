@@ -1,803 +1,1267 @@
 {
-  "AdcImm": [
+  "AdcImm0.20556340739130974": [
     "adc (immediate)",
     "adc<Fs><c>.w <t><Rd>, <Rn>, <Ii>",
     "11110i01010snnnn",
     "0iiiddddiiiiiiii"
   ],
-  "AdcReg": [
+  "AdcReg0.2679508326109499": [
+    "adc (register)",
+    "adc<C> <t><Rd>, <Rm>",
+    "0100000101mmmddd"
+  ],
+  "AdcReg0.11768869264051318": [
     "adc (register)",
     "adc<Fs><c>.w <t><Rd>, <Rn>, <Rm><Sti>",
     "11101011010snnnn",
     "0iiiddddiittmmmm"
   ],
-  "AddImm": [
+  "AddImm0.3643030100502074": [
+    "add (immediate)",
+    "add<C> <t><Rd>, <Rn>, <Ii>",
+    "0001110iiinnnddd"
+  ],
+  "AddImm0.6567112470511347": [
+    "add (immediate)",
+    "add<C> <t><Rd>, <Ii>",
+    "00110dddiiiiiiii"
+  ],
+  "AddImm0.41341299866326153": [
+    "add (immediate)",
+    "add<Fs><c>.w <t><Rd>, <Rn>, <Ii>",
+    "11110i01000snnnn",
+    "0iiiddddiiiiiiii"
+  ],
+  "AddImm0.9683772700373083": [
     "addw (immediate)",
     "addw<c> <t><Rd>, <Rn>, <Ii>",
     "11110i100000nnnn",
     "0iiiddddiiiiiiii"
   ],
-  "AddReg": [
+  "AddReg0.5269576758146286": [
+    "add (register)",
+    "add<C> <t><Rd>, <Rn>, <Rm>",
+    "0001100mmmnnnddd"
+  ],
+  "AddReg0.46382137294858694": [
+    "add (register)",
+    "add<c> <t><Rd>, <Rm>",
+    "01000100dmmmmddd"
+  ],
+  "AddReg0.7479268054012209": [
     "add (register)",
     "add<Fs><c>.w <t><Rd>, <Rn>, <Rm><Sti>",
     "11101011000snnnn",
     "0iiiddddiittmmmm"
   ],
-  "AddSpImm": [
+  "AddSpImm0.31988694169558585": [
+    "add (sp immediate)",
+    "add<c> <t><Rd>, sp, <Ii>",
+    "10101dddiiiiiiii"
+  ],
+  "AddSpImm0.5944311772473156": [
     "add (sp immediate)",
     "add<c> <t>sp, <Ii>",
     "101100000iiiiiii"
   ],
-  "AdrImm": [
+  "AdrImm0.5208966345526278": [
+    "adr",
+    "adr<c> <t><Rd>, <li>",
+    "10100dddiiiiiiii"
+  ],
+  "AdrImm0.7362029771320522": [
+    "adr",
+    "adr<c>.w <t><Rd>, <li>",
+    "11110i1010101111",
+    "0iiiddddiiiiiiii"
+  ],
+  "AdrImm0.7808299146126956": [
     "adr",
     "adr<c>.w <t><Rd>, <li>",
     "11110i1000001111",
     "0iiiddddiiiiiiii"
   ],
-  "AndImm": [
+  "AndImm0.2900524993892759": [
     "and (immediate)",
     "and<Fs><c>.w <t><Rd>, <Rn>, <Ii>",
     "11110i00000snnnn",
     "0iiiddddiiiiiiii"
   ],
-  "AndReg": [
+  "AndReg0.5726839480921626": [
+    "and (register)",
+    "and<C> <t><Rd>, <Rm>",
+    "0100000000mmmddd"
+  ],
+  "AndReg0.04920840449631214": [
     "and (register)",
     "and<Fs><c>.w <t><Rd>, <Rn>, <Rm><Sti>",
     "11101010000snnnn",
     "0iiiddddiittmmmm"
   ],
-  "AsrImm": [
+  "AsrImm0.5301444078795612": [
+    "asr (immediate)",
+    "asr<C> <t><Rd>, <Rm>, <Ii>",
+    "00010iiiiimmmddd"
+  ],
+  "AsrImm0.5514636856969446": [
     "asr (immediate)",
     "asr<Fs><c>.w <t><Rd>, <Rm>, <Ii>",
     "11101010010s1111",
     "0iiiddddii10mmmm"
   ],
-  "AsrReg": [
+  "AsrReg0.36598195461556315": [
+    "asr (register)",
+    "asr<C> <t><Rd>, <Rm>",
+    "0100000100mmmddd"
+  ],
+  "AsrReg0.936200532829389": [
     "asr (register)",
     "asr<Fs><c>.w <t><Rd>, <Rn>, <Rm>",
     "11111010010snnnn",
     "1111dddd0000mmmm"
   ],
-  "Branch": [
+  "Branch0.45012616529129446": [
+    "b",
+    "b<c>.n <t><Li>",
+    "1101cccciiiiiiii"
+  ],
+  "Branch0.40856042318046093": [
+    "b",
+    "b<c>.n <t><Li>",
+    "11100iiiiiiiiiii"
+  ],
+  "Branch0.4082941447850317": [
+    "b",
+    "b<c>.w <t><Li>",
+    "11110scccciiiiii",
+    "10j0kiiiiiiiiiii"
+  ],
+  "Branch0.005224544554948807": [
     "b",
     "b<c>.w <t><Li>",
     "11110siiiiiiiiii",
     "10j1kiiiiiiiiiii"
   ],
-  "BfcBfi": [
+  "BfcBfi0.9139571893028915": [
+    "bfc",
+    "bfc<c> <t><Rd>, <Ii>, <Im>",
+    "1111001101101111",
+    "0iiiddddii0mmmmm"
+  ],
+  "BfcBfi0.7546697207726538": [
     "bfi",
     "bfi<c> <t><Rd>, <Rn>, <Ii>, <Im>",
     "111100110110nnnn",
     "0iiiddddii0mmmmm"
   ],
-  "BicImm": [
+  "BicImm0.5293962054420263": [
     "bic (immediate)",
     "bic<Fs><c>.w <t><Rd>, <Rn>, <Ii>",
     "11110i00001snnnn",
     "0iiiddddiiiiiiii"
   ],
-  "BicReg": [
+  "BicReg0.1098839221522212": [
+    "bic (register)",
+    "bic<C> <t><Rd>, <Rm>",
+    "0100001110mmmddd"
+  ],
+  "BicReg0.33082907693460584": [
     "bic (register)",
     "bic<Fs><c>.w <t><Rd>, <Rn>, <Rm><Sti>",
     "11101010001snnnn",
     "0iiiddddiittmmmm"
   ],
-  "Bkpt": [
+  "Bkpt0.47264012857340276": [
     "bkpt",
     "bkpt <t><Ii>",
     "10111110iiiiiiii"
   ],
-  "BxReg": [
+  "BxReg0.20199272851459682": [
+    "blx",
+    "blx<c> <t><Rm>",
+    "010001111mmmm000"
+  ],
+  "BxReg0.22606598725542426": [
+    "bx",
+    "bx<c> <t><Rm>",
+    "010001110mmmmooo"
+  ],
+  "BxReg0.7619744478724897": [
     "bl",
     "bl<c> <t><Li>",
     "11110siiiiiiiiii",
     "11j1kiiiiiiiiiii"
   ],
-  "CbnzCbz": [
+  "CbnzCbz0.8700875011272728": [
     "cbnz, cbz",
     "cb<Ho:n>z <t><Rn>, <Li>",
     "1011o0i1iiiiinnn"
   ],
-  "Cdp": [
+  "Cdp0.6500335531309247": [
     "cdp, cdp2",
     "cdp<Ht:2><c> <t><Dc>, <Do>, c<Yd>, c<Yn>, c<Ym>, {<Dp>}",
     "111t1110oooonnnn",
     "ddddccccppp0mmmm"
   ],
-  "Clrex": [
+  "Clrex0.9416496469639242": [
     "clrex",
     "clrex<c>",
     "1111001110111111",
     "1000111100101111"
   ],
-  "Clz": [
+  "Clz0.9997132034040987": [
     "clz",
     "clz<c> <t><Rd>, <Rm>",
     "111110101011mmmm",
     "1111dddd1000xxxx"
   ],
-  "CmnImm": [
+  "CmnImm0.8663781867362559": [
     "cmn (immediate)",
     "cmn<c>.w <t><Rn>, <Ii>",
     "11110i010001nnnn",
     "0iii1111iiiiiiii"
   ],
-  "CmnReg": [
+  "CmnReg0.4500833316706121": [
+    "cmn (register)",
+    "cmn<c> <t><Rn>, <Rm>",
+    "0100001011mmmnnn"
+  ],
+  "CmnReg0.1343453146982938": [
     "cmn (register)",
     "cmn<c>.w <t><Rn>, <Rm><Sti>",
     "111010110001nnnn",
     "0iii1111iittmmmm"
   ],
-  "CmpImm": [
+  "CmpImm0.6118837376125157": [
+    "cmp (immediate)",
+    "cmp<c> <t><Rn>, <Ii>",
+    "00101nnniiiiiiii"
+  ],
+  "CmpImm0.8860025992617011": [
     "cmp (immediate)",
     "cmp<c>.w <t><Rn>, <Ii>",
     "11110i011011nnnn",
     "0iii1111iiiiiiii"
   ],
-  "CmpReg": [
+  "CmpReg0.11852352879941463": [
+    "cmp (register)",
+    "cmp<c> <t><Rn>, <Rm>",
+    "0100001010mmmnnn"
+  ],
+  "CmpReg0.9657786057796329": [
+    "cmp (register)",
+    "cmp<c> <t><Rn>, <Rm>",
+    "01000101nmmmmnnn"
+  ],
+  "CmpReg0.9052539761178195": [
     "cmp (register)",
     "cmp<c>.w <t><Rn>, <Rm><Sti>",
     "111010111011nnnn",
     "0iii1111iittmmmm"
   ],
-  "Dbg": [
+  "Dbg0.8837453960441053": [
     "dbg",
     "dbg<c> <t><Ih>",
     "1111001110101111",
     "100000001111hhhh"
   ],
-  "Dmb": [
+  "Dmb0.6555314881261438": [
     "dmb",
     "dmb<c> <t>sy",
     "1111001110111111",
     "100011110101oooo"
   ],
-  "Dsb": [
+  "Dsb0.01914572319947183": [
     "dsb",
     "dsb<c> <t>sy",
     "1111001110111111",
     "100011110100oooo"
   ],
-  "EorImm": [
+  "EorImm0.20055558462627232": [
     "eor (immediate)",
     "eor<Fs><c>.w <t><Rd>, <Rn>, <Ii>",
     "11110i00100snnnn",
     "0iiiddddiiiiiiii"
   ],
-  "EorReg": [
+  "EorReg0.3781390222720802": [
+    "eor (register)",
+    "eor<C> <t><Rd>, <Rm>",
+    "0100000001mmmddd"
+  ],
+  "EorReg0.8518801834434271": [
     "eor (register)",
     "eor<Fs><c>.w <t><Rd>, <Rn>, <Rm><Sti>",
     "11101010100snnnn",
     "0iiiddddiittmmmm"
   ],
-  "Isb": [
+  "Isb0.32439549663104117": [
     "isb",
     "isb<c> <t>sy",
     "1111001110111111",
     "100011110110oooo"
   ],
-  "ItHints": [
+  "ItHints0.5279271835461259": [
     "it and hints",
     "yield<c>",
     "10111111ccccmmmm"
   ],
-  "Ldc": [
+  "Ldc0.12899334076792002": [
     "ldc, ldc2",
     "ldc<Ht:2><Hl:l><c> <t><Dc>, c<Yd>, [<Rn>], {<Di>}",
     "111t110pulw1nnnn",
     "ddddcccciiiiiiii"
   ],
-  "Ldmia": [
+  "Ldmia0.6270288249943405": [
+    "ldm",
+    "ldm<c> <t><Rn>, {<rr>}",
+    "11001nnnrrrrrrrr"
+  ],
+  "Ldmia0.40809439844451845": [
     "ldm",
     "ldm<c>.w <t><Rn><Hw:!>, {<rr>}",
     "1110100010w1nnnn",
     "rrrrrrrrrrrrrrrr"
   ],
-  "LdmDb": [
+  "LdmDb0.23230059468187392": [
     "ldmdb, ldmea",
     "ldmdb<c> <t><Rn><Hw:!>, {<rr>}",
     "1110100100w1nnnn",
     "rrrrrrrrrrrrrrrr"
   ],
-  "LdrImm": [
+  "LdrImm0.5098756398074329": [
+    "ldr (immediate)",
+    "ldr<c> <t><Rt>, [<Rn>, <Ii>]",
+    "01101iiiiinnnttt"
+  ],
+  "LdrImm0.394143492449075": [
+    "ldr (immediate)",
+    "ldr<c> <t><Rt>, [sp, <Ii>]",
+    "10011tttiiiiiiii"
+  ],
+  "LdrImm0.006109102861955762": [
+    "ldr (immediate)",
+    "ldr<c>.w <t><Rt>, [<Rn>, <Ii>]",
+    "111110001101nnnn",
+    "ttttiiiiiiiiiiii"
+  ],
+  "LdrImm0.43032761313952506": [
     "ldr (immediate)",
     "ldr<c>.w <t><Rt>, [<Rn>], <iui>",
     "111110000101nnnn",
     "tttt1puwiiiiiiii"
   ],
-  "LdrLiter": [
+  "LdrLiter0.7237716498784721": [
+    "ldr (literal)",
+    "ldr<c> <t><Rt>, <A11i>",
+    "01001tttiiiiiiii"
+  ],
+  "LdrLiter0.6535493161063641": [
     "ldr (literal)",
     "ldr<c>.w <t><Rt>, <A1ui>",
     "11111000u1011111",
     "ttttiiiiiiiiiiii"
   ],
-  "LdrReg": [
+  "LdrReg0.6577258638571948": [
+    "ldr (register)",
+    "ldr<c> <t><Rt>, [<Rn>, <Rm>]",
+    "0101100mmmnnnttt"
+  ],
+  "LdrReg0.6176520921289921": [
     "ldr (register)",
     "ldr<c>.w <t><Rt>, [<Rn>, <Rm><Sai>]",
     "111110000101nnnn",
     "tttt000000iimmmm"
   ],
-  "LdrbImm": [
+  "LdrbImm0.28796443110331893": [
+    "ldrb (immediate)",
+    "ldrb<c> <t><Rt>, [<Rn>, <Ii>]",
+    "01111iiiiinnnttt"
+  ],
+  "LdrbImm0.11919581424444914": [
+    "ldrb (immediate)",
+    "ldrb<c>.w <t><Rt>, [<Rn>, <Ii>]",
+    "111110001001nnnn",
+    "ttttiiiiiiiiiiii"
+  ],
+  "LdrbImm0.9037122270092368": [
     "ldrb (immediate)",
     "ldrb<c>.w <t><Rt>, [<Rn>], <iui>",
     "111110000001nnnn",
     "tttt1puwiiiiiiii"
   ],
-  "LdrbLiter": [
+  "LdrbLiter0.3471026832703501": [
     "ldrb (literal)",
     "ldrb<c>.w <t><Rt>, <A1ui>",
     "11111000u0011111",
     "ttttiiiiiiiiiiii"
   ],
-  "LdrbReg": [
+  "LdrbReg0.8505241540260613": [
+    "ldrb (register)",
+    "ldrb<c> <t><Rt>, [<Rn>, <Rm>]",
+    "0101110mmmnnnttt"
+  ],
+  "LdrbReg0.36096608894877136": [
     "ldrb (register)",
     "ldrb<c>.w <t><Rt>, [<Rn>, <Rm><Sai>]",
     "111110000001nnnn",
     "tttt000000iimmmm"
   ],
-  "Ldrbt": [
+  "Ldrbt0.5653946304228157": [
     "ldrbt",
     "ldrbt<c> <t><Rt>, [<Rn>, <Ii>]",
     "111110000001nnnn",
     "tttt1110iiiiiiii"
   ],
-  "Ldrex": [
+  "Ldrex0.512367176823318": [
+    "ldrex",
+    "ldrex<c> <t><Rt>, [<Rn>, <Ii>]",
+    "111010000101nnnn",
+    "tttt1111iiiiiiii"
+  ],
+  "Ldrex0.1685432861559093": [
+    "ldrexb",
+    "ldrexb<c> <t><Rt>, [<Rn>]",
+    "111010001101nnnn",
+    "tttt111101001111"
+  ],
+  "Ldrex0.7764431855175644": [
     "ldrexh",
     "ldrexh<c> <t><Rt>, [<Rn>]",
     "111010001101nnnn",
     "tttt111101011111"
   ],
-  "LdrdImm": [
+  "LdrdImm0.6910727596841753": [
     "ldrd (immediate)",
     "ldrd<c> <t><Rt>, <Rd>, [<Rn>], <iui>",
     "1110100pu1w1nnnn",
     "ttttddddiiiiiiii"
   ],
-  "LdrdLiter": [
+  "LdrdLiter0.36994305299595": [
     "ldrd (literal)",
     "ldrd<c> <t><Rt>, <Rd>, <A0ui>",
     "1110100pu1w11111",
     "ttttddddiiiiiiii"
   ],
-  "LdrhImm": [
+  "LdrhImm0.6784718199633062": [
+    "ldrh (immediate)",
+    "ldrh<c> <t><Rt>, [<Rn>, <Ii>]",
+    "10001iiiiinnnttt"
+  ],
+  "LdrhImm0.017847151029855013": [
+    "ldrh (immediate)",
+    "ldrh<c>.w <t><Rt>, [<Rn>, <Ii>]",
+    "111110001011nnnn",
+    "ttttiiiiiiiiiiii"
+  ],
+  "LdrhImm0.43725335970520973": [
     "ldrh (immediate)",
     "ldrh<c>.w <t><Rt>, [<Rn>], <iui>",
     "111110000011nnnn",
     "tttt1puwiiiiiiii"
   ],
-  "LdrhLiter": [
+  "LdrhLiter0.6160034935455769": [
     "ldrh (literal)",
     "ldrh<c>.w <t><Rt>, <A1ui>",
     "11111000u0111111",
     "ttttiiiiiiiiiiii"
   ],
-  "LdrhReg": [
+  "LdrhReg0.4620159799233079": [
+    "ldrh (register)",
+    "ldrh<c> <t><Rt>, [<Rn>, <Rm>]",
+    "0101101mmmnnnttt"
+  ],
+  "LdrhReg0.9412675434723496": [
     "ldrh (register)",
     "ldrh<c>.w <t><Rt>, [<Rn>, <Rm><Sai>]",
     "111110000011nnnn",
     "tttt000000iimmmm"
   ],
-  "Ldrht": [
+  "Ldrht0.5584571186918765": [
     "ldrht",
     "ldrht<c> <t><Rt>, [<Rn>, <Ii>]",
     "111110000011nnnn",
     "tttt1110iiiiiiii"
   ],
-  "LdrsbImm": [
+  "LdrsbImm0.15781596978195012": [
+    "ldrsb (immediate)",
+    "ldrsb<c>.w <t><Rt>, [<Rn>, <Ii>]",
+    "111110011001nnnn",
+    "ttttiiiiiiiiiiii"
+  ],
+  "LdrsbImm0.4034630716778338": [
     "ldrsb (immediate)",
     "ldrsb<c>.w <t><Rt>, [<Rn>], <iui>",
     "111110010001nnnn",
     "tttt1puwiiiiiiii"
   ],
-  "LdrsbLiter": [
+  "LdrsbLiter0.24521566415205598": [
     "ldrsb (literal)",
     "ldrsb<c>.w <t><Rt>, <A1ui>",
     "11111001u0011111",
     "ttttiiiiiiiiiiii"
   ],
-  "LdrsbReg": [
+  "LdrsbReg0.32391861150972545": [
+    "ldrsb (register)",
+    "ldrsb<c> <t><Rt>, [<Rn>, <Rm>]",
+    "0101011mmmnnnttt"
+  ],
+  "LdrsbReg0.7152425921522081": [
     "ldrsb (register)",
     "ldrsb<c>.w <t><Rt>, [<Rn>, <Rm><Sai>]",
     "111110010001nnnn",
     "tttt000000iimmmm"
   ],
-  "Ldrsbt": [
+  "Ldrsbt0.7613813446369022": [
     "ldrsbt",
     "ldrsbt<c> <t><Rt>, [<Rn>, <Ii>]",
     "111110010001nnnn",
     "tttt1110iiiiiiii"
   ],
-  "LdrshImm": [
+  "LdrshImm0.017061247024685144": [
+    "ldrsh (immediate)",
+    "ldrsh<c>.w <t><Rt>, [<Rn>, <Ii>]",
+    "111110011011nnnn",
+    "ttttiiiiiiiiiiii"
+  ],
+  "LdrshImm0.8917877611238509": [
     "ldrsh (immediate)",
     "ldrsh<c>.w <t><Rt>, [<Rn>], <iui>",
     "111110010011nnnn",
     "tttt1puwiiiiiiii"
   ],
-  "LdrshLiter": [
+  "LdrshLiter0.2783648434560746": [
     "ldrsh (literal)",
     "ldrsh<c>.w <t><Rt>, <A1ui>",
     "11111001u0111111",
     "ttttiiiiiiiiiiii"
   ],
-  "LdrshReg": [
+  "LdrshReg0.7457272617612034": [
+    "ldrsh (register)",
+    "ldrsh<c> <t><Rt>, [<Rn>, <Rm>]",
+    "0101111mmmnnnttt"
+  ],
+  "LdrshReg0.9084129224065691": [
     "ldrsh (register)",
     "ldrsh<c>.w <t><Rt>, [<Rn>, <Rm><Sai>]",
     "111110010011nnnn",
     "tttt000000iimmmm"
   ],
-  "Ldrsht": [
+  "Ldrsht0.3995138709433377": [
     "ldrsht",
     "ldrsht<c> <t><Rt>, [<Rn>, <Ii>]",
     "111110010011nnnn",
     "tttt1110iiiiiiii"
   ],
-  "Ldrt": [
+  "Ldrt0.030034263152629137": [
     "ldrt",
     "ldrt<c> <t><Rt>, [<Rn>, <Ii>]",
     "111110000101nnnn",
     "tttt1110iiiiiiii"
   ],
-  "LslImm": [
+  "LslImm0.7911600267980248": [
+    "lsl (immediate)",
+    "lsl<C> <t><Rd>, <Rm>, <Ii>",
+    "00000iiiiimmmddd"
+  ],
+  "LslImm0.8568870138842613": [
     "lsl (immediate)",
     "lsl<Hs:s><c>.w <t><Rd>, <Rm>, <Ii>",
     "11101010010s1111",
     "0iiiddddii00mmmm"
   ],
-  "LslReg": [
+  "LslReg0.9634487445000559": [
+    "lsl (register)",
+    "lsl<C> <t><Rd>, <Rm>",
+    "0100000010mmmddd"
+  ],
+  "LslReg0.2178540409076959": [
     "lsl (register)",
     "lsl<Fs><c>.w <t><Rd>, <Rn>, <Rm>",
     "11111010000snnnn",
     "1111dddd0000mmmm"
   ],
-  "LsrImm": [
+  "LsrImm0.7580000695306808": [
+    "lsr (immediate)",
+    "lsr<C> <t><Rd>, <Rm>, <Ii>",
+    "00001iiiiimmmddd"
+  ],
+  "LsrImm0.25829439237713814": [
     "lsr (immediate)",
     "lsr<Hs:s><c>.w <t><Rd>, <Rm>, <Ii>",
     "11101010010s1111",
     "0iiiddddii01mmmm"
   ],
-  "LsrReg": [
+  "LsrReg0.9853606023825705": [
+    "lsr (register)",
+    "lsr<C> <t><Rd>, <Rm>",
+    "0100000011mmmddd"
+  ],
+  "LsrReg0.23287394433282316": [
     "lsr (register)",
     "lsr<Fs><c>.w <t><Rd>, <Rn>, <Rm>",
     "11111010001snnnn",
     "1111dddd0000mmmm"
   ],
-  "Mcr": [
+  "Mcr0.33584943204186857": [
     "mcr, mcr2",
     "mcr<Hl:2><c> <t><Dc>, <Do>, <Rt>, c<Yn>, c<Ym>, {<Dp>}",
     "111l1110ooo0nnnn",
     "ttttccccppp1mmmm"
   ],
-  "Mcrr": [
+  "Mcrr0.5885656548198313": [
     "mcrr, mcrr2",
     "mcrr<Hl:2><c> <t><Dc>, <Do>, <Rt>, <Ru>, c<Ym>",
     "111l11000100uuuu",
     "ttttccccoooommmm"
   ],
-  "MlaMls": [
+  "MlaMls0.41141384234651923": [
+    "mla",
+    "mla<c> <t><Rd>, <Rn>, <Rm>, <Ra>",
+    "111110110000nnnn",
+    "aaaadddd0000mmmm"
+  ],
+  "MlaMls0.21432107198052108": [
     "mls",
     "mls<c> <t><Rd>, <Rn>, <Rm>, <Ra>",
     "111110110000nnnn",
     "aaaadddd0001mmmm"
   ],
-  "MovImm": [
+  "MovImm0.42897931253537536": [
+    "mov (immediate)",
+    "mov<C> <t><Rd>, <Ii>",
+    "00100dddiiiiiiii"
+  ],
+  "MovImm0.9664997467771173": [
+    "mov (immediate)",
+    "mov<Fs><c>.w <t><Rd>, <Ii>",
+    "11110i00010s1111",
+    "0iiiddddiiiiiiii"
+  ],
+  "MovImm0.654242359334603": [
     "movw (immediate)",
     "movw<c> <t><Rd>, <Ii>",
     "11110i100100kkkk",
     "0iiiddddiiiiiiii"
   ],
-  "MovReg": [
+  "MovReg0.43597966711968184": [
+    "mov (register)",
+    "mov<c> <t><Rd>, <Rm>",
+    "01000110dmmmmddd"
+  ],
+  "MovReg0.34812449384480715": [
     "mov (register)",
     "mov<Fs><c>.w <t><Rd>, <Rm>",
     "11101010010s1111",
     "0000dddd0000mmmm"
   ],
-  "MovT": [
+  "MovT0.6801272893790156": [
     "movt",
     "movt<c> <t><Rd>, <Ii>",
     "11110i101100kkkk",
     "0iiiddddiiiiiiii"
   ],
-  "Mrc": [
+  "Mrc0.12471958575770259": [
     "mrc, mrc2",
     "mrc<Hl:2><c> <t><Dc>, <Do>, <Rt>, c<Yn>, c<Ym>, {<Dp>}",
     "111l1110ooo1nnnn",
     "ttttccccppp1mmmm"
   ],
-  "Mrrc": [
+  "Mrrc0.5987922323402017": [
     "mrrc, mrrc2",
     "mrrc<Hl:2><c> <t><Dc>, <Do>, <Rt>, <Ru>, c<Ym>",
     "111l11000101uuuu",
     "ttttccccoooommmm"
   ],
-  "Mrs": [
+  "Mrs0.30392915895208716": [
     "mrs",
     "mrs<c> <t><Rd>, <zs>",
     "1111001111101111",
     "1000ddddssssssss"
   ],
-  "Msr": [
+  "Msr0.25164063228294253": [
     "msr",
     "msr<c> <t><ysm>, <Rn>",
     "111100111000nnnn",
     "1000mm00ssssssss"
   ],
-  "MulReg": [
+  "MulReg0.5006595940794796": [
+    "mul",
+    "mul<C> <t><Rn>, <Rm>, <Rn>",
+    "0100001101nnnmmm"
+  ],
+  "MulReg0.9899097240995616": [
     "mul",
     "mul<c>.w <t><Rd>, <Rn>, <Rm>",
     "111110110000nnnn",
     "1111dddd0000mmmm"
   ],
-  "MvnImm": [
+  "MvnImm0.2505729964468628": [
     "mvn (immediate)",
     "mvn<Fs><c>.w <t><Rd>, <Ii>",
     "11110i00011s1111",
     "0iiiddddiiiiiiii"
   ],
-  "MvnReg": [
+  "MvnReg0.17426128638908267": [
+    "mvn (register)",
+    "mvn<C> <t><Rd>, <Rm>",
+    "0100001111mmmddd"
+  ],
+  "MvnReg0.029140473809093237": [
     "mvn (register)",
     "mvn<Fs><c>.w <t><Rd>, <Rm><Sti>",
     "11101010011s1111",
     "0iiiddddiittmmmm"
   ],
-  "Nop": [
+  "Nop0.46276299050077796": [
     "nop and hints",
     "yield<c>.w",
     "1111001110101111",
     "10000000hhhhhhhh"
   ],
-  "OrnImm": [
+  "OrnImm0.23091853875666857": [
     "orn (immediate)",
     "orn<Fs><c> <t><Rd>, <Rn>, <Ii>",
     "11110i00011snnnn",
     "0iiiddddiiiiiiii"
   ],
-  "OrnReg": [
+  "OrnReg0.5945197863038629": [
     "orn (register)",
     "orn<Fs><c> <t><Rd>, <Rn>, <Rm><Sti>",
     "11101010011snnnn",
     "0iiiddddiittmmmm"
   ],
-  "OrrImm": [
+  "OrrImm0.7508310377597809": [
     "orr (immediate)",
     "orr<Fs><c>.w <t><Rd>, <Rn>, <Ii>",
     "11110i00010snnnn",
     "0iiiddddiiiiiiii"
   ],
-  "OrrReg": [
+  "OrrReg0.3161124826874584": [
+    "orr (register)",
+    "orr<C> <t><Rd>, <Rm>",
+    "0100001100mmmddd"
+  ],
+  "OrrReg0.30750751425512135": [
     "orr (register)",
     "orr<Fs><c>.w <t><Rd>, <Rn>, <Rm><Sti>",
     "11101010010snnnn",
     "0iiiddddiittmmmm"
   ],
-  "PldImm": [
+  "PldImm0.6964308463502675": [
+    "pld (immediate)",
+    "pld<c> <t>[<Rn>, <Ii>]",
+    "111110001001nnnn",
+    "1111iiiiiiiiiiii"
+  ],
+  "PldImm0.8972745384089649": [
     "pld (immediate)",
     "pld<c> <t>[<Rn>, <iai>]",
     "111110000001nnnn",
     "11111100iiiiiiii"
   ],
-  "PldLiter": [
+  "PldLiter0.7049622710328549": [
     "pld (literal)",
     "pld<c> <t><A1ui>",
     "11111000u0011111",
     "1111iiiiiiiiiiii"
   ],
-  "PldReg": [
+  "PldReg0.8545670509338379": [
     "pld (register)",
     "pld<c> <t>[<Rn>, <Rm><Sts>]",
     "111110000001nnnn",
     "1111000000ssmmmm"
   ],
-  "PliImm": [
+  "PliImm0.7914318402763456": [
+    "pli (immediate)",
+    "pli<c> <t>[<Rn>, <Ii>]",
+    "111110011001nnnn",
+    "1111iiiiiiiiiiii"
+  ],
+  "PliImm0.7571357963606715": [
+    "pli (immediate)",
+    "pli<c> <t>[<Rn>, <iai>]",
+    "111110010001nnnn",
+    "11111100iiiiiiii"
+  ],
+  "PliImm0.3161326458211988": [
     "pli (literal)",
     "pli<c> <t><A1ui>",
     "11111001u0011111",
     "1111iiiiiiiiiiii"
   ],
-  "PliReg": [
+  "PliReg0.006354508921504021": [
     "pli (register)",
     "pli<c> <t>[<Rn>, <Rm><Sts>]",
     "111110010001nnnn",
     "1111000000ssmmmm"
   ],
-  "Pop": [
+  "Pop0.3818203150294721": [
+    "pop",
+    "pop<c> <t>{<rr>}",
+    "1011110prrrrrrrr"
+  ],
+  "Pop0.4125139887910336": [
+    "pop",
+    "pop<c>.w <t>{<rr>}",
+    "1110100010111101",
+    "rrrrrrrrrrrrrrrr"
+  ],
+  "Pop0.23196145426481962": [
     "pop",
     "pop<c>.w <t>{<Rt>}",
     "1111100001011101",
     "tttt101100000100"
   ],
-  "Push": [
+  "Push0.516414756886661": [
+    "push",
+    "push<c> <t>{<rr>}",
+    "1011010mrrrrrrrr"
+  ],
+  "Push0.5912340257782489": [
+    "push",
+    "push<c>.w <t>{<rr>}",
+    "1110100100101101",
+    "rrrrrrrrrrrrrrrr"
+  ],
+  "Push0.4650341139640659": [
     "push",
     "push<c>.w <t>{<Rt>}",
     "1111100001001101",
     "tttt110100000100"
   ],
-  "Rbit": [
+  "Rbit0.2809194957371801": [
     "rbit",
     "rbit<c> <t><Rd>, <Rm>",
     "111110101001mmmm",
     "1111dddd1010xxxx"
   ],
-  "Rev": [
+  "Rev0.9812091435305774": [
+    "rev",
+    "rev<c> <t><Rd>, <Rm>",
+    "1011101000mmmddd"
+  ],
+  "Rev0.6779167796485126": [
     "rev",
     "rev<c>.w <t><Rd>, <Rm>",
     "111110101001mmmm",
     "1111dddd1000xxxx"
   ],
-  "Rev16": [
+  "Rev160.011215029750019312": [
+    "rev16",
+    "rev16<c> <t><Rd>, <Rm>",
+    "1011101001mmmddd"
+  ],
+  "Rev160.1486761635169387": [
     "rev16",
     "rev16<c>.w <t><Rd>, <Rm>",
     "111110101001mmmm",
     "1111dddd1001xxxx"
   ],
-  "RevSh": [
+  "RevSh0.5839632861316204": [
+    "revsh",
+    "revsh<c> <t><Rd>, <Rm>",
+    "1011101011mmmddd"
+  ],
+  "RevSh0.29381932388059795": [
     "revsh",
     "revsh<c>.w <t><Rd>, <Rm>",
     "111110101001mmmm",
     "1111dddd1011xxxx"
   ],
-  "RorImm": [
+  "RorImm0.6661426255013794": [
     "ror (immediate)",
     "ror<Fs><c>.w <t><Rd>, <Rm>, <Ii>",
     "11101010010s1111",
     "0iiiddddii11mmmm"
   ],
-  "RorReg": [
+  "RorReg0.9401931869797409": [
+    "ror (register)",
+    "ror<C> <t><Rd>, <Rm>",
+    "0100000111mmmddd"
+  ],
+  "RorReg0.5400470274034888": [
     "ror (register)",
     "ror<Fs><c>.w <t><Rd>, <Rn>, <Rm>",
     "11111010011snnnn",
     "1111dddd0000mmmm"
   ],
-  "Rrx": [
+  "Rrx0.6868288062978536": [
     "rrx",
     "rrx<Fs><c> <t><Rd>, <Rm>",
     "11101010010s1111",
     "0000dddd0011mmmm"
   ],
-  "RsbImm": [
+  "RsbImm0.5121831535361707": [
+    "rsb (immediate)",
+    "rsb<C> <t><Rd>, <Rn>, #0",
+    "0100001001nnnddd"
+  ],
+  "RsbImm0.5535713951103389": [
     "rsb (immediate)",
     "rsb<Fs><c>.w <t><Rd>, <Rn>, <Ii>",
     "11110i01110snnnn",
     "0iiiddddiiiiiiii"
   ],
-  "RsbReg": [
+  "RsbReg0.9780943330843002": [
     "rsb (register)",
     "rsb<Fs><c> <t><Rd>, <Rn>, <Rm><Sti>",
     "11101011110snnnn",
     "0iiiddddiittmmmm"
   ],
-  "SbcImm": [
+  "SbcImm0.3162496199365705": [
     "sbc (immediate)",
     "sbc<Fs><c>.w <t><Rd>, <Rn>, <Ii>",
     "11110i01011snnnn",
     "0iiiddddiiiiiiii"
   ],
-  "SbcReg": [
+  "SbcReg0.08943317085504532": [
+    "sbc (register)",
+    "sbc<C> <t><Rd>, <Rm>",
+    "0100000110mmmddd"
+  ],
+  "SbcReg0.647418909240514": [
     "sbc (register)",
     "sbc<Fs><c>.w <t><Rd>, <Rn>, <Rm><Sti>",
     "11101011011snnnn",
     "0iiiddddiittmmmm"
   ],
-  "Sbfx": [
+  "Sbfx0.7421793951652944": [
     "sbfx",
     "sbfx<c> <t><Rd>, <Rn>, <Ii>, <Iw>",
     "111100110100nnnn",
     "0iiiddddii0wwwww"
   ],
-  "Sdiv": [
+  "Sdiv0.11507021961733699": [
     "sdiv",
     "sdiv<c> <t><Rd>, <Rn>, <Rm>",
     "111110111001nnnn",
     "1111dddd1111mmmm"
   ],
-  "Sel": [
+  "Sel0.3994266109075397": [
     "sel",
     "sel<c> <t><Rd>, <Rn>, <Rm>",
     "111110101010nnnn",
     "1111dddd1000mmmm"
   ],
-  "Smlal": [
+  "Smlal0.43880726723000407": [
     "smlal",
     "smlal<c> <t><Rl>, <Rh>, <Rn>, <Rm>",
     "111110111100nnnn",
     "llllhhhh0000mmmm"
   ],
-  "Smull": [
+  "Smull0.44124238193035126": [
     "smull",
     "smull<c> <t><Rl>, <Rh>, <Rn>, <Rm>",
     "111110111000nnnn",
     "llllhhhh0000mmmm"
   ],
-  "Ssat": [
+  "Ssat0.4125651028007269": [
     "ssat",
     "ssat<c> <t><Rd>, <Ik>, <Rn><Ssi>",
     "1111001100s0nnnn",
     "0iiiddddii0kkkkk"
   ],
-  "Stc": [
+  "Stc0.572970119304955": [
     "stc, stc2",
     "stc<Ht:2><Hl:l><c> <t><Dc>, c<Yd>, [<Rn>], {<Di>}",
     "111t110pulw0nnnn",
     "ddddcccciiiiiiii"
   ],
-  "Stmia": [
+  "Stmia0.8233892568387091": [
+    "stm",
+    "stm<c> <Rn>!, {<rr>}",
+    "11000nnnrrrrrrrr"
+  ],
+  "Stmia0.18721765209920704": [
     "stm",
     "stm<c>.w <t><Rn><Hw:!>, {<rr>}",
     "1110100010w0nnnn",
     "rrrrrrrrrrrrrrrr"
   ],
-  "StmDb": [
+  "StmDb0.42235527909360826": [
     "stmdb, stmfd",
     "stmdb<c> <t><Rn><Hw:!>, {<rr>}",
     "1110100100w0nnnn",
     "rrrrrrrrrrrrrrrr"
   ],
-  "StrImm": [
+  "StrImm0.43735902733169496": [
+    "str (immediate)",
+    "str<c> <t><Rt>, [<Rn>, <Ii>]",
+    "01100iiiiinnnttt"
+  ],
+  "StrImm0.7502707266248763": [
+    "str (immediate)",
+    "str<c> <t><Rt>, [sp, <Ii>]",
+    "10010tttiiiiiiii"
+  ],
+  "StrImm0.7225565803237259": [
+    "str (immediate)",
+    "str<c>.w <t><Rt>, [<Rn>, <Ii>]",
+    "111110001100nnnn",
+    "ttttiiiiiiiiiiii"
+  ],
+  "StrImm0.22772720060311258": [
     "str (immediate)",
     "str<c>.w <t><Rt>, [<Rn>], <iui>",
     "111110000100nnnn",
     "tttt1puwiiiiiiii"
   ],
-  "StrReg": [
+  "StrReg0.22924216534011066": [
+    "str (register)",
+    "str<c> <t><Rt>, [<Rn>, <Rm>]",
+    "0101000mmmnnnttt"
+  ],
+  "StrReg0.5554565591737628": [
     "str (register)",
     "str<c>.w <t><Rt>, [<Rn>, <Rm><Sai>]",
     "111110000100nnnn",
     "tttt000000iimmmm"
   ],
-  "StrbImm": [
+  "StrbImm0.4733689601998776": [
+    "strb (immediate)",
+    "strb<c> <t><Rt>, [<Rn>, <Ii>]",
+    "01110iiiiinnnttt"
+  ],
+  "StrbImm0.7419436979107559": [
+    "strb (immediate)",
+    "strb<c>.w <t><Rt>, [<Rn>, <Ii>]",
+    "111110001000nnnn",
+    "ttttiiiiiiiiiiii"
+  ],
+  "StrbImm0.023602630477398634": [
     "strb (immediate)",
     "strb<c>.w <t><Rt>, [<Rn>], <iui>",
     "111110000000nnnn",
     "tttt1puwiiiiiiii"
   ],
-  "StrbReg": [
+  "StrbReg0.6412252439185977": [
+    "strb (register)",
+    "strb<c> <t><Rt>, [<Rn>, <Rm>]",
+    "0101010mmmnnnttt"
+  ],
+  "StrbReg0.03341704001650214": [
     "strb (register)",
     "strb<c>.w <t><Rt>, [<Rn>, <Rm><Sai>]",
     "111110000000nnnn",
     "tttt000000iimmmm"
   ],
-  "Strbt": [
+  "Strbt0.036276756785809994": [
     "strbt",
     "strbt<c> <t><Rt>, [<Rn>, <Ii>]",
     "111110000000nnnn",
     "tttt1110iiiiiiii"
   ],
-  "Strex": [
+  "Strex0.42510105506516993": [
+    "strex",
+    "strex<c> <t><Rd>, <Rt>, [<Rn>, <Ii>]",
+    "111010000100nnnn",
+    "ttttddddiiiiiiii"
+  ],
+  "Strex0.16533029591664672": [
+    "strexb",
+    "strexb<c> <t><Rd>, <Rt>, [<Rn>]",
+    "111010001100nnnn",
+    "tttt11110100dddd"
+  ],
+  "Strex0.26881123636849225": [
     "strexh",
     "strexh<c> <t><Rd>, <Rt>, [<Rn>]",
     "111010001100nnnn",
     "tttt11110101dddd"
   ],
-  "StrdImm": [
+  "StrdImm0.27828973019495606": [
     "strd (immediate)",
     "strd<c> <t><Rt>, <Rd>, [<Rn>], <iui>",
     "1110100pu1w0nnnn",
     "ttttddddiiiiiiii"
   ],
-  "StrhImm": [
+  "StrhImm0.17793103493750095": [
+    "strh (immediate)",
+    "strh<c> <t><Rt>, [<Rn>, <Ii>]",
+    "10000iiiiinnnttt"
+  ],
+  "StrhImm0.6758147091604769": [
+    "strh (immediate)",
+    "strh<c>.w <t><Rt>, [<Rn>, <Ii>]",
+    "111110001010nnnn",
+    "ttttiiiiiiiiiiii"
+  ],
+  "StrhImm0.6821988814044744": [
     "strh (immediate)",
     "strh<c>.w <t><Rt>, [<Rn>], <iui>",
     "111110000010nnnn",
     "tttt1puwiiiiiiii"
   ],
-  "StrhReg": [
+  "StrhReg0.36933474615216255": [
+    "strh (register)",
+    "strh<c> <t><Rt>, [<Rn>, <Rm>]",
+    "0101001mmmnnnttt"
+  ],
+  "StrhReg0.5927334977313876": [
     "strh (register)",
     "strb<c>.w <t><Rt>, [<Rn>, <Rm><Sai>]",
     "111110000010nnnn",
     "tttt000000iimmmm"
   ],
-  "Strht": [
+  "Strht0.37616788409650326": [
     "strht",
     "strht<c> <t><Rt>, [<Rn>, <Ii>]",
     "111110000010nnnn",
     "tttt1110iiiiiiii"
   ],
-  "Strt": [
+  "Strt0.5747016032692045": [
     "strt",
     "strt<c> <t><Rt>, [<Rn>, <Ii>]",
     "111110000100nnnn",
     "tttt1110iiiiiiii"
   ],
-  "SubImm": [
+  "SubImm0.01736066839657724": [
+    "sub (immediate)",
+    "sub<C> <t><Rd>, <Rn>, <Ii>",
+    "0001111iiinnnddd"
+  ],
+  "SubImm0.7647421127185225": [
+    "sub (immediate)",
+    "sub<C> <t><Rd>, <Ii>",
+    "00111dddiiiiiiii"
+  ],
+  "SubImm0.06989330728538334": [
+    "sub (immediate)",
+    "sub<Fs><c>.w <t><Rd>, <Rn>, <Ii>",
+    "11110i01101snnnn",
+    "0iiiddddiiiiiiii"
+  ],
+  "SubImm0.3900269854348153": [
     "subw (immediate)",
     "subw<c> <t><Rd>, <Rn>, <Ii>",
     "11110i101010nnnn",
     "0iiiddddiiiiiiii"
   ],
-  "SubReg": [
+  "SubReg0.15867264685221016": [
+    "sub (register)",
+    "sub<C> <t><Rd>, <Rn>, <Rm>",
+    "0001101mmmnnnddd"
+  ],
+  "SubReg0.41303645074367523": [
     "sub (register)",
     "sub<Fs><c>.w <t><Rd>, <Rn>, <Rm><Sti>",
     "11101011101snnnn",
     "0iiiddddiittmmmm"
   ],
-  "SubSpImm": [
+  "SubSpImm0.16185230179689825": [
     "sub (sp immediate)",
     "sub<c> <t>sp, <Ii>",
     "101100001iiiiiii"
   ],
-  "Svc": [
+  "Svc0.4845027425326407": [
     "svc",
     "svc<c> <t><Di>",
     "11011111iiiiiiii"
   ],
-  "Sxtb": [
+  "Sxtb0.24332300131209195": [
+    "sxtb",
+    "sxtb<c> <t><Rd>, <Rm>",
+    "1011001001mmmddd"
+  ],
+  "Sxtb0.05116399587132037": [
     "sxtb",
     "sxtb<c>.w <t><Rd>, <Rm><Xr>",
     "1111101001001111",
     "1111dddd10rrmmmm"
   ],
-  "Sxth": [
+  "Sxth0.9883477911353111": [
+    "sxth",
+    "sxth<c> <t><Rd>, <Rm>",
+    "1011001000mmmddd"
+  ],
+  "Sxth0.10342357493937016": [
     "sxth",
     "sxth<c>.w <t><Rd>, <Rm><Xr>",
     "1111101000001111",
     "1111dddd10rrmmmm"
   ],
-  "TeqImm": [
+  "TeqImm0.7254419457167387": [
     "teq (immediate)",
     "teq<c> <t><Rn>, <Ii>",
     "11110i001001nnnn",
     "0iii1111iiiiiiii"
   ],
-  "TeqReg": [
+  "TeqReg0.8844994646497071": [
     "teq (register)",
     "teq<c> <t><Rn>, <Rm><Sti>",
     "111010101001nnnn",
     "0iii1111iittmmmm"
   ],
-  "TbbTbh": [
+  "TbbTbh0.5466236551292241": [
     "tbb, tbh",
     "tb<Hhb:h><c> <t>[<Rn>, <Rm><Hh:, lsl #1>]",
     "111010001101nnnn",
     "11110000000hmmmm"
   ],
-  "TstImm": [
+  "TstImm0.1473465843591839": [
     "tst (immediate)",
     "tst<c>.w <t><Rn>, <Ii>",
     "11110i000001nnnn",
     "0iii1111iiiiiiii"
   ],
-  "TstReg": [
+  "TstReg0.7784756810870022": [
+    "tst (register)",
+    "tst<c> <t><Rn>, <Rm>",
+    "0100001000mmmnnn"
+  ],
+  "TstReg0.04757854528725147": [
     "tst (register)",
     "tst<c>.w <t><Rn>, <Rm><Sti>",
     "111010100001nnnn",
     "0iii1111iittmmmm"
   ],
-  "Ubfx": [
+  "Ubfx0.032209700206294656": [
     "ubfx",
     "ubfx<c> <t><Rd>, <Rn>, <Ii>, <Iw>",
     "111100111100nnnn",
     "0iiiddddii0wwwww"
   ],
-  "Udiv": [
+  "Udiv0.9830815128516406": [
     "udiv",
     "udiv<c> <t><Rd>, <Rn>, <Rm>",
     "111110111011nnnn",
     "1111dddd1111mmmm"
   ],
-  "Umlal": [
+  "Umlal0.694819213822484": [
     "umlal",
     "umlal<c> <t><Rl>, <Rh>, <Rn>, <Rm>",
     "111110111110nnnn",
     "llllhhhh0000mmmm"
   ],
-  "Umull": [
+  "Umull0.3909123302437365": [
     "umull",
     "umull<c> <t><Rl>, <Rh>, <Rn>, <Rm>",
     "111110111010nnnn",
     "llllhhhh0000mmmm"
   ],
-  "Usat": [
+  "Usat0.15614581108093262": [
     "usat",
     "usat<c> <t><Rd>, <Ik>, <Rn><Ssi>",
     "1111001110s0nnnn",
     "0iiiddddii0kkkkk"
   ],
-  "Uxtb": [
+  "Uxtb0.7558367208112031": [
+    "uxtb",
+    "uxtb<c> <t><Rd>, <Rm>",
+    "1011001011mmmddd"
+  ],
+  "Uxtb0.3451491198502481": [
     "uxtb",
     "uxtb<c>.w <t><Rd>, <Rm><Xr>",
     "1111101001011111",
     "1111dddd10rrmmmm"
   ],
-  "Uxth": [
+  "Uxth0.1895372027065605": [
+    "uxth",
+    "uxth<c> <t><Rd>, <Rm>",
+    "1011001010mmmddd"
+  ],
+  "Uxth0.08848404698073864": [
     "uxth",
     "uxth<c>.w <t><Rd>, <Rm><Xr>",
     "1111101000011111",

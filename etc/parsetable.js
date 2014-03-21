@@ -48,7 +48,7 @@ var json = instrs.map(function (line) {
 	line.splice(1, 0, format)
 	line.splice(!line[4] ? 3 : 4, 5)
 	return {
-		key: type,
+		key: type + Math.random(),
 		value: line
 	}
 
