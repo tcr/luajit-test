@@ -241,6 +241,7 @@ __asm__ (
 	"mul.w r0, r1, r0\n\t"
 	"mul.w r2, r3, r2\n\t"
 	"mov r4, r2\n\t"
+	"sub r0, r0, #8\n\t"
 ), {
 	| add.w r2, r3, #1
 	| add.w r2, r3, r4
@@ -249,6 +250,7 @@ __asm__ (
 	| mul.w r0, r1, r0
 	| mul.w r2, r3, r2
 	| mov r4, r2
+	| sub r0, r0, #8
 })
 
 
@@ -258,10 +260,10 @@ __asm__ (
 COMPARE_JIT(regs,
 __asm__ (
 	"ldr r3, [r3, #4]\n\t"
-	"ldr r3, [r3, #5]\n\t"
+	// "ldr r3, [r3, #5]\n\t"
 ), {
 	| ldr r3, [r3, #4]
-	| ldr r3, [r3, #5]
+	// | ldr r3, [r3, #5]
 })
 
 
@@ -276,8 +278,8 @@ int main ()
 	// fib_jit();
 	// cmp_jit();
 	// mul_jit();
-	// arith_jit();
-	regs_jit();
+	arith_jit();
+	// regs_jit();
 
 	printf("# FINISHED.\n");
 
