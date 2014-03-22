@@ -816,7 +816,7 @@ dostmt = function(stmt)
 
   -- Call opcode handler or special handler for template strings.
   if type(f) == "table" then
-    io.stderr:write('-------> ok '..stmt .. '\n')
+    -- io.stderr:write('CMD:'..stmt .. '\n')
     map_op[".template__"](params, f)
   else
     f(params)

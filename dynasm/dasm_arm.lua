@@ -90,7 +90,7 @@ end
 -- Add word to action list.
 local function wputxw(n)
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
-  -- io.stderr:write('++++++++++++      +1\n');
+  -- TCR_LOG('++++++++++++      +1\n');
   actlist[#actlist+1] = n
 end
 
@@ -116,20 +116,20 @@ end
 local function wputw(n)
   if n <= 0x000fffff then waction("ESC") end
   wputxw(n)
-  -- io.stderr:write('wputw' .. tohex(n) .. '\n')
+  -- TCR_LOG('wputw' .. tohex(n) .. '\n')
 end
 
 -- Reserve position for word.
 local function wpos()
   local pos = #actlist+1
-  -- io.stderr:write('wwww++++++++      +1\n');
+  -- TCR_LOG('wwww++++++++      +1\n');
   actlist[pos] = ""
   return pos
 end
 
 -- Store word to reserved position.
 local function wputpos(pos, n)
-  -- io.stderr:write('wputpos ' .. pos .. ', ' .. tohex(n) .. '\n')
+  -- TCR_LOG('wputpos ' .. pos .. ', ' .. tohex(n) .. '\n')
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
   actlist[pos] = band(n, 0xffff)
   -- n = map_action.ESC * 0x10000
@@ -610,13 +610,13 @@ map_op = {
   ["add_3"] = {
     {"dni", "0001110iiinnnddd"},
     {"dnm", "0001100mmmnnnddd"},
-    {"dspi", "10101dddiiiiiiii"}
+    {"dsi", "10101dddiiiiiiii"}
   },
 
   ["adds_3"] = {
     {"dni", "0001110iiinnnddd"},
     {"dnm", "0001100mmmnnnddd"},
-    {"dspi", "10101dddiiiiiiii"}
+    {"dsi", "10101dddiiiiiiii"}
   },
   ["adds.w_3"] = {
     {"dni", "11110i010001nnnn", "0iiiddddiiiiiiii"},
@@ -626,7 +626,7 @@ map_op = {
   ["add_2"] = {
     {"di", "00110dddiiiiiiii"},
     {"dm", "01000100dmmmmddd"},
-    {"spi", "101100000iiiiiii"}
+    {"si", "101100000iiiiiii"}
   },
   ["add.w_3"] = {
     {"dni", "11110i01000snnnn", "0iiiddddiiiiiiii"},
@@ -636,11 +636,11 @@ map_op = {
     {"dni", "11110i100000nnnn", "0iiiddddiiiiiiii"}
   },
   ["adr_2"] = {
-    {"dl", "10100dddiiiiiiii"}
+    {"dB", "10100dddiiiiiiii"}
   },
   ["adr.w_2"] = {
-    {"dl", "11110i1010101111", "0iiiddddiiiiiiii"},
-    {"dl", "11110i1000001111", "0iiiddddiiiiiiii"}
+    {"dB", "11110i1010101111", "0iiiddddiiiiiiii"},
+    {"dB", "11110i1000001111", "0iiiddddiiiiiiii"}
   },
   ["and.w_3"] = {
     {"dni", "11110i00000snnnn", "0iiiddddiiiiiiii"},
@@ -763,7 +763,7 @@ map_op = {
 
 
   ["ldc_4"] = {
-    {"ccd{n}{i}", "111t110pulw1nnnn", "ddddcccciiiiiiii"}
+    {"ccd{n}{i}", "111t110puDw1nnnn", "ddddcccciiiiiiii"}
   },
   ["ldm_2"] = {
     {"n{r}", "11001nnnrrrrrrrr"}
@@ -774,21 +774,21 @@ map_op = {
   ["ldmdb_2"] = {
     {"n<Hw:!>{r}", "1110100100w1nnnn", "rrrrrrrrrrrrrrrr"}
   },
-  ["ldr_3"] = {
-    {"t{ni}", "01101iiiiinnnttt"},
+
+  ["ldr_2"] = {
+    {"t{nf}", "01101iiiiinnnttt"},
     {"t{spi}", "10011tttiiiiiiii"},
-    {"t{nm}", "0101100mmmnnnttt"}
+    {"t{nm}", "0101100mmmnnnttt"},
+    {"tB", "01001tttiiiiiiii"},
   },
-  ["ldr.w_3"] = {
+
+  ["ldr.w_2"] = {
     {"t{ni}", "111110001101nnnn", "ttttiiiiiiiiiiii"},
     {"t{n}i", "111110000101nnnn", "tttt1puwiiiiiiii"},
     {"t{nma}", "111110000101nnnn", "tttt000000iimmmm"}
   },
-  ["ldr_2"] = {
-    {"t<A11i>", "01001tttiiiiiiii"}
-  },
   ["ldr.w_2"] = {
-    {"t<A1ui>", "11111000u1011111", "ttttiiiiiiiiiiii"}
+    {"tB", "11111000u1011111", "ttttiiiiiiiiiiii"}
   },
   ["ldrb_3"] = {
     {"t{ni}", "01111iiiiinnnttt"},
@@ -800,7 +800,7 @@ map_op = {
     {"t{nma}", "111110000001nnnn", "tttt000000iimmmm"}
   },
   ["ldrb.w_2"] = {
-    {"t<A1ui>", "11111000u0011111", "ttttiiiiiiiiiiii"}
+    {"tB", "11111000u0011111", "ttttiiiiiiiiiiii"}
   },
   ["ldrbt_3"] = {
     {"t{ni}", "111110000001nnnn", "tttt1110iiiiiiii"}
@@ -818,7 +818,7 @@ map_op = {
     {"td{n}i", "1110100pu1w1nnnn", "ttttddddiiiiiiii"}
   },
   ["ldrd_3"] = {
-    {"td<A0ui>", "1110100pu1w11111", "ttttddddiiiiiiii"}
+    {"tdB", "1110100pu1w11111", "ttttddddiiiiiiii"}
   },
   ["ldrh_3"] = {
     {"t{ni}", "10001iiiiinnnttt"},
@@ -830,7 +830,7 @@ map_op = {
     {"t{nma}", "111110000011nnnn", "tttt000000iimmmm"}
   },
   ["ldrh.w_2"] = {
-    {"t<A1ui>", "11111000u0111111", "ttttiiiiiiiiiiii"}
+    {"tB", "11111000u0111111", "ttttiiiiiiiiiiii"}
   },
   ["ldrht_3"] = {
     {"t{ni}", "111110000011nnnn", "tttt1110iiiiiiii"}
@@ -841,7 +841,7 @@ map_op = {
     {"t{nma}", "111110010001nnnn", "tttt000000iimmmm"}
   },
   ["ldrsb.w_2"] = {
-    {"t<A1ui>", "11111001u0011111", "ttttiiiiiiiiiiii"}
+    {"tB", "11111001u0011111", "ttttiiiiiiiiiiii"}
   },
   ["ldrsb_3"] = {
     {"t{nm}", "0101011mmmnnnttt"}
@@ -855,7 +855,7 @@ map_op = {
     {"t{nma}", "111110010011nnnn", "tttt000000iimmmm"}
   },
   ["ldrsh.w_2"] = {
-    {"t<A1ui>", "11111001u0111111", "ttttiiiiiiiiiiii"}
+    {"tB", "11111001u0111111", "ttttiiiiiiiiiiii"}
   },
   ["ldrsh_3"] = {
     {"t{nm}", "0101111mmmnnnttt"}
@@ -887,10 +887,16 @@ map_op = {
     {"dm", "0100000011mmmddd"}
   },
   ["mcr_6"] = {
-    {"cotcncm{p}", "111l1110ooo0nnnn", "ttttccccppp1mmmm"}
+    {"cotcncm{p}", "11101110ooo0nnnn", "ttttccccppp1mmmm"}
+  },
+  ["mcr2_6"] = {
+    {"cotcncm{p}", "11111110ooo0nnnn", "ttttccccppp1mmmm"}
   },
   ["mcrr_5"] = {
-    {"cotucm", "111l11000100uuuu", "ttttccccoooommmm"}
+    {"cotucm", "111011000100uuuu", "ttttccccoooommmm"}
+  },
+  ["mcrr2_5"] = {
+    {"cotucm", "111111000100uuuu", "ttttccccoooommmm"}
   },
   ["mla_4"] = {
     {"dnma", "111110110000nnnn", "aaaadddd0000mmmm"}
@@ -913,10 +919,16 @@ map_op = {
     {"di", "11110i101100kkkk", "0iiiddddiiiiiiii"}
   },
   ["mrc_6"] = {
-    {"cotcncm{p}", "111l1110ooo1nnnn", "ttttccccppp1mmmm"}
+    {"cotcncm{p}", "11101110ooo1nnnn", "ttttccccppp1mmmm"}
+  },
+  ["mrc2_6"] = {
+    {"cotcncm{p}", "11111110ooo1nnnn", "ttttccccppp1mmmm"}
   },
   ["mrrc_5"] = {
-    {"cotucm", "111l11000101uuuu", "ttttccccoooommmm"}
+    {"cotucm", "111011000101uuuu", "ttttccccoooommmm"}
+  },
+  ["mrrc2_5"] = {
+    {"cotucm", "111111000101uuuu", "ttttccccoooommmm"}
   },
   ["mrs_2"] = {
     {"dz", "1111001111101111", "1000ddddssssssss"}
@@ -957,7 +969,7 @@ map_op = {
     {"{nmt}", "111110000001nnnn", "1111000000ssmmmm"}
   },
   ["pld_1"] = {
-    {"<A1ui>", "11111000u0011111", "1111iiiiiiiiiiii"}
+    {"B", "11111000u0011111", "1111iiiiiiiiiiii"}
   },
   ["pli_2"] = {
     {"{ni}", "111110011001nnnn", "1111iiiiiiiiiiii"},
@@ -965,7 +977,7 @@ map_op = {
     {"{nmt}", "111110010001nnnn", "1111000000ssmmmm"}
   },
   ["pli_1"] = {
-    {"<A1ui>", "11111001u0011111", "1111iiiiiiiiiiii"}
+    {"B", "11111001u0011111", "1111iiiiiiiiiiii"}
   },
   ["pop_1"] = {
     {"r", "1011110prrrrrrrr"}
@@ -1013,7 +1025,7 @@ map_op = {
     {"dm", "11101010010s1111", "0000dddd0011mmmm"}
   },
   ["rsb_3"] = {
-    {"dn#0", "0100001001nnnddd"},
+    {"dn0", "0100001001nnnddd"},
     {"dnmt", "11101011110snnnn", "0iiiddddiittmmmm"}
   },
   ["rsb.w_3"] = {
@@ -1045,7 +1057,10 @@ map_op = {
     {"dkns", "1111001100s0nnnn", "0iiiddddii0kkkkk"}
   },
   ["stc_4"] = {
-    {"ccd{n}{i}", "111t110pulw0nnnn", "ddddcccciiiiiiii"}
+    {"ccd{n}{i}", "1110110puNw0nnnn", "ddddcccciiiiiiii"}
+  },
+  ["stc2_4"] = {
+    {"ccd{n}{i}", "1111110puNw0nnnn", "ddddcccciiiiiiii"}
   },
   ["stm_2"] = {
     {"n!{r}", "11000nnnrrrrrrrr"}
@@ -1058,7 +1073,7 @@ map_op = {
   },
   ["str_3"] = {
     {"t{ni}", "01100iiiiinnnttt"},
-    {"t{spi}", "10010tttiiiiiiii"},
+    {"t{si}", "10010tttiiiiiiii"},
     {"t{nm}", "0101000mmmnnnttt"}
   },
   ["str.w_3"] = {
@@ -1111,7 +1126,7 @@ map_op = {
   },
   ["sub_2"] = {
     {"di", "00111dddiiiiiiii"},
-    {"spi", "101100001iiiiiii"}
+    {"si", "101100001iiiiiii"}
   },
   ["sub.w_3"] = {
     {"dni", "11110i01101snnnn", "0iiiddddiiiiiiii"},
@@ -1177,6 +1192,29 @@ map_op = {
     {"dmr", "1111101000011111", "1111dddd10rrmmmm"}
   },
 }
+
+-- .w is an alias for most non-.w instructions
+do
+  for k,v in pairs(map_op) do
+    if k:match(".w_(%d+)$") then
+      local s = k:gsub(".w_(%d+)$", "_%1")
+      if not map_op[s] then
+        map_op[s] = {}
+      end
+      for _, i in pairs(v) do
+        table.insert(map_op[s], i)
+      end
+    end
+  end
+end
+
+function TCR_LOG (...)
+  for k,i in pairs({...}) do
+    io.stderr:write(i)
+    io.stderr:write(' ')
+  end
+  io.stderr:write('\n')
+end
 
 
 -- Add mnemonics for "s" variants.
@@ -1494,7 +1532,7 @@ local function parse_template(params, template, nparams, pos)
   local vr = "s"
 
   -- Process each character.
-  -- io.stderr:write('-->' .. template .. ' ' .. tonumber(nparams or 0) .. ' ' .. pos .. '\n')
+  -- TCR_LOG('-->' .. template .. ' ' .. tonumber(nparams or 0) .. ' ' .. pos)
   for p in gmatch(sub(template, 5), ".") do
     local q = params[n]
 
@@ -1522,7 +1560,7 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "M" then
       local imm = match(q, "^#(.*)$")
       if imm then
-        -- io.stderr:write(imm .. '\n')
+        -- TCR_LOG(imm)
         op = op + shl(parse_imm12(imm), 3)
       else
         op = op + shl(parse_gpr(q), 3)
@@ -1531,17 +1569,17 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "S" then
       op = op + shl(parse_gpr(q), 8); n = n + 1
     elseif p == "i" then
-      -- io.stderr:write('--> ' .. tohex(op) .. '\n')
+      -- TCR_LOG('--> ' .. tohex(op))
       if q == "le" then
         op = op + shl(0xD, 4); n = n + 1
-        -- io.stderr:write('--> ' .. tohex(op) .. '\n')
+        -- TCR_LOG('--> ' .. tohex(op))
       else
         assert(false)
       end
     elseif p == "W" then
       local imm = match(q, "^#(.*)$")
       if imm then
-        -- io.stderr:write(imm .. '\n')
+        -- TCR_LOG(imm)
         op = op + shl(parse_imm12(imm), 6)
       else
         op = op + shl(parse_gpr(q), 6)
@@ -1550,7 +1588,7 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "w" then
       local imm = match(q, "^#(.*)$")
       if imm then
-        -- io.stderr:write(imm .. '\n')
+        -- TCR_LOG(imm)
         op = op + parse_imm12(imm)
       else
         op = op + parse_gpr(q)
@@ -1558,7 +1596,7 @@ local function parse_template(params, template, nparams, pos)
       n = n + 1
     elseif p == "B" then
       local mode, n, s = parse_label(q, false)
-      -- io.stderr:write('&&&&&&& mode=' .. mode .. '  n=' .. tostring(n) .. '  s=' .. (s or '') .. '\n')
+      -- TCR_LOG('&&&&&&& mode=' .. mode .. '  n=' .. tostring(n) .. '  s=' .. (s or ''))
       waction("REL_"..mode, n, s, 1)
     elseif p == "A" then
       n = n + 1
@@ -1663,16 +1701,19 @@ function populate_op_word (word, values)
   return op
 end
 
-local function parse_template_new(params, template, nparams, pos)
-  local bits = {}
-  for i=2,#template do
-    parse_op_word(template[i], bits)
-  end
-
-  local values = {}
+local function parse_template_new_subset(values, params, templatestr, nparams)
   local n = 1
-  for p in gmatch(template[1], ".") do
-    io.stderr:write('match ' .. p .. ' against ' .. tostring(params[n]) .. ' in ' .. template[1] .. ' ' .. template[2] .. '\n')
+  -- TCR_LOG('PARSETEMPLATE: ' .. templatestr)
+  for k,p in pairs(params) do
+    -- TCR_LOG(' ..> ', k, p)
+  end
+  local pidx = 1
+  while pidx <= #templatestr and n <= #params do
+    local p = templatestr:sub(pidx, pidx)
+
+    -- TCR_LOG('match ' .. p .. ' against ' .. tostring(params[n]) .. ' in ' .. templatestr .. ' ' .. templatestr)
+
+    -- Immediate values
     if p == 'i' then
       local imm = match(params[n], "^#(.*)$")
       if imm then
@@ -1681,6 +1722,21 @@ local function parse_template_new(params, template, nparams, pos)
         werror('bad immediate operand')
       end
       n = n + 1
+
+    -- Immediate values with lower two bits empty
+    elseif p == 'f' then
+      local imm = match(params[n], "^#(.*)$")
+      if imm then
+        values[p] = parse_imm12(imm)
+      else
+        werror('bad immediate operand')
+      end
+      if values[p] % 4 ~= 0 then
+        werror('lower two bits of immediate value not empty')
+      end
+      values['i'] = shr(values[p], 2)
+      n = n + 1
+
     elseif p == 'd' then
       values[p] = parse_gpr(params[n])
       n = n + 1
@@ -1690,10 +1746,21 @@ local function parse_template_new(params, template, nparams, pos)
     elseif p == 'm' then
       values[p] = parse_gpr(params[n])
       n = n + 1
+    elseif p == 't' then
+      values[p] = parse_gpr(params[n])
+      n = n + 1
+    elseif p == 'l' then
+      values[p] = parse_gpr(params[n])
+      n = n + 1
+    elseif p == 'h' then
+      values[p] = parse_gpr(params[n])
+      n = n + 1
+
     elseif p == "B" then
       local mode, n2, s = parse_label(params[n], false)
-      -- io.stderr:write('&&&&&&& mode=' .. mode .. '  n=' .. tostring(n) .. '  s=' .. (s or '') .. '\n')
       waction("REL_"..mode, n2, s, 1)
+      values['u'] = s >= 10
+      n = n + 1
 
     elseif p == 'c' then
       if params[n] == "le" then
@@ -1702,23 +1769,63 @@ local function parse_template_new(params, template, nparams, pos)
       else
         werror('invalid conditional')
       end
-    elseif p == 'm' then
+
+    -- expect literals
+    elseif p == 's' then
+      if params[n] ~= 'sp' then
+        werror('expecting SP register')
+      end
       n = n + 1
+    elseif p == '0' then
+      if params[n] ~= '#0' then
+        werror('expecting #0 literal')
+      end
+      n = n + 1
+
     elseif p == 'M' then
-      n = n + 1
-    elseif p == 't' then
       n = n + 1
     elseif p == 'r' then
       values[p] = parse_reglist(params[n])
       n = n + 1
+
+    elseif p == '{' then
+      local newpidx = pidx
+      while templatestr:sub(newpidx, newpidx) ~= '}' and newpidx <= #templatestr do
+        newpidx = newpidx + 1
+      end
+      if templatestr:sub(newpidx, newpidx) ~= '}' then
+        werror('no matching } in definition')
+      end
+
+      -- TCR_LOG('} not implemented: ' .. params[n]:sub(2, -2))
+      local subparams = {}
+      for s in gmatch(params[n]:sub(2, -2), "[^%s,]+") do
+        table.insert(subparams, s)
+      end
+      parse_template_new_subset(values, subparams, templatestr:sub(pidx+1, newpidx-1), #subparams)
+      pidx = newpidx + 1
+      n = n + 1
+
     else
-      io.stderr:write('UNKNOWN PATTERN ' .. p .. '\n')
+      TCR_LOG('UNKNOWN PATTERN:', p)
       assert(false)
     end
+
+    pidx = pidx + 1
+  end
+end
+
+local function parse_template_new(params, template, nparams, pos)
+  local bits = {}
+  for i=2,#template do
+    parse_op_word(template[i], bits)
   end
 
+  local values = {}
+  parse_template_new_subset(values, params, template[1], nparams, pos)
+
   -- for k,v in pairs(bits) do
-  --   io.stderr:write(k .. ' ' .. v .. '\n')
+  --   TCR_LOG(k .. ' ' .. v)
   -- end
   -- assert(false)
   local ops = {}
@@ -1729,6 +1836,7 @@ local function parse_template_new(params, template, nparams, pos)
     wputpos(pos, ops[i])
     pos = pos + 1
   end
+  return pos
 end
 
 map_op[".template__"] = function(params, template, nparams)
@@ -1739,6 +1847,10 @@ map_op[".template__"] = function(params, template, nparams)
   if secpos+3 > maxsecpos then wflush() end
   local pos = wpos()
   local origpos, apos, spos = pos, #actargs, secpos
+
+  -- for k,v in pairs(params) do
+  --   TCR_LOG(' --> ' .. k .. ' ' .. v)
+  -- end
 
   local ok, err
   for i, t in pairs(template) do

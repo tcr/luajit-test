@@ -255,6 +255,17 @@ __asm__ (
 
 
 
+COMPARE_JIT(regs,
+__asm__ (
+	"ldr r3, [r3, #4]\n\t"
+	"ldr r3, [r3, #5]\n\t"
+), {
+	| ldr r3, [r3, #4]
+	| ldr r3, [r3, #5]
+})
+
+
+
 
 
 
@@ -262,10 +273,11 @@ int main ()
 {
 	printf("# START.\n\n");
 
-	fib_jit();
-	cmp_jit();
-	mul_jit();
-	arith_jit();
+	// fib_jit();
+	// cmp_jit();
+	// mul_jit();
+	// arith_jit();
+	regs_jit();
 
 	printf("# FINISHED.\n");
 
