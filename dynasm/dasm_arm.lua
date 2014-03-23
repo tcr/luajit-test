@@ -648,23 +648,13 @@ map_op = {
     {"sdm", "0100000100mmmddd"}
   },
 
-  ["b.n_1"] = {
+  ["b_1"] = {
     {"B", "1101cccciiiiiiii"},
     {"B", "11100iiiiiiiiiii"}
   },
   ["b.w_1"] = {
-    {"sB", "11110scccciiiiii", "10j0kiiiiiiiiiii"},
-    {"sB", "11110siiiiiiiiii", "10j1kiiiiiiiiiii"}
-  },
-
-  ["ble_1"] = {
-    --{"B", "1101cccciiiiiiii"},
-    {"B", "11011101iiiiiiii"},
-    {"B", "11100iiiiiiiiiii"}
-  },
-  ["bne_1"] = {
-    -- {"cB", "1101cccciiiiiiii"},
-    {"B", "11010001iiiiiiii"}
+    {"sB",  "11110scccciiiiii", "10j0kiiiiiiiiiii"},
+    {"sB",  "11110siiiiiiiiii", "10j1kiiiiiiiiiii"}
   },
 
   ["bfc_3"] = {
@@ -696,7 +686,7 @@ map_op = {
     {"ni", "1011o0i1iiiiinnn"}
   },
   ["cdp_6"] = {
-    {"cocdcncm{O}", "111t1110oooonnnn", "ddddccccOOO0mmmm"}
+    {"CoCdCnCm{O}", "111t1110oooonnnn", "ddddCCCCOOO0mmmm"}
   },
   ["clrex_0"] = {
     {"", "1111001110111111", "1000111100101111"}
@@ -752,7 +742,7 @@ map_op = {
 
 
   ["ldc_4"] = {
-    {"ccd{n}{i}", "111t110puDw1nnnn", "ddddcccciiiiiiii"}
+    {"CCd{n}{i}", "111t110puDw1nnnn", "ddddCCCCiiiiiiii"}
   },
   ["ldm_2"] = {
     {"n{r}", "11001nnnrrrrrrrr"}
@@ -879,10 +869,10 @@ map_op = {
     {"sdm", "0100000011mmmddd"}
   },
   ["mcr_6"] = {
-    {"cotcncm{p}", "11101110ooo0nnnn", "ttttccccppp1mmmm"}
+    {"CotCnCm{p}", "11101110ooo0nnnn", "ttttCCCCppp1mmmm"}
   },
   ["mcr2_6"] = {
-    {"cotcncm{p}", "11111110ooo0nnnn", "ttttccccppp1mmmm"}
+    {"CotCnCm{p}", "11111110ooo0nnnn", "ttttCCCCppp1mmmm"}
   },
   ["mcrr_5"] = {
     {"cotucm", "111011000100uuuu", "ttttccccoooommmm"}
@@ -911,16 +901,16 @@ map_op = {
     {"di", "11110i101100kkkk", "0iiiddddiiiiiiii"}
   },
   ["mrc_6"] = {
-    {"cotcncm{p}", "11101110ooo1nnnn", "ttttccccppp1mmmm"}
+    {"CotCnCm{p}", "11101110ooo1nnnn", "ttttCCCCppp1mmmm"}
   },
   ["mrc2_6"] = {
-    {"cotcncm{p}", "11111110ooo1nnnn", "ttttccccppp1mmmm"}
+    {"CotCnCm{p}", "11111110ooo1nnnn", "ttttCCCCppp1mmmm"}
   },
   ["mrrc_5"] = {
-    {"cotucm", "111011000101uuuu", "ttttccccoooommmm"}
+    {"CotuCm", "111011000101uuuu", "ttttccccoooommmm"}
   },
   ["mrrc2_5"] = {
-    {"cotucm", "111111000101uuuu", "ttttccccoooommmm"}
+    {"CotuCm", "111111000101uuuu", "ttttCCCCoooommmm"}
   },
   ["mrs_2"] = {
     {"dz", "1111001111101111", "1000ddddssssssss"}
@@ -1049,10 +1039,10 @@ map_op = {
     {"dknf", "1111001100f0nnnn", "0iiiddddii0kkkkk"}
   },
   ["stc_4"] = {
-    {"ccd{n}{i}", "1110110puNw0nnnn", "ddddcccciiiiiiii"}
+    {"CCd{n}{i}", "1110110puNw0nnnn", "ddddCCCCiiiiiiii"}
   },
   ["stc2_4"] = {
-    {"ccd{n}{i}", "1111110puNw0nnnn", "ddddcccciiiiiiii"}
+    {"CCd{n}{i}", "1111110puNw0nnnn", "ddddCCCCiiiiiiii"}
   },
   ["stm_2"] = {
     {"n!{r}", "11000nnnrrrrrrrr"}
@@ -1208,6 +1198,42 @@ do
         local t = {i[1]}
         for j=2,#i do
           local word = i[j]:gsub('s', '1')
+          table.insert(t, word);
+        end
+        if #t > 1 then
+          if not addt[s] then
+            addt[s] = {}
+          end
+          table.insert(addt[s], t)
+        end
+      end
+    end
+  end
+  for k,v in pairs(addt) do
+    map_op[k] = v
+  end
+end
+
+function tobitstr (num)
+    local t={}
+    while num>0 do
+        rest=num%2
+        table.insert(t,1,rest)
+        num=(num-rest)/2
+    end
+    return table.concat(t)
+end
+
+-- adds conditional varants
+do
+  local addt = {}
+  for cond,c in pairs(map_cond) do
+    for k,v in pairs(map_op) do
+      local s = k:gsub("([.]?w?)(_%d+)$", cond .. "%1%2")
+      for _, i in pairs(v) do
+        local t = {i[1]}
+        for j=2,#i do
+          local word = i[j]:gsub('cccc', ('0000' .. tobitstr(c)):sub(-4))
           table.insert(t, word);
         end
         if #t > 1 then
