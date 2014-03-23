@@ -1060,10 +1060,12 @@ map_op = {
   },
   ["str.w_2"] = {
     {"t{ni}", "111110001100nnnn", "ttttiiiiiiiiiiii"},
+    {"t{nU}", "111110000100nnnn", "tttt11U0iiiiiiii"},
+    {"t{nU}!", "111110000100nnnn", "tttt11U1iiiiiiii"},
     {"t{nma}", "111110000100nnnn", "tttt000000iimmmm"}
   },
   ["str.w_3"] = {
-    {"t{n}i", "111110000100nnnn", "tttt1puwiiiiiiii"},
+    {"t{n}U", "111110000100nnnn", "tttt10U1iiiiiiii"},
   },
   ["strb_2"] = {
     {"t{ni}", "01110iiiiinnnttt"},
@@ -1089,8 +1091,12 @@ map_op = {
   ["strexh_3"] = {
     {"dt{n}", "111010001100nnnn", "tttt11110101dddd"}
   },
+  ["strd_3"] = {
+    {"td{nU}", "11101001U100nnnn", "ttttddddiiiiiiii"},
+    {"td{nU}!", "11101001U110nnnn", "ttttddddiiiiiiii"},
+  },
   ["strd_4"] = {
-    {"td{n}i", "1110100pu1w0nnnn", "ttttddddiiiiiiii"}
+    {"td{n}U", "11101000U110nnnn", "ttttddddiiiiiiii"},
   },
   ["strh_3"] = {
     {"t{ni}", "10000iiiiinnnttt"},
