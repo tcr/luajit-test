@@ -3,13 +3,13 @@
 #include <stdio.h>
 #include <assert.h>
 #include <dasm_proto.h>
-#include <dasm_arm.h>
+#include <dasm_thumb.h>
 
 // Most basic DynASM JIT; generates a trivial function that
 // returns a given value, and executes it.
 
 // DynASM directives.
-|.arch arm
+|.arch thumb
 |.actionlist actions
 
 // This define affects "|" DynASM lines.  "Dst" must
@@ -257,9 +257,6 @@ __asm__ (
 })
 
 
-
-
-
 COMPARE_JIT(regs,
 __asm__ (
 	"ldr r3, [r3, #4]\n\t"
@@ -273,6 +270,20 @@ __asm__ (
 
 
 
+/*
+typdef struct {
+	uint8_t number;
+} simple_t;
+
+void struct_jit()
+{
+	simple_t a = { 0 };
+	simple_t* ptr = &a;
+	a->number = 5;
+
+	// | ldr r0, a->number
+}
+*/
 
 
 
@@ -285,6 +296,7 @@ int main ()
 	mul_jit();
 	arith_jit();
 	regs_jit();
+	// struct_jit();
 
 	printf("# FINISHED.\n");
 
