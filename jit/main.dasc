@@ -48,7 +48,7 @@ static int jit_compare (void* fn, void* code, size_t size)
 	printf("# JIT_COMPARE (%d words):", size/2);
 	for (int i = 0; i < size/2; i++) {
 		if (((uint16_t*) code)[i] != ((uint16_t*) fn)[i]) {
-			printf(" failed! word %d/%d: %04x isn't %04x\n", i, size/2, ((uint16_t*) code)[i], ((uint16_t*) fn)[i]);
+			printf(" failed! word %d/%d: %04x isn't %04x\n", i+1, (size/2), ((uint16_t*) code)[i], ((uint16_t*) fn)[i]);
 			printf("not ok\n");
 			return 1;
 		}
@@ -264,9 +264,11 @@ COMPARE_JIT(regs,
 __asm__ (
 	"ldr r3, [r3, #4]\n\t"
 	"ldr r3, [r3, #5]\n\t"
+	"ldr r3, [r4, #-4]\n\t"
 ), {
 	| ldr r3, [r3, #4]
 	| ldr r3, [r3, #5]
+	| ldr r3, [r4, #-4]
 })
 
 

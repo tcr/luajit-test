@@ -652,6 +652,11 @@ map_op = {
     {"B", "1101cccciiiiiiii"},
     {"B", "11100iiiiiiiiiii"}
   },
+  ["b.w_1"] = {
+    {"sB", "11110scccciiiiii", "10j0kiiiiiiiiiii"},
+    {"sB", "11110siiiiiiiiii", "10j1kiiiiiiiiiii"}
+  },
+
   ["ble_1"] = {
     --{"B", "1101cccciiiiiiii"},
     {"B", "11011101iiiiiiii"},
@@ -660,10 +665,6 @@ map_op = {
   ["bne_1"] = {
     -- {"cB", "1101cccciiiiiiii"},
     {"B", "11010001iiiiiiii"}
-  },
-  ["b.w_1"] = {
-    {"sB", "11110scccciiiiii", "10j0kiiiiiiiiiii"},
-    {"sB", "11110siiiiiiiiii", "10j1kiiiiiiiiiii"}
   },
 
   ["bfc_3"] = {
@@ -771,12 +772,15 @@ map_op = {
   },
 
   ["ldr.w_2"] = {
-    {"t{ni}", "111110001101nnnn", "ttttiiiiiiiiiiii"},
-    {"t{nma}", "111110000101nnnn", "tttt000000iimmmm"},
-    {"tB", "11111000u1011111", "ttttiiiiiiiiiiii"},
+    {"t{ni}",   "111110001101nnnn", "ttttiiiiiiiiiiii"},
+    {"t{nU}",   "111110000101nnnn", "tttt11U0iiiiiiii"},
+    {"t{n}",    "111110000101nnnn", "tttt11U0iiiiiiii"},
+    {"t{ni}!",  "111110000101nnnn", "tttt11U1iiiiiiii"},
+    {"t{nma}",  "111110000101nnnn", "tttt000000iimmmm"},
+    {"tB",      "11111000u1011111", "ttttiiiiiiiiiiii"},
   },
   ["ldr.w_3"] = {
-    {"t{n}i", "111110000101nnnn", "tttt1puwiiiiiiii"},
+    {"t{n}i", "111110000101nnnn", "tttt10u1iiiiiiii"},
   },
   ["ldrb_3"] = {
     {"t{ni}", "01111iiiiinnnttt"},
@@ -1353,6 +1357,16 @@ local function parse_imm12(imm)
   end
 end
 
+local function parse_imm_new(imm)
+  local n = tonumber(imm)
+  if n then
+    return n
+  else
+    waction("IMM_NEW", 0, imm)
+    return 0
+  end
+end
+
 local function parse_imm16(imm)
   imm = match(imm, "^#(.*)$")
   if not imm then werror("expected immediate operand") end
@@ -1742,6 +1756,20 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
         end
       else
         werror('bad immediate operand')
+      end
+      n = n + 1
+
+    elseif p == 'U' then
+      local imm = match(params[n], "^#(.*)$")
+      if imm then
+        local val = parse_imm_new(imm)
+        if val >= math.pow(2, bits[p]) then
+          werror('signed immediate operand larger than ' .. bits[p] .. ' bits')
+        end
+        values['i'] = math.abs(val)
+        values['U'] = tonumber(val >= 0)
+      else
+        werror('bad signed immediate operand')
       end
       n = n + 1
 
