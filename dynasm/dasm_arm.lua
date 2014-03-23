@@ -90,7 +90,7 @@ end
 -- Add word to action list.
 local function wputxw(n)
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
-  -- TCR_LOG('++++++++++++      +1\n');
+  -- TCR_LOG('WROTE ACTION', n)
   actlist[#actlist+1] = n
 end
 
@@ -116,21 +116,20 @@ end
 local function wputw(n)
   if n <= 0x000fffff then waction("ESC") end
   wputxw(n)
-  -- TCR_LOG('wputw' .. tohex(n) .. '\n')
 end
 
 -- Reserve position for word.
 local function wpos()
   local pos = #actlist+1
-  -- TCR_LOG('wwww++++++++      +1\n');
+  -- TCR_LOG('WROTE ACTION', "''")
   actlist[pos] = ""
   return pos
 end
 
 -- Store word to reserved position.
 local function wputpos(pos, n)
-  -- TCR_LOG('wputpos ' .. pos .. ', ' .. tohex(n) .. '\n')
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
+  -- TCR_LOG('WROTE reserved ACTION', n)
   actlist[pos] = band(n, 0xffff)
   -- n = map_action.ESC * 0x10000
 end
@@ -1721,7 +1720,7 @@ function populate_op_word (word, values)
   return op
 end
 
-local function parse_template_new_subset(values, params, templatestr, nparams)
+local function parse_template_new_subset(bits, values, params, templatestr, nparams)
   local n = 1
   -- TCR_LOG('PARSETEMPLATE: ' .. templatestr)
   for k,p in pairs(params) do
@@ -1738,6 +1737,9 @@ local function parse_template_new_subset(values, params, templatestr, nparams)
       local imm = match(params[n], "^#(.*)$")
       if imm then
         values[p] = parse_imm12(imm)
+        if values[p] >= math.pow(2, bits[p]) then
+          werror('immediate operand larger than ' .. bits[p] .. ' bits')
+        end
       else
         werror('bad immediate operand')
       end
@@ -1825,7 +1827,7 @@ local function parse_template_new_subset(values, params, templatestr, nparams)
       for s in gmatch(params[n]:sub(2, -2), "[^%s,]+") do
         table.insert(subparams, s)
       end
-      parse_template_new_subset(values, subparams, templatestr:sub(pidx+1, newpidx-1), #subparams)
+      parse_template_new_subset(bits, values, subparams, templatestr:sub(pidx+1, newpidx-1), #subparams)
       pidx = newpidx + 1
       n = n + 1
 
@@ -1845,7 +1847,7 @@ local function parse_template_new(params, template, nparams, pos)
   end
 
   local values = {}
-  parse_template_new_subset(values, params, template[1], nparams, pos)
+  parse_template_new_subset(bits, values, params, template[1], nparams, pos)
 
   -- for k,v in pairs(bits) do
   --   TCR_LOG(k .. ' ' .. v)
@@ -1884,11 +1886,6 @@ map_op[".template__"] = function(params, template, nparams)
   --       pos = wpos()
   --     end
       ok, err = pcall(parse_template_new, params, t, nparams, pos)
-      if not ok then
-      	for i=origpos,pos do table.remove(actlist, #actlist) end
-      	pos = origpos
-      	-- break
-      end
     --   donext = true
     -- end
     if ok then return end

@@ -105,6 +105,7 @@ void A ## _jit (void) \
 	size_t size = 0; \
 	void* code; \
 \
+	printf("# COMPARE [%s]\n", #A); \
 	jit_init(&state); \
 \
  	ASM; \
@@ -241,6 +242,7 @@ __asm__ (
 	"mul.w r0, r1, r0\n\t"
 	"mul.w r2, r3, r2\n\t"
 	"mov r4, r2\n\t"
+	"subs r0, r1, #2\n\t"
 	"sub r0, r0, #8\n\t"
 ), {
 	| add.w r2, r3, #1
@@ -250,6 +252,7 @@ __asm__ (
 	| mul.w r0, r1, r0
 	| mul.w r2, r3, r2
 	| mov r4, r2
+	| subs r0, r1, #2
 	| sub r0, r0, #8
 })
 
@@ -260,10 +263,10 @@ __asm__ (
 COMPARE_JIT(regs,
 __asm__ (
 	"ldr r3, [r3, #4]\n\t"
-	// "ldr r3, [r3, #5]\n\t"
+	"ldr r3, [r3, #5]\n\t"
 ), {
 	| ldr r3, [r3, #4]
-	// | ldr r3, [r3, #5]
+	| ldr r3, [r3, #5]
 })
 
 
@@ -275,11 +278,11 @@ int main ()
 {
 	printf("# START.\n\n");
 
-	// fib_jit();
-	// cmp_jit();
-	// mul_jit();
+	fib_jit();
+	cmp_jit();
+	mul_jit();
 	arith_jit();
-	// regs_jit();
+	regs_jit();
 
 	printf("# FINISHED.\n");
 
