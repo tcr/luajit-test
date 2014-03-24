@@ -755,19 +755,17 @@ map_op = {
   },
 
   ["ldr_2"] = {
-    {"t{nf}", "01101iiiiinnnttt"},
-    {"t{pi}", "10011tttiiiiiiii"},
-    {"t{nm}", "0101100mmmnnnttt"},
+    {"tL", "01101fffffnnnttt"},
+    {"tL", "10011tttffffffff"},
+    {"tL", "0101100mmmnnnttt"},
     {"tB", "01001tttiiiiiiii"},
   },
 
   ["ldr.w_2"] = {
-    {"t{ni}",   "111110001101nnnn", "ttttiiiiiiiiiiii"},
-    {"t{nU}",   "111110000101nnnn", "tttt11U0iiiiiiii"},
-    {"t{n}",    "111110000101nnnn", "tttt11U0iiiiiiii"},
-    {"t{ni}!",  "111110000101nnnn", "tttt11U1iiiiiiii"},
-    {"t{nma}",  "111110000101nnnn", "tttt000000iimmmm"},
-    {"tB",      "11111000u1011111", "ttttiiiiiiiiiiii"},
+    {"tL",  "111110001101nnnn", "ttttiiiiiiiiiiii"},
+    {"tL",  "111110000101nnnn", "tttt1PUWiiiiiiii"},
+    {"tL",  "111110000101nnnn", "tttt000000iimmmm"},
+    {"tB",  "11111000u1011111", "ttttiiiiiiiiiiii"},
   },
   ["ldr.w_3"] = {
     {"t{n}i", "111110000101nnnn", "tttt10u1iiiiiiii"},
@@ -1873,17 +1871,195 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
       values[p] = parse_reglist(params[n])
       n = n + 1
 
+    elseif p == 'L' then
+
+      local pn = params[n]
+      local p1, wb = match(pn, "^%[%s*(.-)%s*%](!?)$")
+      local p2 = params[n+1]
+
+      values['P'] = 0
+      values['U'] = 1
+      values['W'] = 0
+      local ldrd = false
+      local ext = bits['i'] == 8
+
+      if not p1 then
+        if p2 then
+          werror("expected address operand")
+        end
+        if match(pn, "^[<>=%-]") or match(pn, "^extern%s+") then
+          local mode, n, s = parse_label(pn, false)
+          waction("REL_"..mode, n + (ext and 0x1800 or 0x0800), s, 1)
+          -- op = op + 15 * 65536 + 0x01000000 + (ext and 0x00400000 or 0)
+        else
+          local reg, tailr = match(pn, "^([%w_:]+)%s*(.*)$")
+          if not (reg and tailr ~= "") then
+            werror("expected address operand")
+          end
+          local d, tp = parse_gpr(reg)
+          if not tp then
+            werror("expected address operand")
+          end
+          waction(ext and "IMML8" or "IMML12", 32768 + 32*(ext and 8 or 12),
+          format(tp.ctypefmt, tailr))
+          -- op = op + shl(d, 16) + 0x01000000 + (ext and 0x00400000 or 0)
+        end
+      else
+        if p2 then
+          values['P'] = 0
+          values['W'] = 1
+
+          if wb == "!" then werror("bad use of '!'") end
+          local p3 = params[n+2]
+          op = op + shl(parse_gpr(p1), 16)
+          local imm = match(p2, "^#(.*)$")
+          if imm then
+            local m = parse_imm_new(imm, ext)
+            if p3 then werror("too many parameters") end
+              if m < 0 and not bits['U'] then
+                werror('negative immediate')
+              elseif not bits['i'] and not bits['f'] then
+                werror('immediate not supported')
+              elseif bits['f'] and m % 4 ~= 0 then
+                werror('immediate must have lowest two bits cleared')
+              elseif math.abs(m) >= math.pow(2, bits['i']) then
+                werror('immediate operand larger than ' .. bits['i'] .. ' bits')
+              end
+              values['U'] = m >= 0
+              values['i'] = math.abs(m)
+              values['f'] = shr(math.abs(m), 2)
+            -- op = op + m + (ext and 0x00400000 or 0)
+          else
+            werror('todo')
+            -- local m, neg = parse_gpr_pm(p2)
+            -- if ldrd and (m == d or m-1 == d) then werror("register conflict") end
+            -- op = op + m + (neg and 0 or 0x00800000) + (ext and 0 or 0x02000000)
+            -- if p3 then op = op + parse_shift(p3) end
+          end
+        else
+          values['P'] = 1
+          values['W'] = tonumber(wb == "!")
+
+          local p1a, p2 = match(p1, "^([^,%s]*)%s*(.*)$")
+          values['n'] = parse_gpr(p1a)
+          if p2 ~= "" then
+            local imm = match(p2, "^,%s*#(.*)$")
+            if imm then
+              local m = parse_imm_new(imm, ext)
+              if m < 0 and not bits['U'] then
+                werror('negative immediate')
+              elseif not bits['i'] and not bits['f'] then
+                werror('immediate not supported')
+              elseif bits['f'] and m % 4 ~= 0 then
+                werror('immediate must have lowest two bits cleared')
+              elseif math.abs(m) >= math.pow(2, bits['i'] or shl(bits['f'] or 0, 2)) then
+                werror('immediate operand larger than ' .. bits['i'] .. ' bits')
+              end
+              values['U'] = m >= 0
+              values['i'] = math.abs(m)
+              values['f'] = shr(math.abs(m), 2)
+            else
+              werror('not sure yet...')
+              -- local p2a, p3 = match(p2, "^,%s*([^,%s]*)%s*,?%s*(.*)$")
+              -- local m, neg = parse_gpr_pm(p2a)
+              -- if ldrd and (m == d or m-1 == d) then werror("register conflict") end
+              -- op = op + m + (neg and 0 or 0x00800000) + (ext and 0 or 0x02000000)
+              -- if p3 ~= "" then
+              --   if ext then werror("too many parameters") end
+              --   op = op + parse_shift(p3)
+              -- end
+            end
+          else
+            if wb == "!" then werror("bad use of '!'") end
+            -- op = op + (ext and 0x00c00000 or 0x00800000)
+            values['U'] = 1
+            values['i'] = 0
+          end
+        end
+      end
+
+-- local oplo = band(op, 255)
+-- local ext, ldrd = (oplo ~= 0), (oplo == 208)
+-- local d
+-- if (ldrd or oplo == 240) then
+--   d = band(shr(op, 12), 15)
+--   if band(d, 1) ~= 0 then werror("odd destination register") end
+-- end
+-- local pn = params[n]
+-- local p1, wb = match(pn, "^%[%s*(.-)%s*%](!?)$")
+-- local p2 = params[n+1]
+-- if not p1 then
+--   if not p2 then
+--     if match(pn, "^[<>=%-]") or match(pn, "^extern%s+") then
+-- local mode, n, s = parse_label(pn, false)
+-- waction("REL_"..mode, n + (ext and 0x1800 or 0x0800), s, 1)
+-- return op + 15 * 65536 + 0x01000000 + (ext and 0x00400000 or 0)
+--     end
+--     local reg, tailr = match(pn, "^([%w_:]+)%s*(.*)$")
+--     if reg and tailr ~= "" then
+-- local d, tp = parse_gpr(reg)
+-- if tp then
+--   waction(ext and "IMML8" or "IMML12", 32768 + 32*(ext and 8 or 12),
+--     format(tp.ctypefmt, tailr))
+--   return op + shl(d, 16) + 0x01000000 + (ext and 0x00400000 or 0)
+-- end
+--     end
+--   end
+--   werror("expected address operand")
+-- end
+-- if wb == "!" then op = op + 0x00200000 end
+-- if p2 then
+--   if wb == "!" then werror("bad use of '!'") end
+--   local p3 = params[n+2]
+--   op = op + shl(parse_gpr(p1), 16)
+--   local imm = match(p2, "^#(.*)$")
+--   if imm then
+--     local m = parse_imm_load(imm, ext)
+--     if p3 then werror("too many parameters") end
+--     op = op + m + (ext and 0x00400000 or 0)
+--   else
+--     local m, neg = parse_gpr_pm(p2)
+--     if ldrd and (m == d or m-1 == d) then werror("register conflict") end
+--     op = op + m + (neg and 0 or 0x00800000) + (ext and 0 or 0x02000000)
+--     if p3 then op = op + parse_shift(p3) end
+--   end
+-- else
+--   local p1a, p2 = match(p1, "^([^,%s]*)%s*(.*)$")
+--   op = op + shl(parse_gpr(p1a), 16) + 0x01000000
+--   if p2 ~= "" then
+--     local imm = match(p2, "^,%s*#(.*)$")
+--     if imm then
+-- local m = parse_imm_load(imm, ext)
+-- op = op + m + (ext and 0x00400000 or 0)
+--     else
+-- local p2a, p3 = match(p2, "^,%s*([^,%s]*)%s*,?%s*(.*)$")
+-- local m, neg = parse_gpr_pm(p2a)
+-- if ldrd and (m == d or m-1 == d) then werror("register conflict") end
+-- op = op + m + (neg and 0 or 0x00800000) + (ext and 0 or 0x02000000)
+-- if p3 ~= "" then
+--   if ext then werror("too many parameters") end
+--   op = op + parse_shift(p3)
+-- end
+--     end
+--   else
+--     if wb == "!" then werror("bad use of '!'") end
+--     op = op + (ext and 0x00c00000 or 0x00800000)
+--   end
+-- end
+
     elseif p == '{' then
       local newpidx = pidx
       while templatestr:sub(newpidx, newpidx) ~= '}' and newpidx <= #templatestr do
         newpidx = newpidx + 1
       end
       if templatestr:sub(newpidx, newpidx) ~= '}' then
-        werror('no matching } in definition')
+        werror('no matching ] in definition')
       end
 
-      -- TCR_LOG('} not implemented: ' .. params[n]:sub(2, -2))
       local subparams = {}
+      if params[n]:sub(1, 1) ~= '[' or params[n]:sub(-1, -1) ~= ']' then
+        werror('parameter ' .. tonumber(n) .. ' lacks brackets')
+      end
       for s in gmatch(params[n]:sub(2, -2), "[^%s,]+") do
         table.insert(subparams, s)
       end
@@ -1946,6 +2122,7 @@ map_op[".template__"] = function(params, template, nparams)
   --       pos = wpos()
   --     end
       ok, err = pcall(parse_template_new, params, t, nparams, pos)
+      TCR_LOG('error?:', t[1], err)
     --   donext = true
     -- end
     if ok then return end
