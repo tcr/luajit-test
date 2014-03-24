@@ -1473,19 +1473,20 @@ end
 local function parse_imm_load(imm, ext)
   local n = tonumber(imm)
   if n then
-    if ext then
-      if n >= -255 and n <= 255 then
-  local up = 0x00800000
-  if n < 0 then n = -n; up = 0 end
-  return shl(band(n, 0xf0), 4) + band(n, 0x0f) + up
-      end
-    else
-      if n >= -4095 and n <= 4095 then
-  if n >= 0 then return n+0x00800000 end
-  return -n
-      end
-    end
-    werror("out of range immediate `"..imm.."'")
+  --   if ext then
+  --     if n >= -255 and n <= 255 then
+  -- local up = 0x00800000
+  -- if n < 0 then n = -n; up = 0 end
+  -- return shl(band(n, 0xf0), 4) + band(n, 0x0f) + up
+  --     end
+  --   else
+  --     if n >= -4095 and n <= 4095 then
+  -- if n >= 0 then return n+0x00800000 end
+  -- return -n
+  --     end
+    -- end
+    -- werror("out of range immediate `"..imm.."'")
+      return n
   else
     waction(ext and "IMML8" or "IMML12", 32768 + shl(ext and 8 or 12, 5), imm)
     return 0
@@ -1982,21 +1983,21 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
           values['n'] = parse_gpr(p1)
           local imm = match(p2, "^#(.*)$")
           if imm then
-            local m = parse_imm_new(imm, ext)
             if p3 then werror("too many parameters") end
-              local bitlen = bits['i'] or shl(bits['f'] or 0, 2)
-              if m < 0 and not bits['U'] then
-                werror('negative immediate')
-              elseif not bits['i'] and not bits['f'] then
-                werror('immediate not supported')
-              elseif bits['f'] and m % 4 ~= 0 then
-                werror('immediate must have lowest two bits cleared')
-              elseif math.abs(m) >= math.pow(2, bitlen) then
-                werror('immediate operand larger than ' .. bitlen .. ' bits')
-              end
-              values['U'] = tonumber(m >= 0)
-              values['i'] = math.abs(m)
-              values['f'] = shr(math.abs(m), 2)
+            local m = parse_imm_load(imm, ext)
+            local bitlen = bits['i'] or shl(bits['f'] or 0, 2)
+            if m < 0 and not bits['U'] then
+              werror('negative immediate')
+            elseif not bits['i'] and not bits['f'] then
+              werror('immediate not supported')
+            elseif bits['f'] and m % 4 ~= 0 then
+              werror('immediate must have lowest two bits cleared')
+            elseif math.abs(m) >= math.pow(2, bitlen) then
+              werror('immediate operand larger than ' .. bitlen .. ' bits')
+            end
+            values['U'] = tonumber(m >= 0)
+            values['i'] = math.abs(m)
+            values['f'] = shr(math.abs(m), 2)
             -- op = op + m + (ext and 0x00400000 or 0)
           else
             local m, neg = parse_gpr_pm(p2)
@@ -2015,7 +2016,7 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
           if p2 ~= "" then
             local imm = match(p2, "^,%s*#(.*)$")
             if imm then
-              local m = parse_imm_new(imm, ext)
+              local m = parse_imm_load(imm, ext)
               local bitlen = bits['i'] or shl(bits['f'] or 0, 2)
               if m < 0 and not bits['U'] then
                 werror('negative immediate')
