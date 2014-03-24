@@ -1928,7 +1928,7 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
 
           if wb == "!" then werror("bad use of '!'") end
           local p3 = params[n+2]
-          op = op + shl(parse_gpr(p1), 16)
+          values['n'] = parse_gpr(p1)
           local imm = match(p2, "^#(.*)$")
           if imm then
             local m = parse_imm_new(imm, ext)
@@ -1942,7 +1942,7 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
               elseif math.abs(m) >= math.pow(2, bits['i']) then
                 werror('immediate operand larger than ' .. bits['i'] .. ' bits')
               end
-              values['U'] = m >= 0
+              values['U'] = tonumber(m >= 0)
               values['i'] = math.abs(m)
               values['f'] = shr(math.abs(m), 2)
             -- op = op + m + (ext and 0x00400000 or 0)
@@ -1974,7 +1974,7 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
               elseif math.abs(m) >= math.pow(2, bits['i'] or shl(bits['f'] or 0, 2)) then
                 werror('immediate operand larger than ' .. bits['i'] .. ' bits')
               end
-              values['U'] = m >= 0
+              values['U'] = tonumber(m >= 0)
               values['i'] = math.abs(m)
               values['f'] = shr(math.abs(m), 2)
             else
@@ -2143,7 +2143,7 @@ map_op[".template__"] = function(params, template, nparams)
   --       pos = wpos()
   --     end
       ok, err = pcall(parse_template_new, params, t, nparams, pos)
-      TCR_LOG('error?:', t[1], err)
+      -- TCR_LOG('error?:', t[1], err)
     --   donext = true
     -- end
     if ok then return end

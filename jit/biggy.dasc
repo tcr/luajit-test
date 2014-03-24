@@ -2,7 +2,7 @@
 |// Bytecode interpreter, fast functions and helper functions.
 |// Copyright (C) 2005-2013 Mike Pall. See Copyright Notice in luajit.h
 |
-|.arch arm
+|.arch thumb
 |.section code_op, code_sub
 |
 |.actionlist build_actionlist
