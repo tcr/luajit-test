@@ -1897,7 +1897,7 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
       n = n + 1
 
     elseif p == 'T' then
-      local i, t = parse_shift(params[n], false)
+      local i, t = parse_shift(params[n], true)
       values['i'] = i
       values['t'] = t
       n = n + 1
