@@ -1126,8 +1126,8 @@ map_op = {
   },
   ["strb.w_2"] = {
     {"tL", "111110001000nnnn", "ttttiiiiiiiiiiii"},
+    {"tL", "111110000000nnnn", "tttt1PUWiiiiiiii"},
     {"tL", "111110000000nnnn", "tttt000000iimmmm"},
-    {"tL", "111110000010nnnn", "tttt000000iimmmm"}
   },
   ["strbt_3"] = {
     {"tL", "111110000000nnnn", "tttt1110iiiiiiii"}
