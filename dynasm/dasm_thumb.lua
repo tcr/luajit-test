@@ -1167,7 +1167,7 @@ map_op = {
   },
   ["sub_2"] = {
     {"sdi", "00111dddiiiiiiii"},
-    {"spi", "101100001iiiiiii"}
+    {"sppi", "101100001fffffff"}
   },
   ["sub.w_3"] = {
     {"sdni", "11110i01101snnnn", "0iiiddddiiiiiiii"},
@@ -1288,6 +1288,21 @@ function tobitstr (num)
     return table.concat(t)
 end
 
+-- .w is an alias for most non-.w instructions
+do
+  for k,v in pairs(map_op) do
+    if k:match("[.]w_(%d+)$") then
+      local s = k:gsub("[.]w_(%d+)$", "_%1")
+      if not map_op[s] then
+        map_op[s] = {}
+      end
+      for _, i in pairs(v) do
+        table.insert(map_op[s], i)
+      end
+    end
+  end
+end
+
 -- adds conditional varants
 do
   local addt = {}
@@ -1311,21 +1326,6 @@ do
   end
   for k,v in pairs(addt) do
     map_op[k] = v
-  end
-end
-
--- .w is an alias for most non-.w instructions
-do
-  for k,v in pairs(map_op) do
-    if k:match("[.]w_(%d+)$") then
-      local s = k:gsub("[.]w_(%d+)$", "_%1")
-      if not map_op[s] then
-        map_op[s] = {}
-      end
-      for _, i in pairs(v) do
-        table.insert(map_op[s], i)
-      end
-    end
   end
 end
 
@@ -1684,7 +1684,6 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "M" then
       local imm = match(q, "^#(.*)$")
       if imm then
-        -- TCR_LOG(imm)
         op = op + shl(parse_imm12(imm), 3)
       else
         op = op + shl(parse_gpr(q), 3)
@@ -1693,17 +1692,14 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "S" then
       op = op + shl(parse_gpr(q), 8); n = n + 1
     elseif p == "i" then
-      -- TCR_LOG('--> ' .. tohex(op))
       if q == "le" then
         op = op + shl(0xD, 4); n = n + 1
-        -- TCR_LOG('--> ' .. tohex(op))
       else
         assert(false)
       end
     elseif p == "W" then
       local imm = match(q, "^#(.*)$")
       if imm then
-        -- TCR_LOG(imm)
         op = op + shl(parse_imm12(imm), 6)
       else
         op = op + shl(parse_gpr(q), 6)
@@ -1712,7 +1708,6 @@ local function parse_template(params, template, nparams, pos)
     elseif p == "w" then
       local imm = match(q, "^#(.*)$")
       if imm then
-        -- TCR_LOG(imm)
         op = op + parse_imm12(imm)
       else
         op = op + parse_gpr(q)
@@ -1720,7 +1715,6 @@ local function parse_template(params, template, nparams, pos)
       n = n + 1
     elseif p == "B" then
       local mode, n, s = parse_label(q, false)
-      -- TCR_LOG('&&&&&&& mode=' .. mode .. '  n=' .. tostring(n) .. '  s=' .. (s or ''))
       waction("REL_"..mode, n, s, 1)
     elseif p == "A" then
       n = n + 1
