@@ -1984,14 +1984,15 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
           if imm then
             local m = parse_imm_new(imm, ext)
             if p3 then werror("too many parameters") end
+              local bitlen = bits['i'] or shl(bits['f'] or 0, 2)
               if m < 0 and not bits['U'] then
                 werror('negative immediate')
               elseif not bits['i'] and not bits['f'] then
                 werror('immediate not supported')
               elseif bits['f'] and m % 4 ~= 0 then
                 werror('immediate must have lowest two bits cleared')
-              elseif math.abs(m) >= math.pow(2, bits['i']) then
-                werror('immediate operand larger than ' .. bits['i'] .. ' bits')
+              elseif math.abs(m) >= math.pow(2, bitlen) then
+                werror('immediate operand larger than ' .. bitlen .. ' bits')
               end
               values['U'] = tonumber(m >= 0)
               values['i'] = math.abs(m)
@@ -2015,14 +2016,15 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
             local imm = match(p2, "^,%s*#(.*)$")
             if imm then
               local m = parse_imm_new(imm, ext)
+              local bitlen = bits['i'] or shl(bits['f'] or 0, 2)
               if m < 0 and not bits['U'] then
                 werror('negative immediate')
               elseif not bits['i'] and not bits['f'] then
                 werror('immediate not supported')
               elseif bits['f'] and m % 4 ~= 0 then
                 werror('immediate must have lowest two bits cleared')
-              elseif math.abs(m) >= math.pow(2, bits['i'] or shl(bits['f'] or 0, 2)) then
-                werror('immediate operand larger than ' .. bits['i'] .. ' bits')
+              elseif math.abs(m) >= math.pow(2, bitlen) then
+                werror('immediate operand larger than ' .. bitlen .. ' bits')
               end
               values['U'] = tonumber(m >= 0)
               values['i'] = math.abs(m)

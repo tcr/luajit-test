@@ -1119,7 +1119,7 @@ static void build_subroutines(BuildCtx *ctx)
   |1:
   |   checktp CARG2, LJ_TNIL
   |   movne RC, #(2+1)*8
-  |   strdne CARG1, CARG2 [BASE]
+  |   strdne CARG1, CARG2, [BASE]
   |  b ->fff_res
   |2:  // Check for empty hash part first. Otherwise call C function.
   |  ldr RB, TAB:CARG1->hmask
