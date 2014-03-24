@@ -554,7 +554,7 @@ static void build_subroutines(BuildCtx *ctx)
   |   decode_RA8 RA, INS
   |  add CARG1, BASE, RC
   |  subs CARG1, CARG2, CARG1
-  |   strdne CARG34, [CARG2]
+  |   strdne CARG3, CARG4, [CARG2]
   |   movne CARG3, CARG1
   |  bne ->BC_CAT_Z
   |   strd CARG3, CARG4, [BASE, RA]

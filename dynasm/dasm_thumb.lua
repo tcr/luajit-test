@@ -601,7 +601,10 @@ end
 map_op = {
   ["adc.w_3"] = {
     {"sdni", "11110i01010snnnn", "0iiiddddiiiiiiii"},
-    {"sdnmt", "11101011010snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101011010snnnn", "0iiiddddiiTTmmmm"}
+  },
+  ["adc.w_4"] = {
+    {"sdnmT", "11101011010snnnn", "0iiiddddiiTTmmmm"}
   },
   ["adc_2"] = {
     {"sdm", "0100000101mmmddd"}
@@ -618,7 +621,10 @@ map_op = {
   },
   ["add.w_3"] = {
     {"sdni", "11110i01000snnnn", "0iiiddddiiiiiiii"},
-    {"sdnmt", "11101011000snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101011000snnnn", "0iiiddddiiTTmmmm"},
+  },
+  ["add.w_4"] = {
+    {"sdnmT", "11101011000snnnn", "0iiiddddiiTTmmmm"}
   },
   ["addw_3"] = {
     {"dni", "11110i100000nnnn", "0iiiddddiiiiiiii"}
@@ -632,7 +638,10 @@ map_op = {
   },
   ["and.w_3"] = {
     {"sdni", "11110i00000snnnn", "0iiiddddiiiiiiii"},
-    {"sdnmt", "11101010000snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101010000snnnn", "0iiiddddiiTTmmmm"}
+  },
+  ["and.w_4"] = {
+    {"sdnmT", "11101010000snnnn", "0iiiddddiiTTmmmm"}
   },
   ["and_2"] = {
     {"sdm", "0100000000mmmddd"}
@@ -665,7 +674,10 @@ map_op = {
   },
   ["bic.w_3"] = {
     {"sdni", "11110i00001snnnn", "0iiiddddiiiiiiii"},
-    {"sdnmt", "11101010001snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101010001snnnn", "0iiiddddiiTTmmmm"}
+  },
+  ["bic.w_4"] = {
+    {"sdnmT", "11101010001snnnn", "0iiiddddiiTTmmmm"}
   },
   ["bic_2"] = {
     {"sdm", "0100001110mmmddd"}
@@ -680,14 +692,14 @@ map_op = {
     {"m", "010001110mmmmooo"}
   },
   ["bl_1"] = {
-    {"si", "11110siiiiiiiiii", "11j1kiiiiiiiiiii"}
+    {"sB", "11110siiiiiiiiii", "11J1Kiiiiiiiiiii"}
   },
   ["cbz_2"] = {
     {"ni", "1011o0i1iiiiinnn"}
   },
-  ["cdp_6"] = {
-    {"CoCdCnCm{O}", "111t1110oooonnnn", "ddddCCCCOOO0mmmm"}
-  },
+  -- ["cdp_6"] = {
+  --   {"CoCdCnCm{O}", "111t1110oooonnnn", "ddddCCCCOOO0mmmm"}
+  -- },
   ["clrex_0"] = {
     {"", "1111001110111111", "1000111100101111"}
   },
@@ -696,7 +708,10 @@ map_op = {
   },
   ["cmn.w_2"] = {
     {"ni", "11110i010001nnnn", "0iii1111iiiiiiii"},
-    {"nmt", "111010110001nnnn", "0iii1111iittmmmm"}
+    {"nmT", "111010110001nnnn", "0iii1111iiTTmmmm"}
+  },
+  ["cmn.w_3"] = {
+    {"nmT", "111010110001nnnn", "0iii1111iiTTmmmm"}
   },
   ["cmn_2"] = {
     {"nm", "0100001011mmmnnn"}
@@ -708,7 +723,10 @@ map_op = {
   },
   ["cmp.w_2"] = {
     {"ni", "11110i011011nnnn", "0iii1111iiiiiiii"},
-    {"nmt", "111010111011nnnn", "0iii1111iittmmmm"}
+    {"nmT", "111010111011nnnn", "0iii1111iiTTmmmm"}
+  },
+  ["cmp.w_3"] = {
+    {"nmT", "111010111011nnnn", "0iii1111iiTTmmmm"}
   },
   ["dbg_1"] = {
     {"h", "1111001110101111", "100000001111hhhh"}
@@ -721,7 +739,10 @@ map_op = {
   },
   ["eor.w_3"] = {
     {"sdni", "11110i00100snnnn", "0iiiddddiiiiiiii"},
-    {"sdnmt", "11101010100snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101010100snnnn", "0iiiddddiiTTmmmm"}
+  },
+  ["eor.w_4"] = {
+    {"sdnmT", "11101010100snnnn", "0iiiddddiiTTmmmm"}
   },
   ["eor_2"] = {
     {"sdm", "0100000001mmmddd"}
@@ -741,18 +762,18 @@ map_op = {
   },
 
 
-  ["ldc_4"] = {
-    {"CCd{n}{i}", "111t110puDw1nnnn", "ddddCCCCiiiiiiii"}
-  },
+  -- ["ldc_4"] = {
+  --   {"CCd{n}{i}", "111t110puDw1nnnn", "ddddCCCCiiiiiiii"}
+  -- },
   ["ldm_2"] = {
     {"nr", "11001nnnrrrrrrrr"}
   },
-  ["ldm.w_2"] = {
-    {"n<Hw:!>r", "1110100010w1nnnn", "rrrrrrrrrrrrrrrr"}
-  },
-  ["ldmdb_2"] = {
-    {"n<Hw:!>r", "1110100100w1nnnn", "rrrrrrrrrrrrrrrr"}
-  },
+  -- ["ldm.w_2"] = {
+  --   {"n<Hw:!>r", "1110100010w1nnnn", "rrrrrrrrrrrrrrrr"}
+  -- },
+  -- ["ldmdb_2"] = {
+  --   {"n<Hw:!>r", "1110100100w1nnnn", "rrrrrrrrrrrrrrrr"}
+  -- },
 
   ["ldr_2"] = {
     {"tL", "01101fffffnnnttt"},
@@ -883,18 +904,18 @@ map_op = {
   ["lsr_2"] = {
     {"sdm", "0100000011mmmddd"}
   },
-  ["mcr_6"] = {
-    {"CotCnCm{p}", "11101110ooo0nnnn", "ttttCCCCppp1mmmm"}
-  },
-  ["mcr2_6"] = {
-    {"CotCnCm{p}", "11111110ooo0nnnn", "ttttCCCCppp1mmmm"}
-  },
-  ["mcrr_5"] = {
-    {"cotucm", "111011000100uuuu", "ttttccccoooommmm"}
-  },
-  ["mcrr2_5"] = {
-    {"cotucm", "111111000100uuuu", "ttttccccoooommmm"}
-  },
+  -- ["mcr_6"] = {
+  --   {"CotCnCm{p}", "11101110ooo0nnnn", "ttttCCCCppp1mmmm"}
+  -- },
+  -- ["mcr2_6"] = {
+  --   {"CotCnCm{p}", "11111110ooo0nnnn", "ttttCCCCppp1mmmm"}
+  -- },
+  -- ["mcrr_5"] = {
+  --   {"cotucm", "111011000100uuuu", "ttttccccoooommmm"}
+  -- },
+  -- ["mcrr2_5"] = {
+  --   {"cotucm", "111111000100uuuu", "ttttccccoooommmm"}
+  -- },
   ["mla_4"] = {
     {"dnma", "111110110000nnnn", "aaaadddd0000mmmm"}
   },
@@ -915,18 +936,18 @@ map_op = {
   ["movt_2"] = {
     {"di", "11110i101100kkkk", "0iiiddddiiiiiiii"}
   },
-  ["mrc_6"] = {
-    {"CotCnCm{p}", "11101110ooo1nnnn", "ttttCCCCppp1mmmm"}
-  },
-  ["mrc2_6"] = {
-    {"CotCnCm{p}", "11111110ooo1nnnn", "ttttCCCCppp1mmmm"}
-  },
-  ["mrrc_5"] = {
-    {"CotuCm", "111011000101uuuu", "ttttccccoooommmm"}
-  },
-  ["mrrc2_5"] = {
-    {"CotuCm", "111111000101uuuu", "ttttCCCCoooommmm"}
-  },
+  -- ["mrc_6"] = {
+  --   {"CotCnCm{p}", "11101110ooo1nnnn", "ttttCCCCppp1mmmm"}
+  -- },
+  -- ["mrc2_6"] = {
+  --   {"CotCnCm{p}", "11111110ooo1nnnn", "ttttCCCCppp1mmmm"}
+  -- },
+  -- ["mrrc_5"] = {
+  --   {"CotuCm", "111011000101uuuu", "ttttccccoooommmm"}
+  -- },
+  -- ["mrrc2_5"] = {
+  --   {"CotuCm", "111111000101uuuu", "ttttCCCCoooommmm"}
+  -- },
   ["mrs_2"] = {
     {"dz", "1111001111101111", "1000ddddssssssss"}
   },
@@ -941,7 +962,10 @@ map_op = {
   },
   ["mvn.w_2"] = {
     {"sdi", "11110i00011s1111", "0iiiddddiiiiiiii"},
-    {"sdmt", "11101010011s1111", "0iiiddddiittmmmm"}
+    {"sdmT", "11101010011s1111", "0iiiddddiiTTmmmm"}
+  },
+  ["mvn.w_3"] = {
+    {"sdmT", "11101010011s1111", "0iiiddddiiTTmmmm"}
   },
   ["mvn_2"] = {
     {"sdm", "0100001111mmmddd"}
@@ -951,11 +975,17 @@ map_op = {
   },
   ["orn_3"] = {
     {"sdni", "11110i00011snnnn", "0iiiddddiiiiiiii"},
-    {"sdnmt", "11101010011snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101010011snnnn", "0iiiddddiiTTmmmm"}
+  },
+  ["orn_4"] = {
+    {"sdnmT", "11101010011snnnn", "0iiiddddiiTTmmmm"}
   },
   ["orr.w_3"] = {
     {"sdni", "11110i00010snnnn", "0iiiddddiiiiiiii"},
-    {"sdnmt", "11101010010snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101010010snnnn", "0iiiddddiiTTmmmm"}
+  },
+  ["orr.w_4"] = {
+    {"sdnmT", "11101010010snnnn", "0iiiddddiiTTmmmm"}
   },
   ["orr_2"] = {
     {"sdm", "0100001100mmmddd"}
@@ -1023,14 +1053,20 @@ map_op = {
   },
   ["rsb_3"] = {
     {"sdn0", "0100001001nnnddd"},
-    {"sdnmt", "11101011110snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101011110snnnn", "0iiiddddiiTTmmmm"}
+  },
+  ["rsb_4"] = {
+    {"sdnmT", "11101011110snnnn", "0iiiddddiiTTmmmm"}
   },
   ["rsb.w_3"] = {
     {"sdni", "11110i01110snnnn", "0iiiddddiiiiiiii"}
   },
   ["sbc.w_3"] = {
     {"sdni", "11110i01011snnnn", "0iiiddddiiiiiiii"},
-    {"sdnmt", "11101011011snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101011011snnnn", "0iiiddddiiTTmmmm"}
+  },
+  ["sbc.w_4"] = {
+    {"sdnmT", "11101011011snnnn", "0iiiddddiiTTmmmm"}
   },
   ["sbc_2"] = {
     {"sdm", "0100000110mmmddd"}
@@ -1059,15 +1095,15 @@ map_op = {
   ["stc2_4"] = {
     {"CCd{n}{i}", "1111110puNw0nnnn", "ddddCCCCiiiiiiii"}
   },
-  ["stm_2"] = {
-    {"n!{r}", "11000nnnrrrrrrrr"}
-  },
-  ["stm.w_2"] = {
-    {"n<Hw:!>{r}", "1110100010w0nnnn", "rrrrrrrrrrrrrrrr"}
-  },
-  ["stmdb_2"] = {
-    {"n<Hw:!>{r}", "1110100100w0nnnn", "rrrrrrrrrrrrrrrr"}
-  },
+  -- ["stm_2"] = {
+  --   {"n!{r}", "11000nnnrrrrrrrr"}
+  -- },
+  -- ["stm.w_2"] = {
+  --   {"n<Hw:!>{r}", "1110100010w0nnnn", "rrrrrrrrrrrrrrrr"}
+  -- },
+  -- ["stmdb_2"] = {
+  --   {"n<Hw:!>{r}", "1110100100w0nnnn", "rrrrrrrrrrrrrrrr"}
+  -- },
   ["str_2"] = {
     {"tL", "01100iiiiinnnttt"},
     {"tL", "10010tttiiiiiiii"},
@@ -1135,7 +1171,10 @@ map_op = {
   },
   ["sub.w_3"] = {
     {"sdni", "11110i01101snnnn", "0iiiddddiiiiiiii"},
-    {"sdnmt", "11101011101snnnn", "0iiiddddiittmmmm"}
+    {"sdnmT", "11101011101snnnn", "0iiiddddiiTTmmmm"}
+  },
+  ["sub.w_4"] = {
+    {"sdnmT", "11101011101snnnn", "0iiiddddiiTTmmmm"}
   },
   ["subw_3"] = {
     {"dni", "11110i101010nnnn", "0iiiddddiiiiiiii"}
@@ -1157,7 +1196,10 @@ map_op = {
   },
   ["teq_2"] = {
     {"ni", "11110i001001nnnn", "0iii1111iiiiiiii"},
-    {"nmt", "111010101001nnnn", "0iii1111iittmmmm"}
+    {"nmT", "111010101001nnnn", "0iii1111iiTTmmmm"}
+  },
+  ["teq_3"] = {
+    {"nmT", "111010101001nnnn", "0iii1111iiTTmmmm"}
   },
   -- TODO
   -- ["tb_4"] = {
@@ -1165,7 +1207,10 @@ map_op = {
   -- },
   ["tst.w_2"] = {
     {"ni", "11110i000001nnnn", "0iii1111iiiiiiii"},
-    {"nmt", "111010100001nnnn", "0iii1111iittmmmm"}
+    {"nmT", "111010100001nnnn", "0iii1111iiTTmmmm"}
+  },
+  ["tst.w_3"] = {
+    {"nmT", "111010100001nnnn", "0iii1111iiTTmmmm"}
   },
   ["tst_2"] = {
     {"nm", "0100001000mmmnnn"}
@@ -1455,10 +1500,10 @@ local function parse_shift(shift, gprok)
     s = map_shift[s]
     if not s then werror("expected shift operand") end
     if sub(s2, 1, 1) == "#" then
-      return parse_imm(s2, 5, 7, 0, false) + shl(s, 5)
+      return parse_imm(s2, 5, 0, 0, false), s
     else
       if not gprok then werror("expected immediate shift operand") end
-      return shl(parse_gpr(s2), 8) + shl(s, 5) + 16
+      return parse_gpr(s2), s
     end
   end
 end
@@ -1851,10 +1896,16 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
       values[p] = parse_gpr(params[n])
       n = n + 1
 
+    elseif p == 'T' then
+      local i, t = parse_shift(params[n], false)
+      values['i'] = i
+      values['t'] = t
+      n = n + 1
+
     elseif p == "B" then
       local mode, n2, s = parse_label(params[n], false)
       waction("REL_"..mode, n2, s, 1)
-      values['u'] = n2 >= 10 and 1 or 0
+      values['u'] = tonumber(n2 >= 10)
       n = n + 1
 
     elseif p == 'c' then
