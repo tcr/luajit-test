@@ -745,13 +745,13 @@ map_op = {
     {"CCd{n}{i}", "111t110puDw1nnnn", "ddddCCCCiiiiiiii"}
   },
   ["ldm_2"] = {
-    {"n{r}", "11001nnnrrrrrrrr"}
+    {"nr", "11001nnnrrrrrrrr"}
   },
   ["ldm.w_2"] = {
-    {"n<Hw:!>{r}", "1110100010w1nnnn", "rrrrrrrrrrrrrrrr"}
+    {"n<Hw:!>r", "1110100010w1nnnn", "rrrrrrrrrrrrrrrr"}
   },
   ["ldmdb_2"] = {
-    {"n<Hw:!>{r}", "1110100100w1nnnn", "rrrrrrrrrrrrrrrr"}
+    {"n<Hw:!>r", "1110100100w1nnnn", "rrrrrrrrrrrrrrrr"}
   },
 
   ["ldr_2"] = {
@@ -768,83 +768,100 @@ map_op = {
     {"tB",  "11111000u1011111", "ttttiiiiiiiiiiii"},
   },
   ["ldr.w_3"] = {
-    {"t{n}i", "111110000101nnnn", "tttt10u1iiiiiiii"},
+    {"tL",  "111110000101nnnn", "tttt1PUWiiiiiiii"},
   },
-  ["ldrb_3"] = {
-    {"t{ni}", "01111iiiiinnnttt"},
-    {"t{nm}", "0101110mmmnnnttt"}
+  ["ldrb_2"] = {
+    {"tL", "01111iiiiinnnttt"},
+    {"tL", "0101110mmmnnnttt"},
   },
   ["ldrb.w_3"] = {
-    {"t{ni}", "111110001001nnnn", "ttttiiiiiiiiiiii"},
-    {"t{n}i", "111110000001nnnn", "tttt1puwiiiiiiii"},
-    {"t{nma}", "111110000001nnnn", "tttt000000iimmmm"}
+    {"tL", "111110000001nnnn", "tttt1PUWiiiiiiii"},
+    {"tL", "111110000001nnnn", "tttt000000iimmmm"}
   },
   ["ldrb.w_2"] = {
+    {"tL", "111110000001nnnn", "tttt1PUWiiiiiiii"},
+    {"tL", "111110001001nnnn", "ttttiiiiiiiiiiii"},
     {"tB", "11111000u0011111", "ttttiiiiiiiiiiii"}
   },
-  ["ldrbt_3"] = {
-    {"t{ni}", "111110000001nnnn", "tttt1110iiiiiiii"}
+  ["ldrbt_2"] = {
+    {"tL", "111110000001nnnn", "tttt1110iiiiiiii"}
   },
-  ["ldrex_3"] = {
-    {"t{ni}", "111010000101nnnn", "tttt1111iiiiiiii"}
+  ["ldrex_2"] = {
+    {"tL", "111010000101nnnn", "tttt1111iiiiiiii"}
   },
   ["ldrexb_2"] = {
-    {"t{n}", "111010001101nnnn", "tttt111101001111"}
+    {"tL", "111010001101nnnn", "tttt111101001111"}
   },
   ["ldrexh_2"] = {
-    {"t{n}", "111010001101nnnn", "tttt111101011111"}
+    {"tL",   "111010001101nnnn", "tttt111101011111"}
   },
   ["ldrd_4"] = {
-    {"td{n}i", "1110100pu1w1nnnn", "ttttddddiiiiiiii"}
+    {"tdL",  "1110100PU1W1nnnn", "ttttddddffffffff"}
   },
   ["ldrd_3"] = {
-    {"tdB", "1110100pu1w11111", "ttttddddiiiiiiii"}
+    {"tdLi", "1110100PU1W1nnnn", "ttttddddffffffff"},
+    {"tdB",  "1110100PU1W11111", "ttttddddiiiiiiii"}
+  },
+  ["ldrh_2"] = {
+    {"tL", "10001iiiiinnnttt"},
+    {"tL", "0101101mmmnnnttt"}
   },
   ["ldrh_3"] = {
-    {"t{ni}", "10001iiiiinnnttt"},
-    {"t{nm}", "0101101mmmnnnttt"}
+    {"tL", "10001iiiiinnnttt"},
+    {"tL", "0101101mmmnnnttt"}
   },
   ["ldrh.w_3"] = {
-    {"t{ni}", "111110001011nnnn", "ttttiiiiiiiiiiii"},
-    {"t{n}i", "111110000011nnnn", "tttt1puwiiiiiiii"},
-    {"t{nma}", "111110000011nnnn", "tttt000000iimmmm"}
+    {"tL", "111110001011nnnn", "ttttiiiiiiiiiiii"},
+    {"tL", "111110000011nnnn", "tttt1PUWiiiiiiii"},
+    {"tL", "111110000011nnnn", "tttt000000iimmmm"}
   },
   ["ldrh.w_2"] = {
-    {"tB", "11111000u0111111", "ttttiiiiiiiiiiii"}
+    {"tL", "111110001011nnnn", "ttttiiiiiiiiiiii"},
+    {"tL", "111110000011nnnn", "tttt1PUWiiiiiiii"},
+    {"tL", "111110000011nnnn", "tttt000000iimmmm"},
+    {"tB", "11111000u0111111", "ttttiiiiiiiiiiii"},
+  },
+  ["ldrht_2"] = {
+    {"tL", "111110000011nnnn", "tttt1110iiiiiiii"}
   },
   ["ldrht_3"] = {
-    {"t{ni}", "111110000011nnnn", "tttt1110iiiiiiii"}
+    {"tL", "111110000011nnnn", "tttt1110iiiiiiii"}
   },
   ["ldrsb.w_3"] = {
-    {"t{ni}", "111110011001nnnn", "ttttiiiiiiiiiiii"},
-    {"t{n}i", "111110010001nnnn", "tttt1puwiiiiiiii"},
-    {"t{nma}", "111110010001nnnn", "tttt000000iimmmm"}
+    {"tL", "111110011001nnnn", "ttttiiiiiiiiiiii"},
+    {"tL", "111110010001nnnn", "tttt1PUWiiiiiiii"},
+    {"tL", "111110010001nnnn", "tttt000000iimmmm"}
   },
   ["ldrsb.w_2"] = {
+    {"tL", "111110010001nnnn", "tttt1PUWiiiiiiii"},
     {"tB", "11111001u0011111", "ttttiiiiiiiiiiii"}
   },
   ["ldrsb_3"] = {
-    {"t{nm}", "0101011mmmnnnttt"}
+    {"tL", "0101011mmmnnnttt"}
   },
   ["ldrsbt_3"] = {
-    {"t{ni}", "111110010001nnnn", "tttt1110iiiiiiii"}
+    {"tL", "111110010001nnnn", "tttt1110iiiiiiii"}
   },
   ["ldrsh.w_3"] = {
-    {"t{ni}", "111110011011nnnn", "ttttiiiiiiiiiiii"},
-    {"t{n}i", "111110010011nnnn", "tttt1puwiiiiiiii"},
-    {"t{nma}", "111110010011nnnn", "tttt000000iimmmm"}
+    {"tL", "111110010011nnnn", "tttt1PUWiiiiiiii"},
   },
   ["ldrsh.w_2"] = {
-    {"tB", "11111001u0111111", "ttttiiiiiiiiiiii"}
+    {"tL", "111110011011nnnn", "ttttiiiiiiiiiiii"},
+    {"tL", "111110010011nnnn", "tttt1PUWiiiiiiii"},
+    {"tL", "111110010011nnnn", "tttt000000iimmmm"},
+    {"tB", "11111001u0111111", "ttttiiiiiiiiiiii"},
   },
   ["ldrsh_3"] = {
-    {"t{nm}", "0101111mmmnnnttt"}
+    {"tL", "0101111mmmnnnttt"}
+  },
+  ["ldrsht_2"] = {
+    {"tL", "111110010011nnnn", "tttt1110iiiiiiii"}
   },
   ["ldrsht_3"] = {
-    {"t{ni}", "111110010011nnnn", "tttt1110iiiiiiii"}
+    {"tL", "111110010011nnnn", "tttt1110iiiiiiii"}
   },
-  ["ldrt_3"] = {
-    {"t{ni}", "111110000101nnnn", "tttt1110iiiiiiii"}
+  ["ldrt_2"] = {
+    {"tL", "111110000101nnnn", "tttt1110iiiiiiii"}
   },
   ["lsl_3"] = {
     {"sdmi", "00000iiiiimmmddd"}
@@ -943,22 +960,22 @@ map_op = {
   ["orr_2"] = {
     {"sdm", "0100001100mmmddd"}
   },
-  ["pld_2"] = {
-    {"{ni}", "111110001001nnnn", "1111iiiiiiiiiiii"},
-    {"{ni}", "111110000001nnnn", "11111100iiiiiiii"},
-    {"{nmt}", "111110000001nnnn", "1111000000ssmmmm"}
-  },
-  ["pld_1"] = {
-    {"B", "11111000u0011111", "1111iiiiiiiiiiii"}
-  },
-  ["pli_2"] = {
-    {"{ni}", "111110011001nnnn", "1111iiiiiiiiiiii"},
-    {"{ni}", "111110010001nnnn", "11111100iiiiiiii"},
-    {"{nmt}", "111110010001nnnn", "1111000000ssmmmm"}
-  },
-  ["pli_1"] = {
-    {"B", "11111001u0011111", "1111iiiiiiiiiiii"}
-  },
+  -- ["pld_2"] = {
+  --   {"{ni}", "111110001001nnnn", "1111iiiiiiiiiiii"},
+  --   {"{ni}", "111110000001nnnn", "11111100iiiiiiii"},
+  --   {"{nmt}", "111110000001nnnn", "1111000000ssmmmm"}
+  -- },
+  -- ["pld_1"] = {
+  --   {"B", "11111000u0011111", "1111iiiiiiiiiiii"}
+  -- },
+  -- ["pli_2"] = {
+  --   {"{ni}", "111110011001nnnn", "1111iiiiiiiiiiii"},
+  --   {"{ni}", "111110010001nnnn", "11111100iiiiiiii"},
+  --   {"{nmt}", "111110010001nnnn", "1111000000ssmmmm"}
+  -- },
+  -- ["pli_1"] = {
+  --   {"B", "11111001u0011111", "1111iiiiiiiiiiii"}
+  -- },
   ["pop_1"] = {
     {"r", "1011110prrrrrrrr"}
   },
@@ -1052,63 +1069,61 @@ map_op = {
     {"n<Hw:!>{r}", "1110100100w0nnnn", "rrrrrrrrrrrrrrrr"}
   },
   ["str_2"] = {
-    {"t{ni}", "01100iiiiinnnttt"},
-    {"t{pi}", "10010tttiiiiiiii"},
-    {"t{nm}", "0101000mmmnnnttt"}
+    {"tL", "01100iiiiinnnttt"},
+    {"tL", "10010tttiiiiiiii"},
+    {"tL", "0101000mmmnnnttt"}
   },
   ["str.w_2"] = {
-    {"t{ni}", "111110001100nnnn", "ttttiiiiiiiiiiii"},
-    {"t{nU}", "111110000100nnnn", "tttt11U0iiiiiiii"},
-    {"t{nU}!", "111110000100nnnn", "tttt11U1iiiiiiii"},
-    {"t{nma}", "111110000100nnnn", "tttt000000iimmmm"}
+    {"tL", "111110001100nnnn", "ttttiiiiiiiiiiii"},
+    {"tL", "111110000100nnnn", "tttt1PUWiiiiiiii"},
+    {"tL", "111110000100nnnn", "tttt000000iimmmm"}
   },
   ["str.w_3"] = {
-    {"t{n}U", "111110000100nnnn", "tttt10U1iiiiiiii"},
+    {"tL", "111110000100nnnn", "tttt1PUWiiiiiiii"},
   },
   ["strb_2"] = {
-    {"t{ni}", "01110iiiiinnnttt"},
-    {"t{nm}", "0101010mmmnnnttt"}
+    {"tL", "01110iiiiinnnttt"},
+    {"tL", "0101010mmmnnnttt"}
   },
   ["strb.w_3"] = {
-    {"t{n}i", "111110000000nnnn", "tttt1puwiiiiiiii"},
+    {"tL", "111110000000nnnn", "tttt1PUWiiiiiiii"},
   },
   ["strb.w_2"] = {
-    {"t{ni}", "111110001000nnnn", "ttttiiiiiiiiiiii"},
-    {"t{nma}", "111110000000nnnn", "tttt000000iimmmm"},
-    {"t{nma}", "111110000010nnnn", "tttt000000iimmmm"}
+    {"tL", "111110001000nnnn", "ttttiiiiiiiiiiii"},
+    {"tL", "111110000000nnnn", "tttt000000iimmmm"},
+    {"tL", "111110000010nnnn", "tttt000000iimmmm"}
   },
   ["strbt_3"] = {
-    {"t{ni}", "111110000000nnnn", "tttt1110iiiiiiii"}
+    {"tL", "111110000000nnnn", "tttt1110iiiiiiii"}
   },
-  ["strex_4"] = {
-    {"dt{ni}", "111010000100nnnn", "ttttddddiiiiiiii"}
+  ["strex_3"] = {
+    {"dtL", "111010000100nnnn", "ttttddddiiiiiiii"}
   },
   ["strexb_3"] = {
-    {"dt{n}", "111010001100nnnn", "tttt11110100dddd"}
+    {"dtL", "111010001100nnnn", "tttt11110100dddd"}
   },
   ["strexh_3"] = {
-    {"dt{n}", "111010001100nnnn", "tttt11110101dddd"}
+    {"dtL", "111010001100nnnn", "tttt11110101dddd"}
   },
   ["strd_3"] = {
-    {"td{nU}", "11101001U100nnnn", "ttttddddiiiiiiii"},
-    {"td{nU}!", "11101001U110nnnn", "ttttddddiiiiiiii"},
+    {"tdL", "1110100PU1W0nnnn", "ttttddddiiiiiiii"},
   },
   ["strd_4"] = {
-    {"td{n}U", "11101000U110nnnn", "ttttddddiiiiiiii"},
+    {"tdL", "1110100PU1W0nnnn", "ttttddddiiiiiiii"},
   },
   ["strh_3"] = {
-    {"t{ni}", "10000iiiiinnnttt"},
-    {"t{nm}", "0101001mmmnnnttt"}
+    {"tL", "10000iiiiinnnttt"},
+    {"tL", "0101001mmmnnnttt"}
   },
   ["strh.w_3"] = {
-    {"t{ni}", "111110001010nnnn", "ttttiiiiiiiiiiii"},
-    {"t{n}i", "111110000010nnnn", "tttt1puwiiiiiiii"}
+    {"tL", "111110001010nnnn", "ttttiiiiiiiiiiii"},
+    {"tL", "111110000010nnnn", "tttt1PUWiiiiiiii"}
   },
   ["strht_3"] = {
-    {"t{ni}", "111110000010nnnn", "tttt1110iiiiiiii"}
+    {"tL", "111110000010nnnn", "tttt1110iiiiiiii"}
   },
   ["strt_3"] = {
-    {"t{ni}", "111110000100nnnn", "tttt1110iiiiiiii"}
+    {"tL", "111110000100nnnn", "tttt1110iiiiiiii"}
   },
   ["sub_3"] = {
     {"sdni", "0001111iiinnnddd"},
@@ -1904,6 +1919,8 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
           format(tp.ctypefmt, tailr))
           -- op = op + shl(d, 16) + 0x01000000 + (ext and 0x00400000 or 0)
         end
+
+        n = n + 1
       else
         if p2 then
           values['P'] = 0
@@ -1936,6 +1953,8 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
             -- op = op + m + (neg and 0 or 0x00800000) + (ext and 0 or 0x02000000)
             -- if p3 then op = op + parse_shift(p3) end
           end
+
+          n = n + 2
         else
           values['P'] = 1
           values['W'] = tonumber(wb == "!")
@@ -1975,6 +1994,8 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
             values['U'] = 1
             values['i'] = 0
           end
+
+          n = n + 1
         end
       end
 
