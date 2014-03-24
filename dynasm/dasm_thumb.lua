@@ -1998,11 +1998,10 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
               values['f'] = shr(math.abs(m), 2)
             -- op = op + m + (ext and 0x00400000 or 0)
           else
-            werror('todo')
-            -- local m, neg = parse_gpr_pm(p2)
+            local m, neg = parse_gpr_pm(p2)
+            values['U'] = tonumber(not neg)
+            if p3 then values['i'] = parse_shift(p3) end
             -- if ldrd and (m == d or m-1 == d) then werror("register conflict") end
-            -- op = op + m + (neg and 0 or 0x00800000) + (ext and 0 or 0x02000000)
-            -- if p3 then op = op + parse_shift(p3) end
           end
 
           n = n + 2
@@ -2029,15 +2028,14 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
               values['i'] = math.abs(m)
               values['f'] = shr(math.abs(m), 2)
             else
-              werror('not sure yet...')
-              -- local p2a, p3 = match(p2, "^,%s*([^,%s]*)%s*,?%s*(.*)$")
-              -- local m, neg = parse_gpr_pm(p2a)
+              local p2a, p3 = match(p2, "^,%s*([^,%s]*)%s*,?%s*(.*)$")
+              local m, neg = parse_gpr_pm(p2a)
               -- if ldrd and (m == d or m-1 == d) then werror("register conflict") end
-              -- op = op + m + (neg and 0 or 0x00800000) + (ext and 0 or 0x02000000)
-              -- if p3 ~= "" then
-              --   if ext then werror("too many parameters") end
-              --   op = op + parse_shift(p3)
-              -- end
+              values['U'] = tonumber(not neg)
+              if p3 ~= "" then
+                if ext then werror("too many parameters") end
+                values['i'] = parse_shift(p3)
+              end
             end
           else
             if wb == "!" then werror("bad use of '!'") end
