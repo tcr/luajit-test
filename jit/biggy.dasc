@@ -3142,7 +3142,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     break;
   case BC_KSHORT:
     |  // RA = dst*8, (RC = int16_literal)
-    |  mov CARG1, INS, asr #16			// Refetch sign-extended reg.
+    |  asrs CARG1, INS, #16  			// Refetch sign-extended reg.
     |  mvn CARG2, #~LJ_TISNUM
     |   ins_next1
     |   ins_next2
