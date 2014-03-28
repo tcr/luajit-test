@@ -250,6 +250,7 @@ __asm__ (
 	"sub r0, r0, #8\n\t"
 	"add r1, r2, r3, lsl #2\n\t"
 	"sub r0, r2, #0x20000\n\t"
+	"sub r6, r11, #0x20000\n\t"
 ), {
 	| add.w r2, r3, #1
 	| add.w r2, r3, r4
@@ -261,6 +262,7 @@ __asm__ (
 	| subs r0, r1, #2
 	| sub r0, r0, #8
 	| add r1, r2, r3, lsl #2
+	| sub r0, r2, #0x20000
 	| sub r6, r11, #0x20000
 })
 

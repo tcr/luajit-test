@@ -600,7 +600,7 @@ end
 
 map_op = {
   ["adc.w_3"] = {
-    {"sdni", "11110i01010snnnn", "0iiiddddiiiiiiii"},
+    {"sdni", "11110H01010snnnn", "0HHHddddHHHHHHHH"},
     {"sdnmT", "11101011010snnnn", "0iiiddddiiTTmmmm"}
   },
   ["adc.w_4"] = {
@@ -620,24 +620,24 @@ map_op = {
     {"spi", "101100000iiiiiii"}
   },
   ["add.w_3"] = {
-    {"sdni", "11110i01000snnnn", "0iiiddddiiiiiiii"},
+    {"sdni", "11110H01000snnnn", "0HHHddddHHHHHHHH"},
     {"sdnmT", "11101011000snnnn", "0iiiddddiiTTmmmm"},
   },
   ["add.w_4"] = {
     {"sdnmT", "11101011000snnnn", "0iiiddddiiTTmmmm"}
   },
   ["addw_3"] = {
-    {"dni", "11110i100000nnnn", "0iiiddddiiiiiiii"}
+    {"dni", "11110H100000nnnn", "0HHHddddHHHHHHHH"}
   },
   ["adr_2"] = {
     {"dB", "10100dddiiiiiiii"}
   },
   ["adr.w_2"] = {
-    {"dB", "11110i1010101111", "0iiiddddiiiiiiii"},
-    {"dB", "11110i1000001111", "0iiiddddiiiiiiii"}
+    {"dB", "11110H1010101111", "0HHHddddHHHHHHHH"},
+    {"dB", "11110H1000001111", "0HHHddddHHHHHHHH"}
   },
   ["and.w_3"] = {
-    {"sdni", "11110i00000snnnn", "0iiiddddiiiiiiii"},
+    {"sdni", "11110H00000snnnn", "0HHHddddHHHHHHHH"},
     {"sdnmT", "11101010000snnnn", "0iiiddddiiTTmmmm"}
   },
   ["and.w_4"] = {
@@ -673,7 +673,7 @@ map_op = {
     {"dnim", "111100110110nnnn", "0iiiddddii0mmmmm"}
   },
   ["bic.w_3"] = {
-    {"sdni", "11110i00001snnnn", "0iiiddddiiiiiiii"},
+    {"sdni", "11110H00001snnnn", "0HHHddddHHHHHHHH"},
     {"sdnmT", "11101010001snnnn", "0iiiddddiiTTmmmm"}
   },
   ["bic.w_4"] = {
@@ -707,7 +707,7 @@ map_op = {
     {"dm", "111110101011mmmm", "1111dddd1000xxxx"}
   },
   ["cmn.w_2"] = {
-    {"ni", "11110i010001nnnn", "0iii1111iiiiiiii"},
+    {"ni", "11110H010001nnnn", "0HHH1111HHHHHHHH"},
     {"nmT", "111010110001nnnn", "0iii1111iiTTmmmm"}
   },
   ["cmn.w_3"] = {
@@ -722,7 +722,7 @@ map_op = {
     {"nm", "01000101nmmmmnnn"}
   },
   ["cmp.w_2"] = {
-    {"ni", "11110i011011nnnn", "0iii1111iiiiiiii"},
+    {"ni", "11110H011011nnnn", "0HHH1111HHHHHHHH"},
     {"nmT", "111010111011nnnn", "0iii1111iiTTmmmm"}
   },
   ["cmp.w_3"] = {
@@ -738,7 +738,7 @@ map_op = {
     {"y", "1111001110111111", "100011110100oooo"}
   },
   ["eor.w_3"] = {
-    {"sdni", "11110i00100snnnn", "0iiiddddiiiiiiii"},
+    {"sdni", "11110H00100snnnn", "0HHHddddHHHHHHHH"},
     {"sdnmT", "11101010100snnnn", "0iiiddddiiTTmmmm"}
   },
   ["eor.w_4"] = {
@@ -927,14 +927,14 @@ map_op = {
     {"sdm", "01000110dmmmmddd"}
   },
   ["mov.w_2"] = {
-    {"sdi", "11110i00010s1111", "0iiiddddiiiiiiii"},
+    {"sdi", "11110H00010s1111", "0HHHddddHHHHHHHH"},
     {"sdm", "11101010010s1111", "0000dddd0000mmmm"}
   },
   ["movw_2"] = {
-    {"di", "11110i100100kkkk", "0iiiddddiiiiiiii"}
+    {"di", "11110H100100kkkk", "0HHHddddHHHHHHHH"}
   },
   ["movt_2"] = {
-    {"di", "11110i101100kkkk", "0iiiddddiiiiiiii"}
+    {"di", "11110H101100kkkk", "0HHHddddHHHHHHHH"}
   },
   -- ["mrc_6"] = {
   --   {"CotCnCm{p}", "11101110ooo1nnnn", "ttttCCCCppp1mmmm"}
@@ -961,7 +961,7 @@ map_op = {
     {"dnm", "111110110000nnnn", "1111dddd0000mmmm"}
   },
   ["mvn.w_2"] = {
-    {"sdi", "11110i00011s1111", "0iiiddddiiiiiiii"},
+    {"sdi", "11110H00011s1111", "0HHHddddHHHHHHHH"},
     {"sdmT", "11101010011s1111", "0iiiddddiiTTmmmm"}
   },
   ["mvn.w_3"] = {
@@ -974,14 +974,14 @@ map_op = {
     {"", "1011111100000000"}
   },
   ["orn_3"] = {
-    {"sdni", "11110i00011snnnn", "0iiiddddiiiiiiii"},
+    {"sdni", "11110H00011snnnn", "0HHHddddHHHHHHHH"},
     {"sdnmT", "11101010011snnnn", "0iiiddddiiTTmmmm"}
   },
   ["orn_4"] = {
     {"sdnmT", "11101010011snnnn", "0iiiddddiiTTmmmm"}
   },
   ["orr.w_3"] = {
-    {"sdni", "11110i00010snnnn", "0iiiddddiiiiiiii"},
+    {"sdni", "11110H00010snnnn", "0HHHddddHHHHHHHH"},
     {"sdnmT", "11101010010snnnn", "0iiiddddiiTTmmmm"}
   },
   ["orr.w_4"] = {
@@ -1059,10 +1059,10 @@ map_op = {
     {"sdnmT", "11101011110snnnn", "0iiiddddiiTTmmmm"}
   },
   ["rsb.w_3"] = {
-    {"sdni", "11110i01110snnnn", "0iiiddddiiiiiiii"}
+    {"sdni", "11110H01110snnnn", "0HHHddddHHHHHHHH"}
   },
   ["sbc.w_3"] = {
-    {"sdni", "11110i01011snnnn", "0iiiddddiiiiiiii"},
+    {"sdni", "11110H01011snnnn", "0HHHddddHHHHHHHH"},
     {"sdnmT", "11101011011snnnn", "0iiiddddiiTTmmmm"}
   },
   ["sbc.w_4"] = {
@@ -1170,14 +1170,14 @@ map_op = {
     {"sppi", "101100001fffffff"}
   },
   ["sub.w_3"] = {
-    {"sdni", "11110i01101snnnn", "0iiiddddiiiiiiii"},
+    {"sdni",  "11110H01101snnnn", "0HHHddddHHHHHHHH"},
     {"sdnmT", "11101011101snnnn", "0iiiddddiiTTmmmm"}
   },
   ["sub.w_4"] = {
     {"sdnmT", "11101011101snnnn", "0iiiddddiiTTmmmm"}
   },
   ["subw_3"] = {
-    {"dni", "11110i101010nnnn", "0iiiddddiiiiiiii"}
+    {"dni", "11110H101010nnnn", "0HHHddddHHHHHHHH"}
   },
   ["svc_1"] = {
     {"i", "11011111iiiiiiii"}
@@ -1195,7 +1195,7 @@ map_op = {
     {"dmr", "1111101000001111", "1111dddd10rrmmmm"}
   },
   ["teq_2"] = {
-    {"ni", "11110i001001nnnn", "0iii1111iiiiiiii"},
+    {"ni", "11110H001001nnnn", "0HHH1111HHHHHHHH"},
     {"nmT", "111010101001nnnn", "0iii1111iiTTmmmm"}
   },
   ["teq_3"] = {
@@ -1206,7 +1206,7 @@ map_op = {
   --   {"{nm<Hh:lsl#1>}", "111010001101nnnn", "11110000000hmmmm"}
   -- },
   ["tst.w_2"] = {
-    {"ni", "11110i000001nnnn", "0iii1111iiiiiiii"},
+    {"ni", "11110H000001nnnn", "0HHH1111HHHHHHHH"},
     {"nmT", "111010100001nnnn", "0iii1111iiTTmmmm"}
   },
   ["tst.w_3"] = {
@@ -1435,12 +1435,14 @@ end
 local function parse_imm12(imm)
   local n = tonumber(imm)
   if n then
-    local m = band(n)
-    for i=0,-15,-1 do
-      if shr(m, 8) == 0 then return m + shl(band(i, 15), 8) end
-      m = ror(m, 2)
-    end
-    werror("out of range immediate `"..imm.."'")
+    -- local m = band(n)
+    -- for i=0,-15,-1 do
+    --   if shr(m, 8) == 0 then TCR_LOG(' ... ', m + shl(band(i, 15), 8)); return m + shl(band(i, 15), 8) end
+    --   m = ror(m, 2)
+    -- end
+    return band(n)
+    -- TCR_LOG(' ... NO SIR!');
+    -- werror("out of range immediate `"..imm.."'")
   else
     waction("IMM12", 0, imm)
     return 0
@@ -1834,13 +1836,52 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
     -- Immediate values
     if p == 'i' then
       local imm = match(params[n], "^#(.*)$")
-      if imm then
+      if not imm then
+        werror('bad immediate (i) operand')
+      end
+      if bits['i'] then
         values[p] = parse_imm12(imm)
         if values[p] >= math.pow(2, bits[p]) then
           werror('immediate operand larger than ' .. bits[p] .. ' bits')
         end
-      else
-        werror('bad immediate operand')
+      elseif bits['H'] then
+        -- fun encoding time!
+        local val = parse_imm12(imm)
+        local a = shr(band(val, 0x80), 7)
+        local _bcdefgh = 0x80 + band(val, 0x7F)
+        local abcdefgh = band(val, 0xFF);
+        local ABCDE = 00000
+
+        -- Table A5-11 in ARM handbook
+        if val == abcdefgh then
+          -- 00000000 00000000 00000000 abcdefgh
+          ABCDE = 0 + a
+        elseif val == shl(abcdefgh, 16) + abcdefgh then
+          -- 00000000 abcdefgh 00000000 abcdefgh
+          ABCDE = 2 + a
+        elseif val == shl(abcdefgh, 24) + shl(abcdefgh, 8) then
+          -- abcdefgh 00000000 abcdefgh 00000000
+          ABCDE = 4 + a
+        elseif val == shl(abcdefgh, 24) + shl(abcdefgh, 16) + shl(abcdefgh, 8) + abcdefgh then
+          -- abcdefgh abcdefgh abcdefgh abcdefgh
+          ABCDE = 6 + a
+        else
+          -- 1bcdefgh 00000000 00000000 00000000
+          -- ...
+          -- 00000000 00000000 00000001 bcdefgh0
+          ABCDE = 8;
+          for i = 24,0,-1 do 
+            if val == shl(_bcdefgh, i) then
+              break;
+            end
+            ABCDE = ABCDE + 1
+          end
+          if i == 0 then
+            werror('bad thumb expanded immediate ' + val)
+          end
+        end
+
+        values['H'] = shl(ABCDE, 7) + band(val, 0x7F)
       end
       n = n + 1
 
