@@ -123,7 +123,7 @@ end
 local function wpos()
   local pos = #actlist+1
   -- TCR_LOG('WROTE ACTION', "''")
-  actlist[pos] = ""
+  -- actlist[pos] = ""
   return pos
 end
 
@@ -131,7 +131,7 @@ end
 local function wputpos(pos, n)
   assert(n >= 0 and n <= 0xffffffff and n % 1 == 0, "word out of range")
   -- TCR_LOG('WROTE reserved ACTION', n)
-  actlist[pos] = band(n, 0xffff)
+  table.insert(actlist, pos, band(n, 0xffff))
   -- n = map_action.ESC * 0x10000
 end
 
@@ -1045,6 +1045,7 @@ local function parse_imm(imm, bits, shift, scale, signed)
     end
     werror("out of range immediate `"..imm.."'")
   else
+    TCR_LOG('IMM')
     waction("IMM", (signed and 32768 or 0)+scale*1024+bits*32+shift, imm)
     return 0
   end
@@ -1062,6 +1063,7 @@ local function parse_imm_simple(imm)
     -- TCR_LOG(' ... NO SIR!');
     -- werror("out of range immediate `"..imm.."'")
   else
+    TCR_LOG('IMM12', imm)
     waction("IMM12", 0, imm)
     return 0
   end
@@ -1076,6 +1078,7 @@ local function parse_imm_load(imm, ext)
     return n
   else
     -- TODO 5
+    TCR_LOG('IMML8 or IMML12')
     waction(ext == 8 and "IMML8" or "IMML12", 32768 + shl(ext and 8 or 12, 5), imm)
     return 0
   end
