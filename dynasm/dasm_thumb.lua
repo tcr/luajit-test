@@ -1036,11 +1036,11 @@ local function parse_imm(imm, bits, shift, scale, signed)
     local m = sar(n, scale)
     if shl(m, scale) == n then
       if signed then
-  local s = sar(m, bits-1)
-  if s == 0 then return shl(m, shift)
-  elseif s == -1 then return shl(m + shl(1, bits), shift) end
+        local s = sar(m, bits-1)
+        if s == 0 then return shl(m, shift)
+        elseif s == -1 then return shl(m + shl(1, bits), shift) end
       else
-  if sar(m, bits) == 0 then return shl(m, shift) end
+       if sar(m, bits) == 0 then return shl(m, shift) end
       end
     end
     werror("out of range immediate `"..imm.."'")
@@ -1050,7 +1050,7 @@ local function parse_imm(imm, bits, shift, scale, signed)
   end
 end
 
-local function parse_imm12(imm)
+local function parse_imm_simple(imm)
   local n = tonumber(imm)
   if n then
     -- local m = band(n)
@@ -1070,22 +1070,13 @@ end
 local function parse_imm_load(imm, ext)
   local n = tonumber(imm)
   if n then
-  --   if ext then
-  --     if n >= -255 and n <= 255 then
-  -- local up = 0x00800000
-  -- if n < 0 then n = -n; up = 0 end
-  -- return shl(band(n, 0xf0), 4) + band(n, 0x0f) + up
-  --     end
-  --   else
-  --     if n >= -4095 and n <= 4095 then
-  -- if n >= 0 then return n+0x00800000 end
-  -- return -n
-  --     end
-    -- end
-    -- werror("out of range immediate `"..imm.."'")
-      return n
+    if ext > 0 and n > math.pow(2, ext) then
+      werror("out of range immediate `"..imm.."' larger than "..ext.." bits")
+    end
+    return n
   else
-    waction(ext and "IMML8" or "IMML12", 32768 + shl(ext and 8 or 12, 5), imm)
+    -- TODO 5
+    waction(ext == 8 and "IMML8" or "IMML12", 32768 + shl(ext and 8 or 12, 5), imm)
     return 0
   end
 end
@@ -1179,13 +1170,13 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
         werror('bad immediate (i) operand')
       end
       if bits['i'] then
-        values[p] = parse_imm12(imm)
+        values[p] = parse_imm_simple(imm)
         if values[p] >= math.pow(2, bits[p]) then
           werror('immediate operand larger than ' .. bits[p] .. ' bits')
         end
       elseif bits['H'] then
         -- fun encoding time!
-        local val = parse_imm12(imm)
+        local val = parse_imm_simple(imm)
         local a = shr(band(val, 0x80), 7)
         local _bcdefgh = 0x80 + band(val, 0x7F)
         local abcdefgh = band(val, 0xFF);
@@ -1242,7 +1233,7 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
     elseif p == 'f' then
       local imm = match(params[n], "^#(.*)$")
       if imm then
-        values[p] = parse_imm12(imm)
+        values[p] = parse_imm_simple(imm)
       else
         werror('bad immediate operand')
       end
@@ -1358,8 +1349,8 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
           local imm = match(p2, "^#(.*)$")
           if imm then
             if p3 then werror("too many parameters") end
-            local m = parse_imm_load(imm, ext)
             local bitlen = bits['i'] or shl(bits['f'] or 0, 2)
+            local m = parse_imm_load(imm, bitlen)
             if m < 0 and not bits['U'] then
               werror('negative immediate')
             elseif not bits['i'] and not bits['f'] then
@@ -1390,8 +1381,8 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
           if p2 ~= "" then
             local imm = match(p2, "^,%s*#(.*)$")
             if imm then
-              local m = parse_imm_load(imm, ext)
               local bitlen = bits['i'] or shl(bits['f'] or 0, 2)
+              local m = parse_imm_load(imm, bitlen)
               if m < 0 and not bits['U'] then
                 werror('negative immediate')
               elseif not bits['i'] and not bits['f'] then
