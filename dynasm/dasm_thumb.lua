@@ -257,7 +257,7 @@ local map_op = {
   ["add_3"] = {
     {"sdni", "0001110iiinnnddd"},
     {"sdnm", "0001100mmmnnnddd"},
-    {"sdpi", "10101dddiiiiiiii"}
+    {"sdpi", "10101dddffffffff"}
   },
   ["add_2"] = {
     {"sdi", "00110dddiiiiiiii"},
@@ -275,7 +275,7 @@ local map_op = {
     {"dni", "11110H100000nnnn", "0HHHddddHHHHHHHH"}
   },
   ["adr_2"] = {
-    {"dB", "10100dddiiiiiiii"}
+    {"dB", "10100dddffffffff"}
   },
   ["adr.w_2"] = {
     {"dB", "11110H1010101111", "0HHHddddHHHHHHHH"},
@@ -411,7 +411,7 @@ local map_op = {
 
 
   -- ["ldc_4"] = {
-  --   {"CCd{n}{i}", "111t110puDw1nnnn", "ddddCCCCiiiiiiii"}
+  --   {"CCd{n}{i}", "111t110puDw1nnnn", "ddddCCCCffffffff"}
   -- },
   ["ldm_2"] = {
     {"nr", "11001nnnrrrrrrrr"}
@@ -427,7 +427,7 @@ local map_op = {
     {"tL", "01101fffffnnnttt"},
     {"tL", "10011tttffffffff"},
     {"tL", "0101100mmmnnnttt"},
-    {"tB", "01001tttiiiiiiii"},
+    {"tB", "01001tttffffffff"},
   },
 
   ["ldr.w_2"] = {
@@ -444,11 +444,11 @@ local map_op = {
     {"tL", "0101110mmmnnnttt"},
   },
   ["ldrb.w_3"] = {
-    {"tL", "111110000001nnnn", "tttt1PUWiiiiiiii"},
+    {"tL", "111110000001nnnn", "tttt1PUWffffffff"},
     {"tL", "111110000001nnnn", "tttt000000iimmmm"}
   },
   ["ldrb.w_2"] = {
-    {"tL", "111110000001nnnn", "tttt1PUWiiiiiiii"},
+    {"tL", "111110000001nnnn", "tttt1PUWffffffff"},
     {"tL", "111110001001nnnn", "ttttiiiiiiiiiiii"},
     {"tB", "11111000u0011111", "ttttiiiiiiiiiiii"}
   },
@@ -456,7 +456,7 @@ local map_op = {
     {"tL", "111110000001nnnn", "tttt1110iiiiiiii"}
   },
   ["ldrex_2"] = {
-    {"tL", "111010000101nnnn", "tttt1111iiiiiiii"}
+    {"tL", "111010000101nnnn", "tttt1111ffffffff"}
   },
   ["ldrexb_2"] = {
     {"tL", "111010001101nnnn", "tttt111101001111"}
@@ -737,12 +737,12 @@ local map_op = {
   ["ssat_3"] = {
     {"dknf", "1111001100f0nnnn", "0iiiddddii0kkkkk"}
   },
-  ["stc_4"] = {
-    {"CCd{n}{i}", "1110110puNw0nnnn", "ddddCCCCiiiiiiii"}
-  },
-  ["stc2_4"] = {
-    {"CCd{n}{i}", "1111110puNw0nnnn", "ddddCCCCiiiiiiii"}
-  },
+  -- ["stc_4"] = {
+  --   {"CCd{n}{i}", "1110110puNw0nnnn", "ddddCCCCiiiiiiii"}
+  -- },
+  -- ["stc2_4"] = {
+  --   {"CCd{n}{i}", "1111110puNw0nnnn", "ddddCCCCiiiiiiii"}
+  -- },
   -- ["stm_2"] = {
   --   {"n!{r}", "11000nnnrrrrrrrr"}
   -- },
@@ -753,8 +753,8 @@ local map_op = {
   --   {"n<Hw:!>{r}", "1110100100w0nnnn", "rrrrrrrrrrrrrrrr"}
   -- },
   ["str_2"] = {
-    {"tL", "01100iiiiinnnttt"},
-    {"tL", "10010tttiiiiiiii"},
+    {"tL", "01100fffffnnnttt"},
+    {"tL", "10010tttffffffff"},
     {"tL", "0101000mmmnnnttt"}
   },
   ["str.w_2"] = {
@@ -781,7 +781,7 @@ local map_op = {
     {"tL", "111110000000nnnn", "tttt1110iiiiiiii"}
   },
   ["strex_3"] = {
-    {"dtL", "111010000100nnnn", "ttttddddiiiiiiii"}
+    {"dtL", "111010000100nnnn", "ttttddddffffffff"}
   },
   ["strexb_3"] = {
     {"dtL", "111010001100nnnn", "tttt11110100dddd"}
@@ -790,10 +790,10 @@ local map_op = {
     {"dtL", "111010001100nnnn", "tttt11110101dddd"}
   },
   ["strd_3"] = {
-    {"tdL", "1110100PU1W0nnnn", "ttttddddiiiiiiii"},
+    {"tdL", "1110100PU1W0nnnn", "ttttddddffffffff"},
   },
   ["strd_4"] = {
-    {"tdL", "1110100PU1W0nnnn", "ttttddddiiiiiiii"},
+    {"tdL", "1110100PU1W0nnnn", "ttttddddffffffff"},
   },
   ["strh_3"] = {
     {"tL", "10000iiiiinnnttt"},

@@ -1,55 +1,4 @@
-IMMSHIFT (DecodeImmShift)
-.iii....ii...... 	 rsb_4 1
-.iii....ii...... 	 rsb_3 2
-.iii....ii...... 	 eor.w_4 1
-.iii....ii...... 	 orn_4 1
-.iii....ii...... 	 eor.w_3 2
-.iii....ii...... 	 ror.w_3 1
-.iii....ii...... 	 lsl.w_3 1
-.iii....ii...... 	 mvn.w_2 2
-.iii....ii...... 	 asr.w_3 1
-.iii....ii...... 	 bic.w_3 2
-.iii....ii...... 	 orr.w_4 1
-.iii....ii...... 	 bfc_3 1
-.iii....ii...... 	 orn_3 2
-.iii....ii...... 	 add.w_3 2
-.iii....ii...... 	 add.w_4 1
-.iii....ii...... 	 mvn.w_3 
-.iii....ii...... 	 sbc.w_3 2
-.iii....ii...... 	 sbc.w_4 1
-.iii....ii...... 	 usat_3 
-.iii....ii...... 	 and.w_3 2
-.iii....ii...... 	 and.w_4 1
-.iii....ii...... 	 adc.w_3 2
-.iii....ii...... 	 adc.w_4 1
-.iii....ii...... 	 ssat_3 1
-.iii....ii...... 	 bic.w_4 1
-.iii....ii...... 	 cmn.w_2 2
-.iii....ii...... 	 ubfx_4 1
-.iii....ii...... 	 tst.w_3 1
-.iii....ii...... 	 tst.w_2 2
-.iii....ii...... 	 sub.w_4 1
-.iii....ii...... 	 sub.w_3 2
-.iii....ii...... 	 sbfx_4 1
-.iii....ii...... 	 teq_3 1
-.iii....ii...... 	 bfi_4 1
-.iii....ii...... 	 cmp.w_3 1
-.iii....ii...... 	 cmp.w_2 2
-.iii....ii...... 	 teq_2 2
-.iii....ii...... 	 orr.w_3 2
-.iii....ii...... 	 cmn.w_3 1
-.iii....ii...... 	 lsr.w_3 1
-
-IMMBRANCH
-.....iiiiiiiiiii 	 b.w_1 1
-.....iiiiiiiiiii 	 b.w_1 2
-.....iiiiiiiiiii 	 b_1 2
-.....iiiiiiiiiii 	 bl_1 1
-......iiiiiiiiii 	 b.w_1 2
-......iiiiiiiiii 	 bl_1 1
-..........iiiiii 	 b.w_1 1
-
-IMM12
+IMM
 ....iiiiiiiiiiii 	 ldrh.w_3 1
 ....iiiiiiiiiiii 	 strb.w_2 1
 ....iiiiiiiiiiii 	 str.w_2 1
@@ -65,11 +14,11 @@ IMM12
 ....iiiiiiiiiiii 	 ldrsh.w_2 4
 ....iiiiiiiiiiii 	 ldrsb.w_3 1
 
-IMM8_ROL2
+IMM_ROL2
 ........iiiiiiii 	 add_3 3
 ........iiiiiiii 	 adr_2 1
 
-IMM8
+IMM
 ........iiiiiiii 	 strb.w_2 2
 ........iiiiiiii 	 ldrbt_2 1
 ........iiiiiiii 	 add_2 1
@@ -111,10 +60,6 @@ IMM8
 ........iiiiiiii 	 ldr.w_2 2
 ........iiiiiiii 	 ldrsh.w_2 2
 ........iiiiiiii 	 ldrsb.w_3 2
-
-IMMCB
-......i.iiiii... 	 cbz_2 1
-......i.iiiii... 	 cbnz_2 1
 
 IMM5_ROL1
 .....iiiii...... 	 ldrh_3 1
@@ -158,6 +103,61 @@ IMM8_ROL2
 ........ffffffff 	 ldrd_3 1
 ........ffffffff 	 ldrd_4 1
 ........ffffffff 	 ldr_2 2
+
+IMMCB
+......i.iiiii... 	 cbz_2 1
+......i.iiiii... 	 cbnz_2 1
+
+IMMBRANCH
+.....iiiiiiiiiii 	 b.w_1 1
+.....iiiiiiiiiii 	 b.w_1 2
+.....iiiiiiiiiii 	 b_1 2
+.....iiiiiiiiiii 	 bl_1 1
+......iiiiiiiiii 	 b.w_1 2
+......iiiiiiiiii 	 bl_1 1
+..........iiiiii 	 b.w_1 1
+
+IMMSHIFT (DecodeImmShift)
+.iii....ii...... 	 rsb_4 1
+.iii....ii...... 	 rsb_3 2
+.iii....ii...... 	 eor.w_4 1
+.iii....ii...... 	 orn_4 1
+.iii....ii...... 	 eor.w_3 2
+.iii....ii...... 	 ror.w_3 1
+.iii....ii...... 	 lsl.w_3 1
+.iii....ii...... 	 mvn.w_2 2
+.iii....ii...... 	 asr.w_3 1
+.iii....ii...... 	 bic.w_3 2
+.iii....ii...... 	 orr.w_4 1
+.iii....ii...... 	 bfc_3 1
+.iii....ii...... 	 orn_3 2
+.iii....ii...... 	 add.w_3 2
+.iii....ii...... 	 add.w_4 1
+.iii....ii...... 	 mvn.w_3 
+.iii....ii...... 	 sbc.w_3 2
+.iii....ii...... 	 sbc.w_4 1
+.iii....ii...... 	 usat_3 
+.iii....ii...... 	 and.w_3 2
+.iii....ii...... 	 and.w_4 1
+.iii....ii...... 	 adc.w_3 2
+.iii....ii...... 	 adc.w_4 1
+.iii....ii...... 	 ssat_3 1
+.iii....ii...... 	 bic.w_4 1
+.iii....ii...... 	 cmn.w_2 2
+.iii....ii...... 	 ubfx_4 1
+.iii....ii...... 	 tst.w_3 1
+.iii....ii...... 	 tst.w_2 2
+.iii....ii...... 	 sub.w_4 1
+.iii....ii...... 	 sub.w_3 2
+.iii....ii...... 	 sbfx_4 1
+.iii....ii...... 	 teq_3 1
+.iii....ii...... 	 bfi_4 1
+.iii....ii...... 	 cmp.w_3 1
+.iii....ii...... 	 cmp.w_2 2
+.iii....ii...... 	 teq_2 2
+.iii....ii...... 	 orr.w_3 2
+.iii....ii...... 	 cmn.w_3 1
+.iii....ii...... 	 lsr.w_3 1
 
 IMMTHUMB
 .....H.......... 	 movt_2 1
