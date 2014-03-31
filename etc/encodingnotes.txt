@@ -1,4 +1,4 @@
-IMM5 (DecodeImmShift)
+IMMSHIFT (DecodeImmShift)
 .iii....ii...... 	 rsb_4 1
 .iii....ii...... 	 rsb_3 2
 .iii....ii...... 	 eor.w_4 1

@@ -23,7 +23,7 @@ enum {
   DASM_ALIGN, DASM_REL_LG, DASM_LABEL_LG,
   /* The following actions also have an argument. */
   DASM_REL_PC, DASM_LABEL_PC,
-  DASM_IMM, DASM_IMMTHUMB, DASM_IMM16, DASM_IMML8, DASM_IMML12, DASM_IMMV8,
+  DASM_IMM, DASM_IMMTHUMB, DASM_IMMSHIFT, DASM_IMML8, DASM_IMML12, DASM_IMMV8,
   DASM__MAX
 };
 
@@ -281,7 +281,6 @@ void dasm_put(Dst_DECL, int start, ...)
 	b[pos++] = ofs;  /* Store pass1 offset estimate. */
 	break;
       case DASM_IMM:
-      case DASM_IMM16:
 #ifdef DASM_CHECKS
 	CK((n & ((1<<((ins>>10)&31))-1)) == 0, RANGE_I);
 	if ((ins & 0x8000))
@@ -300,6 +299,10 @@ void dasm_put(Dst_DECL, int start, ...)
 		    (((-n)>>((ins>>5)&31)) == 0), RANGE_I);
 	b[pos++] = n;
 	break;
+      case DASM_IMMSHIFT:
+        CK(n >= 0 && n < 32, RANGE_I);
+        b[pos++] = n;
+        break;
       case DASM_IMMTHUMB:
       	CK(dasm_immthumb((unsigned int)n) != -1, RANGE_I);
       	b[pos++] = n;
@@ -363,7 +366,7 @@ int dasm_link(Dst_DECL, size_t *szp)
         	case DASM_ALIGN: ofs -= (b[pos++] + ofs) & (ins & 255); break;
         	case DASM_REL_LG: case DASM_REL_PC: pos++; break;
         	case DASM_LABEL_LG: case DASM_LABEL_PC: b[pos++] += ofs; break;
-        	case DASM_IMM: case DASM_IMMTHUMB: case DASM_IMM16:
+        	case DASM_IMM: case DASM_IMMTHUMB: case DASM_IMMSHIFT:
         	case DASM_IMML8: case DASM_IMML12: case DASM_IMMV8: pos++; break;
                 }
         }
@@ -458,8 +461,8 @@ int dasm_encode(Dst_DECL, void *buffer)
             cp[-1] |= ((thumbexp >> 8) & 0x7) << 12;
         	  cp[-1] |= thumbexp & 0xFF;
         	  break;
-        	case DASM_IMM16:
-        	  cp[-1] |= ((n & 0xf000) << 4) | (n & 0x0fff);
+        	case DASM_IMMSHIFT:
+        	  cp[-1] |= (((n >> 2) & 0x7) << 12) | ((n & 0x3) << 6);
         	  break;
         	case DASM_IMML8: patchimml8:
         	  cp[-1] |= n >= 0 ? (0x00800000 | (n & 0x0f) | ((n & 0xf0) << 4)) :

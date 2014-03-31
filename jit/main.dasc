@@ -266,16 +266,24 @@ __asm__ (
 	| sub r6, r11, #0x20000
 })
 
+int REGS_LSL = 24;
+
 
 COMPARE_JIT(regs,
 __asm__ (
 	"ldr r3, [r3, #4]\n\t"
 	"ldr r3, [r3, #5]\n\t"
 	"ldr r3, [r4, #-4]\n\t"
+	"sub r0, r0, r1, lsl #5\n\t"
+	"sub r0, r0, r1, lsl #24\n\t"
+	"sub r0, r0, r1, lsl #24\n\t"
 ), {
 	| ldr r3, [r3, #4]
 	| ldr r3, [r3, #5]
 	| ldr r3, [r4, #-4]
+	| sub r0, r0, r1, lsl #5
+	| sub r0, r0, r1, lsl #24
+	| sub r0, r0, r1, lsl #REGS_LSL
 })
 
 
@@ -322,9 +330,9 @@ int main ()
 	cmp_jit();
 	mul_jit();
 	arith_jit();
-	regs_jit();
 	struct_jit();
 	immtest_jit();
+	regs_jit();
 
 	printf("# FINISHED.\n");
 

@@ -39,7 +39,7 @@ local wline, werror, wfatal, wwarn
 local action_names = {
   "STOP", "SECTION", "ESC", "REL_EXT",
   "ALIGN", "REL_LG", "LABEL_LG",
-  "REL_PC", "LABEL_PC", "IMM", "IMMTHUMB", "IMM16", "IMML8", "IMML12", "IMMV8",
+  "REL_PC", "LABEL_PC", "IMM", "IMMTHUMB", "IMMSHIFT", "IMML8", "IMML12", "IMMV8",
 }
 
 -- Maximum number of section buffer positions for dasm_put().
@@ -1032,24 +1032,34 @@ local function parse_reglist(reglist)
 end
 
 local function parse_imm(imm, bits, shift, scale, signed)
+  -- bits: bits available
+  -- shift: bits to shift left in value (useless except in waction)
+  -- scale: value shifted left by how much?
+  -- signed: is value signed or unsigned?
+
   imm = match(imm, "^#(.*)$")
   if not imm then werror("expected immediate operand") end
   local n = tonumber(imm)
   if n then
     local m = sar(n, scale)
     if shl(m, scale) == n then
+      -- scale is correct?
       if signed then
         local s = sar(m, bits-1)
         if s == 0 then return shl(m, shift)
         elseif s == -1 then return shl(m + shl(1, bits), shift) end
       else
-       if sar(m, bits) == 0 then return shl(m, shift) end
+        -- if value fits in range...
+        if sar(m, bits) == 0 then return shl(m, shift) end
       end
     end
     werror("out of range immediate `"..imm.."'")
   else
-    TCR_LOG('IMM')
-    waction("IMM", (signed and 32768 or 0)+scale*1024+bits*32+shift, imm)
+    TCR_LOG('IMM', _G.__op)
+    for k,v in pairs(_G.__params) do
+      TCR_LOG('-->', k, v)
+    end
+    waction("IMM", (signed and shl(1, 15) or 0) + shl(scale, 10) + shl(bits, 5) + shift, imm)
     return 0
   end
 end
@@ -1066,6 +1076,7 @@ local function parse_imm_thumb(imm)
     -- TCR_LOG(' ... NO SIR!');
     -- werror("out of range immediate `"..imm.."'")
   else
+    -- TCR_LOG('IMMTHUMB', _G.__op)
     waction("IMMTHUMB", 0, imm)
     return 0
   end
@@ -1080,8 +1091,25 @@ local function parse_imm_load(imm, ext)
     return n
   else
     -- TODO 5
-    TCR_LOG('IMML8 or IMML12')
+    TCR_LOG('IMMLOAD', _G.__op)
+    for k,v in pairs(_G.__params) do
+      TCR_LOG('-->', k, v)
+    end
     waction(ext == 8 and "IMML8" or "IMML12", 32768 + shl(ext and 8 or 12, 5), imm)
+    return 0
+  end
+end
+
+local function parse_imm_shift(imm)
+  imm = match(imm, "^#(.*)$")
+  if n then
+    if n >= 0 and n < 32 then
+      return band(n)
+    end
+    werror("out of range immediate `"..imm.."'")
+  else
+    -- TCR_LOG('IMMTHUMB', _G.__op)
+    waction("IMMSHIFT", 0, imm)
     return 0
   end
 end
@@ -1094,7 +1122,7 @@ local function parse_shift(shift, gprok)
     s = map_shift[s]
     if not s then werror("expected shift operand") end
     if sub(s2, 1, 1) == "#" then
-      return parse_imm(s2, 5, 0, 0, false), s
+      return parse_imm_shift(s2), s
     else
       if not gprok then werror("expected immediate shift operand") end
       return parse_gpr(s2), s
@@ -1223,7 +1251,7 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
     elseif p == 'U' then
       local imm = match(params[n], "^#(.*)$")
       if imm then
-        local val = parse_imm_new(imm)
+        local val = parse_imm_load(imm, bits['U'] or bits['i'])
         if val >= math.pow(2, bits[p]) then
           werror('signed immediate operand larger than ' .. bits[p] .. ' bits')
         end

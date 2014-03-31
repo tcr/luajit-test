@@ -799,6 +799,8 @@ dostmt = function(stmt)
 
   -- Split into (pseudo-)opcode and params.
   local op, params = splitstmt(stmt)
+  _G.__op = op
+  _G.__params = params
   -- io.stderr:write('-##> ' .. op .. '\n')
 
   -- Get opcode handler (matching # of parameters or generic handler).
