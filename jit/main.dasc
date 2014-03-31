@@ -298,14 +298,15 @@ void struct_jit()
 
 
 int SOMETHING = 1;
-
-
+int SOMETHING2 = 0x2C002C;
 
 COMPARE_JIT(immtest,
 __asm__ (
 	"add.w r0, r0, #1\n\t"
+	"add.w r0, r0, #0x2C002C\n\t"
 ), {
 	| add.w r0, r0, #SOMETHING
+	| add.w r0, r0, #SOMETHING2
 })
 
 

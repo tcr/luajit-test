@@ -22,13 +22,14 @@
 #line 7 "biggy.dasc"
 //|
 //|.actionlist build_actionlist
-static const uint16_t build_actionlist[7993] = {
+static const uint16_t build_actionlist[8471] = {
 0xffff,
 0x1001,
 0xffff,
 0x6014,
 0xf016,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -37,6 +38,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6c04,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x46e1,
 0xf84a,
@@ -49,13 +51,14 @@ static const uint16_t build_actionlist[7993] = {
 0x0b08,
 0x2000,
 0xffff,
-0xa000,
+0x4100,
 0xd000,
 0xffff,
 0x5017,
 0x612b,
 0xf016,
 0x0000,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -64,10 +67,11 @@ static const uint16_t build_actionlist[7993] = {
 0x6019,
 0xf026,
 0x0c00,
+0xffff,
 0xa000,
 0x2800,
 0xffff,
-0xa000,
+0x4100,
 0x1b0c,
 0xd100,
 0xffff,
@@ -78,6 +82,7 @@ static const uint16_t build_actionlist[7993] = {
 0x696d,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0xf1a9,
 0x0908,
@@ -136,6 +141,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x4291,
 0xd200,
@@ -166,6 +172,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4640,
 0xf000,
 0xd000,
+0xffff,
 0x3000,
 0x6801,
 0xffff,
@@ -182,6 +189,7 @@ static const uint16_t build_actionlist[7993] = {
 0x68e8,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x6802,
 0xffff,
@@ -198,6 +206,7 @@ static const uint16_t build_actionlist[7993] = {
 0x601d,
 0xf020,
 0x0000,
+0xffff,
 0xa000,
 0x4685,
 0xffff,
@@ -214,6 +223,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf06f,
 0x0000,
+0xffff,
 0xa000,
 0xf1a9,
 0x0a08,
@@ -221,9 +231,10 @@ static const uint16_t build_actionlist[7993] = {
 0x6c04,
 0x1c3f,
 0xffff,
-0xa000,
+0x5100,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xf849,
 0x0c04,
@@ -237,7 +248,7 @@ static const uint16_t build_actionlist[7993] = {
 0x601f,
 0x2100,
 0xffff,
-0xa000,
+0x4100,
 0xd000,
 0xffff,
 0x5002,
@@ -259,6 +270,7 @@ static const uint16_t build_actionlist[7993] = {
 0x622e,
 0xf000,
 0xd000,
+0xffff,
 0x3000,
 0x6801,
 0xffff,
@@ -294,15 +306,15 @@ static const uint16_t build_actionlist[7993] = {
 0x4689,
 0x1c3f,
 0xffff,
-0xa000,
+0x5100,
 0x6328,
 0x2600,
 0xffff,
-0xa000,
+0x4100,
 0x652a,
 0x1c29,
 0xffff,
-0xa000,
+0x5100,
 0x7800,
 0xffff,
 0x5180,
@@ -333,11 +345,13 @@ static const uint16_t build_actionlist[7993] = {
 0x00e4,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xf10b,
 0x0b08,
 0xf016,
 0x0000,
+0xffff,
 0xa000,
 0x6039,
 0xffff,
@@ -356,7 +370,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0d1c,
 0x2600,
 0xffff,
-0xa000,
+0x4100,
 0x662b,
 0xd000,
 0xffff,
@@ -368,7 +382,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0d1c,
 0x2600,
 0xffff,
-0xa000,
+0x4100,
 0xffff,
 0x600b,
 0xffff,
@@ -390,7 +404,7 @@ static const uint16_t build_actionlist[7993] = {
 0x642b,
 0x1c3f,
 0xffff,
-0xa000,
+0x5100,
 0xffff,
 0x600d,
 0x6804,
@@ -405,6 +419,7 @@ static const uint16_t build_actionlist[7993] = {
 0x1b36,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x1a43,
 0x6039,
@@ -416,6 +431,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2302,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -467,10 +483,10 @@ static const uint16_t build_actionlist[7993] = {
 0x4681,
 0x2600,
 0xffff,
-0xa000,
+0x4100,
 0x1c3f,
 0xffff,
-0xa000,
+0x5100,
 0xffff,
 0x0000,
 0xd100,
@@ -494,6 +510,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf06f,
 0x0e00,
+0xffff,
 0xa000,
 0x18d1,
 0xf841,
@@ -540,9 +557,10 @@ static const uint16_t build_actionlist[7993] = {
 0x602c,
 0x1e39,
 0xffff,
-0xa000,
+0x5100,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x600c,
 0x610b,
@@ -550,6 +568,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600c,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x602b,
 0x612b,
@@ -564,6 +583,7 @@ static const uint16_t build_actionlist[7993] = {
 0x602b,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x1909,
 0x612b,
@@ -586,6 +606,7 @@ static const uint16_t build_actionlist[7993] = {
 0x622e,
 0xf000,
 0xd000,
+0xffff,
 0x3001,
 0x2800,
 0xd000,
@@ -607,6 +628,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600d,
 0xf1c9,
 0x0000,
+0xffff,
 0xa000,
 0x6801,
 0xffff,
@@ -630,9 +652,10 @@ static const uint16_t build_actionlist[7993] = {
 0x6030,
 0x1e39,
 0xffff,
-0xa000,
+0x5100,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x600c,
 0x610b,
@@ -640,6 +663,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600c,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x602b,
 0x612b,
@@ -654,6 +678,7 @@ static const uint16_t build_actionlist[7993] = {
 0x602b,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x1909,
 0x612b,
@@ -676,6 +701,7 @@ static const uint16_t build_actionlist[7993] = {
 0x622e,
 0xf000,
 0xd000,
+0xffff,
 0x3002,
 0x2800,
 0xe959,
@@ -697,6 +723,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600d,
 0xf1c9,
 0x0000,
+0xffff,
 0xa000,
 0x6801,
 0xffff,
@@ -726,6 +753,7 @@ static const uint16_t build_actionlist[7993] = {
 0x03ff,
 0xf000,
 0xd000,
+0xffff,
 0x3003,
 0xffff,
 0x600d,
@@ -769,6 +797,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6851,
 0xf06f,
 0x0000,
+0xffff,
 0xa000,
 0x4288,
 0xd000,
@@ -779,6 +808,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6851,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -795,6 +825,7 @@ static const uint16_t build_actionlist[7993] = {
 0x622e,
 0xf000,
 0xd000,
+0xffff,
 0x3004,
 0xd000,
 0xffff,
@@ -854,6 +885,7 @@ static const uint16_t build_actionlist[7993] = {
 0x602c,
 0xf000,
 0xd000,
+0xffff,
 0x3005,
 0x2800,
 0xd000,
@@ -866,7 +898,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6c0c,
 0x1c0e,
 0xffff,
-0xa000,
+0x5100,
 0x4681,
 0x2310,
 0xd000,
@@ -882,6 +914,7 @@ static const uint16_t build_actionlist[7993] = {
 0x622e,
 0xf000,
 0xd000,
+0xffff,
 0x3006,
 0xffff,
 0x0000,
@@ -912,6 +945,7 @@ static const uint16_t build_actionlist[7993] = {
 0x18ca,
 0xf000,
 0xd000,
+0xffff,
 0x3007,
 0xf859,
 0x2c08,
@@ -942,6 +976,7 @@ static const uint16_t build_actionlist[7993] = {
 0x18d2,
 0xf000,
 0xd000,
+0xffff,
 0x3007,
 0xf85a,
 0x2c08,
@@ -962,6 +997,7 @@ static const uint16_t build_actionlist[7993] = {
 0x622e,
 0xf000,
 0xd000,
+0xffff,
 0x3008,
 0xf856,
 0xec04,
@@ -981,6 +1017,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd800,
 0xffff,
@@ -1022,12 +1059,15 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xf1c1,
 0x0300,
+0xffff,
 0xa000,
 0x00db,
 0xe952,
@@ -1045,9 +1085,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -1061,6 +1103,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600c,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x683b,
 0xffff,
@@ -1088,9 +1131,11 @@ static const uint16_t build_actionlist[7993] = {
 0x600d,
 0xe8d0,
 0x2300,
+0xffff,
 0x5180,
 0xe8d0,
 0x0100,
+0xffff,
 0x5180,
 0x6806,
 0xffff,
@@ -1099,6 +1144,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x429a,
 0xd000,
@@ -1113,6 +1159,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4660,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -1121,6 +1168,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600f,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -1132,11 +1180,12 @@ static const uint16_t build_actionlist[7993] = {
 0x6010,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x43c9,
 0x2100,
 0xffff,
-0xa000,
+0x4100,
 0xeb07,
 0x0381,
 0x681c,
@@ -1157,12 +1206,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x6804,
 0xffff,
 0x5180,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x7803,
 0xffff,
@@ -1175,6 +1226,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf013,
 0x0f00,
+0xffff,
 0xa000,
 0x6002,
 0xffff,
@@ -1187,6 +1239,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0xf023,
 0x0300,
+0xffff,
 0xa000,
 0x6038,
 0xffff,
@@ -1211,6 +1264,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4611,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -1220,6 +1274,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0208,
 0xf000,
 0xd000,
+0xffff,
 0x3009,
 0xe9d0,
 0x0100,
@@ -1236,6 +1291,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd900,
 0xffff,
@@ -1255,6 +1311,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -1267,6 +1324,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x2b00,
 0x622e,
@@ -1282,17 +1340,20 @@ static const uint16_t build_actionlist[7993] = {
 0x4288,
 0xf000,
 0xd000,
+0xffff,
 0x504d,
 0x4640,
 0x4649,
 0xf000,
 0xd000,
+0xffff,
 0x300a,
 0x6801,
 0xffff,
 0x5180,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -1307,9 +1368,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -1331,10 +1394,12 @@ static const uint16_t build_actionlist[7993] = {
 0x622e,
 0xf000,
 0xd000,
+0xffff,
 0x300b,
 0x2800,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -1347,7 +1412,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2304,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0xe949,
 0x0108,
 0xe9c9,
@@ -1365,6 +1430,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -1378,6 +1444,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xe8d0,
 0x2300,
+0xffff,
 0x5180,
 0xf859,
 0x6c04,
@@ -1391,10 +1458,11 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0xe949,
 0x2308,
 0x6309,
@@ -1413,9 +1481,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -1438,7 +1508,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0100,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0xd200,
 0xffff,
 0x5002,
@@ -1446,10 +1516,11 @@ static const uint16_t build_actionlist[7993] = {
 0x600b,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0xe9c9,
 0x0100,
 0xd000,
@@ -1467,6 +1538,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5045,
 0xf000,
 0xd000,
+0xffff,
 0x300c,
 0x2800,
 0xd000,
@@ -1489,6 +1561,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -1502,6 +1575,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xe8d0,
 0x2300,
+0xffff,
 0x5180,
 0xf859,
 0x6c04,
@@ -1516,10 +1590,11 @@ static const uint16_t build_actionlist[7993] = {
 0x2000,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0xe949,
 0x2308,
 0xe949,
@@ -1538,16 +1613,17 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf01a,
 0x0f00,
+0xffff,
 0xa000,
 0x46cc,
 0xf109,
 0x0908,
 0x2600,
 0xffff,
-0xa000,
+0x4100,
 0x2600,
 0xffff,
-0xa000,
+0x4100,
 0xf1ab,
 0x0b08,
 0xd000,
@@ -1568,6 +1644,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -1579,15 +1656,16 @@ static const uint16_t build_actionlist[7993] = {
 0x2300,
 0xf01a,
 0x0f00,
+0xffff,
 0xa000,
 0xf109,
 0x0910,
 0x2600,
 0xffff,
-0xa000,
+0x4100,
 0x2600,
 0xffff,
-0xa000,
+0x4100,
 0xf1ab,
 0x0b10,
 0xd000,
@@ -1603,6 +1681,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -1638,7 +1717,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0x2a00,
 0xffff,
-0xa000,
+0x4100,
 0x429a,
 0x2c00,
 0xd800,
@@ -1675,6 +1754,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2300,
 0xf000,
 0xd000,
+0xffff,
 0x5021,
 0xffff,
 0x600e,
@@ -1683,6 +1763,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x6803,
 0xffff,
@@ -1692,7 +1773,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0x2800,
 0xffff,
-0xa000,
+0x4100,
 0xffff,
 0x0000,
 0x6801,
@@ -1735,6 +1816,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6010,
 0xf06f,
 0x0200,
+0xffff,
 0xa000,
 0xf10b,
 0x0b10,
@@ -1746,6 +1828,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0a08,
 0xf016,
 0x0000,
+0xffff,
 0xa000,
 0x622e,
 0x612b,
@@ -1761,10 +1844,11 @@ static const uint16_t build_actionlist[7993] = {
 0x0102,
 0xf06f,
 0x0200,
+0xffff,
 0xa000,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0x6003,
 0xffff,
 0x5180,
@@ -1779,6 +1863,7 @@ static const uint16_t build_actionlist[7993] = {
 0x08d9,
 0xf000,
 0xd000,
+0xffff,
 0x3000,
 0x2000,
 0xd000,
@@ -1820,7 +1905,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0x2a00,
 0xffff,
-0xa000,
+0x4100,
 0x429a,
 0x2c00,
 0xd800,
@@ -1851,6 +1936,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2300,
 0xf000,
 0xd000,
+0xffff,
 0x5021,
 0xffff,
 0x600e,
@@ -1859,6 +1945,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x6803,
 0xffff,
@@ -1868,7 +1955,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0x2800,
 0xffff,
-0xa000,
+0x4100,
 0xffff,
 0x0000,
 0x6801,
@@ -1914,6 +2001,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0b08,
 0xf016,
 0x0000,
+0xffff,
 0xa000,
 0x622e,
 0x612b,
@@ -1929,6 +2017,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4651,
 0xf000,
 0xd000,
+0xffff,
 0x300d,
 0xffff,
 0x6013,
@@ -1936,6 +2025,7 @@ static const uint16_t build_actionlist[7993] = {
 0x08d9,
 0xf000,
 0xd000,
+0xffff,
 0x3000,
 0x2000,
 0xd000,
@@ -1952,6 +2042,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf010,
 0x0f00,
+0xffff,
 0xa000,
 0x6001,
 0xffff,
@@ -1960,7 +2051,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0x2000,
 0xffff,
-0xa000,
+0x4100,
 0x2200,
 0xd000,
 0xffff,
@@ -1984,6 +2075,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -2025,6 +2117,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600b,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -2043,19 +2136,22 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
 0x5047,
 0xffff,
 0x600d,
-0x2b00,
+0xf1b3,
+0x4f00,
 0x2a00,
 0xd100,
 0xffff,
 0x5004,
 0x2900,
-0x2000,
+0xf04f,
+0x4000,
 0xd400,
 0xffff,
 0x500b,
@@ -2065,6 +2161,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x5058,
 0xd000,
 0xffff,
@@ -2079,6 +2176,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -2116,6 +2214,7 @@ static const uint16_t build_actionlist[7993] = {
 0x1c40,
 0xe8d0,
 0x0100,
+0xffff,
 0x5809,
 0xd600,
 0xffff,
@@ -2126,6 +2225,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600b,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -2143,18 +2243,21 @@ static const uint16_t build_actionlist[7993] = {
 0x2001,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
 0x5047,
 0xffff,
 0x600d,
-0x2b00,
+0xf1b3,
+0x4f00,
 0xd100,
 0xffff,
 0x5004,
 0x2900,
-0x2000,
+0xf04f,
+0x4000,
 0xd400,
 0xffff,
 0x500b,
@@ -2164,6 +2267,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x505a,
 0xd000,
 0xffff,
@@ -2186,6 +2290,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd800,
 0xffff,
@@ -2199,6 +2304,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4240,
 0xe8d0,
 0x0100,
+0xffff,
 0x5813,
 0xffff,
 0x6047,
@@ -2210,11 +2316,12 @@ static const uint16_t build_actionlist[7993] = {
 0x605c,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0xffff,
 0x6045,
 0xf016,
 0x0000,
+0xffff,
 0xa000,
 0xf856,
 0xec04,
@@ -2248,6 +2355,7 @@ static const uint16_t build_actionlist[7993] = {
 0x18d1,
 0xf06f,
 0x0000,
+0xffff,
 0xa000,
 0xf10b,
 0x0b08,
@@ -2268,12 +2376,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x300e,
 0xd000,
 0xffff,
@@ -2288,12 +2398,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x300f,
 0xd000,
 0xffff,
@@ -2308,12 +2420,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3010,
 0xd000,
 0xffff,
@@ -2328,12 +2442,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3011,
 0xffff,
 0x0000,
@@ -2350,12 +2466,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3012,
 0xd000,
 0xffff,
@@ -2370,12 +2488,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3013,
 0xd000,
 0xffff,
@@ -2390,12 +2510,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3014,
 0xd000,
 0xffff,
@@ -2410,6 +2532,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -2418,6 +2541,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3015,
 0xd000,
 0xffff,
@@ -2432,12 +2556,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3016,
 0xd000,
 0xffff,
@@ -2452,12 +2578,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3017,
 0xd000,
 0xffff,
@@ -2472,12 +2600,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3018,
 0xd000,
 0xffff,
@@ -2494,12 +2624,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3019,
 0xd000,
 0xffff,
@@ -2514,12 +2646,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x301a,
 0xd000,
 0xffff,
@@ -2536,15 +2670,18 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x301b,
 0xd000,
 0xffff,
@@ -2561,9 +2698,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -2572,6 +2711,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x301c,
 0xd000,
 0xffff,
@@ -2588,15 +2728,18 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x301d,
 0xd000,
 0xffff,
@@ -2613,15 +2756,18 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
 0x5044,
 0xe8d0,
 0x2300,
+0xffff,
 0x5180,
 0xf000,
 0xd000,
+0xffff,
 0x301e,
 0xd000,
 0xffff,
@@ -2638,6 +2784,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
@@ -2646,12 +2793,14 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x301f,
 0xd000,
 0xffff,
@@ -2666,6 +2815,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
@@ -2673,10 +2823,12 @@ static const uint16_t build_actionlist[7993] = {
 0x466a,
 0xf000,
 0xd000,
+0xffff,
 0x3020,
 0x682a,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0xf859,
 0x6c04,
@@ -2684,7 +2836,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0108,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0xe9c9,
 0x2300,
 0xd000,
@@ -2700,6 +2852,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
@@ -2710,10 +2863,11 @@ static const uint16_t build_actionlist[7993] = {
 0x6c04,
 0xf000,
 0xd000,
+0xffff,
 0x3021,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0xe9c9,
 0x0100,
 0xd000,
@@ -2729,6 +2883,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -2746,6 +2901,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5047,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -2764,6 +2920,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3022,
 0xe959,
 0x2300,
@@ -2785,6 +2942,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5047,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
@@ -2793,6 +2951,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6010,
 0xf000,
 0xd000,
+0xffff,
 0x3023,
 0xf10a,
 0x0a08,
@@ -2811,6 +2970,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4610,
 0xf000,
 0xd000,
+0xffff,
 0x3022,
 0xffff,
 0x0000,
@@ -2829,6 +2989,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x2208,
 0xd100,
@@ -2844,6 +3005,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5047,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -2862,6 +3024,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3022,
 0xe959,
 0x2300,
@@ -2883,6 +3046,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5047,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
@@ -2891,6 +3055,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6010,
 0xf000,
 0xd000,
+0xffff,
 0x3023,
 0xffff,
 0x0000,
@@ -2911,6 +3076,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4610,
 0xf000,
 0xd000,
+0xffff,
 0x3022,
 0xe9dd,
 0x2300,
@@ -2927,6 +3093,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -2936,6 +3103,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -2949,6 +3117,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2b08,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -2961,14 +3130,15 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x2a00,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0xe949,
 0x0108,
 0xd000,
@@ -2987,6 +3157,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4288,
 0xf000,
 0xd000,
+0xffff,
 0x504d,
 0xe9d9,
 0x0100,
@@ -2995,6 +3166,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2b08,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf030,
 0x03ff,
@@ -3013,12 +3185,14 @@ static const uint16_t build_actionlist[7993] = {
 0x622e,
 0xf000,
 0xd000,
+0xffff,
 0x3024,
 0x6801,
 0xffff,
 0x5180,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3034,6 +3208,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4288,
 0xf000,
 0xd000,
+0xffff,
 0x504d,
 0xe9d9,
 0x0100,
@@ -3050,6 +3225,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x4694,
 0xd100,
@@ -3061,6 +3237,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2302,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x6801,
 0xffff,
@@ -3069,6 +3246,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -3085,7 +3263,7 @@ static const uint16_t build_actionlist[7993] = {
 0x428c,
 0x1c00,
 0xffff,
-0xa000,
+0x5100,
 0x468c,
 0x1881,
 0x1aa2,
@@ -3097,9 +3275,10 @@ static const uint16_t build_actionlist[7993] = {
 0x6079,
 0x1e38,
 0xffff,
-0xa000,
+0x5100,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3115,6 +3294,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4288,
 0xf000,
 0xd000,
+0xffff,
 0x504d,
 0xe9d9,
 0x0100,
@@ -3126,9 +3306,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -3183,6 +3365,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4288,
 0xf000,
 0xd000,
+0xffff,
 0x504d,
 0xe9d9,
 0x0100,
@@ -3192,6 +3375,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -3208,7 +3392,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4613,
 0x1c00,
 0xffff,
-0xa000,
+0x5100,
 0x4294,
 0xd300,
 0xffff,
@@ -3238,6 +3422,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4288,
 0xf000,
 0xd000,
+0xffff,
 0x504d,
 0xe9d9,
 0x0100,
@@ -3247,6 +3432,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -3263,7 +3449,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2300,
 0x1c00,
 0xffff,
-0xa000,
+0x5100,
 0x4294,
 0xd300,
 0xffff,
@@ -3296,6 +3482,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4288,
 0xf000,
 0xd000,
+0xffff,
 0x504d,
 0xe9d9,
 0x0100,
@@ -3305,6 +3492,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -3323,7 +3511,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2300,
 0x1c00,
 0xffff,
-0xa000,
+0x5100,
 0x4294,
 0xd300,
 0xffff,
@@ -3355,15 +3543,18 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
 0x5044,
 0xf000,
 0xd000,
+0xffff,
 0x3025,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3421,14 +3612,17 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xffff,
 0x0000,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3443,9 +3637,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0x4602,
 0x2208,
@@ -3461,9 +3657,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5002,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xea02,
 0x0200,
@@ -3480,9 +3678,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0x4602,
 0x2208,
@@ -3498,9 +3698,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5002,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xea42,
 0x0200,
@@ -3519,9 +3721,11 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0x4602,
 0x2208,
@@ -3537,9 +3741,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5002,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xea82,
 0x0200,
@@ -3550,6 +3756,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600c,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0xf859,
 0x6c04,
@@ -3568,9 +3775,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xea80,
 0x4200,
@@ -3580,6 +3789,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2030,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xea80,
 0x2002,
@@ -3596,13 +3806,16 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0x43c0,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3619,9 +3832,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xf000,
 0x0a1f,
@@ -3629,14 +3844,17 @@ static const uint16_t build_actionlist[7993] = {
 0x0100,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xfa00,
 0xf00a,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3651,9 +3869,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xf000,
 0x0a1f,
@@ -3661,14 +3881,17 @@ static const uint16_t build_actionlist[7993] = {
 0x0100,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xfa20,
 0xf00a,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3683,9 +3906,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xf000,
 0x0a1f,
@@ -3693,14 +3918,17 @@ static const uint16_t build_actionlist[7993] = {
 0x0100,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xfa40,
 0xf00a,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -3717,23 +3945,28 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0x4242,
 0xe9d9,
 0x0100,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xfa60,
 0xf00a,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3748,9 +3981,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5044,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xf000,
 0x0a1f,
@@ -3758,14 +3993,17 @@ static const uint16_t build_actionlist[7993] = {
 0x0100,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x507f,
 0xfa60,
 0xf00a,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3793,7 +4031,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0x1c00,
 0xffff,
-0xa000,
+0x5100,
 0x622e,
 0x4288,
 0x4640,
@@ -3837,9 +4075,11 @@ static const uint16_t build_actionlist[7993] = {
 0x608c,
 0xf016,
 0x0000,
+0xffff,
 0xa000,
 0xf026,
 0x0100,
+0xffff,
 0xa000,
 0xf856,
 0xec04,
@@ -3855,9 +4095,10 @@ static const uint16_t build_actionlist[7993] = {
 0x600f,
 0x2100,
 0xffff,
-0xa000,
+0x4100,
 0xf000,
 0xd000,
+0xffff,
 0x3000,
 0x6801,
 0xffff,
@@ -3880,6 +4121,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4640,
 0xf000,
 0xd000,
+0xffff,
 0x3026,
 0x6801,
 0xffff,
@@ -3899,6 +4141,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0xf010,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3922,12 +4165,14 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0xf010,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
 0x500f,
 0xf010,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3941,6 +4186,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5001,
 0xf010,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -3954,6 +4200,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4631,
 0xf000,
 0xd000,
+0xffff,
 0x3027,
 0xffff,
 0x600d,
@@ -4005,6 +4252,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf000,
 0xd000,
+0xffff,
 0x3028,
 0x6801,
 0xffff,
@@ -4167,14 +4415,17 @@ static const uint16_t build_actionlist[7993] = {
 0xb41f,
 0xf000,
 0xd000,
+0xffff,
 0x3029,
 0xf000,
 0xd000,
+0xffff,
 0x5058,
 0xe95d,
 0x2302,
 0xf000,
 0xd000,
+0xffff,
 0x301e,
 0xe9dd,
 0x2300,
@@ -4182,6 +4433,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4100,
 0xf000,
 0xd000,
+0xffff,
 0x302a,
 0xf10d,
 0x0d14,
@@ -4218,9 +4470,11 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xebb0,
 0x0f01,
+0xffff,
 0x90a0,
 0xeba0,
 0x0001,
+0xffff,
 0x90a0,
 0xffff,
 0x0000,
@@ -4256,12 +4510,14 @@ static const uint16_t build_actionlist[7993] = {
 0x0c8c,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
 0x5003,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -4304,6 +4560,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5033,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x46e2,
 0xd300,
@@ -4317,6 +4574,7 @@ static const uint16_t build_actionlist[7993] = {
 0x46e2,
 0xf000,
 0xd000,
+0xffff,
 0x3022,
 0x4602,
 0x460b,
@@ -4333,6 +4591,7 @@ static const uint16_t build_actionlist[7993] = {
 0x46e2,
 0xf000,
 0xd000,
+0xffff,
 0x3022,
 0xe9db,
 0x2300,
@@ -4340,6 +4599,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600f,
 0xf000,
 0xd000,
+0xffff,
 0x3023,
 0xffff,
 0x0000,
@@ -4375,9 +4635,11 @@ static const uint16_t build_actionlist[7993] = {
 0x0c8c,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -4397,6 +4659,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5002,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
@@ -4425,6 +4688,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600d,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd800,
 0xffff,
@@ -4436,6 +4700,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5001,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd800,
 0xffff,
@@ -4463,10 +4728,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0x2300,
 0xffff,
-0xa000,
+0x4100,
 0x4601,
 0xf01a,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -4504,6 +4770,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0c8c,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x4290,
 0xffff,
@@ -4551,12 +4818,14 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
 0x5003,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -4601,6 +4870,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x46e2,
 0xd300,
@@ -4613,6 +4883,7 @@ static const uint16_t build_actionlist[7993] = {
 0x46e2,
 0xf000,
 0xd000,
+0xffff,
 0x3022,
 0xe9db,
 0x2300,
@@ -4620,6 +4891,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600f,
 0xf000,
 0xd000,
+0xffff,
 0x302b,
 0xffff,
 0x0000,
@@ -4674,6 +4946,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0c8c,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -4727,12 +5000,15 @@ static const uint16_t build_actionlist[7993] = {
 0xe904,
 0xf110,
 0x0f00,
+0xffff,
 0xa000,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x6111,
 0x683c,
@@ -4750,6 +5026,7 @@ static const uint16_t build_actionlist[7993] = {
 0xe904,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd800,
 0xffff,
@@ -4762,6 +5039,7 @@ static const uint16_t build_actionlist[7993] = {
 0x4240,
 0xe8d0,
 0x0100,
+0xffff,
 0x5809,
 0xffff,
 0x600f,
@@ -4787,6 +5065,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0100,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -4798,6 +5077,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600b,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x7834,
 0xf856,
@@ -4813,6 +5093,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600c,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -4834,6 +5115,7 @@ static const uint16_t build_actionlist[7993] = {
 0x603f,
 0xf000,
 0xd000,
+0xffff,
 0x3025,
 0xd000,
 0xffff,
@@ -4847,6 +5129,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf013,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -4885,17 +5168,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -4937,17 +5224,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -4958,17 +5249,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -4979,17 +5274,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5000,6 +5299,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x302a,
 0x7834,
 0xd000,
@@ -5036,17 +5336,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5088,17 +5392,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5109,17 +5417,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5130,17 +5442,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5151,6 +5467,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x302c,
 0x7834,
 0xd000,
@@ -5187,17 +5504,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5242,17 +5563,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5263,17 +5588,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5284,17 +5613,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5305,6 +5638,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x301e,
 0x7834,
 0xd000,
@@ -5338,17 +5672,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5359,17 +5697,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5380,17 +5722,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5401,6 +5747,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x3029,
 0x7834,
 0xf856,
@@ -5440,17 +5787,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5477,9 +5828,11 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x509b,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xffff,
 0x600e,
@@ -5499,17 +5852,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5520,17 +5877,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5541,17 +5902,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5562,6 +5927,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x509a,
 0xd000,
 0xffff,
@@ -5594,17 +5960,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5615,17 +5985,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5636,17 +6010,21 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -5657,6 +6035,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x301b,
 0x7834,
 0xf856,
@@ -5686,6 +6065,7 @@ static const uint16_t build_actionlist[7993] = {
 0x08d2,
 0xf000,
 0xd000,
+0xffff,
 0x302d,
 0x6801,
 0xffff,
@@ -5713,6 +6093,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6828,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xf856,
 0xe904,
@@ -5728,6 +6109,7 @@ static const uint16_t build_actionlist[7993] = {
 0x1430,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x7834,
 0xf856,
@@ -5774,6 +6156,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0bcb,
 0xf06f,
 0x0000,
+0xffff,
 0xa000,
 0x6110,
 0xf10a,
@@ -5802,7 +6185,7 @@ static const uint16_t build_actionlist[7993] = {
 0x009b,
 0x1c1b,
 0xffff,
-0xa000,
+0x5100,
 0x6809,
 0x6801,
 0xffff,
@@ -5826,7 +6209,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0852,
 0x1c12,
 0xffff,
-0xa000,
+0x5100,
 0x00db,
 0x6809,
 0xe959,
@@ -5842,10 +6225,11 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf01c,
 0x0f00,
+0xffff,
 0xa000,
 0x1c1c,
 0xffff,
-0xa000,
+0x5100,
 0x2b00,
 0xe9c1,
 0x2300,
@@ -5866,6 +6250,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600c,
 0xf11c,
 0x0f00,
+0xffff,
 0xa000,
 0x7803,
 0xffff,
@@ -5875,12 +6260,14 @@ static const uint16_t build_actionlist[7993] = {
 0x500b,
 0x1e38,
 0xffff,
-0xa000,
+0x5100,
 0xf01b,
 0x0f00,
+0xffff,
 0xa000,
 0xf000,
 0xd000,
+0xffff,
 0x302e,
 0xd000,
 0xffff,
@@ -5892,12 +6279,13 @@ static const uint16_t build_actionlist[7993] = {
 0x0852,
 0x1c12,
 0xffff,
-0xa000,
+0x5100,
 0x43db,
 0x6809,
 0x682a,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x7804,
 0xffff,
@@ -5910,6 +6298,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf01c,
 0x0f00,
+0xffff,
 0xa000,
 0x7804,
 0xffff,
@@ -5933,13 +6322,15 @@ static const uint16_t build_actionlist[7993] = {
 0x600c,
 0xf01c,
 0x0f00,
+0xffff,
 0xa000,
 0x2b00,
 0x1e38,
 0xffff,
-0xa000,
+0x5100,
 0xf000,
 0xd000,
+0xffff,
 0x302e,
 0xd000,
 0xffff,
@@ -5951,7 +6342,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0852,
 0x1c12,
 0xffff,
-0xa000,
+0x5100,
 0x00db,
 0x6809,
 0xe955,
@@ -5976,7 +6367,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0852,
 0x1c12,
 0xffff,
-0xa000,
+0x5100,
 0x6809,
 0x43db,
 0x6801,
@@ -6011,6 +6402,7 @@ static const uint16_t build_actionlist[7993] = {
 0x1889,
 0xf000,
 0xd000,
+0xffff,
 0x302f,
 0x6801,
 0xffff,
@@ -6038,12 +6430,14 @@ static const uint16_t build_actionlist[7993] = {
 0x4640,
 0xf000,
 0xd000,
+0xffff,
 0x3030,
 0x6801,
 0xffff,
 0x5180,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x7834,
 0xf856,
@@ -6088,12 +6482,14 @@ static const uint16_t build_actionlist[7993] = {
 0x1c89,
 0xf000,
 0xd000,
+0xffff,
 0x3031,
 0xffff,
 0x0000,
 0x6829,
 0xf000,
 0xd000,
+0xffff,
 0x3032,
 0xffff,
 0x0000,
@@ -6102,6 +6498,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x7834,
 0xf856,
@@ -6117,6 +6514,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600f,
 0xf000,
 0xd000,
+0xffff,
 0x3033,
 0x4640,
 0xd000,
@@ -6153,12 +6551,14 @@ static const uint16_t build_actionlist[7993] = {
 0x2300,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
 0x502e,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x6803,
 0xffff,
@@ -6180,6 +6580,7 @@ static const uint16_t build_actionlist[7993] = {
 0x7834,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -6209,6 +6610,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf011,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6222,6 +6624,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6013,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x4693,
 0xd000,
@@ -6242,6 +6645,7 @@ static const uint16_t build_actionlist[7993] = {
 0x682b,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6268,15 +6672,18 @@ static const uint16_t build_actionlist[7993] = {
 0x600b,
 0xe8d0,
 0x0100,
+0xffff,
 0x5180,
 0xe8d0,
 0x2300,
+0xffff,
 0x5180,
 0x6806,
 0xffff,
 0x5180,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x4298,
 0xd100,
@@ -6284,6 +6691,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5004,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -6314,6 +6722,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2200,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x2800,
 0xd000,
@@ -6326,6 +6735,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf011,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6343,6 +6753,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0100,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6363,6 +6774,7 @@ static const uint16_t build_actionlist[7993] = {
 0x7834,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -6392,6 +6804,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf011,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6411,12 +6824,14 @@ static const uint16_t build_actionlist[7993] = {
 0x2300,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
 0x5032,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x6801,
 0xffff,
@@ -6437,6 +6852,7 @@ static const uint16_t build_actionlist[7993] = {
 0x7834,
 0xf11e,
 0x0f00,
+0xffff,
 0xa000,
 0x7806,
 0xffff,
@@ -6450,6 +6866,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600b,
 0xf01e,
 0x0f00,
+0xffff,
 0xa000,
 0xe9c1,
 0x2300,
@@ -6479,6 +6896,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf01a,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6501,6 +6919,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0xf02e,
 0x0e00,
+0xffff,
 0xa000,
 0x6038,
 0xffff,
@@ -6518,6 +6937,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6013,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x4693,
 0xd000,
@@ -6538,6 +6958,7 @@ static const uint16_t build_actionlist[7993] = {
 0x682b,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6568,6 +6989,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600b,
 0xe8d0,
 0x0100,
+0xffff,
 0x5180,
 0x6803,
 0xffff,
@@ -6577,6 +6999,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x4298,
 0xd100,
@@ -6587,6 +7010,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xe959,
 0x2300,
@@ -6597,9 +7021,11 @@ static const uint16_t build_actionlist[7993] = {
 0x600c,
 0xf011,
 0x0f00,
+0xffff,
 0xa000,
 0xe8c0,
 0x2300,
+0xffff,
 0x4100,
 0xd100,
 0xffff,
@@ -6630,6 +7056,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf010,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6661,6 +7088,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5006,
 0xf011,
 0x0f00,
+0xffff,
 0xa000,
 0xd000,
 0xffff,
@@ -6669,12 +7097,14 @@ static const uint16_t build_actionlist[7993] = {
 0x6010,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0x602b,
 0x4661,
 0x612b,
 0xf000,
 0xd000,
+0xffff,
 0x3034,
 0x6801,
 0xffff,
@@ -6693,6 +7123,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0xf021,
 0x0100,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -6718,6 +7149,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0100,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6738,6 +7170,7 @@ static const uint16_t build_actionlist[7993] = {
 0x7834,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x7806,
 0xffff,
@@ -6751,6 +7184,7 @@ static const uint16_t build_actionlist[7993] = {
 0x600b,
 0xf01e,
 0x0f00,
+0xffff,
 0xa000,
 0xe9c1,
 0x2300,
@@ -6780,6 +7214,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf01a,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6798,6 +7233,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0xf02e,
 0x0e00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -6857,6 +7293,7 @@ static const uint16_t build_actionlist[7993] = {
 0x500d,
 0xf010,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6880,6 +7317,7 @@ static const uint16_t build_actionlist[7993] = {
 0x622e,
 0xf000,
 0xd000,
+0xffff,
 0x3035,
 0xd000,
 0xffff,
@@ -6891,6 +7329,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5100,
 0xf020,
 0x0000,
+0xffff,
 0xa000,
 0x6039,
 0xffff,
@@ -6928,6 +7367,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0908,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6966,6 +7406,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0a08,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -6980,6 +7421,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf016,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -7046,9 +7488,11 @@ static const uint16_t build_actionlist[7993] = {
 0x6011,
 0xf086,
 0x0600,
+0xffff,
 0xa000,
 0xf016,
 0x0f00,
+0xffff,
 0xa000,
 0xffff,
 0x0000,
@@ -7061,6 +7505,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6c04,
 0xf016,
 0x0f00,
+0xffff,
 0xa000,
 0x2300,
 0xd000,
@@ -7087,6 +7532,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2300,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -7130,6 +7576,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2300,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x1c40,
 0xd000,
@@ -7139,6 +7586,7 @@ static const uint16_t build_actionlist[7993] = {
 0xbc02,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xe94a,
 0x2308,
@@ -7181,9 +7629,11 @@ static const uint16_t build_actionlist[7993] = {
 0x500d,
 0xe8d0,
 0x0100,
+0xffff,
 0x5180,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x1c5b,
 0xd000,
@@ -7194,6 +7644,7 @@ static const uint16_t build_actionlist[7993] = {
 0x199b,
 0xe8d0,
 0x2300,
+0xffff,
 0x5180,
 0xf84a,
 0xbc08,
@@ -7221,19 +7672,22 @@ static const uint16_t build_actionlist[7993] = {
 0x3c04,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x7800,
 0xffff,
 0x5180,
 0xf112,
 0x0f00,
+0xffff,
 0xa000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x2800,
 0xffff,
-0xa000,
+0x4100,
 0xf5ab,
 0x3600,
 0xd100,
@@ -7258,10 +7712,10 @@ static const uint16_t build_actionlist[7993] = {
 0x600f,
 0x2000,
 0xffff,
-0xa000,
+0x4100,
 0x2400,
 0xffff,
-0xa000,
+0x4100,
 0xf806,
 0x0c04,
 0xf5ab,
@@ -7284,7 +7738,7 @@ static const uint16_t build_actionlist[7993] = {
 0x188a,
 0x1c1b,
 0xffff,
-0xa000,
+0x5100,
 0x1913,
 0xf1a9,
 0x0208,
@@ -7303,6 +7757,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0102,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0x429a,
 0xe86a,
@@ -7366,6 +7821,7 @@ static const uint16_t build_actionlist[7993] = {
 0x1a52,
 0xf000,
 0xd000,
+0xffff,
 0x3000,
 0x6801,
 0xffff,
@@ -7401,9 +7857,11 @@ static const uint16_t build_actionlist[7993] = {
 0x600b,
 0xf016,
 0x0000,
+0xffff,
 0xa000,
 0xf086,
 0x0100,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -7466,6 +7924,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6010,
 0xf06f,
 0x0100,
+0xffff,
 0xa000,
 0xf109,
 0x0908,
@@ -7483,6 +7942,7 @@ static const uint16_t build_actionlist[7993] = {
 0x60a6,
 0xf011,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -7501,9 +7961,11 @@ static const uint16_t build_actionlist[7993] = {
 0x612b,
 0xf016,
 0x0000,
+0xffff,
 0xa000,
 0xf086,
 0x0100,
+0xffff,
 0xa000,
 0xf856,
 0xec04,
@@ -7556,6 +8018,7 @@ static const uint16_t build_actionlist[7993] = {
 0x1f19,
 0xf06f,
 0x0200,
+0xffff,
 0xa000,
 0x600a,
 0xf10b,
@@ -7577,6 +8040,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2302,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0x6954,
 0xd100,
@@ -7584,10 +8048,12 @@ static const uint16_t build_actionlist[7993] = {
 0x5005,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0x6913,
 0xf11c,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -7603,6 +8069,7 @@ static const uint16_t build_actionlist[7993] = {
 0x2304,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xd100,
 0xffff,
@@ -7689,9 +8156,11 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf113,
 0x0f00,
+0xffff,
 0xa000,
 0xf11c,
 0x0f00,
+0xffff,
 0xa000,
 0xd200,
 0xffff,
@@ -7710,6 +8179,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5008,
 0xf000,
 0xd000,
+0xffff,
 0x302a,
 0xe9ca,
 0x0100,
@@ -7723,6 +8193,7 @@ static const uint16_t build_actionlist[7993] = {
 0x6010,
 0xf000,
 0xd000,
+0xffff,
 0x3023,
 0xffff,
 0x0000,
@@ -7760,6 +8231,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf000,
 0xd000,
+0xffff,
 0x302a,
 0xe9ca,
 0x0100,
@@ -7782,6 +8254,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xe94a,
 0x0108,
@@ -7794,6 +8267,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0b8b,
 0xf111,
 0x0f00,
+0xffff,
 0xa000,
 0xf5ab,
 0x3600,
@@ -7861,6 +8335,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0fc1,
 0xf06f,
 0x0300,
+0xffff,
 0xa000,
 0xd300,
 0xffff,
@@ -7902,7 +8377,7 @@ static const uint16_t build_actionlist[7993] = {
 0x601a,
 0x1c19,
 0xffff,
-0xa000,
+0x5100,
 0x6835,
 0xffff,
 0x5100,
@@ -7924,6 +8399,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5003,
 0xf06f,
 0x0200,
+0xffff,
 0xa000,
 0xffff,
 0x600b,
@@ -7984,6 +8460,7 @@ static const uint16_t build_actionlist[7993] = {
 0x0000,
 0xf06f,
 0x0200,
+0xffff,
 0xa000,
 0x4640,
 0xd800,
@@ -7998,6 +8475,7 @@ static const uint16_t build_actionlist[7993] = {
 0x5180,
 0xf06f,
 0x0200,
+0xffff,
 0xa000,
 0x6801,
 0xffff,
@@ -8756,7 +9234,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|  ldr GL:CARG3, L->glref
   //|   str CARG4, GL:CARG3->vmstate
   //|  b ->vm_leave_unw
-  dasm_put(Dst, 88, Dt1(->top), Dt1(->cframe), Dt1(->maxstack), ~LJ_TNIL, Dt1(->top), Dt1(->top), LJ_VMST_C, Dt1(->glref), Dt2(->vmstate));
+  dasm_put(Dst, 93, Dt1(->top), Dt1(->cframe), Dt1(->maxstack), ~LJ_TNIL, Dt1(->top), Dt1(->top), LJ_VMST_C, Dt1(->glref), Dt2(->vmstate));
 #line 354 "biggy.dasc"
   //|
   //|->vm_unwind_ff:			// Unwind C stack, return from ff pcall.
@@ -8807,7 +9285,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|   sub NARGS8:RC, RC, BASE
   //|  // BASE = new base, RB = LFUNC/CFUNC, RC = nargs*8, FRAME_PC(BASE) = PC
   //|  ins_callt				// Just retry the call.
-  dasm_put(Dst, 168, ~CFRAME_RAWMASK, Dt1(->base), Dt1(->glref), ~LJ_TFALSE, GG_G2DISP, LJ_VMST_INTERP, DISPATCH_GL(vmstate), LUA_MINSTACK, Dt1(->base), Dt1(->top), Dt1(->base), Dt1(->top), Dt7(->field_pc));
+  dasm_put(Dst, 176, ~CFRAME_RAWMASK, Dt1(->base), Dt1(->glref), ~LJ_TFALSE, GG_G2DISP, LJ_VMST_INTERP, DISPATCH_GL(vmstate), LUA_MINSTACK, Dt1(->base), Dt1(->top), Dt1(->base), Dt1(->top), Dt7(->field_pc));
 #line 403 "biggy.dasc"
   //|
   //|//-----------------------------------------------------------------------
@@ -8864,7 +9342,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|
   //|1:  // Entry point for vm_pcall above (PC = ftype).
   //|  ldr RC, L:CARG1->cframe
-  dasm_put(Dst, 251, Dt1(->glref), GG_G2DISP, FRAME_CP, CFRAME_RESUME, Dt1(->status), Dt1(->cframe), Dt1(->base), Dt1(->top), Dt1(->status), LJ_VMST_INTERP, FRAME_TYPE, DISPATCH_GL(vmstate), FRAME_CP, FRAME_C);
+  dasm_put(Dst, 263, Dt1(->glref), GG_G2DISP, FRAME_CP, CFRAME_RESUME, Dt1(->status), Dt1(->cframe), Dt1(->base), Dt1(->top), Dt1(->status), LJ_VMST_INTERP, FRAME_TYPE, DISPATCH_GL(vmstate), FRAME_CP, FRAME_C);
 #line 458 "biggy.dasc"
   //|   str CARG3, SAVE_NRES
   //|    mov L, CARG1
@@ -8917,7 +9395,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|    mov PC, #FRAME_CP
   //|   add DISPATCH, DISPATCH, #GG_G2DISP
   //|  bne <3				// Else continue with the call.
-  dasm_put(Dst, 350, Dt1(->cframe), Dt1(->cframe), Dt1(->glref), GG_G2DISP, Dt1(->base), Dt1(->top), LJ_VMST_INTERP, DISPATCH_GL(vmstate), -LJ_TFUNC, Dt7(->field_pc), Dt1(->stack), Dt1(->top), Dt1(->cframe), Dt1(->cframe), Dt1(->glref), FRAME_CP, GG_G2DISP);
+  dasm_put(Dst, 364, Dt1(->cframe), Dt1(->cframe), Dt1(->glref), GG_G2DISP, Dt1(->base), Dt1(->top), LJ_VMST_INTERP, DISPATCH_GL(vmstate), -LJ_TFUNC, Dt7(->field_pc), Dt1(->stack), Dt1(->top), Dt1(->cframe), Dt1(->cframe), Dt1(->glref), FRAME_CP, GG_G2DISP);
 #line 509 "biggy.dasc"
   //|  b ->vm_leave_cp			// No base? Just remove C frame.
   //|
@@ -9002,7 +9480,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|
   //|->vmeta_tgetv:
   //|  add CARG2, BASE, RB
-  dasm_put(Dst, 450, Dt7(->field_pc), ~LJ_TNIL, PC2PROTO(k), Dt1(->base), -DISPATCH_GL(tmptv), ~LJ_TTAB, ~LJ_TSTR, ~LJ_TISNUM);
+  dasm_put(Dst, 466, Dt7(->field_pc), ~LJ_TNIL, PC2PROTO(k), Dt1(->base), -DISPATCH_GL(tmptv), ~LJ_TTAB, ~LJ_TSTR, ~LJ_TISNUM);
 #line 592 "biggy.dasc"
   //|   add CARG3, BASE, RC
   //|1:
@@ -9063,7 +9541,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|1:
   //|   str BASE, L->base
   //|  mov CARG1, L
-  dasm_put(Dst, 552, Dt1(->base), FRAME_CONT, Dt1(->top), -DISPATCH_GL(tmptv), ~LJ_TTAB, ~LJ_TSTR, ~LJ_TISNUM, Dt1(->base));
+  dasm_put(Dst, 572, Dt1(->base), FRAME_CONT, Dt1(->top), -DISPATCH_GL(tmptv), ~LJ_TTAB, ~LJ_TSTR, ~LJ_TISNUM, Dt1(->base));
 #line 651 "biggy.dasc"
   //|   str PC, SAVE_PC
   //|  bl extern lj_meta_tset		// (lua_State *L, TValue *o, TValue *k)
@@ -9134,7 +9612,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|->vmeta_equal:
   //|  // CARG2, CARG3, CARG4 are already set by BC_ISEQV/BC_ISNEV.
   //|  sub PC, PC, #4
-  dasm_put(Dst, 649, FRAME_CONT, Dt1(->top), Dt1(->base), ~LJ_TTRUE, -LJ_TFALSE);
+  dasm_put(Dst, 674, FRAME_CONT, Dt1(->top), Dt1(->base), ~LJ_TTRUE, -LJ_TFALSE);
 #line 720 "biggy.dasc"
   //|   str BASE, L->base
   //|   mov CARG1, L
@@ -9214,18 +9692,18 @@ static void build_subroutines(BuildCtx *ctx)
   //|  bl extern lj_meta_len		// (lua_State *L, TValue *o)
   //|  // Returns NULL (retry) or TValue * (metamethod base).
   //|  .IOS ldr BASE, L->base
-  dasm_put(Dst, 764, Dt1(->base), Dt1(->base), FRAME_CONT, Dt1(->base));
+  dasm_put(Dst, 794, Dt1(->base), Dt1(->base), FRAME_CONT, Dt1(->base));
 #line 798 "biggy.dasc"
 #if LJ_52
   //|  cmp CRET1, #0
   //|  bne ->vmeta_binop			// Binop call for compatibility.
   //|  ldr TAB:CARG1, [BASE, RC]
   //|  b ->BC_LEN_Z
-  dasm_put(Dst, 862);
+  dasm_put(Dst, 895);
 #line 803 "biggy.dasc"
 #else
   //|  b ->vmeta_binop			// Binop call for compatibility.
-  dasm_put(Dst, 872);
+  dasm_put(Dst, 905);
 #line 805 "biggy.dasc"
 #endif
   //|
@@ -9372,7 +9850,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|   cmp NARGS8:RC, #8
   //|   blo ->fff_fallback
   //|  checktp CARG2, LJ_TISNUM
-  dasm_put(Dst, 877, Dt1(->base), Dt7(->field_pc), Dt1(->base), Dt1(->base), BC_FORI, -LJ_TTRUE);
+  dasm_put(Dst, 910, Dt1(->base), Dt7(->field_pc), Dt1(->base), Dt1(->base), BC_FORI, -LJ_TTRUE);
 #line 950 "biggy.dasc"
   //|  mvnlo CARG2, #~LJ_TISNUM
   //|  rsb CARG4, CARG2, #(int)(offsetof(GCfuncC, upvalue)>>3)-1
@@ -9404,7 +9882,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|   ldrd CARG1, CARG2, NODE:INS->val
   //|    ldr NODE:INS, NODE:INS->next
   //|  checktp CARG4, LJ_TSTR
-  dasm_put(Dst, 997, -LJ_TISNUM, ~LJ_TISNUM, (int)(offsetof(GCfuncC, upvalue)>>3)-1, -LJ_TTAB, -LJ_TUDATA, Dt6(->metatable), ~LJ_TNIL, DISPATCH_GL(gcroot[GCROOT_MMNAME+MM_metatable]), Dt6(->hmask), Dt5(->hash), Dt6(->node), DtB(->key), DtB(->val), DtB(->next));
+  dasm_put(Dst, 1034, -LJ_TISNUM, ~LJ_TISNUM, (int)(offsetof(GCfuncC, upvalue)>>3)-1, -LJ_TTAB, -LJ_TUDATA, Dt6(->metatable), ~LJ_TNIL, DISPATCH_GL(gcroot[GCROOT_MMNAME+MM_metatable]), Dt6(->hmask), Dt5(->hash), Dt6(->node), DtB(->key), DtB(->val), DtB(->next));
 #line 980 "biggy.dasc"
   //|  cmpeq CARG3, STR:RC
   //|  beq >5
@@ -9436,7 +9914,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|   cmpeq TAB:RB, #0
   //|  bne ->fff_fallback
   //|    tst CARG4, #LJ_GC_BLACK		// isblack(table)
-  dasm_put(Dst, 1074, -LJ_TSTR, ~LJ_TTAB, -LJ_TNIL, -LJ_TISNUM, ~LJ_TISNUM, DISPATCH_GL(gcroot[GCROOT_BASEMT]), -LJ_TTAB, Dt6(->metatable), -LJ_TTAB, Dt6(->marked));
+  dasm_put(Dst, 1119, -LJ_TSTR, ~LJ_TTAB, -LJ_TNIL, -LJ_TISNUM, ~LJ_TISNUM, DISPATCH_GL(gcroot[GCROOT_BASEMT]), -LJ_TTAB, Dt6(->metatable), -LJ_TTAB, Dt6(->marked));
 #line 1010 "biggy.dasc"
   //|     str TAB:CARG3, TAB:CARG1->metatable
   //|    beq ->fff_restv
@@ -9472,7 +9950,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|.ffunc_1 tostring
   //|  // Only handles the string or number case inline.
   //|  checktp CARG2, LJ_TSTR
-  dasm_put(Dst, 1150, LJ_GC_BLACK, Dt6(->metatable), DISPATCH_GL(gc.grayagain), LJ_GC_BLACK, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist), -LJ_TTAB, -LJ_TISNUM);
+  dasm_put(Dst, 1201, LJ_GC_BLACK, Dt6(->metatable), DISPATCH_GL(gc.grayagain), LJ_GC_BLACK, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist), -LJ_TTAB, -LJ_TISNUM);
 #line 1044 "biggy.dasc"
   //|  // A __tostring method in the string base metatable is ignored.
   //|  beq ->fff_restv
@@ -9511,7 +9989,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|  cmp CRET1, #0
   //|  mvneq CRET2, #~LJ_TNIL
   //|  beq ->fff_restv			// End of traversal: return nil.
-  dasm_put(Dst, 1230, -LJ_TSTR, DISPATCH_GL(gcroot[GCROOT_BASEMT_NUM]), Dt1(->base), -LJ_TISNUM, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), Dt1(->base), ~LJ_TSTR, ~LJ_TNIL, -LJ_TTAB, Dt1(->base), Dt1(->top), ~LJ_TNIL);
+  dasm_put(Dst, 1286, -LJ_TSTR, DISPATCH_GL(gcroot[GCROOT_BASEMT_NUM]), Dt1(->base), -LJ_TISNUM, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), Dt1(->base), ~LJ_TSTR, ~LJ_TNIL, -LJ_TTAB, Dt1(->base), Dt1(->top), ~LJ_TNIL);
 #line 1081 "biggy.dasc"
   //|  ldrd CARG1, CARG2, [BASE, #8]		// Copy key and value to results.
   //|   ldrd CARG3, CARG4, [BASE, #16]
@@ -9522,21 +10000,21 @@ static void build_subroutines(BuildCtx *ctx)
   //|
   //|.ffunc_1 pairs
   //|  checktab CARG2, ->fff_fallback
-  dasm_put(Dst, 1315, (2+1)*8, -LJ_TTAB);
+  dasm_put(Dst, 1380, (2+1)*8, -LJ_TTAB);
 #line 1090 "biggy.dasc"
 #if LJ_52
   //|  ldr TAB:RB, TAB:CARG1->metatable
-  dasm_put(Dst, 1348, Dt6(->metatable));
+  dasm_put(Dst, 1414, Dt6(->metatable));
 #line 1092 "biggy.dasc"
 #endif
   //|   ldrd CFUNC:CARG3, CFUNC:CARG4, CFUNC:CARG3->upvalue[0]
   //|    ldr PC, [BASE, FRAME_PC]
-  dasm_put(Dst, 1353, Dt8(->upvalue[0]));
+  dasm_put(Dst, 1419, Dt8(->upvalue[0]));
 #line 1095 "biggy.dasc"
 #if LJ_52
   //|  cmp TAB:RB, #0
   //|  bne ->fff_fallback
-  dasm_put(Dst, 1360);
+  dasm_put(Dst, 1427);
 #line 1098 "biggy.dasc"
 #endif
   //|  mvn CARG2, #~LJ_TNIL
@@ -9579,24 +10057,24 @@ static void build_subroutines(BuildCtx *ctx)
   //|  b <1
   //|
   //|.ffunc_1 ipairs
-  dasm_put(Dst, 1366, ~LJ_TNIL, (3+1)*8, -LJ_TTAB, -LJ_TISNUM, Dt6(->asize), Dt6(->array), (0+1)*8, -LJ_TNIL, (2+1)*8, Dt6(->hmask));
+  dasm_put(Dst, 1433, ~LJ_TNIL, (3+1)*8, -LJ_TTAB, -LJ_TISNUM, Dt6(->asize), Dt6(->array), (0+1)*8, -LJ_TNIL, (2+1)*8, Dt6(->hmask));
 #line 1139 "biggy.dasc"
   //|  checktab CARG2, ->fff_fallback
-  dasm_put(Dst, 1458, -LJ_TTAB);
+  dasm_put(Dst, 1530, -LJ_TTAB);
 #line 1140 "biggy.dasc"
 #if LJ_52
   //|  ldr TAB:RB, TAB:CARG1->metatable
-  dasm_put(Dst, 1472, Dt6(->metatable));
+  dasm_put(Dst, 1545, Dt6(->metatable));
 #line 1142 "biggy.dasc"
 #endif
   //|   ldrd CFUNC:CARG3, CFUNC:CARG4, CFUNC:CARG3->upvalue[0]
   //|    ldr PC, [BASE, FRAME_PC]
-  dasm_put(Dst, 1477, Dt8(->upvalue[0]));
+  dasm_put(Dst, 1550, Dt8(->upvalue[0]));
 #line 1145 "biggy.dasc"
 #if LJ_52
   //|  cmp TAB:RB, #0
   //|  bne ->fff_fallback
-  dasm_put(Dst, 1484);
+  dasm_put(Dst, 1558);
 #line 1148 "biggy.dasc"
 #endif
   //|  mov CARG1, #0
@@ -9745,12 +10223,12 @@ static void build_subroutines(BuildCtx *ctx)
   //|.endmacro
   //|
   //|  coroutine_resume_wrap 1		// coroutine.resume
-  dasm_put(Dst, 1490, ~LJ_TISNUM, (3+1)*8, DISPATCH_GL(hookmask), HOOK_ACTIVE, 8+FRAME_PCALL, 8+FRAME_PCALLH, DISPATCH_GL(hookmask), -LJ_TFUNC, HOOK_ACTIVE, 16+FRAME_PCALL, 16+FRAME_PCALLH, -LJ_TTHREAD);
-  dasm_put(Dst, 1583, Dt1(->base), Dt1(->top), Dt1(->status), Dt1(->base), Dt1(->maxstack), Dt1(->cframe), LUA_YIELD, Dt1(->top), Dt1(->top), Dt1(->base), LJ_VMST_INTERP, Dt1(->top), DISPATCH_GL(vmstate), LUA_YIELD);
+  dasm_put(Dst, 1564, ~LJ_TISNUM, (3+1)*8, DISPATCH_GL(hookmask), HOOK_ACTIVE, 8+FRAME_PCALL, 8+FRAME_PCALLH, DISPATCH_GL(hookmask), -LJ_TFUNC, HOOK_ACTIVE, 16+FRAME_PCALL, 16+FRAME_PCALLH, -LJ_TTHREAD);
+  dasm_put(Dst, 1662, Dt1(->base), Dt1(->top), Dt1(->status), Dt1(->base), Dt1(->maxstack), Dt1(->cframe), LUA_YIELD, Dt1(->top), Dt1(->top), Dt1(->base), LJ_VMST_INTERP, Dt1(->top), DISPATCH_GL(vmstate), LUA_YIELD);
 #line 1295 "biggy.dasc"
   //|  coroutine_resume_wrap 0		// coroutine.wrap
-  dasm_put(Dst, 1672, Dt1(->base), Dt1(->maxstack), Dt1(->top), ~LJ_TTRUE, FRAME_TYPE, ~LJ_TFALSE, (2+1)*8, Dt1(->top));
-  dasm_put(Dst, 1765, Dt8(->upvalue[0].gcr), Dt1(->base), Dt1(->top), Dt1(->status), Dt1(->base), Dt1(->maxstack), Dt1(->cframe), LUA_YIELD, Dt1(->top), Dt1(->top), Dt1(->base), LJ_VMST_INTERP, Dt1(->top), DISPATCH_GL(vmstate), LUA_YIELD);
+  dasm_put(Dst, 1753, Dt1(->base), Dt1(->maxstack), Dt1(->top), ~LJ_TTRUE, FRAME_TYPE, ~LJ_TFALSE, (2+1)*8, Dt1(->top));
+  dasm_put(Dst, 1850, Dt8(->upvalue[0].gcr), Dt1(->base), Dt1(->top), Dt1(->status), Dt1(->base), Dt1(->maxstack), Dt1(->cframe), LUA_YIELD, Dt1(->top), Dt1(->top), Dt1(->base), LJ_VMST_INTERP, Dt1(->top), DISPATCH_GL(vmstate), LUA_YIELD);
 #line 1296 "biggy.dasc"
   //|
   //|.ffunc coroutine_yield
@@ -9760,7 +10238,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|  tst CARG1, #CFRAME_RESUME
   //|   str CARG2, L->top
   //|    mov CRET1, #LUA_YIELD
-  dasm_put(Dst, 1848, Dt1(->base), Dt1(->maxstack), Dt1(->top), FRAME_TYPE, Dt1(->cframe), Dt1(->base), CFRAME_RESUME, Dt1(->top));
+  dasm_put(Dst, 1935, Dt1(->base), Dt1(->maxstack), Dt1(->top), FRAME_TYPE, Dt1(->cframe), Dt1(->base), CFRAME_RESUME, Dt1(->top));
 #line 1304 "biggy.dasc"
   //|   mov CARG3, #0
   //|  beq ->fff_fallback
@@ -9834,10 +10312,10 @@ static void build_subroutines(BuildCtx *ctx)
   //|.endmacro
   //|
   //|  math_round floor
-  dasm_put(Dst, 1935, LUA_YIELD, Dt1(->cframe), Dt1(->status), -LJ_TISNUM, ~LJ_TISNUM, ~LJ_TISNUM);
+  dasm_put(Dst, 2026, LUA_YIELD, Dt1(->cframe), Dt1(->status), -LJ_TISNUM, ~LJ_TISNUM, ~LJ_TISNUM);
 #line 1376 "biggy.dasc"
   //|  math_round ceil
-  dasm_put(Dst, 2040, -LJ_TISNUM, ~LJ_TISNUM, ~LJ_TISNUM);
+  dasm_put(Dst, 2136, -LJ_TISNUM, ~LJ_TISNUM, ~LJ_TISNUM);
 #line 1377 "biggy.dasc"
   //|
   //|.align 8
@@ -9927,7 +10405,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|  b ->fff_res1
   //|.else
   //|  math_extern sqrt
-  dasm_put(Dst, 2139, -LJ_TISNUM, (1+1)*8, FRAME_TYPE, ~LJ_TNIL);
+  dasm_put(Dst, 2242, -LJ_TISNUM, (1+1)*8, FRAME_TYPE, ~LJ_TNIL);
 #line 1465 "biggy.dasc"
   //|.endif
   //|
@@ -9955,24 +10433,24 @@ static void build_subroutines(BuildCtx *ctx)
   //|
   //|  math_extern log10
   //|  math_extern exp
-  dasm_put(Dst, 2237, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
+  dasm_put(Dst, 2345, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
 #line 1491 "biggy.dasc"
   //|  math_extern sin
   //|  math_extern cos
   //|  math_extern tan
   //|  math_extern asin
-  dasm_put(Dst, 2314, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
+  dasm_put(Dst, 2430, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
 #line 1495 "biggy.dasc"
   //|  math_extern acos
   //|  math_extern atan
   //|  math_extern sinh
   //|  math_extern cosh
-  dasm_put(Dst, 2390, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
+  dasm_put(Dst, 2513, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
 #line 1499 "biggy.dasc"
   //|  math_extern tanh
   //|  math_extern2 pow
   //|  math_extern2 atan2
-  dasm_put(Dst, 2463, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
+  dasm_put(Dst, 2593, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
 #line 1502 "biggy.dasc"
   //|  math_extern2 fmod
   //|
@@ -10009,7 +10487,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|  checktp CARG2, LJ_TISNUM
   //|  bhs ->fff_fallback
   //|  checktp CARG4, LJ_TISNUM
-  dasm_put(Dst, 2544, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, Dt8(->upvalue[0]), -LJ_TISNUM);
+  dasm_put(Dst, 2683, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, Dt8(->upvalue[0]), -LJ_TISNUM);
 #line 1537 "biggy.dasc"
   //|  bne ->fff_fallback
   //|  .IOS mov RA, BASE
@@ -10161,11 +10639,11 @@ static void build_subroutines(BuildCtx *ctx)
   //|.endmacro
   //|
   //|  math_minmax math_min, gt, hi
-  dasm_put(Dst, 2621, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, (2+1)*8, -LJ_TISNUM, (2+1)*8, -LJ_TISNUM);
-  dasm_put(Dst, 2709, -LJ_TISNUM, -LJ_TISNUM);
+  dasm_put(Dst, 2768, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, (2+1)*8, -LJ_TISNUM, (2+1)*8, -LJ_TISNUM);
+  dasm_put(Dst, 2864, -LJ_TISNUM, -LJ_TISNUM);
 #line 1687 "biggy.dasc"
   //|  math_minmax math_max, lt, lo
-  dasm_put(Dst, 2791, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
+  dasm_put(Dst, 2951, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
 #line 1688 "biggy.dasc"
   //|
   //|//-- String library -----------------------------------------------------
@@ -10193,7 +10671,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|
   //|.ffunc string_char			// Only handle the 1-arg case here.
   //|  ffgccheck
-  dasm_put(Dst, 2871, -LJ_TSTR, Dt5(->len), ~LJ_TISNUM, -LJ_TSTR, Dt5(->len), Dt5([1]), ~LJ_TISNUM, (0+1)*8, (1+1)*8);
+  dasm_put(Dst, 3036, -LJ_TSTR, Dt5(->len), ~LJ_TISNUM, -LJ_TSTR, Dt5(->len), Dt5([1]), ~LJ_TISNUM, (0+1)*8, (1+1)*8);
 #line 1714 "biggy.dasc"
   //|  ldrd CARG1, CARG2, [BASE]
   //|    ldr PC, [BASE, FRAME_PC]
@@ -10231,7 +10709,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|  checktp CARG2, LJ_TSTR
   //|   ldreq CARG2, STR:CARG1->len
   //|  checktpeq CARG4, LJ_TISNUM
-  dasm_put(Dst, 2955, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TISNUM, Dt1(->base), Dt1(->base), ~LJ_TSTR, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TISNUM, -LJ_TSTR, Dt5(->len));
+  dasm_put(Dst, 3125, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TISNUM, Dt1(->base), Dt1(->base), ~LJ_TSTR, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TISNUM, -LJ_TSTR, Dt5(->len));
 #line 1750 "biggy.dasc"
   //|  bne ->fff_fallback
   //|  // CARG1 = str, CARG2 = str->len, CARG3 = start, RB = end
@@ -10273,7 +10751,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|  ldr RB, [DISPATCH, #DISPATCH_GL(tmpbuf.sz)]
   //|   ldr CARG2, [DISPATCH, #DISPATCH_GL(tmpbuf.buf)]
   //|   ldr CARG1, STR:CARG1[1]
-  dasm_put(Dst, 3044, -LJ_TISNUM, sizeof(GCstr)-1, -DISPATCH_GL(strempty), ~LJ_TSTR, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TSTR, -LJ_TISNUM, Dt5(->len), DISPATCH_GL(tmpbuf.sz), DISPATCH_GL(tmpbuf.buf));
+  dasm_put(Dst, 3221, -LJ_TISNUM, sizeof(GCstr)-1, -DISPATCH_GL(strempty), ~LJ_TSTR, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TSTR, -LJ_TISNUM, Dt5(->len), DISPATCH_GL(tmpbuf.sz), DISPATCH_GL(tmpbuf.buf));
 #line 1790 "biggy.dasc"
   //|  cmp RB, CARG3
   //|  blo ->fff_fallback
@@ -10330,10 +10808,10 @@ static void build_subroutines(BuildCtx *ctx)
   //|.endmacro
   //|
   //|ffstring_case string_lower, 65
-  dasm_put(Dst, 3132, Dt5([1]), DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TSTR, Dt5(->len), DISPATCH_GL(tmpbuf.sz), DISPATCH_GL(tmpbuf.buf), sizeof(GCstr), DISPATCH_GL(gc.total));
+  dasm_put(Dst, 3314, Dt5([1]), DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TSTR, Dt5(->len), DISPATCH_GL(tmpbuf.sz), DISPATCH_GL(tmpbuf.buf), sizeof(GCstr), DISPATCH_GL(gc.total));
 #line 1845 "biggy.dasc"
   //|ffstring_case string_upper, 97
-  dasm_put(Dst, 3209, DISPATCH_GL(gc.threshold), -LJ_TSTR, Dt5(->len), DISPATCH_GL(tmpbuf.sz), DISPATCH_GL(tmpbuf.buf), sizeof(GCstr), DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TSTR, Dt5(->len), DISPATCH_GL(tmpbuf.sz));
+  dasm_put(Dst, 3393, DISPATCH_GL(gc.threshold), -LJ_TSTR, Dt5(->len), DISPATCH_GL(tmpbuf.sz), DISPATCH_GL(tmpbuf.buf), sizeof(GCstr), DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), -LJ_TSTR, Dt5(->len), DISPATCH_GL(tmpbuf.sz));
 #line 1846 "biggy.dasc"
   //|
   //|//-- Table library ------------------------------------------------------
@@ -10385,7 +10863,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|
   //|.ffunc_bit tobit
   //|  mvn CARG2, #~LJ_TISNUM
-  dasm_put(Dst, 3294, DISPATCH_GL(tmpbuf.buf), sizeof(GCstr), -LJ_TTAB, ~LJ_TISNUM, -LJ_TISNUM);
+  dasm_put(Dst, 3482, DISPATCH_GL(tmpbuf.buf), sizeof(GCstr), -LJ_TTAB, ~LJ_TISNUM, -LJ_TISNUM);
 #line 1896 "biggy.dasc"
   //|  b ->fff_restv
   //|
@@ -10407,7 +10885,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|.ffunc_bit_op band, and
   //|.ffunc_bit_op bor, orr
   //|.ffunc_bit_op bxor, eor
-  dasm_put(Dst, 3404, ~LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
+  dasm_put(Dst, 3597, ~LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
 #line 1916 "biggy.dasc"
   //|
   //|2:
@@ -10450,11 +10928,11 @@ static void build_subroutines(BuildCtx *ctx)
   //|.endmacro
   //|
   //|.ffunc_bit_sh lshift, lsl, 0
-  dasm_put(Dst, 3494, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM);
+  dasm_put(Dst, 3696, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM);
 #line 1957 "biggy.dasc"
   //|.ffunc_bit_sh rshift, lsr, 0
   //|.ffunc_bit_sh arshift, asr, 0
-  dasm_put(Dst, 3588, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM);
+  dasm_put(Dst, 3801, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM);
 #line 1959 "biggy.dasc"
   //|.ffunc_bit_sh rol, ror, 1
   //|.ffunc_bit_sh ror, ror, 0
@@ -10471,7 +10949,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|   ldr CARG3, CFUNC:CARG3->f
   //|    str BASE, L->base
   //|  add CARG1, CARG1, #8*LUA_MINSTACK
-  dasm_put(Dst, 3681, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, Dt1(->maxstack), Dt1(->top), Dt8(->f), Dt1(->base));
+  dasm_put(Dst, 3909, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM, ~LJ_TISNUM, Dt1(->maxstack), Dt1(->top), Dt8(->f), Dt1(->base));
 #line 1974 "biggy.dasc"
   //|    str PC, SAVE_PC			// Redundant (but a defined value).
   //|  cmp CARG1, CARG2
@@ -10519,7 +10997,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|  bl extern lj_gc_step		// (lua_State *L)
   //|   ldr BASE, L->base
   //|  mov lr, RA				// Help return address predictor.
-  dasm_put(Dst, 3768, 8*LUA_MINSTACK, Dt1(->base), Dt1(->top), Dt7(->field_pc), FRAME_TYPE, FRAME_TYPEP, LUA_MINSTACK, Dt1(->base), Dt1(->base), Dt1(->top), Dt1(->base));
+  dasm_put(Dst, 4006, 8*LUA_MINSTACK, Dt1(->base), Dt1(->top), Dt7(->field_pc), FRAME_TYPE, FRAME_TYPEP, LUA_MINSTACK, Dt1(->base), Dt1(->base), Dt1(->top), Dt1(->base));
 #line 2020 "biggy.dasc"
   //|   ldr CFUNC:CARG3, [BASE, FRAME_FUNC]
   //|  bx lr
@@ -10572,7 +11050,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|  bl extern lj_dispatch_ins		// (lua_State *L, const BCIns *pc)
   //|3:
   //|  ldr BASE, L->base
-  dasm_put(Dst, 3863, DISPATCH_GL(hookmask), HOOK_ACTIVE, GG_DISP2STATIC, DISPATCH_GL(hookmask), DISPATCH_GL(hookcount), HOOK_ACTIVE, LUA_MASKLINE|LUA_MASKCOUNT, DISPATCH_GL(hookcount), LUA_MASKLINE, Dt1(->base));
+  dasm_put(Dst, 4105, DISPATCH_GL(hookmask), HOOK_ACTIVE, GG_DISP2STATIC, DISPATCH_GL(hookmask), DISPATCH_GL(hookcount), HOOK_ACTIVE, LUA_MASKLINE|LUA_MASKCOUNT, DISPATCH_GL(hookcount), LUA_MASKLINE, Dt1(->base));
 #line 2071 "biggy.dasc"
   //|4:  // Re-dispatch to static ins.
   //|  ldrb OP, [PC, #-4]
@@ -10793,7 +11271,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|.endif
   //|->vm_ceil_sf:
   //|  vm_round ceil, 0
-  dasm_put(Dst, 3936, Dt1(->base), GG_DISP2STATIC, Dt1(->base), Dt1(->top), Dt1(->base), Dt1(->top));
+  dasm_put(Dst, 4183, Dt1(->base), GG_DISP2STATIC, Dt1(->base), Dt1(->top), Dt1(->base), Dt1(->top));
 #line 2290 "biggy.dasc"
   //|
   //|.macro vm_trunc, hf
@@ -10876,14 +11354,14 @@ static void build_subroutines(BuildCtx *ctx)
   //|  rsbs CARG3, CARG4, #31		// entry = (31-(clz(b)-clz(a)))*8
   //|  addne pc, pc, CARG3, lsl #3	// Duff's device.
   //|  nop
-  dasm_put(Dst, 4075);
+  dasm_put(Dst, 4323);
 #line 2371 "biggy.dasc"
   {
     int i;
     for (i = 31; i >= 0; i--) {
       //|  cmp CARG1, CARG2, lsl #i
       //|  subhs CARG1, CARG1, CARG2, lsl #i
-      dasm_put(Dst, 4193, i, i);
+      dasm_put(Dst, 4445, i, i);
 #line 2376 "biggy.dasc"
     }
   }
@@ -11003,7 +11481,7 @@ static void build_subroutines(BuildCtx *ctx)
   //|// Note: vm_ffi_call must be the last function in this object file!
   //|
   //|//-----------------------------------------------------------------------
-  dasm_put(Dst, 4201);
+  dasm_put(Dst, 4455);
 #line 2494 "biggy.dasc"
 }
 
@@ -11012,7 +11490,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
 {
   int vk = 0;
   //|=>defop:
-  dasm_put(Dst, 4218, defop);
+  dasm_put(Dst, 4472, defop);
 #line 2501 "biggy.dasc"
 
   switch (op) {
@@ -11034,23 +11512,23 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  checktp CARG4, LJ_TISNUM
     //|  bne >4
     //|  cmp CARG1, CARG3
-    dasm_put(Dst, 4222, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 4476, -LJ_TISNUM, -LJ_TISNUM);
 #line 2521 "biggy.dasc"
     if (op == BC_ISLT) {
       //|  sublt PC, RB, #0x20000
-      dasm_put(Dst, 4246);
+      dasm_put(Dst, 4502);
 #line 2523 "biggy.dasc"
     } else if (op == BC_ISGE) {
       //|  subge PC, RB, #0x20000
-      dasm_put(Dst, 4250);
+      dasm_put(Dst, 4506);
 #line 2525 "biggy.dasc"
     } else if (op == BC_ISLE) {
       //|  suble PC, RB, #0x20000
-      dasm_put(Dst, 4254);
+      dasm_put(Dst, 4510);
 #line 2527 "biggy.dasc"
     } else {
       //|  subgt PC, RB, #0x20000
-      dasm_put(Dst, 4258);
+      dasm_put(Dst, 4514);
 #line 2529 "biggy.dasc"
     }
     //|1:
@@ -11079,7 +11557,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  vcmp.f64 d0, d1
     //|  vmrs
     //|  // To preserve NaN semantics GE/GT branch on unordered, but LT/LE don't.
-    dasm_put(Dst, 4262);
+    dasm_put(Dst, 4518);
 #line 2556 "biggy.dasc"
     if (op == BC_ISLT) {
       //|  sublo PC, RB, #0x20000
@@ -11116,28 +11594,28 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|5:  // CARG12 and CARG34 are numbers.
     //|  bl extern __aeabi_cdcmple
     //|  // To preserve NaN semantics GE/GT branch on unordered, but LT/LE don't.
-    dasm_put(Dst, 4276, -LJ_TISNUM);
+    dasm_put(Dst, 4532, -LJ_TISNUM);
 #line 2591 "biggy.dasc"
     if (op == BC_ISLT) {
       //|  sublo PC, RA, #0x20000
-      dasm_put(Dst, 4320);
+      dasm_put(Dst, 4580);
 #line 2593 "biggy.dasc"
     } else if (op == BC_ISGE) {
       //|  subhs PC, RA, #0x20000
-      dasm_put(Dst, 4324);
+      dasm_put(Dst, 4584);
 #line 2595 "biggy.dasc"
     } else if (op == BC_ISLE) {
       //|  subls PC, RA, #0x20000
-      dasm_put(Dst, 4328);
+      dasm_put(Dst, 4588);
 #line 2597 "biggy.dasc"
     } else {
       //|  subhi PC, RA, #0x20000
-      dasm_put(Dst, 4332);
+      dasm_put(Dst, 4592);
 #line 2599 "biggy.dasc"
     }
     //|  b <1
     //|.endif
-    dasm_put(Dst, 4336);
+    dasm_put(Dst, 4596);
 #line 2602 "biggy.dasc"
     break;
 
@@ -11152,15 +11630,15 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|    add RB, PC, RB, lsl #2
     //|  checktp CARG2, LJ_TISNUM
     //|  cmnls CARG4, #-LJ_TISNUM
-    dasm_put(Dst, 4341, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 4601, -LJ_TISNUM, -LJ_TISNUM);
 #line 2615 "biggy.dasc"
     if (vk) {
       //|  bls ->BC_ISEQN_Z
-      dasm_put(Dst, 4358);
+      dasm_put(Dst, 4620);
 #line 2617 "biggy.dasc"
     } else {
       //|  bls ->BC_ISNEN_Z
-      dasm_put(Dst, 4363);
+      dasm_put(Dst, 4625);
 #line 2619 "biggy.dasc"
     }
     //|  // Either or both types are not numbers.
@@ -11176,7 +11654,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|
     //|  // Same types and not a primitive type. Compare GCobj or pvalue.
     //|  cmp CARG1, CARG3
-    dasm_put(Dst, 4368, -LJ_TISPRI);
+    dasm_put(Dst, 4630, -LJ_TISPRI);
 #line 2633 "biggy.dasc"
     if (vk) {
       //|  bne >3				// Different GCobjs or pvalues?
@@ -11187,28 +11665,28 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
       //|3:
       //|  checktp CARG2, LJ_TISTABUD
       //|  bhi <2				// Different objects and not table/ud?
-      dasm_put(Dst, 4381, -LJ_TISTABUD);
+      dasm_put(Dst, 4644, -LJ_TISTABUD);
 #line 2642 "biggy.dasc"
     } else {
       //|  beq >1				// Same GCobjs or pvalues?
       //|  checktp CARG2, LJ_TISTABUD
       //|  bhi >2				// Different objects and not table/ud?
-      dasm_put(Dst, 4408, -LJ_TISTABUD);
+      dasm_put(Dst, 4672, -LJ_TISTABUD);
 #line 2646 "biggy.dasc"
     }
     //|  // Different tables or userdatas. Need to check __eq metamethod.
     //|  // Field metatable must be at same offset for GCtab and GCudata!
     //|  ldr TAB:RA, TAB:CARG1->metatable
     //|  cmp TAB:RA, #0
-    dasm_put(Dst, 4419, Dt6(->metatable));
+    dasm_put(Dst, 4684, Dt6(->metatable));
 #line 2651 "biggy.dasc"
     if (vk) {
       //|  beq <2			// No metatable?
-      dasm_put(Dst, 4425);
+      dasm_put(Dst, 4690);
 #line 2653 "biggy.dasc"
     } else {
       //|  beq >2			// No metatable?
-      dasm_put(Dst, 4430);
+      dasm_put(Dst, 4695);
 #line 2655 "biggy.dasc"
     }
     //|  ldrb RA, TAB:RA->nomm
@@ -11216,18 +11694,18 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   mov CARG2, CARG1
     //|  tst RA, #1<<MM_eq
     //|  beq ->vmeta_equal		// 'no __eq' flag not set?
-    dasm_put(Dst, 4435, Dt6(->nomm), 1-vk, 1<<MM_eq);
+    dasm_put(Dst, 4700, Dt6(->nomm), 1-vk, 1<<MM_eq);
 #line 2661 "biggy.dasc"
     if (vk) {
       //|  b <2
-      dasm_put(Dst, 4450);
+      dasm_put(Dst, 4716);
 #line 2663 "biggy.dasc"
     } else {
       //|2:  // Branch if different.
       //|  sub PC, RB, #0x20000
       //|1:  // Same.
       //|  ins_next
-      dasm_put(Dst, 4455);
+      dasm_put(Dst, 4721);
 #line 2668 "biggy.dasc"
     }
     break;
@@ -11248,17 +11726,17 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|.else
     //|  cmpeq CARG1, CARG3
     //|.endif
-    dasm_put(Dst, 4471, -LJ_TSTR);
+    dasm_put(Dst, 4737, -LJ_TSTR);
 #line 2687 "biggy.dasc"
     if (vk) {
       //|  subeq PC, RB, #0x20000
       //|1:
-      dasm_put(Dst, 4485);
+      dasm_put(Dst, 4752);
 #line 2690 "biggy.dasc"
     } else {
       //|1:
       //|  subne PC, RB, #0x20000
-      dasm_put(Dst, 4491);
+      dasm_put(Dst, 4758);
 #line 2693 "biggy.dasc"
     }
     //|  ins_next
@@ -11269,7 +11747,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  bne <1
     //|  b ->vmeta_equal_cd
     //|.endif
-    dasm_put(Dst, 4497);
+    dasm_put(Dst, 4764);
 #line 2702 "biggy.dasc"
     break;
 
@@ -11282,15 +11760,15 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ldrd CARG3, CARG4, [RC, KBASE]!
     //|    add PC, PC, #4
     //|    add RB, PC, RB, lsl #2
-    dasm_put(Dst, 4507);
+    dasm_put(Dst, 4774);
 #line 2713 "biggy.dasc"
     if (vk) {
       //|->BC_ISEQN_Z:
-      dasm_put(Dst, 4518);
+      dasm_put(Dst, 4785);
 #line 2715 "biggy.dasc"
     } else {
       //|->BC_ISNEN_Z:
-      dasm_put(Dst, 4522);
+      dasm_put(Dst, 4789);
 #line 2717 "biggy.dasc"
     }
     //|  checktp CARG2, LJ_TISNUM
@@ -11298,17 +11776,17 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  checktp CARG4, LJ_TISNUM
     //|  bne >4
     //|  cmp CARG1, CARG3
-    dasm_put(Dst, 4526, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 4793, -LJ_TISNUM, -LJ_TISNUM);
 #line 2723 "biggy.dasc"
     if (vk) {
       //|  subeq PC, RB, #0x20000
       //|1:
-      dasm_put(Dst, 4541);
+      dasm_put(Dst, 4810);
 #line 2726 "biggy.dasc"
     } else {
       //|1:
       //|  subne PC, RB, #0x20000
-      dasm_put(Dst, 4547);
+      dasm_put(Dst, 4816);
 #line 2729 "biggy.dasc"
     }
     //|2:
@@ -11318,11 +11796,11 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|.if FFI
     //|  bhi >7
     //|.else
-    dasm_put(Dst, 4553);
+    dasm_put(Dst, 4822);
 #line 2737 "biggy.dasc"
     if (!vk) {
       //|  subhi PC, RB, #0x20000
-      dasm_put(Dst, 4567);
+      dasm_put(Dst, 4836);
 #line 2739 "biggy.dasc"
     }
     //|  bhi <2
@@ -11341,7 +11819,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|5:  // d0 and d1 are numbers.
     //|  vcmp.f64 d0, d1
     //|  vmrs
-    dasm_put(Dst, 4571);
+    dasm_put(Dst, 4840);
 #line 2756 "biggy.dasc"
     if (vk) {
       //|  subeq PC, RB, #0x20000
@@ -11363,15 +11841,15 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  ldrd CARG3, CARG4, [RC]		// Restore other operand.
     //|5:  // CARG12 and CARG34 are numbers.
     //|  bl extern __aeabi_cdcmpeq
-    dasm_put(Dst, 4576, -LJ_TISNUM);
+    dasm_put(Dst, 4845, -LJ_TISNUM);
 #line 2776 "biggy.dasc"
     if (vk) {
       //|  subeq PC, RA, #0x20000
-      dasm_put(Dst, 4600);
+      dasm_put(Dst, 4872);
 #line 2778 "biggy.dasc"
     } else {
       //|  subne PC, RA, #0x20000
-      dasm_put(Dst, 4604);
+      dasm_put(Dst, 4876);
 #line 2780 "biggy.dasc"
     }
     //|  b <2
@@ -11383,7 +11861,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  bne <1
     //|  b ->vmeta_equal_cd
     //|.endif
-    dasm_put(Dst, 4608);
+    dasm_put(Dst, 4880);
 #line 2790 "biggy.dasc"
     break;
 
@@ -11400,19 +11878,19 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  beq ->vmeta_equal_cd
     //|.endif
     //|  cmp CARG2, RC
-    dasm_put(Dst, 4613);
+    dasm_put(Dst, 4885);
 #line 2805 "biggy.dasc"
     if (vk) {
       //|  subeq PC, RB, #0x20000
-      dasm_put(Dst, 4623);
+      dasm_put(Dst, 4895);
 #line 2807 "biggy.dasc"
     } else {
       //|  subne PC, RB, #0x20000
-      dasm_put(Dst, 4627);
+      dasm_put(Dst, 4899);
 #line 2809 "biggy.dasc"
     }
     //|  ins_next
-    dasm_put(Dst, 4631);
+    dasm_put(Dst, 4903);
 #line 2811 "biggy.dasc"
     break;
 
@@ -11426,29 +11904,29 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   add PC, PC, #4
     //|   add RB, PC, RB, lsl #2
     //|  checktp CARG2, LJ_TTRUE
-    dasm_put(Dst, 4641, -LJ_TTRUE);
+    dasm_put(Dst, 4913, -LJ_TTRUE);
 #line 2823 "biggy.dasc"
     if (op == BC_ISTC || op == BC_IST) {
       //|  subls PC, RB, #0x20000
-      dasm_put(Dst, 4654);
+      dasm_put(Dst, 4927);
 #line 2825 "biggy.dasc"
       if (op == BC_ISTC) {
 	//|  strdls CARG1, CARG2, [BASE, RA]
-	dasm_put(Dst, 4658);
+	dasm_put(Dst, 4931);
 #line 2827 "biggy.dasc"
       }
     } else {
       //|  subhi PC, RB, #0x20000
-      dasm_put(Dst, 4662);
+      dasm_put(Dst, 4935);
 #line 2830 "biggy.dasc"
       if (op == BC_ISFC) {
 	//|  strdhi CARG1, CARG2, [BASE, RA]
-	dasm_put(Dst, 4666);
+	dasm_put(Dst, 4939);
 #line 2832 "biggy.dasc"
       }
     }
     //|  ins_next
-    dasm_put(Dst, 4670);
+    dasm_put(Dst, 4943);
 #line 2835 "biggy.dasc"
     break;
 
@@ -11462,7 +11940,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  strd CARG1, CARG2, [BASE, RA]
     //|   ins_next3
-    dasm_put(Dst, 4680);
+    dasm_put(Dst, 4953);
 #line 2847 "biggy.dasc"
     break;
   case BC_NOT:
@@ -11477,7 +11955,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  mvnhi CARG2, #~LJ_TTRUE
     //|  str CARG2, [RA, #4]
     //|   ins_next3
-    dasm_put(Dst, 4695, -LJ_TTRUE, ~LJ_TFALSE, ~LJ_TTRUE);
+    dasm_put(Dst, 4968, -LJ_TTRUE, ~LJ_TFALSE, ~LJ_TTRUE);
 #line 2860 "biggy.dasc"
     break;
   case BC_UNM:
@@ -11499,7 +11977,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|.align 8
     //|9:
     //|  .long 0x00000000, 0x41e00000	// 2^31.
-    dasm_put(Dst, 4719, -LJ_TISNUM);
+    dasm_put(Dst, 4995, -LJ_TISNUM);
 #line 2880 "biggy.dasc"
     break;
   case BC_LEN:
@@ -11516,14 +11994,14 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next3
     //|2:
     //|  checktab CARG2, ->vmeta_len
-    dasm_put(Dst, 4759, -LJ_TSTR, Dt5(->len), ~LJ_TISNUM, -LJ_TTAB);
+    dasm_put(Dst, 5037, -LJ_TSTR, Dt5(->len), ~LJ_TISNUM, -LJ_TTAB);
 #line 2895 "biggy.dasc"
 #if LJ_52
     //|  ldr TAB:CARG3, TAB:CARG1->metatable
     //|  cmp TAB:CARG3, #0
     //|  bne >9
     //|3:
-    dasm_put(Dst, 4796, Dt6(->metatable));
+    dasm_put(Dst, 5077, Dt6(->metatable));
 #line 2900 "biggy.dasc"
 #endif
     //|->BC_LEN_Z:
@@ -11532,7 +12010,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  // Returns uint32_t (but less than 2^31).
     //|  .IOS mov BASE, RC
     //|  b <1
-    dasm_put(Dst, 4807);
+    dasm_put(Dst, 5088);
 #line 2907 "biggy.dasc"
 #if LJ_52
     //|9:
@@ -11540,7 +12018,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  tst CARG4, #1<<MM_len
     //|  bne <3				// 'no __len' flag set: done.
     //|  b ->vmeta_len
-    dasm_put(Dst, 4817, Dt6(->nomm), 1<<MM_len);
+    dasm_put(Dst, 5099, Dt6(->nomm), 1<<MM_len);
 #line 2913 "biggy.dasc"
 #endif
     break;
@@ -11706,342 +12184,342 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
 
   case BC_ADDVN: case BC_ADDNV: case BC_ADDVV:
     //|  ins_arithdn adds, vadd.f64, extern __aeabi_dadd
-    dasm_put(Dst, 4833);
+    dasm_put(Dst, 5116);
     vk = ((int)op - BC_ADDVN) / (BC_ADDNV-BC_ADDVN);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 4839);
+    dasm_put(Dst, 5122);
       break;
     case 1:
-    dasm_put(Dst, 4845);
+    dasm_put(Dst, 5128);
       break;
     default:
-    dasm_put(Dst, 4851);
+    dasm_put(Dst, 5134);
       break;
     }
-    dasm_put(Dst, 4857);
+    dasm_put(Dst, 5140);
     if (vk == 1) {
-    dasm_put(Dst, 4860, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5143, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 4868, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5153, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 4876);
+    dasm_put(Dst, 5163);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 4882);
+    dasm_put(Dst, 5169);
       break;
     case 1:
-    dasm_put(Dst, 4887);
+    dasm_put(Dst, 5174);
       break;
     default:
-    dasm_put(Dst, 4892);
+    dasm_put(Dst, 5179);
       break;
     }
-    dasm_put(Dst, 4897);
+    dasm_put(Dst, 5184);
     switch (vk) {
     case 0:
     if (vk == 1) {
-    dasm_put(Dst, 4912, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5199, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 4920, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5209, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 4928);
+    dasm_put(Dst, 5219);
       break;
     case 1:
     if (vk == 1) {
-    dasm_put(Dst, 4933, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5224, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 4941, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5234, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 4949);
+    dasm_put(Dst, 5244);
       break;
     default:
     if (vk == 1) {
-    dasm_put(Dst, 4954, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5249, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 4962, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5259, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 4970);
+    dasm_put(Dst, 5269);
       break;
     }
-    dasm_put(Dst, 4975);
+    dasm_put(Dst, 5274);
 #line 3077 "biggy.dasc"
     break;
   case BC_SUBVN: case BC_SUBNV: case BC_SUBVV:
     //|  ins_arithdn subs, vsub.f64, extern __aeabi_dsub
-    dasm_put(Dst, 4984);
+    dasm_put(Dst, 5284);
     vk = ((int)op - BC_ADDVN) / (BC_ADDNV-BC_ADDVN);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 4990);
+    dasm_put(Dst, 5290);
       break;
     case 1:
-    dasm_put(Dst, 4996);
+    dasm_put(Dst, 5296);
       break;
     default:
-    dasm_put(Dst, 5002);
+    dasm_put(Dst, 5302);
       break;
     }
-    dasm_put(Dst, 5008);
+    dasm_put(Dst, 5308);
     if (vk == 1) {
-    dasm_put(Dst, 5011, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5311, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5019, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5321, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5027);
+    dasm_put(Dst, 5331);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 5033);
+    dasm_put(Dst, 5337);
       break;
     case 1:
-    dasm_put(Dst, 5038);
+    dasm_put(Dst, 5342);
       break;
     default:
-    dasm_put(Dst, 5043);
+    dasm_put(Dst, 5347);
       break;
     }
-    dasm_put(Dst, 5048);
+    dasm_put(Dst, 5352);
     switch (vk) {
     case 0:
     if (vk == 1) {
-    dasm_put(Dst, 5063, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5367, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5071, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5377, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5079);
+    dasm_put(Dst, 5387);
       break;
     case 1:
     if (vk == 1) {
-    dasm_put(Dst, 5084, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5392, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5092, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5402, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5100);
+    dasm_put(Dst, 5412);
       break;
     default:
     if (vk == 1) {
-    dasm_put(Dst, 5105, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5417, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5113, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5427, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5121);
+    dasm_put(Dst, 5437);
       break;
     }
-    dasm_put(Dst, 5126);
+    dasm_put(Dst, 5442);
 #line 3080 "biggy.dasc"
     break;
   case BC_MULVN: case BC_MULNV: case BC_MULVV:
     //|  ins_arithdn smull, vmul.f64, extern __aeabi_dmul
-    dasm_put(Dst, 5135);
+    dasm_put(Dst, 5452);
     vk = ((int)op - BC_ADDVN) / (BC_ADDNV-BC_ADDVN);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 5141);
+    dasm_put(Dst, 5458);
       break;
     case 1:
-    dasm_put(Dst, 5147);
+    dasm_put(Dst, 5464);
       break;
     default:
-    dasm_put(Dst, 5153);
+    dasm_put(Dst, 5470);
       break;
     }
-    dasm_put(Dst, 5159);
+    dasm_put(Dst, 5476);
     if (vk == 1) {
-    dasm_put(Dst, 5162, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5479, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5170, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5489, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5178);
+    dasm_put(Dst, 5499);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 5187);
+    dasm_put(Dst, 5508);
       break;
     case 1:
-    dasm_put(Dst, 5192);
+    dasm_put(Dst, 5513);
       break;
     default:
-    dasm_put(Dst, 5197);
+    dasm_put(Dst, 5518);
       break;
     }
-    dasm_put(Dst, 5202);
+    dasm_put(Dst, 5523);
     switch (vk) {
     case 0:
     if (vk == 1) {
-    dasm_put(Dst, 5217, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5538, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5225, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5548, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5233);
+    dasm_put(Dst, 5558);
       break;
     case 1:
     if (vk == 1) {
-    dasm_put(Dst, 5238, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5563, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5246, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5573, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5254);
+    dasm_put(Dst, 5583);
       break;
     default:
     if (vk == 1) {
-    dasm_put(Dst, 5259, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5588, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5267, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5598, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5275);
+    dasm_put(Dst, 5608);
       break;
     }
-    dasm_put(Dst, 5280);
+    dasm_put(Dst, 5613);
 #line 3083 "biggy.dasc"
     break;
   case BC_DIVVN: case BC_DIVNV: case BC_DIVVV:
     //|  ins_arithfp vdiv.f64, extern __aeabi_ddiv
-    dasm_put(Dst, 5289);
+    dasm_put(Dst, 5623);
     vk = ((int)op - BC_ADDVN) / (BC_ADDNV-BC_ADDVN);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 5295);
+    dasm_put(Dst, 5629);
       break;
     case 1:
-    dasm_put(Dst, 5301);
+    dasm_put(Dst, 5635);
       break;
     default:
-    dasm_put(Dst, 5307);
+    dasm_put(Dst, 5641);
       break;
     }
     switch (vk) {
     case 0:
     if (vk == 1) {
-    dasm_put(Dst, 5313, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5647, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5321, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5657, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5329);
+    dasm_put(Dst, 5667);
       break;
     case 1:
     if (vk == 1) {
-    dasm_put(Dst, 5334, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5672, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5342, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5682, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5350);
+    dasm_put(Dst, 5692);
       break;
     default:
     if (vk == 1) {
-    dasm_put(Dst, 5355, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5697, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5363, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5707, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5371);
+    dasm_put(Dst, 5717);
       break;
     }
-    dasm_put(Dst, 5376);
+    dasm_put(Dst, 5722);
 #line 3086 "biggy.dasc"
     break;
   case BC_MODVN: case BC_MODNV: case BC_MODVV:
     //|  ins_arithdn vm_modi, vm_mod, ->vm_mod
-    dasm_put(Dst, 5391);
+    dasm_put(Dst, 5738);
     vk = ((int)op - BC_ADDVN) / (BC_ADDNV-BC_ADDVN);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 5397);
+    dasm_put(Dst, 5744);
       break;
     case 1:
-    dasm_put(Dst, 5403);
+    dasm_put(Dst, 5750);
       break;
     default:
-    dasm_put(Dst, 5409);
+    dasm_put(Dst, 5756);
       break;
     }
     if (vk == 1) {
-    dasm_put(Dst, 5415, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5762, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5423, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5772, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5431);
+    dasm_put(Dst, 5782);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 5437);
+    dasm_put(Dst, 5788);
       break;
     case 1:
-    dasm_put(Dst, 5442);
+    dasm_put(Dst, 5793);
       break;
     default:
-    dasm_put(Dst, 5447);
+    dasm_put(Dst, 5798);
       break;
     }
-    dasm_put(Dst, 5452, ~LJ_TISNUM);
+    dasm_put(Dst, 5803, ~LJ_TISNUM);
     switch (vk) {
     case 0:
     if (vk == 1) {
-    dasm_put(Dst, 5474, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5827, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5482, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5837, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5490);
+    dasm_put(Dst, 5847);
       break;
     case 1:
     if (vk == 1) {
-    dasm_put(Dst, 5495, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5852, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5503, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5862, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5511);
+    dasm_put(Dst, 5872);
       break;
     default:
     if (vk == 1) {
-    dasm_put(Dst, 5516, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5877, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5524, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5887, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5532);
+    dasm_put(Dst, 5897);
       break;
     }
-    dasm_put(Dst, 5537);
+    dasm_put(Dst, 5902);
 #line 3089 "biggy.dasc"
     break;
   case BC_POW:
     //|  // NYI: (partial) integer arithmetic.
     //|  ins_arithfp extern, extern pow
-    dasm_put(Dst, 5545);
+    dasm_put(Dst, 5911);
     vk = ((int)op - BC_ADDVN) / (BC_ADDNV-BC_ADDVN);
     switch (vk) {
     case 0:
-    dasm_put(Dst, 5551);
+    dasm_put(Dst, 5917);
       break;
     case 1:
-    dasm_put(Dst, 5557);
+    dasm_put(Dst, 5923);
       break;
     default:
-    dasm_put(Dst, 5563);
+    dasm_put(Dst, 5929);
       break;
     }
     switch (vk) {
     case 0:
     if (vk == 1) {
-    dasm_put(Dst, 5569, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5935, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5577, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5945, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5585);
+    dasm_put(Dst, 5955);
       break;
     case 1:
     if (vk == 1) {
-    dasm_put(Dst, 5590, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5960, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5598, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5970, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5606);
+    dasm_put(Dst, 5980);
       break;
     default:
     if (vk == 1) {
-    dasm_put(Dst, 5611, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5985, -LJ_TISNUM, -LJ_TISNUM);
     } else {
-    dasm_put(Dst, 5619, -LJ_TISNUM, -LJ_TISNUM);
+    dasm_put(Dst, 5995, -LJ_TISNUM, -LJ_TISNUM);
     }
-    dasm_put(Dst, 5627);
+    dasm_put(Dst, 6005);
       break;
     }
-    dasm_put(Dst, 5632);
+    dasm_put(Dst, 6010);
 #line 3093 "biggy.dasc"
     break;
 
@@ -12067,7 +12545,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  strd CARG3, CARG4, [BASE, RA]		// Copy result to RA.
     //|   ins_next3
-    dasm_put(Dst, 5647, Dt1(->base), Dt1(->base));
+    dasm_put(Dst, 6026, Dt1(->base), Dt1(->base));
 #line 3117 "biggy.dasc"
     break;
 
@@ -12082,7 +12560,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  strd CARG1, CARG2, [BASE, RA]
     //|   ins_next3
-    dasm_put(Dst, 5685, ~LJ_TSTR);
+    dasm_put(Dst, 6065, ~LJ_TSTR);
 #line 3130 "biggy.dasc"
     break;
   case BC_KCDATA:
@@ -12105,7 +12583,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  strd CARG1, CARG2, [BASE, RA]
     //|   ins_next3
-    dasm_put(Dst, 5702, ~LJ_TISNUM);
+    dasm_put(Dst, 6083, ~LJ_TISNUM);
 #line 3151 "biggy.dasc"
     break;
   case BC_KNUM:
@@ -12116,7 +12594,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  strd CARG1, CARG2, [BASE, RA]
     //|   ins_next3
-    dasm_put(Dst, 5718);
+    dasm_put(Dst, 6100);
 #line 3160 "biggy.dasc"
     break;
   case BC_KPRI:
@@ -12127,7 +12605,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  str RC, [RA, #4]
     //|   ins_next3
-    dasm_put(Dst, 5733);
+    dasm_put(Dst, 6115);
 #line 3169 "biggy.dasc"
     break;
   case BC_KNIL:
@@ -12143,7 +12621,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   add RA, RA, #8
     //|  blt <1
     //|  ins_next_
-    dasm_put(Dst, 5746, ~LJ_TNIL);
+    dasm_put(Dst, 6128, ~LJ_TNIL);
 #line 3183 "biggy.dasc"
     break;
 
@@ -12161,7 +12639,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  strd CARG3, CARG4, [BASE, RA]
     //|   ins_next3
-    dasm_put(Dst, 5774, offsetof(GCfuncL, uvptr), DtA(->v));
+    dasm_put(Dst, 6157, offsetof(GCfuncL, uvptr), DtA(->v));
 #line 3199 "biggy.dasc"
     break;
   case BC_USETV:
@@ -12199,7 +12677,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  blne extern lj_gc_barrieruv	// (global_State *g, TValue *tv)
     //|.endif
     //|  b <1
-    dasm_put(Dst, 5798, offsetof(GCfuncL, uvptr), DtA(->marked), DtA(->closed), DtA(->v), LJ_GC_BLACK, -LJ_TISGCV, -(LJ_TISNUM - LJ_TISGCV), Dt4(->gch.marked), -GG_DISP2G, LJ_GC_WHITES);
+    dasm_put(Dst, 6181, offsetof(GCfuncL, uvptr), DtA(->marked), DtA(->closed), DtA(->v), LJ_GC_BLACK, -LJ_TISGCV, -(LJ_TISNUM - LJ_TISGCV), Dt4(->gch.marked), -GG_DISP2G, LJ_GC_WHITES);
 #line 3235 "biggy.dasc"
     break;
   case BC_USETS:
@@ -12235,7 +12713,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  blne extern lj_gc_barrieruv	// (global_State *g, TValue *tv)
     //|.endif
     //|  b <1
-    dasm_put(Dst, 5864, offsetof(GCfuncL, uvptr), ~LJ_TSTR, DtA(->marked), DtA(->v), DtA(->closed), LJ_GC_BLACK, Dt5(->marked), LJ_GC_WHITES, -GG_DISP2G);
+    dasm_put(Dst, 6251, offsetof(GCfuncL, uvptr), ~LJ_TSTR, DtA(->marked), DtA(->v), DtA(->closed), LJ_GC_BLACK, Dt5(->marked), LJ_GC_WHITES, -GG_DISP2G);
 #line 3269 "biggy.dasc"
     break;
   case BC_USETN:
@@ -12251,7 +12729,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  strd CARG3, CARG4, [CARG2]
     //|   ins_next3
-    dasm_put(Dst, 5923, offsetof(GCfuncL, uvptr), DtA(->v));
+    dasm_put(Dst, 6314, offsetof(GCfuncL, uvptr), DtA(->v));
 #line 3283 "biggy.dasc"
     break;
   case BC_USETP:
@@ -12266,7 +12744,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  str RC, [CARG2, #4]
     //|   ins_next3
-    dasm_put(Dst, 5948, offsetof(GCfuncL, uvptr), DtA(->v));
+    dasm_put(Dst, 6339, offsetof(GCfuncL, uvptr), DtA(->v));
 #line 3296 "biggy.dasc"
     break;
 
@@ -12284,7 +12762,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  ldr BASE, L->base
     //|1:
     //|  ins_next
-    dasm_put(Dst, 5970, Dt1(->openupval), Dt1(->base), Dt1(->base));
+    dasm_put(Dst, 6361, Dt1(->openupval), Dt1(->base), Dt1(->base));
 #line 3312 "biggy.dasc"
     break;
 
@@ -12305,7 +12783,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   ins_next2
     //|  strd CARG1, CARG2, [BASE, RA]
     //|   ins_next3
-    dasm_put(Dst, 6004, Dt1(->base), Dt1(->base), ~LJ_TFUNC);
+    dasm_put(Dst, 6396, Dt1(->base), Dt1(->base), ~LJ_TFUNC);
 #line 3331 "biggy.dasc"
     break;
 
@@ -12316,7 +12794,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  // RA = dst*8, RC = (hbits|asize) | tab_const (~)
     if (op == BC_TDUP) {
       //|  mvn RC, RC
-      dasm_put(Dst, 6034);
+      dasm_put(Dst, 6428);
 #line 3340 "biggy.dasc"
     }
     //|  ldr CARG3, [DISPATCH, #DISPATCH_GL(gc.total)]
@@ -12327,7 +12805,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   mov CARG1, L
     //|  bhs >5
     //|1:
-    dasm_put(Dst, 6037, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), Dt1(->base));
+    dasm_put(Dst, 6431, DISPATCH_GL(gc.total), DISPATCH_GL(gc.threshold), Dt1(->base));
 #line 3349 "biggy.dasc"
     if (op == BC_TNEW) {
       //|  lsl CARG2, RC, #21
@@ -12338,13 +12816,13 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
       //|  addeq CARG2, CARG2, #2
       //|  bl extern lj_tab_new  // (lua_State *L, int32_t asize, uint32_t hbits)
       //|  // Returns GCtab *.
-      dasm_put(Dst, 6056);
+      dasm_put(Dst, 6450);
 #line 3358 "biggy.dasc"
     } else {
       //|  ldr CARG2, [KBASE, RC, lsl #2]
       //|  bl extern lj_tab_dup  // (lua_State *L, Table *kt)
       //|  // Returns GCtab *.
-      dasm_put(Dst, 6068);
+      dasm_put(Dst, 6463);
 #line 3362 "biggy.dasc"
     }
     //|  ldr BASE, L->base
@@ -12357,7 +12835,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  bl extern lj_gc_step_fixtop  // (lua_State *L)
     //|  mov CARG1, L
     //|  b <1
-    dasm_put(Dst, 6074, Dt1(->base), ~LJ_TTAB);
+    dasm_put(Dst, 6470, Dt1(->base), ~LJ_TTAB);
 #line 3373 "biggy.dasc"
     break;
 
@@ -12369,15 +12847,15 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   mvn RC, RC
     //|  ldr TAB:CARG1, LFUNC:CARG2->env
     //|   ldr STR:RC, [KBASE, RC, lsl #2]
-    dasm_put(Dst, 6101, Dt7(->env));
+    dasm_put(Dst, 6499, Dt7(->env));
 #line 3383 "biggy.dasc"
     if (op == BC_GGET) {
       //|  b ->BC_TGETS_Z
-      dasm_put(Dst, 6110);
+      dasm_put(Dst, 6508);
 #line 3385 "biggy.dasc"
     } else {
       //|  b ->BC_TSETS_Z
-      dasm_put(Dst, 6115);
+      dasm_put(Dst, 6513);
 #line 3387 "biggy.dasc"
     }
     break;
@@ -12421,7 +12899,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   moveq STR:RC, CARG3
     //|  beq ->BC_TGETS_Z
     //|  b ->vmeta_tgetv
-    dasm_put(Dst, 6120, -LJ_TTAB, -LJ_TISNUM, Dt6(->array), Dt6(->asize), -LJ_TNIL, Dt6(->metatable), Dt6(->nomm), 1<<MM_index, -LJ_TSTR);
+    dasm_put(Dst, 6518, -LJ_TTAB, -LJ_TISNUM, Dt6(->array), Dt6(->asize), -LJ_TNIL, Dt6(->metatable), Dt6(->nomm), 1<<MM_index, -LJ_TSTR);
 #line 3429 "biggy.dasc"
     break;
   case BC_TGETS:
@@ -12469,11 +12947,11 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  beq <3				// No metatable: done.
     //|  ldrb CARG2, TAB:CARG1->nomm
     //|  tst CARG2, #1<<MM_index
-    dasm_put(Dst, 6209, -LJ_TTAB, Dt6(->hmask), Dt5(->hash), Dt6(->node), DtB(->key), DtB(->val), DtB(->next), -LJ_TSTR, -LJ_TNIL, Dt6(->metatable), ~LJ_TNIL, Dt6(->nomm));
+    dasm_put(Dst, 6612, -LJ_TTAB, Dt6(->hmask), Dt5(->hash), Dt6(->node), DtB(->key), DtB(->val), DtB(->next), -LJ_TSTR, -LJ_TNIL, Dt6(->metatable), ~LJ_TNIL, Dt6(->nomm));
 #line 3475 "biggy.dasc"
     //|  bne <3				// 'no __index' flag set: done.
     //|  b ->vmeta_tgets
-    dasm_put(Dst, 6301, 1<<MM_index);
+    dasm_put(Dst, 6710, 1<<MM_index);
 #line 3477 "biggy.dasc"
     break;
   case BC_TGETB:
@@ -12504,7 +12982,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  tst CARG2, #1<<MM_index
     //|  bne <1				// 'no __index' flag set: done.
     //|  b ->vmeta_tgetb
-    dasm_put(Dst, 6312, -LJ_TTAB, Dt6(->asize), Dt6(->array), -LJ_TNIL, Dt6(->metatable), Dt6(->nomm), 1<<MM_index);
+    dasm_put(Dst, 6722, -LJ_TTAB, Dt6(->asize), Dt6(->array), -LJ_TNIL, Dt6(->metatable), Dt6(->nomm), 1<<MM_index);
 #line 3506 "biggy.dasc"
     break;
 
@@ -12551,7 +13029,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|
     //|7:  // Possible table write barrier for the value. Skip valiswhite check.
     //|  barrierback TAB:CARG1, INS, CARG3
-    dasm_put(Dst, 6378, -LJ_TTAB, -LJ_TISNUM, Dt6(->array), Dt6(->asize), -LJ_TNIL, Dt6(->marked), LJ_GC_BLACK, Dt6(->metatable), Dt6(->nomm), 1<<MM_newindex);
+    dasm_put(Dst, 6791, -LJ_TTAB, -LJ_TISNUM, Dt6(->array), Dt6(->asize), -LJ_TNIL, Dt6(->marked), LJ_GC_BLACK, Dt6(->metatable), Dt6(->nomm), 1<<MM_newindex);
 #line 3551 "biggy.dasc"
     //|  b <2
     //|
@@ -12560,7 +13038,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   moveq STR:RC, CARG3
     //|  beq ->BC_TSETS_Z
     //|  b ->vmeta_tsetv
-    dasm_put(Dst, 6473, DISPATCH_GL(gc.grayagain), LJ_GC_BLACK, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist), -LJ_TSTR);
+    dasm_put(Dst, 6891, DISPATCH_GL(gc.grayagain), LJ_GC_BLACK, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist), -LJ_TSTR);
 #line 3558 "biggy.dasc"
     break;
   case BC_TSETS:
@@ -12602,7 +13080,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|
     //|4:  // Check for __newindex if previous value is nil.
     //|  ldr TAB:CARG1, TAB:RB->metatable
-    dasm_put(Dst, 6505, -LJ_TTAB, Dt6(->hmask), Dt5(->hash), Dt6(->node), Dt6(->nomm), DtB(->key), DtB(->val.it), DtB(->next), -LJ_TSTR, Dt6(->marked), -LJ_TNIL, LJ_GC_BLACK, DtB(->val));
+    dasm_put(Dst, 6925, -LJ_TTAB, Dt6(->hmask), Dt5(->hash), Dt6(->node), Dt6(->nomm), DtB(->key), DtB(->val.it), DtB(->next), -LJ_TSTR, Dt6(->marked), -LJ_TNIL, LJ_GC_BLACK, DtB(->val));
 #line 3598 "biggy.dasc"
     //|  cmp TAB:CARG1, #0
     //|  beq <2				// No metatable: done.
@@ -12641,10 +13119,10 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|
     //|7:  // Possible table write barrier for the value. Skip valiswhite check.
     //|  barrierback TAB:RB, CARG2, CARG3
-    dasm_put(Dst, 6595, Dt6(->metatable), Dt6(->nomm), 1<<MM_newindex, Dt6(->metatable), Dt1(->base), Dt6(->nomm), 1<<MM_newindex, ~LJ_TSTR, Dt1(->base), DISPATCH_GL(gc.grayagain), LJ_GC_BLACK);
+    dasm_put(Dst, 7021, Dt6(->metatable), Dt6(->nomm), 1<<MM_newindex, Dt6(->metatable), Dt1(->base), Dt6(->nomm), 1<<MM_newindex, ~LJ_TSTR, Dt1(->base), DISPATCH_GL(gc.grayagain), LJ_GC_BLACK);
 #line 3635 "biggy.dasc"
     //|  b <3
-    dasm_put(Dst, 6673, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist));
+    dasm_put(Dst, 7104, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist));
 #line 3636 "biggy.dasc"
     break;
   case BC_TSETB:
@@ -12685,10 +13163,10 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|
     //|7:  // Possible table write barrier for the value. Skip valiswhite check.
     //|  barrierback TAB:CARG1, INS, CARG3
-    dasm_put(Dst, 6687, -LJ_TTAB, Dt6(->asize), Dt6(->array), -LJ_TNIL, Dt6(->marked), LJ_GC_BLACK, Dt6(->metatable), Dt6(->nomm), 1<<MM_newindex, DISPATCH_GL(gc.grayagain), LJ_GC_BLACK);
+    dasm_put(Dst, 7118, -LJ_TTAB, Dt6(->asize), Dt6(->array), -LJ_TNIL, Dt6(->marked), LJ_GC_BLACK, Dt6(->metatable), Dt6(->nomm), 1<<MM_newindex, DISPATCH_GL(gc.grayagain), LJ_GC_BLACK);
 #line 3675 "biggy.dasc"
     //|  b <2
-    dasm_put(Dst, 6778, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist));
+    dasm_put(Dst, 7214, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist));
 #line 3676 "biggy.dasc"
     break;
 
@@ -12731,7 +13209,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|7:  // Possible table write barrier for any value. Skip valiswhite check.
     //|  barrierback TAB:CARG2, CARG1, CARG3
     //|  b <4
-    dasm_put(Dst, 6792, Dt6(->asize), Dt6(->array), Dt6(->marked), LJ_GC_BLACK, Dt1(->base), DISPATCH_GL(gc.grayagain), LJ_GC_BLACK, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist));
+    dasm_put(Dst, 7228, Dt6(->asize), Dt6(->array), Dt6(->marked), LJ_GC_BLACK, Dt1(->base), DISPATCH_GL(gc.grayagain), LJ_GC_BLACK, DISPATCH_GL(gc.grayagain), Dt6(->marked), Dt6(->gclist));
 #line 3717 "biggy.dasc"
     break;
 
@@ -12743,7 +13221,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  decode_RC8 NARGS8:RC, INS
     //|  add NARGS8:RC, NARGS8:RC, CARG1
     //|  b ->BC_CALL_Z
-    dasm_put(Dst, 6883);
+    dasm_put(Dst, 7322);
 #line 3727 "biggy.dasc"
     break;
   case BC_CALL:
@@ -12756,7 +13234,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   add BASE, BASE, #8
     //|  checkfunc CARG4, ->vmeta_call
     //|  ins_call
-    dasm_put(Dst, 6892, -LJ_TFUNC, Dt7(->field_pc));
+    dasm_put(Dst, 7331, -LJ_TFUNC, Dt7(->field_pc));
 #line 3738 "biggy.dasc"
     break;
 
@@ -12765,7 +13243,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  ldr CARG1, SAVE_MULTRES
     //|  add NARGS8:RC, CARG1, RC, lsl #3
     //|  b ->BC_CALLT1_Z
-    dasm_put(Dst, 6924);
+    dasm_put(Dst, 7364);
 #line 3745 "biggy.dasc"
     break;
   case BC_CALLT:
@@ -12812,7 +13290,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  eor PC, PC, #FRAME_VARG
     //|  tst PC, #FRAME_TYPEP		// Vararg frame below?
     //|  movne CARG4, #0			// Clear ffid if no Lua function below.
-    dasm_put(Dst, 6932, -LJ_TFUNC, Dt7(->ffid), FRAME_TYPE, Dt7(->field_pc), Dt7(->field_pc), PC2PROTO(k), FRAME_VARG, FRAME_TYPEP);
+    dasm_put(Dst, 7372, -LJ_TFUNC, Dt7(->ffid), FRAME_TYPE, Dt7(->field_pc), Dt7(->field_pc), PC2PROTO(k), FRAME_VARG, FRAME_TYPEP);
 #line 3790 "biggy.dasc"
     //|  bne <1
     //|  sub BASE, BASE, PC
@@ -12820,7 +13298,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  tst PC, #FRAME_TYPE
     //|  movne CARG4, #0			// Clear ffid if no Lua function below.
     //|  b <1
-    dasm_put(Dst, 7029, FRAME_TYPE);
+    dasm_put(Dst, 7473, FRAME_TYPE);
 #line 3796 "biggy.dasc"
     break;
 
@@ -12840,7 +13318,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  strd LFUNC:CARG3, LFUNC:CARG4, [RA]		// Copy callable.
     //|  checkfunc CARG4, ->vmeta_call
     //|  ins_call
-    dasm_put(Dst, 7045, -LJ_TFUNC, Dt7(->field_pc));
+    dasm_put(Dst, 7490, -LJ_TFUNC, Dt7(->field_pc));
 #line 3814 "biggy.dasc"
     break;
 
@@ -12895,7 +13373,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  sub PC, RC, #0x20000
     //|    strd CARG3, CARG4, [RA]
     //|  b <3
-    dasm_put(Dst, 7083, Dt6(->asize), Dt6(->array), -LJ_TNIL, ~LJ_TISNUM, Dt6(->hmask), Dt6(->node), DtB(->val), -LJ_TNIL, DtB(->key));
+    dasm_put(Dst, 7529, Dt6(->asize), Dt6(->array), -LJ_TNIL, ~LJ_TISNUM, Dt6(->hmask), Dt6(->node), DtB(->val), -LJ_TNIL, DtB(->key));
 #line 3867 "biggy.dasc"
     break;
 
@@ -12928,7 +13406,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   strb OP, [PC]			// Subsumes ins_next1.
     //|   ins_next2
     //|  b <1
-    dasm_put(Dst, 7187, -LJ_TFUNC, Dt8(->ffid), -LJ_TTAB, -LJ_TNIL, FF_next_N, BC_JMP, BC_ITERC);
+    dasm_put(Dst, 7638, -LJ_TFUNC, Dt8(->ffid), -LJ_TTAB, -LJ_TNIL, FF_next_N, BC_JMP, BC_ITERC);
 #line 3898 "biggy.dasc"
     break;
 
@@ -12989,7 +13467,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  add RC, BASE, RC
     //|  sub CARG3, BASE, #8
     //|  b <6
-    dasm_put(Dst, 7251, FRAME_VARG, ~LJ_TNIL, Dt1(->maxstack), Dt1(->top), Dt1(->base), Dt1(->base));
+    dasm_put(Dst, 7705, FRAME_VARG, ~LJ_TNIL, Dt1(->maxstack), Dt1(->top), Dt1(->base), Dt1(->base));
 #line 3957 "biggy.dasc"
     break;
 
@@ -13002,7 +13480,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|    add RA, BASE, RA
     //|  add RC, CARG1, RC, lsl #3
     //|  b ->BC_RETM_Z
-    dasm_put(Dst, 7356);
+    dasm_put(Dst, 7812);
 #line 3968 "biggy.dasc"
     break;
 
@@ -13061,7 +13539,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  sub BASE, BASE, CARG2
     //|  ldr PC, [BASE, FRAME_PC]
     //|  b <1
-    dasm_put(Dst, 7367, FRAME_TYPE, FRAME_VARG, Dt7(->field_pc), PC2PROTO(k), ~LJ_TNIL, FRAME_TYPEP);
+    dasm_put(Dst, 7823, FRAME_TYPE, FRAME_VARG, Dt7(->field_pc), PC2PROTO(k), ~LJ_TNIL, FRAME_TYPEP);
 #line 4025 "biggy.dasc"
     break;
 
@@ -13074,20 +13552,20 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|   eor CARG2, PC, #FRAME_VARG
     //|   ldreq INS, [PC, #-4]
     //|  bne ->BC_RETV1_Z
-    dasm_put(Dst, 7472, FRAME_TYPE, FRAME_VARG);
+    dasm_put(Dst, 7932, FRAME_TYPE, FRAME_VARG);
 #line 4036 "biggy.dasc"
     if (op == BC_RET1) {
       //|  ldrd CARG1, CARG2, [BASE, RA]
-      dasm_put(Dst, 7489);
+      dasm_put(Dst, 7951);
 #line 4038 "biggy.dasc"
     }
     //|  sub CARG4, BASE, #8
     //|   decode_RA8 RA, INS
-    dasm_put(Dst, 7493);
+    dasm_put(Dst, 7955);
 #line 4041 "biggy.dasc"
     if (op == BC_RET1) {
       //|  strd CARG1, CARG2, [CARG4]
-      dasm_put(Dst, 7499);
+      dasm_put(Dst, 7961);
 #line 4043 "biggy.dasc"
     }
     //|  sub BASE, CARG4, RA
@@ -13108,7 +13586,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  str CARG3, [CARG2, RC]
     //|  add RC, RC, #8
     //|  b <5
-    dasm_put(Dst, 7503, Dt7(->field_pc), PC2PROTO(k), ~LJ_TNIL);
+    dasm_put(Dst, 7965, Dt7(->field_pc), PC2PROTO(k), ~LJ_TNIL);
 #line 4062 "biggy.dasc"
     break;
 
@@ -13136,11 +13614,11 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  // RA = base*8, RC = target (after end of loop or start of loop)
     vk = (op == BC_IFORL || op == BC_JFORL);
     //|  ldrd CARG1, CARG2, [RA, BASE]!
-    dasm_put(Dst, 7542);
+    dasm_put(Dst, 8005);
 #line 4088 "biggy.dasc"
     if (op != BC_JFORL) {
       //|   add RC, PC, RC, lsl #2
-      dasm_put(Dst, 7546);
+      dasm_put(Dst, 8009);
 #line 4090 "biggy.dasc"
     }
     if (!vk) {
@@ -13155,7 +13633,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
       //|  cmp CARG4, #0
       //|  blt >4
       //|  cmp CARG1, CARG3
-      dasm_put(Dst, 7550, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
+      dasm_put(Dst, 8013, -LJ_TISNUM, -LJ_TISNUM, -LJ_TISNUM);
 #line 4103 "biggy.dasc"
     } else {
       //|  ldrd CARG3, CARG4, FOR_STEP
@@ -13163,75 +13641,75 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
       //|   bne >5
       //|  adds CARG1, CARG1, CARG3
       //|   ldr CARG4, FOR_STOP
-      dasm_put(Dst, 7576, -LJ_TISNUM);
+      dasm_put(Dst, 8042, -LJ_TISNUM);
 #line 4109 "biggy.dasc"
       if (op == BC_IFORL) {
 	//|  addvs RC, PC, #0x20000		// Overflow: prevent branch.
-	dasm_put(Dst, 7588);
+	dasm_put(Dst, 8055);
 #line 4111 "biggy.dasc"
       } else {
 	//|  bvs >2				// Overflow: do not enter mcode.
-	dasm_put(Dst, 7592);
+	dasm_put(Dst, 8059);
 #line 4113 "biggy.dasc"
       }
       //|  cmp CARG3, #0
       //|  blt >4
       //|  cmp CARG1, CARG4
-      dasm_put(Dst, 7597);
+      dasm_put(Dst, 8064);
 #line 4117 "biggy.dasc"
     }
     //|1:
-    dasm_put(Dst, 7604);
+    dasm_put(Dst, 8071);
 #line 4119 "biggy.dasc"
     if (op == BC_FORI) {
       //|  subgt PC, RC, #0x20000
-      dasm_put(Dst, 7608);
+      dasm_put(Dst, 8075);
 #line 4121 "biggy.dasc"
     } else if (op == BC_JFORI) {
       //|  sub PC, RC, #0x20000
       //|  ldrhle RC, [PC, #-2]
-      dasm_put(Dst, 7612);
+      dasm_put(Dst, 8079);
 #line 4124 "biggy.dasc"
     } else if (op == BC_IFORL) {
       //|  suble PC, RC, #0x20000
-      dasm_put(Dst, 7618);
+      dasm_put(Dst, 8085);
 #line 4126 "biggy.dasc"
     }
     if (vk) {
       //|  strd CARG1, CARG2, FOR_IDX
-      dasm_put(Dst, 7622);
+      dasm_put(Dst, 8089);
 #line 4129 "biggy.dasc"
     }
     //|2:
     //|   ins_next1
     //|   ins_next2
     //|  strd CARG1, CARG2, FOR_EXT
-    dasm_put(Dst, 7626);
+    dasm_put(Dst, 8093);
 #line 4134 "biggy.dasc"
     if (op == BC_JFORI || op == BC_JFORL) {
       //|  ble =>BC_JLOOP
-      dasm_put(Dst, 7635, BC_JLOOP);
+      dasm_put(Dst, 8102, BC_JLOOP);
 #line 4136 "biggy.dasc"
     }
     //|3:
     //|   ins_next3
     //|
     //|4:  // Invert check for negative step.
-    dasm_put(Dst, 7640);
+    dasm_put(Dst, 8107);
 #line 4141 "biggy.dasc"
     if (!vk) {
       //|  cmp CARG3, CARG1
-      dasm_put(Dst, 7651);
+      dasm_put(Dst, 8118);
 #line 4143 "biggy.dasc"
     } else {
       //|  cmp CARG4, CARG1
-      dasm_put(Dst, 7654);
+      dasm_put(Dst, 8121);
 #line 4145 "biggy.dasc"
     }
     //|  b <1
     //|
     //|5:  // FP loop.
-    dasm_put(Dst, 7657);
+    dasm_put(Dst, 8124);
 #line 4149 "biggy.dasc"
     if (!vk) {
       //|  cmnlo CARG4, #-LJ_TISNUM
@@ -13247,7 +13725,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
       //|   strd CARG1, CARG2, FOR_EXT
       //|  blt >8
       //|.endif
-      dasm_put(Dst, 7664, -LJ_TISNUM, -LJ_TISNUM);
+      dasm_put(Dst, 8131, -LJ_TISNUM, -LJ_TISNUM);
 #line 4163 "biggy.dasc"
     } else {
       //|.if FPU
@@ -13264,7 +13742,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
       //|  ldrd CARG3, CARG4, FOR_STOP
       //|   strd CARG1, CARG2, FOR_EXT
       //|.endif
-      dasm_put(Dst, 7681);
+      dasm_put(Dst, 8150);
 #line 4178 "biggy.dasc"
     }
     //|6:
@@ -13275,7 +13753,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|.else
     //|  bl extern __aeabi_cdcmple
     //|.endif
-    dasm_put(Dst, 7696);
+    dasm_put(Dst, 8166);
 #line 4187 "biggy.dasc"
     if (vk) {
       //|.if FPU
@@ -13285,21 +13763,21 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     }
     if (op == BC_FORI) {
       //|  subhi PC, RC, #0x20000
-      dasm_put(Dst, 7703);
+      dasm_put(Dst, 8174);
 #line 4195 "biggy.dasc"
     } else if (op == BC_JFORI) {
       //|  sub PC, RC, #0x20000
       //|  ldrhls RC, [PC, #-2]
       //|  bls =>BC_JLOOP
-      dasm_put(Dst, 7707, BC_JLOOP);
+      dasm_put(Dst, 8178, BC_JLOOP);
 #line 4199 "biggy.dasc"
     } else if (op == BC_IFORL) {
       //|  subls PC, RC, #0x20000
-      dasm_put(Dst, 7716);
+      dasm_put(Dst, 8187);
 #line 4201 "biggy.dasc"
     } else {
       //|  bls =>BC_JLOOP
-      dasm_put(Dst, 7720, BC_JLOOP);
+      dasm_put(Dst, 8191, BC_JLOOP);
 #line 4203 "biggy.dasc"
     }
     //|  ins_next1
@@ -13308,13 +13786,13 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|
     //|.if not FPU
     //|8:  // Invert check for negative step.
-    dasm_put(Dst, 7725);
+    dasm_put(Dst, 8196);
 #line 4210 "biggy.dasc"
     if (vk) {
       //|  bl extern __aeabi_dadd
       //|  strd CARG1, CARG2, FOR_IDX
       //|  strd CARG1, CARG2, FOR_EXT
-      dasm_put(Dst, 7735);
+      dasm_put(Dst, 8206);
 #line 4214 "biggy.dasc"
     }
     //|  mov CARG3, CARG1
@@ -13322,7 +13800,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  ldrd CARG1, CARG2, FOR_STOP
     //|  b <6
     //|.endif
-    dasm_put(Dst, 7744);
+    dasm_put(Dst, 8216);
 #line 4220 "biggy.dasc"
     break;
 
@@ -13340,13 +13818,13 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
   case BC_IITERL:
     //|  // RA = base*8, RC = target
     //|  ldrd CARG1, CARG2, [RA, BASE]!
-    dasm_put(Dst, 7753);
+    dasm_put(Dst, 8225);
 #line 4236 "biggy.dasc"
     if (op == BC_JITERL) {
       //|  cmn CARG2, #-LJ_TNIL		// Stop if iterator returned nil.
       //|  strdne CARG1, CARG2, [RA, #-8]
       //|  bne =>BC_JLOOP
-      dasm_put(Dst, 7757, -LJ_TNIL, BC_JLOOP);
+      dasm_put(Dst, 8229, -LJ_TNIL, BC_JLOOP);
 #line 4240 "biggy.dasc"
     } else {
       //|   add RC, PC, RC, lsl #2
@@ -13354,11 +13832,11 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
       //|  cmn CARG2, #-LJ_TNIL		// Stop if iterator returned nil.
       //|  subne PC, RC, #0x20000		// Otherwise save control var + branch.
       //|  strdne CARG1, CARG2, [RA, #-8]
-      dasm_put(Dst, 7767, -LJ_TNIL);
+      dasm_put(Dst, 8240, -LJ_TNIL);
 #line 4246 "biggy.dasc"
     }
     //|  ins_next
-    dasm_put(Dst, 7778);
+    dasm_put(Dst, 8252);
 #line 4248 "biggy.dasc"
     break;
 
@@ -13375,7 +13853,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
   case BC_ILOOP:
     //|  // RA = base*8, RC = target (loop extent)
     //|  ins_next
-    dasm_put(Dst, 7788);
+    dasm_put(Dst, 8262);
 #line 4263 "biggy.dasc"
     break;
 
@@ -13398,7 +13876,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  add RC, PC, RC, lsl #2
     //|  sub PC, RC, #0x20000
     //|  ins_next
-    dasm_put(Dst, 7798);
+    dasm_put(Dst, 8272);
 #line 4284 "biggy.dasc"
     break;
 
@@ -13423,28 +13901,28 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|    ldr KBASE, [PC, #-4+PC2PROTO(k)]
     //|  cmp RA, CARG1
     //|  bhi ->vm_growstack_l
-    dasm_put(Dst, 7812, Dt1(->maxstack), -4+PC2PROTO(numparams), -4+PC2PROTO(k));
+    dasm_put(Dst, 8286, Dt1(->maxstack), -4+PC2PROTO(numparams), -4+PC2PROTO(k));
 #line 4307 "biggy.dasc"
     if (op != BC_JFUNCF) {
       //|  ins_next1
       //|  ins_next2
-      dasm_put(Dst, 7827);
+      dasm_put(Dst, 8301);
 #line 4310 "biggy.dasc"
     }
     //|2:
     //|  cmp NARGS8:RC, CARG2, lsl #3	// Check for missing parameters.
     //|   mvn CARG4, #~LJ_TNIL
     //|  blo >3
-    dasm_put(Dst, 7832, ~LJ_TNIL);
+    dasm_put(Dst, 8306, ~LJ_TNIL);
 #line 4315 "biggy.dasc"
     if (op == BC_JFUNCF) {
       //|  decode_RD RC, INS
       //|  b =>BC_JLOOP
-      dasm_put(Dst, 7844, BC_JLOOP);
+      dasm_put(Dst, 8319, BC_JLOOP);
 #line 4318 "biggy.dasc"
     } else {
       //|  ins_next3
-      dasm_put(Dst, 7850);
+      dasm_put(Dst, 8325);
 #line 4320 "biggy.dasc"
     }
     //|
@@ -13452,7 +13930,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  strd CARG3, CARG4, [BASE, NARGS8:RC]
     //|  add NARGS8:RC, NARGS8:RC, #8
     //|  b <2
-    dasm_put(Dst, 7857);
+    dasm_put(Dst, 8332);
 #line 4326 "biggy.dasc"
     break;
 
@@ -13461,7 +13939,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     break;
 #endif
     //|  NYI  // NYI: compiled vararg functions
-    dasm_put(Dst, 7868);
+    dasm_put(Dst, 8343);
 #line 4333 "biggy.dasc"
     break;  /* NYI: compiled vararg functions. */
 
@@ -13494,7 +13972,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  bne <1
     //|3:
     //|  ins_next
-    dasm_put(Dst, 7871, Dt1(->maxstack), 8+FRAME_VARG, -4+PC2PROTO(k), -4+PC2PROTO(numparams), ~LJ_TNIL);
+    dasm_put(Dst, 8346, Dt1(->maxstack), 8+FRAME_VARG, -4+PC2PROTO(k), -4+PC2PROTO(numparams), ~LJ_TNIL);
 #line 4364 "biggy.dasc"
     break;
 
@@ -13503,11 +13981,11 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  // BASE = new base, RA = BASE+framesize*8, CARG3 = CFUNC, RC = nargs*8
     if (op == BC_FUNCC) {
       //|  ldr CARG4, CFUNC:CARG3->f
-      dasm_put(Dst, 7930, Dt8(->f));
+      dasm_put(Dst, 8406, Dt8(->f));
 #line 4371 "biggy.dasc"
     } else {
       //|  ldr CARG4, [DISPATCH, #DISPATCH_GL(wrapf)]
-      dasm_put(Dst, 7935, DISPATCH_GL(wrapf));
+      dasm_put(Dst, 8411, DISPATCH_GL(wrapf));
 #line 4373 "biggy.dasc"
     }
     //|   add CARG2, RA, NARGS8:RC
@@ -13516,11 +13994,11 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|    str BASE, L->base
     //|   cmp CARG2, CARG1
     //|  str RC, L->top
-    dasm_put(Dst, 7940, Dt1(->maxstack), Dt1(->base), Dt1(->top));
+    dasm_put(Dst, 8416, Dt1(->maxstack), Dt1(->base), Dt1(->top));
 #line 4380 "biggy.dasc"
     if (op == BC_FUNCCW) {
       //|  ldr CARG2, CFUNC:CARG3->f
-      dasm_put(Dst, 7954, Dt8(->f));
+      dasm_put(Dst, 8430, Dt8(->f));
 #line 4382 "biggy.dasc"
     }
     //|    mv_vmstate CARG3, C
@@ -13537,7 +14015,7 @@ static void build_ins(BuildCtx *ctx, BCOp op, int defop)
     //|  ldr PC, [BASE, FRAME_PC]
     //|   sub RA, CRET2, RC		// RA = L->top - nresults*8
     //|  b ->vm_returnc
-    dasm_put(Dst, 7959, LJ_VMST_C, DISPATCH_GL(vmstate), Dt1(->base), LJ_VMST_INTERP, Dt1(->top), DISPATCH_GL(vmstate));
+    dasm_put(Dst, 8435, LJ_VMST_C, DISPATCH_GL(vmstate), Dt1(->base), LJ_VMST_INTERP, Dt1(->top), DISPATCH_GL(vmstate));
 #line 4397 "biggy.dasc"
     break;
 
@@ -13559,7 +14037,7 @@ static int build_backend(BuildCtx *ctx)
   build_subroutines(ctx);
 
   //|.code_op
-  dasm_put(Dst, 7991);
+  dasm_put(Dst, 8469);
 #line 4417 "biggy.dasc"
   for (op = 0; op < BC__MAX; op++)
     build_ins(ctx, (BCOp)op, op);

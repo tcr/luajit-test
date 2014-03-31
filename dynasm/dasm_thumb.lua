@@ -39,7 +39,7 @@ local wline, werror, wfatal, wwarn
 local action_names = {
   "STOP", "SECTION", "ESC", "REL_EXT",
   "ALIGN", "REL_LG", "LABEL_LG",
-  "REL_PC", "LABEL_PC", "IMM", "IMM12", "IMM16", "IMML8", "IMML12", "IMMV8",
+  "REL_PC", "LABEL_PC", "IMM", "IMMTHUMB", "IMM16", "IMML8", "IMML12", "IMMV8",
 }
 
 -- Maximum number of section buffer positions for dasm_put().
@@ -1051,7 +1051,7 @@ local function parse_imm(imm, bits, shift, scale, signed)
   end
 end
 
-local function parse_imm_simple(imm)
+local function parse_imm_thumb(imm)
   local n = tonumber(imm)
   if n then
     -- local m = band(n)
@@ -1063,8 +1063,7 @@ local function parse_imm_simple(imm)
     -- TCR_LOG(' ... NO SIR!');
     -- werror("out of range immediate `"..imm.."'")
   else
-    TCR_LOG('IMM12', imm)
-    waction("IMM12", 0, imm)
+    waction("IMMTHUMB", 0, imm)
     return 0
   end
 end
@@ -1173,13 +1172,13 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
         werror('bad immediate (i) operand')
       end
       if bits['i'] then
-        values[p] = parse_imm_simple(imm)
+        values[p] = parse_imm_load(imm, bits['i'])
         if values[p] >= math.pow(2, bits[p]) then
           werror('immediate operand larger than ' .. bits[p] .. ' bits')
         end
       elseif bits['H'] then
         -- fun encoding time!
-        local val = parse_imm_simple(imm)
+        local val = parse_imm_thumb(imm)
         local a = shr(band(val, 0x80), 7)
         local _bcdefgh = 0x80 + band(val, 0x7F)
         local abcdefgh = band(val, 0xFF);
@@ -1236,7 +1235,7 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
     elseif p == 'f' then
       local imm = match(params[n], "^#(.*)$")
       if imm then
-        values[p] = parse_imm_simple(imm)
+        values[p] = parse_imm_load(imm, bits['i'])
       else
         werror('bad immediate operand')
       end
@@ -1461,15 +1460,10 @@ local function parse_template_new(params, template, nparams, pos)
   --   TCR_LOG(k .. ' ' .. v)
   -- end
   -- assert(false)
-  local ops = {}
   for i=#template,2,-1 do
-    table.insert(ops, populate_op_word(template[i], values))
+    wputpos(pos, populate_op_word(template[i], values))
   end
-  for i=#ops,1,-1 do
-    wputpos(pos, ops[i])
-    pos = pos + 1
-  end
-  return pos
+  return pos + #template-1
 end
 
 map_op[".template__"] = function(params, template, nparams)

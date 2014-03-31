@@ -23,7 +23,7 @@ enum {
   DASM_ALIGN, DASM_REL_LG, DASM_LABEL_LG,
   /* The following actions also have an argument. */
   DASM_REL_PC, DASM_LABEL_PC,
-  DASM_IMM, DASM_IMM12, DASM_IMM16, DASM_IMML8, DASM_IMML12, DASM_IMMV8,
+  DASM_IMM, DASM_IMMTHUMB, DASM_IMM16, DASM_IMML8, DASM_IMML12, DASM_IMMV8,
   DASM__MAX
 };
 
@@ -166,12 +166,44 @@ void dasm_setup(Dst_DECL, const void *actionlist)
 #define CKPL(kind, st)	((void)0)
 #endif
 
-static int dasm_imm12(unsigned int n)
+static uint16_t dasm_immthumb(unsigned int val)
 {
-  int i;
-  for (i = 0; i < 16; i++, n = (n << 2) | (n >> 30))
-    if (n <= 255) return (int)(n + (i << 8));
-  return -1;
+  // fun encoding time!
+  int a = (val & 0x80) >> 7;
+  int _bcdefgh = 0x80 + (val & 0x7F);
+  int abcdefgh = (val & 0xFF);
+  int ABCDE = 00000;
+  int i = 0;
+
+  // Table A5-11 in ARM handbook
+  if (val == abcdefgh) {
+    // 00000000 00000000 00000000 abcdefgh
+    ABCDE = 0 + a;
+  } else if (val == (abcdefgh << 16) | abcdefgh) {
+    // 00000000 abcdefgh 00000000 abcdefgh
+    ABCDE = 2 + a;
+  } else if (val == (abcdefgh << 24) | (abcdefgh << 8)) {
+    // abcdefgh 00000000 abcdefgh 00000000
+    ABCDE = 4 + a;
+  } else if (val == (abcdefgh << 24) | (abcdefgh << 16) | (abcdefgh << 8) | abcdefgh) {
+    // abcdefgh abcdefgh abcdefgh abcdefgh
+    ABCDE = 6 + a;
+  } else {
+    // 1bcdefgh 00000000 00000000 00000000
+    // ...
+    // 00000000 00000000 00000001 bcdefgh0
+    ABCDE = 8;
+    for (i = 24; i >= 0; i--) { 
+      if (val == (_bcdefgh << i)) {
+        break;
+      }
+      ABCDE = ABCDE + 1;
+    }
+    if (i == 0) {
+      return -1;
+    }
+  }
+  return (ABCDE << 7) | (val & 0x7F);
 }
 
 /* Pass 1: Store actions and args, link branches/labels, estimate offsets. */
@@ -268,10 +300,10 @@ void dasm_put(Dst_DECL, int start, ...)
 		    (((-n)>>((ins>>5)&31)) == 0), RANGE_I);
 	b[pos++] = n;
 	break;
-      case DASM_IMM12:
-	CK(dasm_imm12((unsigned int)n) != -1, RANGE_I);
-	b[pos++] = n;
-	break;
+      case DASM_IMMTHUMB:
+      	CK(dasm_immthumb((unsigned int)n) != -1, RANGE_I);
+      	b[pos++] = n;
+      	break;
       }
     }
   }
@@ -331,7 +363,7 @@ int dasm_link(Dst_DECL, size_t *szp)
         	case DASM_ALIGN: ofs -= (b[pos++] + ofs) & (ins & 255); break;
         	case DASM_REL_LG: case DASM_REL_PC: pos++; break;
         	case DASM_LABEL_LG: case DASM_LABEL_PC: b[pos++] += ofs; break;
-        	case DASM_IMM: case DASM_IMM12: case DASM_IMM16:
+        	case DASM_IMM: case DASM_IMMTHUMB: case DASM_IMM16:
         	case DASM_IMML8: case DASM_IMML12: case DASM_IMMV8: pos++; break;
                 }
         }
@@ -360,6 +392,7 @@ int dasm_encode(Dst_DECL, void *buffer)
   char *base = (char *)buffer;
   uint16_t *cp = (uint16_t *)buffer;
   int secnum;
+  uint16_t thumbexp;
 
   /* Encode all code sections. No support for data sections (yet). */
   for (secnum = 0; secnum < D->maxsection; secnum++) {
@@ -419,8 +452,11 @@ int dasm_encode(Dst_DECL, void *buffer)
         	case DASM_IMM:
         	  cp[-1] |= ((n>>((ins>>10)&31)) & ((1<<((ins>>5)&31))-1)) << (ins&31);
         	  break;
-        	case DASM_IMM12:
-        	  cp[-1] |= dasm_imm12((unsigned int)n);
+        	case DASM_IMMTHUMB:
+            thumbexp = dasm_immthumb((unsigned int)n);
+            cp[-2] |= ((thumbexp >> 11) & 0x1) << 10;
+            cp[-1] |= ((thumbexp >> 8) & 0x7) << 12;
+        	  cp[-1] |= thumbexp & 0xFF;
         	  break;
         	case DASM_IMM16:
         	  cp[-1] |= ((n & 0xf000) << 4) | (n & 0x0fff);
