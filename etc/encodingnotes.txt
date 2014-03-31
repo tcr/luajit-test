@@ -1,3 +1,4 @@
+IMM5 (DecodeImmShift)
 .iii....ii...... 	 rsb_4 1
 .iii....ii...... 	 rsb_3 2
 .iii....ii...... 	 eor.w_4 1
@@ -38,6 +39,17 @@
 .iii....ii...... 	 orr.w_3 2
 .iii....ii...... 	 cmn.w_3 1
 .iii....ii...... 	 lsr.w_3 1
+
+IMMBRANCH
+.....iiiiiiiiiii 	 b.w_1 1
+.....iiiiiiiiiii 	 b.w_1 2
+.....iiiiiiiiiii 	 b_1 2
+.....iiiiiiiiiii 	 bl_1 1
+......iiiiiiiiii 	 b.w_1 2
+......iiiiiiiiii 	 bl_1 1
+..........iiiiii 	 b.w_1 1
+
+IMM12
 ....iiiiiiiiiiii 	 ldrh.w_3 1
 ....iiiiiiiiiiii 	 strb.w_2 1
 ....iiiiiiiiiiii 	 str.w_2 1
@@ -53,17 +65,14 @@
 ....iiiiiiiiiiii 	 ldrsh.w_2 4
 ....iiiiiiiiiiii 	 ldrsb.w_3 1
 
-.....iiiiiiiiiii 	 b.w_1 1
-.....iiiiiiiiiii 	 b.w_1 2
-.....iiiiiiiiiii 	 b_1 2
-.....iiiiiiiiiii 	 bl_1 1
-......iiiiiiiiii 	 b.w_1 2
-......iiiiiiiiii 	 bl_1 1
+IMM8_ROL2
+........iiiiiiii 	 add_3 3
+........iiiiiiii 	 adr_2 1
 
+IMM8
 ........iiiiiiii 	 strb.w_2 2
 ........iiiiiiii 	 ldrbt_2 1
 ........iiiiiiii 	 add_2 1
-........iiiiiiii 	 add_3 3
 ........iiiiiiii 	 ldrht_3 1
 ........iiiiiiii 	 ldrb.w_2 1
 ........iiiiiiii 	 stc_4 1
@@ -81,7 +90,6 @@
 ........iiiiiiii 	 mov_2 1
 ........iiiiiiii 	 ldrsbt_3 1
 ........iiiiiiii 	 str.w_2 2
-........iiiiiiii 	 adr_2 1
 ........iiiiiiii 	 ldrsb.w_2 1
 ........iiiiiiii 	 strd_4 1
 ........iiiiiiii 	 strh.w_3 2
@@ -104,8 +112,19 @@
 ........iiiiiiii 	 ldrsh.w_2 2
 ........iiiiiiii 	 ldrsb.w_3 2
 
-..........iiiiii 	 b.w_1 1
+IMMCB
+......i.iiiii... 	 cbz_2 1
+......i.iiiii... 	 cbnz_2 1
 
+IMM5_ROL1
+.....iiiii...... 	 ldrh_3 1
+.....iiiii...... 	 strh_3 1
+.....iiiii...... 	 ldrh_2 1
+.....iiiii...... 	 strb_2 1
+.....iiiii...... 	 str_2 1
+.....iiiii...... 	 ldrb_2 1
+
+IMMLSL
 ..........ii.... 	 ldrb.w_3 2
 ..........ii.... 	 str.w_2 3
 ..........ii.... 	 ldrh.w_3 3
@@ -113,32 +132,34 @@
 ..........ii.... 	 ldr.w_2 3
 ..........ii.... 	 ldrsh.w_2 3
 ..........ii.... 	 ldrh.w_2 3
+..........ii.... 	 ldrsb.w_3 3
 
-......i.iiiii... 	 cbz_2 1
+IMM5_ROL2
+.....fffff...... 	 ldr_2 1
 
-.....iiiii...... 	 ldrh_3 1
-.....iiiii...... 	 strh_3 1
-.....iiiii...... 	 ldrh_2 1
+IMMSHIFT (DecodeImmediateShift)
 .....iiiii...... 	 lsr_3 1
 .....iiiii...... 	 asr_3 1
 .....iiiii...... 	 lsl_3 1
-.....iiiii...... 	 strb_2 1
-.....iiiii...... 	 str_2 1
-.....iiiii...... 	 ldrb_2 1
 
+IMM3
 .......iii...... 	 sub_3 1
 .......iii...... 	 add_3 1
-..........ii.... 	 ldrsb.w_3 3
 
+IMM1_ROL1
 ..........f..... 	 ssat_3 1
 ..........f..... 	 usat_3 1
+
+IMM7_ROL2
 .........fffffff 	 add_2 3
 .........fffffff 	 sub_2 21
+
+IMM8_ROL2
 ........ffffffff 	 ldrd_3 1
 ........ffffffff 	 ldrd_4 1
 ........ffffffff 	 ldr_2 2
-.....fffff...... 	 ldr_2 1
 
+IMMTHUMB
 .....H.......... 	 movt_2 1
 .....H.......... 	 orn_3 1
 .....H.......... 	 mov.w_2 1

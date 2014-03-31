@@ -340,7 +340,10 @@ local map_op = {
     {"sB", "11110siiiiiiiiii", "11J1Kiiiiiiiiiii"}
   },
   ["cbz_2"] = {
-    {"ni", "1011o0i1iiiiinnn"}
+    {"ni", "101100i1iiiiinnn"}
+  },
+  ["cbnz_2"] = {
+    {"ni", "101110i1iiiiinnn"}
   },
   -- ["cdp_6"] = {
   --   {"CoCdCnCm{O}", "111t1110oooonnnn", "ddddCCCCOOO0mmmm"}
