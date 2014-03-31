@@ -1082,24 +1082,6 @@ local function parse_imm_thumb(imm)
   end
 end
 
-local function parse_imm_load(imm, ext)
-  local n = tonumber(imm)
-  if n then
-    if ext > 0 and n > math.pow(2, ext) then
-      werror("out of range immediate `"..imm.."' larger than "..ext.." bits")
-    end
-    return n
-  else
-    -- TODO 5
-    -- TCR_LOG('IMMLOAD', ext, _G.__op)
-    -- for k,v in pairs(_G.__params) do
-    --   TCR_LOG('-->', k, v)
-    -- end
-    waction(ext == 8 and "IMML8" or "IMML12", 32768 + shl(ext and 8 or 12, 5), imm)
-    return 0
-  end
-end
-
 local function parse_imm_shift(imm)
   imm = match(imm, "^#(.*)$")
   if n then
