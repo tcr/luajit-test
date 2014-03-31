@@ -1,8 +1,8 @@
-IMMLOAD mov 
+IMM mov 
 --> 1 r0 
 --> 2 #LUA_YIELD 
 --> op mov 
-IMMLOAD cmp 
+IMM cmp 
 --> 1 r0 
 --> 2 #FRAME_C 
 --> op cmp 
@@ -10,7 +10,7 @@ IMMLOAD str
 --> 1 r3 
 --> 2 [r7, #DISPATCH_GL(vmstate)] 
 --> op str 
-IMMLOAD add 
+IMM add 
 --> 1 r7 
 --> 2 r7 
 --> 3 #GG_G2DISP 
@@ -19,20 +19,20 @@ IMMLOAD str
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(vmstate)] 
 --> op str 
-IMMLOAD mov 
+IMM mov 
 --> 1 r1 
 --> 2 #LUA_MINSTACK 
 --> op mov 
-IMMLOAD add 
+IMM add 
 --> 1 r7 
 --> 2 r7 
 --> 3 #GG_G2DISP 
 --> op add 
-IMMLOAD mov 
+IMM mov 
 --> 1 r6 
 --> 2 #FRAME_CP 
 --> op mov 
-IMMLOAD add 
+IMM add 
 --> 1 r1 
 --> 2 r13 
 --> 3 #CFRAME_RESUME 
@@ -41,15 +41,15 @@ IMMLOAD str
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(vmstate)] 
 --> op str 
-IMMLOAD mov 
+IMM mov 
 --> 1 r6 
 --> 2 #FRAME_CP 
 --> op mov 
-IMMLOAD mov 
+IMM mov 
 --> 1 r6 
 --> 2 #FRAME_C 
 --> op mov 
-IMMLOAD add 
+IMM add 
 --> 1 r7 
 --> 2 r7 
 --> 3 #GG_G2DISP 
@@ -58,11 +58,11 @@ IMMLOAD str
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(vmstate)] 
 --> op str 
-IMMLOAD mov 
+IMM mov 
 --> 1 r6 
 --> 2 #FRAME_CP 
 --> op mov 
-IMMLOAD add 
+IMM add 
 --> 1 r7 
 --> 2 r7 
 --> 3 #GG_G2DISP 
@@ -71,17 +71,17 @@ IMMLOAD ldr
 --> 1 r5 
 --> 2 [r2, #PC2PROTO(k)] 
 --> op ldr 
-IMMLOAD sub 
+IMM sub 
 --> 1 r1 
 --> 2 r7 
 --> 3 #-DISPATCH_GL(tmptv) 
 --> op sub 
-IMMLOAD sub 
+IMM sub 
 --> 1 r1 
 --> 2 r7 
 --> 3 #-DISPATCH_GL(tmptv) 
 --> op sub 
-IMMLOAD add 
+IMM add 
 --> 1 r6 
 --> 2 r1 
 --> 3 #FRAME_CONT 
@@ -90,7 +90,7 @@ IMMLOAD ldr
 --> 1 STR:r11 
 --> 2 [r7, #DISPATCH_GL(gcroot[GCROOT_MMNAME+MM_metatable])] 
 --> op ldr 
-IMMLOAD movlo 
+IMM movlo 
 --> 1 r1 
 --> 2 #~LJ_TISNUM 
 --> op movlo 
@@ -118,23 +118,23 @@ IMMLOAD ldr
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(gc.threshold)] 
 --> op ldr 
-IMMLOAD mov 
+IMM mov 
 --> 1 r11 
 --> 2 #(2+1)*8 
 --> op mov 
-IMMLOAD mov 
+IMM mov 
 --> 1 r11 
 --> 2 #(3+1)*8 
 --> op mov 
-IMMLOAD mov 
+IMM mov 
 --> 1 r11 
 --> 2 #(0+1)*8 
 --> op mov 
-IMMLOAD movne 
+IMM movne 
 --> 1 r11 
 --> 2 #(2+1)*8 
 --> op movne 
-IMMLOAD mov 
+IMM mov 
 --> 1 r11 
 --> 2 #(3+1)*8 
 --> op mov 
@@ -142,11 +142,11 @@ IMMLOAD ldrb
 --> 1 r10 
 --> 2 [r7, #DISPATCH_GL(hookmask)] 
 --> op ldrb 
-IMMLOAD moveq 
+IMM moveq 
 --> 1 r6 
 --> 2 #8+FRAME_PCALL 
 --> op moveq 
-IMMLOAD movne 
+IMM movne 
 --> 1 r6 
 --> 2 #8+FRAME_PCALLH 
 --> op movne 
@@ -154,15 +154,15 @@ IMMLOAD ldrb
 --> 1 r10 
 --> 2 [r7, #DISPATCH_GL(hookmask)] 
 --> op ldrb 
-IMMLOAD moveq 
+IMM moveq 
 --> 1 r6 
 --> 2 #16+FRAME_PCALL 
 --> op moveq 
-IMMLOAD movne 
+IMM movne 
 --> 1 r6 
 --> 2 #16+FRAME_PCALLH 
 --> op movne 
-IMMLOAD cmp 
+IMM cmp 
 --> 1 r10 
 --> 2 #LUA_YIELD 
 --> op cmp 
@@ -170,15 +170,15 @@ IMMLOAD str
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(vmstate)] 
 --> op str 
-IMMLOAD cmp 
+IMM cmp 
 --> 1 r0 
 --> 2 #LUA_YIELD 
 --> op cmp 
-IMMLOAD mov 
+IMM mov 
 --> 1 r11 
 --> 2 #(2+1)*8 
 --> op mov 
-IMMLOAD cmp 
+IMM cmp 
 --> 1 r10 
 --> 2 #LUA_YIELD 
 --> op cmp 
@@ -186,31 +186,31 @@ IMMLOAD str
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(vmstate)] 
 --> op str 
-IMMLOAD cmp 
+IMM cmp 
 --> 1 r0 
 --> 2 #LUA_YIELD 
 --> op cmp 
-IMMLOAD mov 
+IMM mov 
 --> 1 r0 
 --> 2 #LUA_YIELD 
 --> op mov 
-IMMLOAD mov 
+IMM mov 
 --> 1 r11 
 --> 2 #(1+1)*8 
 --> op mov 
-IMMLOAD mov 
+IMM mov 
 --> 1 r11 
 --> 2 #(2+1)*8 
 --> op mov 
-IMMLOAD mov 
+IMM mov 
 --> 1 r11 
 --> 2 #(2+1)*8 
 --> op mov 
-IMMLOAD moveq 
+IMM moveq 
 --> 1 r11 
 --> 2 #(0+1)*8 
 --> op moveq 
-IMMLOAD movne 
+IMM movne 
 --> 1 r11 
 --> 2 #(1+1)*8 
 --> op movne 
@@ -230,12 +230,12 @@ IMMLOAD ldr
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(gc.threshold)] 
 --> op ldr 
-IMMLOAD add 
+IMM add 
 --> 1 r0 
 --> 2 STR:r0 
 --> 3 #sizeof(GCstr)-1 
 --> op add 
-IMMLOAD sub 
+IMM sub 
 --> 1 STR:r0 
 --> 2 r7 
 --> 3 #-DISPATCH_GL(strempty) 
@@ -272,7 +272,7 @@ IMMLOAD ldr
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(tmpbuf.buf)] 
 --> op ldr 
-IMMLOAD add 
+IMM add 
 --> 1 r0 
 --> 2 STR:r0 
 --> 3 #sizeof(GCstr) 
@@ -293,7 +293,7 @@ IMMLOAD ldr
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(tmpbuf.buf)] 
 --> op ldr 
-IMMLOAD add 
+IMM add 
 --> 1 r0 
 --> 2 STR:r0 
 --> 3 #sizeof(GCstr) 
@@ -314,17 +314,17 @@ IMMLOAD ldr
 --> 1 r1 
 --> 2 [r7, #DISPATCH_GL(tmpbuf.buf)] 
 --> op ldr 
-IMMLOAD add 
+IMM add 
 --> 1 r0 
 --> 2 STR:r0 
 --> 3 #sizeof(GCstr) 
 --> op add 
-IMMLOAD add 
+IMM add 
 --> 1 r0 
 --> 2 r0 
 --> 3 #8*LUA_MINSTACK 
 --> op add 
-IMMLOAD mov 
+IMM mov 
 --> 1 r1 
 --> 2 #LUA_MINSTACK 
 --> op mov 
@@ -352,57 +352,46 @@ IMMLOAD ldr
 --> 1 r12 
 --> 2 [r12, #GG_DISP2STATIC] 
 --> op ldr 
-IMM cmp 
---> 1 r0 
---> 2 r1 
---> 3 lsl #i 
---> op cmp 
-IMM subhs 
---> 1 r0 
---> 2 r0 
---> 3 r1 
---> 4 lsl #i 
---> op subhs 
-IMMLOAD mov 
+IMM mov 
 --> 1 r3 
 --> 2 #1-vk 
 --> op mov 
-IMMLOAD add 
+IMM add 
 --> 1 r11 
 --> 2 r11 
 --> 3 #offsetof(GCfuncL, uvptr) 
 --> op add 
-IMMLOAD add 
+IMM add 
 --> 1 r10 
 --> 2 r10 
 --> 3 #offsetof(GCfuncL, uvptr) 
 --> op add 
-IMMLOAD add 
+IMM add 
 --> 1 r12 
 --> 2 r3 
 --> 3 #-LJ_TISGCV 
 --> op add 
-IMMLOAD sub 
+IMM sub 
 --> 1 r0 
 --> 2 r7 
 --> 3 #-GG_DISP2G 
 --> op sub 
-IMMLOAD add 
+IMM add 
 --> 1 r10 
 --> 2 r10 
 --> 3 #offsetof(GCfuncL, uvptr) 
 --> op add 
-IMMLOAD sub 
+IMM sub 
 --> 1 r0 
 --> 2 r7 
 --> 3 #-GG_DISP2G 
 --> op sub 
-IMMLOAD add 
+IMM add 
 --> 1 r10 
 --> 2 r10 
 --> 3 #offsetof(GCfuncL, uvptr) 
 --> op add 
-IMMLOAD add 
+IMM add 
 --> 1 r10 
 --> 2 r10 
 --> 3 #offsetof(GCfuncL, uvptr) 
@@ -451,19 +440,19 @@ IMMLOAD ldr
 --> 1 r5 
 --> 2 [r0, #PC2PROTO(k)] 
 --> op ldr 
-IMMLOAD cmpeq 
+IMM cmpeq 
 --> 1 r0 
 --> 2 #FF_next_N 
 --> op cmpeq 
-IMMLOAD mov 
+IMM mov 
 --> 1 r0 
 --> 2 #BC_JMP 
 --> op mov 
-IMMLOAD mov 
+IMM mov 
 --> 1 r12 
 --> 2 #BC_ITERC 
 --> op mov 
-IMMLOAD add 
+IMM add 
 --> 1 r11 
 --> 2 r11 
 --> 3 #FRAME_VARG 
@@ -484,7 +473,7 @@ IMMLOAD ldr
 --> 1 r5 
 --> 2 [r6, #-4+PC2PROTO(k)] 
 --> op ldr 
-IMMLOAD add 
+IMM add 
 --> 1 r1 
 --> 2 r11 
 --> 3 #8+FRAME_VARG 

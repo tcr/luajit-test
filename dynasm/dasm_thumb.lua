@@ -1037,7 +1037,7 @@ local function parse_imm(imm, bits, shift, scale, signed)
   -- scale: value shifted left by how much?
   -- signed: is value signed or unsigned?
 
-  imm = match(imm, "^#(.*)$")
+  -- imm = match(imm, "^#(.*)$")
   if not imm then werror("expected immediate operand") end
   local n = tonumber(imm)
   if n then
@@ -1046,19 +1046,19 @@ local function parse_imm(imm, bits, shift, scale, signed)
       -- scale is correct?
       if signed then
         local s = sar(m, bits-1)
-        if s == 0 then return shl(m, shift)
-        elseif s == -1 then return shl(m + shl(1, bits), shift) end
+        if s == 0 then return m
+        elseif s == -1 then return m + shl(1, bits) end
       else
         -- if value fits in range...
-        if sar(m, bits) == 0 then return shl(m, shift) end
+        if sar(m, bits) == 0 then return m end
       end
     end
     werror("out of range immediate `"..imm.."'")
   else
-    TCR_LOG('IMM', _G.__op)
-    for k,v in pairs(_G.__params) do
-      TCR_LOG('-->', k, v)
-    end
+    -- TCR_LOG('IMM', _G.__op)
+    -- for k,v in pairs(_G.__params) do
+    --   TCR_LOG('-->', k, v)
+    -- end
     waction("IMM", (signed and shl(1, 15) or 0) + shl(scale, 10) + shl(bits, 5) + shift, imm)
     return 0
   end
@@ -1091,10 +1091,10 @@ local function parse_imm_load(imm, ext)
     return n
   else
     -- TODO 5
-    TCR_LOG('IMMLOAD', _G.__op)
-    for k,v in pairs(_G.__params) do
-      TCR_LOG('-->', k, v)
-    end
+    -- TCR_LOG('IMMLOAD', ext, _G.__op)
+    -- for k,v in pairs(_G.__params) do
+    --   TCR_LOG('-->', k, v)
+    -- end
     waction(ext == 8 and "IMML8" or "IMML12", 32768 + shl(ext and 8 or 12, 5), imm)
     return 0
   end
@@ -1162,10 +1162,11 @@ end
 
 ------------------------------------------------------------------------------
 
-function parse_op_word (word, bits) 
+function parse_op_word (word, bits, shifts) 
   for i=1,#word do
     local bit = word:sub(i, i)
     bits[bit] = (bits[bit] or 0) + 1
+    shifts[bit] = #word-i
   end
 end
 
@@ -1184,7 +1185,7 @@ function populate_op_word (word, values)
   return op
 end
 
-local function parse_template_new_subset(bits, values, params, templatestr, nparams)
+local function parse_template_new_subset(bits, shifts, values, params, templatestr, nparams)
   local n = 1
   -- TCR_LOG('PARSETEMPLATE: ' .. templatestr)
   for k,p in pairs(params) do
@@ -1202,11 +1203,13 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
       if not imm then
         werror('bad immediate (i) operand')
       end
+
       if bits['i'] then
-        values[p] = parse_imm_load(imm, bits['i'])
+        values[p] = parse_imm(imm, bits['i'], shifts['i'], 0, false)
         if values[p] >= math.pow(2, bits[p]) then
           werror('immediate operand larger than ' .. bits[p] .. ' bits')
         end
+
       elseif bits['H'] then
         -- fun encoding time!
         local val = parse_imm_thumb(imm)
@@ -1248,33 +1251,35 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
       end
       n = n + 1
 
-    elseif p == 'U' then
-      local imm = match(params[n], "^#(.*)$")
-      if imm then
-        local val = parse_imm_load(imm, bits['U'] or bits['i'])
-        if val >= math.pow(2, bits[p]) then
-          werror('signed immediate operand larger than ' .. bits[p] .. ' bits')
-        end
-        values['i'] = math.abs(val)
-        values['U'] = tonumber(val >= 0)
-      else
-        werror('bad signed immediate operand')
-      end
-      n = n + 1
+    -- unused?
+    -- elseif p == 'U' then
+    --   local imm = match(params[n], "^#(.*)$")
+    --   if imm then
+    --     local val = parse_imm_load(imm, bits['U'] or bits['i'])
+    --     if val >= math.pow(2, bits[p]) then
+    --       werror('signed immediate operand larger than ' .. bits[p] .. ' bits')
+    --     end
+    --     values['i'] = math.abs(val)
+    --     values['U'] = tonumber(val >= 0)
+    --   else
+    --     werror('bad signed immediate operand')
+    --   end
+    --   n = n + 1
 
     -- Immediate values with lower two bits empty
-    elseif p == 'f' then
-      local imm = match(params[n], "^#(.*)$")
-      if imm then
-        values[p] = parse_imm_load(imm, bits['i'])
-      else
-        werror('bad immediate operand')
-      end
-      if values[p] % 4 ~= 0 then
-        werror('lower two bits of immediate value not empty')
-      end
-      values['i'] = shr(values[p], 2)
-      n = n + 1
+    -- elseif p == 'f' then
+    --   local imm = match(params[n], "^#(.*)$")
+    --   if imm then
+    --     -- shift is FALSE
+    --     values[p] = parse_imm(imm, bits['i'], 0, 2, true)
+    --   else
+    --     werror('bad immediate operand')
+    --   end
+    --   if values[p] % 4 ~= 0 then
+    --     werror('lower two bits of immediate value not empty')
+    --   end
+    --   values['i'] = shr(values[p], 2)
+    --   n = n + 1
 
     elseif p == 'd' then
       values[p] = parse_gpr(params[n])
@@ -1348,6 +1353,7 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
       local ldrd = false
       local ext = bits['i'] == 8
 
+      -- no bracketed operands, check for extern or define
       if not p1 then
         if p2 then
           werror("expected address operand")
@@ -1372,8 +1378,11 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
 
         n = n + 1
       else
+
+        -- Bracketed operands with operand following (i.e. [r4]!, #5)
         if p2 then
           values['P'] = 0
+          values['U'] = 1
           values['W'] = 1
 
           if wb == "!" then werror("bad use of '!'") end
@@ -1382,21 +1391,20 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
           local imm = match(p2, "^#(.*)$")
           if imm then
             if p3 then werror("too many parameters") end
-            local bitlen = bits['i'] or shl(bits['f'] or 0, 2)
-            local m = parse_imm_load(imm, bitlen)
-            if m < 0 and not bits['U'] then
-              werror('negative immediate')
-            elseif not bits['i'] and not bits['f'] then
-              werror('immediate not supported')
-            elseif bits['f'] and m % 4 ~= 0 then
-              werror('immediate must have lowest two bits cleared')
-            elseif math.abs(m) >= math.pow(2, bitlen) then
-              werror('immediate operand larger than ' .. bitlen .. ' bits')
+            if match(imm, "^%-(.*)$") then
+              if not bits['U'] then
+                werror('invalid signed immediate')
+              end
+              imm = sub(imm, 2)
+              values['U'] = 0
             end
-            values['U'] = tonumber(m >= 0)
-            values['i'] = math.abs(m)
-            values['f'] = shr(math.abs(m), 2)
-            -- op = op + m + (ext and 0x00400000 or 0)
+            if bits['i'] then
+              values['i'] = parse_imm(imm, bits['i'], shifts['i'], 0, false)
+            elseif bits['f'] then
+              values['f'] = parse_imm(imm, bits['f'], shifts['f'], 2, false)
+            else
+              werror('immediate not supported')
+            end
           else
             local m, neg = parse_gpr_pm(p2)
             values['U'] = tonumber(not neg)
@@ -1405,8 +1413,11 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
           end
 
           n = n + 2
+
+        -- Bracketed operands alone
         else
           values['P'] = 1
+          values['U'] = 1
           values['W'] = tonumber(wb == "!")
 
           local p1a, p2 = match(p1, "^([^,%s]*)%s*(.*)$")
@@ -1414,20 +1425,20 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
           if p2 ~= "" then
             local imm = match(p2, "^,%s*#(.*)$")
             if imm then
-              local bitlen = bits['i'] or shl(bits['f'] or 0, 2)
-              local m = parse_imm_load(imm, bitlen)
-              if m < 0 and not bits['U'] then
-                werror('negative immediate')
-              elseif not bits['i'] and not bits['f'] then
-                werror('immediate not supported')
-              elseif bits['f'] and m % 4 ~= 0 then
-                werror('immediate must have lowest two bits cleared')
-              elseif math.abs(m) >= math.pow(2, bitlen) then
-                werror('immediate operand larger than ' .. bitlen .. ' bits')
+              if match(imm, "^%-(.*)$") then
+                if not bits['U'] then
+                  werror('invalid signed immediate')
+                end
+                imm = sub(imm, 2)
+                values['U'] = 0
               end
-              values['U'] = tonumber(m >= 0)
-              values['i'] = math.abs(m)
-              values['f'] = shr(math.abs(m), 2)
+              if bits['i'] then
+                values['i'] = parse_imm(imm, bits['i'], shifts['i'], 0, false)
+              elseif bits['f'] then
+                values['f'] = parse_imm(imm, bits['f'], shifts['f'], 2, false)
+              else
+                werror('immediate not supported')
+              end
             else
               local p2a, p3 = match(p2, "^,%s*([^,%s]*)%s*,?%s*(.*)$")
               local m, neg = parse_gpr_pm(p2a)
@@ -1479,13 +1490,15 @@ local function parse_template_new_subset(bits, values, params, templatestr, npar
 end
 
 local function parse_template_new(params, template, nparams, pos)
-  local bits = {}
+  local bits, shifts = {}, {}
   for i=2,#template do
-    parse_op_word(template[i], bits)
+    parse_op_word(template[i], bits, shifts)
   end
 
+  _G.__tmp = template
+
   local values = {}
-  parse_template_new_subset(bits, values, params, template[1], nparams, pos)
+  parse_template_new_subset(bits, shifts, values, params, template[1], nparams, pos)
 
   -- for k,v in pairs(bits) do
   --   TCR_LOG(k .. ' ' .. v)
