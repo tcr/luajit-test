@@ -262,7 +262,7 @@ local map_op = {
   ["add_2"] = {
     {"sdi", "00110dddiiiiiiii"},
     {"sdm", "01000100dmmmmddd"},
-    {"spi", "101100000iiiiiii"}
+    {"spi", "101100000fffffff"}
   },
   ["add.w_3"] = {
     {"sdni", "11110H01000snnnn", "0HHHddddHHHHHHHH"},
@@ -812,7 +812,7 @@ local map_op = {
   },
   ["sub_2"] = {
     {"sdi", "00111dddiiiiiiii"},
-    {"sppi", "101100001fffffff"}
+    {"spi", "101100001fffffff"}
   },
   ["sub.w_3"] = {
     {"sdni",  "11110H01101snnnn", "0HHHddddHHHHHHHH"},
