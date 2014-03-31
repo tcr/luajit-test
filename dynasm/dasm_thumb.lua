@@ -39,7 +39,8 @@ local wline, werror, wfatal, wwarn
 local action_names = {
   "STOP", "SECTION", "ESC", "REL_EXT",
   "ALIGN", "REL_LG", "LABEL_LG",
-  "REL_PC", "LABEL_PC", "IMM", "IMMTHUMB", "IMMSHIFT", "IMML8", "IMML12", "IMMV8",
+  "REL_PC", "LABEL_PC", "IMM", "IMMTHUMB", "IMMSHIFT",
+  --[[unused]] "IMML8", "IMML12", "IMMV8",
 }
 
 -- Maximum number of section buffer positions for dasm_put().
