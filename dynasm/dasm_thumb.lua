@@ -245,652 +245,197 @@ local map_cond = {
 
 -- Template strings for ARM instructions.
 local map_op = {
-  ["adc.w_3"] = {
-    {"sdni", "11110H01010snnnn", "0HHHddddHHHHHHHH"},
-    {"sdnmT", "11101011010snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["adc.w_4"] = {
-    {"sdnmT", "11101011010snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["adc_2"] = {
-    {"sdm", "0100000101mmmddd"}
-  },
-  ["add_3"] = {
-    {"sdni", "0001110iiinnnddd"},
-    {"sdnm", "0001100mmmnnnddd"},
-    {"sdpi", "10101dddffffffff"}
-  },
-  ["add_2"] = {
-    {"sdi", "00110dddiiiiiiii"},
-    {"sdm", "01000100dmmmmddd"},
-    {"spi", "101100000fffffff"}
-  },
-  ["add.w_3"] = {
-    {"sdni", "11110H01000snnnn", "0HHHddddHHHHHHHH"},
-    {"sdnmT", "11101011000snnnn", "0iiiddddiiTTmmmm"},
-  },
-  ["add.w_4"] = {
-    {"sdnmT", "11101011000snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["addw_3"] = {
-    {"dni", "11110H100000nnnn", "0HHHddddHHHHHHHH"}
-  },
-  ["adr_2"] = {
-    {"dB", "10100dddffffffff"}
-  },
-  ["adr.w_2"] = {
-    {"dB", "11110H1010101111", "0HHHddddHHHHHHHH"},
-    {"dB", "11110H1000001111", "0HHHddddHHHHHHHH"}
-  },
-  ["and.w_3"] = {
-    {"sdni", "11110H00000snnnn", "0HHHddddHHHHHHHH"},
-    {"sdnmT", "11101010000snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["and.w_4"] = {
-    {"sdnmT", "11101010000snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["and_2"] = {
-    {"sdm", "0100000000mmmddd"}
-  },
-  ["asr_3"] = {
-    {"sdmi", "00010iiiiimmmddd"}
-  },
-  ["asr.w_3"] = {
-    {"sdmi", "11101010010s1111", "0iiiddddii10mmmm"},
-    {"sdnm", "11111010010snnnn", "1111dddd0000mmmm"}
-  },
-  ["asr_2"] = {
-    {"sdm", "0100000100mmmddd"}
-  },
+  ["adc.w_3"] = "sdni:11110H01010snnnn0HHHddddHHHHHHHH|sdnmT:11101011010snnnn0iiiddddiiTTmmmm",
+  ["adc.w_4"] = "sdnmT:11101011010snnnn0iiiddddiiTTmmmm",
+  ["adc_2"] = "sdm:0100000101mmmddd",
+  ["add_3"] = "sdni:0001110iiinnnddd|sdnm:0001100mmmnnnddd|sdpi:10101dddffffffff",
+  ["add_2"] = "sdi:00110dddiiiiiiii|sdm:01000100dmmmmddd|spi:101100000fffffff",
+  ["add.w_3"] = "sdni:11110H01000snnnn0HHHddddHHHHHHHH|sdnmT:11101011000snnnn0iiiddddiiTTmmmm",
+  ["add.w_4"] = "sdnmT:11101011000snnnn0iiiddddiiTTmmmm",
+  ["addw_3"] = "dni:11110H100000nnnn0HHHddddHHHHHHHH",
+  ["adr_2"] = "dB:10100dddffffffff",
+  ["adr.w_2"] = "dB:11110H10101011110HHHddddHHHHHHHH|dB:11110H10000011110HHHddddHHHHHHHH",
+  ["and.w_3"] = "sdni:11110H00000snnnn0HHHddddHHHHHHHH|sdnmT:11101010000snnnn0iiiddddiiTTmmmm",
+  ["and.w_4"] = "sdnmT:11101010000snnnn0iiiddddiiTTmmmm",
+  ["and_2"] = "sdm:0100000000mmmddd",
+  ["asr_3"] = "sdmi:00010iiiiimmmddd",
+  ["asr.w_3"] = "sdmi:11101010010s11110iiiddddii10mmmm|sdnm:11111010010snnnn1111dddd0000mmmm",
+  ["asr_2"] = "sdm:0100000100mmmddd",
+  ["b_1"] = "B:1101cccciiiiiiii|B:11100iiiiiiiiiii",
+  ["b.w_1"] = "sB:11110scccciiiiii10j0kiiiiiiiiiii|sB:11110siiiiiiiiii10j1kiiiiiiiiiii",
+  ["bfc_3"] = "dim:11110011011011110iiiddddii0mmmmm",
+  ["bfi_4"] = "dnim:111100110110nnnn0iiiddddii0mmmmm",
+  ["bic.w_3"] = "sdni:11110H00001snnnn0HHHddddHHHHHHHH|sdnmT:11101010001snnnn0iiiddddiiTTmmmm",
+  ["bic.w_4"] = "sdnmT:11101010001snnnn0iiiddddiiTTmmmm",
+  ["bic_2"] = "sdm:0100001110mmmddd",
+  ["bkpt_1"] = "i:10111110iiiiiiii",
+  ["blx_1"] = "m:010001111mmmm000",
+  ["bx_1"] = "m:010001110mmmmooo",
+  ["bl_1"] = "sB:11110siiiiiiiiii11J1Kiiiiiiiiiii",
+  ["cbz_2"] = "ni:101100i1iiiiinnn",
+  ["cbnz_2"] = "ni:101110i1iiiiinnn",
+  ["clrex_0"] = ":11110011101111111000111100101111",
+  ["clz_2"] = "dm:111110101011mmmm1111dddd1000xxxx",
+  ["cmn.w_2"] = "ni:11110H010001nnnn0HHH1111HHHHHHHH|nmT:111010110001nnnn0iii1111iiTTmmmm",
+  ["cmn.w_3"] = "nmT:111010110001nnnn0iii1111iiTTmmmm",
+  ["cmn_2"] = "nm:0100001011mmmnnn",
+  ["cmp_2"] = "ni:00101nnniiiiiiii|nm:0100001010mmmnnn|nm:01000101nmmmmnnn",
+  ["cmp.w_2"] = "ni:11110H011011nnnn0HHH1111HHHHHHHH|nmT:111010111011nnnn0iii1111iiTTmmmm",
+  ["cmp.w_3"] = "nmT:111010111011nnnn0iii1111iiTTmmmm",
+  ["dbg_1"] = "h:1111001110101111100000001111hhhh",
+  ["dmb_1"] = "y:1111001110111111100011110101oooo",
+  ["dsb_1"] = "y:1111001110111111100011110100oooo",
+  ["eor.w_3"] = "sdni:11110H00100snnnn0HHHddddHHHHHHHH|sdnmT:11101010100snnnn0iiiddddiiTTmmmm",
+  ["eor.w_4"] = "sdnmT:11101010100snnnn0iiiddddiiTTmmmm",
+  ["eor_2"] = "sdm:0100000001mmmddd",
+  ["isb_1"] = "y:1111001110111111100011110110oooo",
+  ["it_1"] = "cM:10111111cccc1000",
+  ["ite_1"] = "cM:10111111cccc0100",
+  ["ldm_2"] = "nr:11001nnnrrrrrrrr",
+  ["ldr_2"] = "tL:01101fffffnnnttt|tL:10011tttffffffff|tL:0101100mmmnnnttt|tB:01001tttffffffff",
+  ["ldr.w_2"] = "tL:111110001101nnnnttttiiiiiiiiiiii|tL:111110000101nnnntttt1PUWiiiiiiii|tL:111110000101nnnntttt000000iimmmm|tB:11111000u1011111ttttiiiiiiiiiiii",
+  ["ldr.w_3"] = "tL:111110000101nnnntttt1PUWiiiiiiii",
+  ["ldrb_2"] = "tL:01111iiiiinnnttt|tL:0101110mmmnnnttt",
+  ["ldrb.w_3"] = "tL:111110000001nnnntttt1PUWffffffff|tL:111110000001nnnntttt000000iimmmm",
+  ["ldrb.w_2"] = "tL:111110000001nnnntttt1PUWffffffff|tL:111110001001nnnnttttiiiiiiiiiiii|tB:11111000u0011111ttttiiiiiiiiiiii",
+  ["ldrbt_2"] = "tL:111110000001nnnntttt1110iiiiiiii",
+  ["ldrex_2"] = "tL:111010000101nnnntttt1111ffffffff",
+  ["ldrexb_2"] = "tL:111010001101nnnntttt111101001111",
+  ["ldrexh_2"] = "tL:111010001101nnnntttt111101011111",
+  ["ldrd_4"] = "tdL:1110100PU1W1nnnnttttddddffffffff",
+  ["ldrd_3"] = "tdLi:1110100PU1W1nnnnttttddddffffffff|tdB:1110100PU1W11111ttttddddiiiiiiii",
+  ["ldrh_2"] = "tL:10001iiiiinnnttt|tL:0101101mmmnnnttt",
+  ["ldrh_3"] = "tL:10001iiiiinnnttt|tL:0101101mmmnnnttt",
+  ["ldrh.w_3"] = "tL:111110001011nnnnttttiiiiiiiiiiii|tL:111110000011nnnntttt1PUWiiiiiiii|tL:111110000011nnnntttt000000iimmmm",
+  ["ldrh.w_2"] = "tL:111110001011nnnnttttiiiiiiiiiiii|tL:111110000011nnnntttt1PUWiiiiiiii|tL:111110000011nnnntttt000000iimmmm|tB:11111000u0111111ttttiiiiiiiiiiii",
+  ["ldrht_2"] = "tL:111110000011nnnntttt1110iiiiiiii",
+  ["ldrht_3"] = "tL:111110000011nnnntttt1110iiiiiiii",
+  ["ldrsb.w_3"] = "tL:111110011001nnnnttttiiiiiiiiiiii|tL:111110010001nnnntttt1PUWiiiiiiii|tL:111110010001nnnntttt000000iimmmm",
+  ["ldrsb.w_2"] = "tL:111110010001nnnntttt1PUWiiiiiiii|tB:11111001u0011111ttttiiiiiiiiiiii",
+  ["ldrsb_3"] = "tL:0101011mmmnnnttt",
+  ["ldrsbt_3"] = "tL:111110010001nnnntttt1110iiiiiiii",
+  ["ldrsh.w_3"] = "tL:111110010011nnnntttt1PUWiiiiiiii",
+  ["ldrsh.w_2"] = "tL:111110011011nnnnttttiiiiiiiiiiii|tL:111110010011nnnntttt1PUWiiiiiiii|tL:111110010011nnnntttt000000iimmmm|tB:11111001u0111111ttttiiiiiiiiiiii",
+  ["ldrsh_3"] = "tL:0101111mmmnnnttt",
+  ["ldrsht_2"] = "tL:111110010011nnnntttt1110iiiiiiii",
+  ["ldrsht_3"] = "tL:111110010011nnnntttt1110iiiiiiii",
+  ["ldrt_2"] = "tL:111110000101nnnntttt1110iiiiiiii",
+  ["lsl_3"] = "sdmi:00000iiiiimmmddd",
+  ["lsl.w_3"] = "sdmi:11101010010s11110iiiddddii00mmmm|sdnm:11111010000snnnn1111dddd0000mmmm",
+  ["lsl_2"] = "sdm:0100000010mmmddd",
+  ["lsr_3"] = "sdmi:00001iiiiimmmddd",
+  ["lsr.w_3"] = "sdmi:11101010010s11110iiiddddii01mmmm|sdnm:11111010001snnnn1111dddd0000mmmm",
+  ["lsr_2"] = "sdm:0100000011mmmddd",
+  ["mla_4"] = "dnma:111110110000nnnnaaaadddd0000mmmm",
+  ["mls_4"] = "dnma:111110110000nnnnaaaadddd0001mmmm",
+  ["mov_2"] = "sdi:00100dddiiiiiiii|sdm:01000110dmmmmddd",
+  ["mov.w_2"] = "sdi:11110H00010s11110HHHddddHHHHHHHH|sdm:11101010010s11110000dddd0000mmmm",
+  ["movw_2"] = "di:11110H100100kkkk0HHHddddHHHHHHHH",
+  ["movt_2"] = "di:11110H101100kkkk0HHHddddHHHHHHHH",
+  ["mrs_2"] = "dz:11110011111011111000ddddssssssss",
+  ["msr_2"] = "yn:111100111000nnnn1000mm00ssssssss",
+  ["mul_3"] = "snmn:0100001101nnnmmm",
+  ["mul.w_3"] = "dnm:111110110000nnnn1111dddd0000mmmm",
+  ["mvn.w_2"] = "sdi:11110H00011s11110HHHddddHHHHHHHH|sdmT:11101010011s11110iiiddddiiTTmmmm",
+  ["mvn.w_3"] = "sdmT:11101010011s11110iiiddddiiTTmmmm",
+  ["mvn_2"] = "sdm:0100001111mmmddd",
+  ["nop_0"] = ":1011111100000000",
+  ["orn_3"] = "sdni:11110H00011snnnn0HHHddddHHHHHHHH|sdnmT:11101010011snnnn0iiiddddiiTTmmmm",
+  ["orn_4"] = "sdnmT:11101010011snnnn0iiiddddiiTTmmmm",
+  ["orr.w_3"] = "sdni:11110H00010snnnn0HHHddddHHHHHHHH|sdnmT:11101010010snnnn0iiiddddiiTTmmmm",
+  ["orr.w_4"] = "sdnmT:11101010010snnnn0iiiddddiiTTmmmm",
+  ["orr_2"] = "sdm:0100001100mmmddd",
+  ["pop_1"] = "r:1011110prrrrrrrr",
+  ["pop.w_1"] = "r:1110100010111101rrrrrrrrrrrrrrrr|t:1111100001011101tttt101100000100",
+  ["push_1"] = "r:1011010mrrrrrrrr",
+  ["push.w_1"] = "r:1110100100101101rrrrrrrrrrrrrrrr|t:1111100001001101tttt110100000100",
+  ["rbit_2"] = "dm:111110101001mmmm1111dddd1010xxxx",
+  ["rev_2"] = "dm:1011101000mmmddd",
+  ["rev.w_2"] = "dm:111110101001mmmm1111dddd1000xxxx",
+  ["rev16_2"] = "dm:1011101001mmmddd",
+  ["rev16.w_2"] = "dm:111110101001mmmm1111dddd1001xxxx",
+  ["revsh_2"] = "dm:1011101011mmmddd",
+  ["revsh.w_2"] = "dm:111110101001mmmm1111dddd1011xxxx",
+  ["ror.w_3"] = "sdmi:11101010010s11110iiiddddii11mmmm|sdnm:11111010011snnnn1111dddd0000mmmm",
+  ["ror_2"] = "sdm:0100000111mmmddd",
+  ["rrx_2"] = "sdm:11101010010s11110000dddd0011mmmm",
+  ["rsb_3"] = "sdn0:0100001001nnnddd|sdnmT:11101011110snnnn0iiiddddiiTTmmmm",
+  ["rsb_4"] = "sdnmT:11101011110snnnn0iiiddddiiTTmmmm",
+  ["rsb.w_3"] = "sdni:11110H01110snnnn0HHHddddHHHHHHHH",
+  ["sbc.w_3"] = "sdni:11110H01011snnnn0HHHddddHHHHHHHH|sdnmT:11101011011snnnn0iiiddddiiTTmmmm",
+  ["sbc.w_4"] = "sdnmT:11101011011snnnn0iiiddddiiTTmmmm",
+  ["sbc_2"] = "sdm:0100000110mmmddd",
+  ["sbfx_4"] = "sdniw:111100110100nnnn0iiiddddii0wwwww",
+  ["sdiv_3"] = "dnm:111110111001nnnn1111dddd1111mmmm",
+  ["sel_3"] = "dnm:111110101010nnnn1111dddd1000mmmm",
+  ["smlal_4"] = "lhnm:111110111100nnnnllllhhhh0000mmmm",
+  ["smull_4"] = "lhnm:111110111000nnnnllllhhhh0000mmmm",
+  ["ssat_3"] = "dknf:1111001100f0nnnn0iiiddddii0kkkkk",
+  ["str_2"] = "tL:01100fffffnnnttt|tL:10010tttffffffff|tL:0101000mmmnnnttt",
+  ["str.w_2"] = "tL:111110001100nnnnttttiiiiiiiiiiii|tL:111110000100nnnntttt1PUWiiiiiiii|tL:111110000100nnnntttt000000iimmmm",
+  ["str.w_3"] = "tL:111110000100nnnntttt1PUWiiiiiiii",
+  ["strb_2"] = "tL:01110iiiiinnnttt|tL:0101010mmmnnnttt",
+  ["strb.w_3"] = "tL:111110000000nnnntttt1PUWiiiiiiii",
+  ["strb.w_2"] = "tL:111110001000nnnnttttiiiiiiiiiiii|tL:111110000000nnnntttt1PUWiiiiiiii|tL:111110000000nnnntttt000000iimmmm",
+  ["strbt_3"] = "tL:111110000000nnnntttt1110iiiiiiii",
+  ["strex_3"] = "dtL:111010000100nnnnttttddddffffffff",
+  ["strexb_3"] = "dtL:111010001100nnnntttt11110100dddd",
+  ["strexh_3"] = "dtL:111010001100nnnntttt11110101dddd",
+  ["strd_3"] = "tdL:1110100PU1W0nnnnttttddddffffffff",
+  ["strd_4"] = "tdL:1110100PU1W0nnnnttttddddffffffff",
+  ["strh_3"] = "tL:10000iiiiinnnttt|tL:0101001mmmnnnttt",
+  ["strh.w_3"] = "tL:111110001010nnnnttttiiiiiiiiiiii|tL:111110000010nnnntttt1PUWiiiiiiii",
+  ["strht_3"] = "tL:111110000010nnnntttt1110iiiiiiii",
+  ["strt_3"] = "tL:111110000100nnnntttt1110iiiiiiii",
+  ["sub_3"] = "sdni:0001111iiinnnddd|sdnm:0001101mmmnnnddd",
+  ["sub_2"] = "sdi:00111dddiiiiiiii|spi:101100001fffffff",
+  ["sub.w_3"] = "sdni:11110H01101snnnn0HHHddddHHHHHHHH|sdnmT:11101011101snnnn0iiiddddiiTTmmmm",
+  ["sub.w_4"] = "sdnmT:11101011101snnnn0iiiddddiiTTmmmm",
+  ["subw_3"] = "dni:11110H101010nnnn0HHHddddHHHHHHHH",
+  ["svc_1"] = "i:11011111iiiiiiii",
+  ["sxtb_2"] = "dm:1011001001mmmddd",
+  ["sxtb.w_2"] = "dmr:11111010010011111111dddd10rrmmmm",
+  ["sxth_2"] = "dm:1011001000mmmddd",
+  ["sxth.w_2"] = "dmr:11111010000011111111dddd10rrmmmm",
+  ["teq_2"] = "ni:11110H001001nnnn0HHH1111HHHHHHHH|nmT:111010101001nnnn0iii1111iiTTmmmm",
+  ["teq_3"] = "nmT:111010101001nnnn0iii1111iiTTmmmm",
+  ["tst.w_2"] = "ni:11110H000001nnnn0HHH1111HHHHHHHH|nmT:111010100001nnnn0iii1111iiTTmmmm",
+  ["tst.w_3"] = "nmT:111010100001nnnn0iii1111iiTTmmmm",
+  ["tst_2"] = "nm:0100001000mmmnnn",
+  ["ubfx_4"] = "dniw:111100111100nnnn0iiiddddii0wwwww",
+  ["udiv_3"] = "dnm:111110111011nnnn1111dddd1111mmmm",
+  ["umlal_4"] = "lhnm:111110111110nnnnllllhhhh0000mmmm",
+  ["umull_4"] = "lhnm:111110111010nnnnllllhhhh0000mmmm",
+  ["usat_3"] = "dknf:1111001110f0nnnn0iiiddddii0kkkkk",
+  ["uxtb_2"] = "dm:1011001011mmmddd",
+  ["uxtb.w_2"] = "dmr:11111010010111111111dddd10rrmmmm",
+  ["uxth_2"] = "dm:1011001010mmmddd",
+  ["uxth.w_2"] = "dmr:11111010000111111111dddd10rrmmmm",
 
-  ["b_1"] = {
-    {"B", "1101cccciiiiiiii"},
-    {"B", "11100iiiiiiiiiii"}
-  },
-  ["b.w_1"] = {
-    {"sB",  "11110scccciiiiii", "10j0kiiiiiiiiiii"},
-    {"sB",  "11110siiiiiiiiii", "10j1kiiiiiiiiiii"}
-  },
 
-  ["bfc_3"] = {
-    {"dim", "1111001101101111", "0iiiddddii0mmmmm"}
-  },
-  ["bfi_4"] = {
-    {"dnim", "111100110110nnnn", "0iiiddddii0mmmmm"}
-  },
-  ["bic.w_3"] = {
-    {"sdni", "11110H00001snnnn", "0HHHddddHHHHHHHH"},
-    {"sdnmT", "11101010001snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["bic.w_4"] = {
-    {"sdnmT", "11101010001snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["bic_2"] = {
-    {"sdm", "0100001110mmmddd"}
-  },
-  ["bkpt_1"] = {
-    {"i", "10111110iiiiiiii"}
-  },
-  ["blx_1"] = {
-    {"m", "010001111mmmm000"}
-  },
-  ["bx_1"] = {
-    {"m", "010001110mmmmooo"}
-  },
-  ["bl_1"] = {
-    {"sB", "11110siiiiiiiiii", "11J1Kiiiiiiiiiii"}
-  },
-  ["cbz_2"] = {
-    {"ni", "101100i1iiiiinnn"}
-  },
-  ["cbnz_2"] = {
-    {"ni", "101110i1iiiiinnn"}
-  },
-  -- ["cdp_6"] = {
-  --   {"CoCdCnCm{O}", "111t1110oooonnnn", "ddddCCCCOOO0mmmm"}
-  -- },
-  ["clrex_0"] = {
-    {"", "1111001110111111", "1000111100101111"}
-  },
-  ["clz_2"] = {
-    {"dm", "111110101011mmmm", "1111dddd1000xxxx"}
-  },
-  ["cmn.w_2"] = {
-    {"ni", "11110H010001nnnn", "0HHH1111HHHHHHHH"},
-    {"nmT", "111010110001nnnn", "0iii1111iiTTmmmm"}
-  },
-  ["cmn.w_3"] = {
-    {"nmT", "111010110001nnnn", "0iii1111iiTTmmmm"}
-  },
-  ["cmn_2"] = {
-    {"nm", "0100001011mmmnnn"}
-  },
-  ["cmp_2"] = {
-    {"ni", "00101nnniiiiiiii"},
-    {"nm", "0100001010mmmnnn"},
-    {"nm", "01000101nmmmmnnn"}
-  },
-  ["cmp.w_2"] = {
-    {"ni", "11110H011011nnnn", "0HHH1111HHHHHHHH"},
-    {"nmT", "111010111011nnnn", "0iii1111iiTTmmmm"}
-  },
-  ["cmp.w_3"] = {
-    {"nmT", "111010111011nnnn", "0iii1111iiTTmmmm"}
-  },
-  ["dbg_1"] = {
-    {"h", "1111001110101111", "100000001111hhhh"}
-  },
-  ["dmb_1"] = {
-    {"y", "1111001110111111", "100011110101oooo"}
-  },
-  ["dsb_1"] = {
-    {"y", "1111001110111111", "100011110100oooo"}
-  },
-  ["eor.w_3"] = {
-    {"sdni", "11110H00100snnnn", "0HHHddddHHHHHHHH"},
-    {"sdnmT", "11101010100snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["eor.w_4"] = {
-    {"sdnmT", "11101010100snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["eor_2"] = {
-    {"sdm", "0100000001mmmddd"}
-  },
-  ["isb_1"] = {
-    {"y", "1111001110111111", "100011110110oooo"}
-  },
-
-
-  ["it_1"] = {
-    {"cM", "10111111cccc1000"}
-    -- {"cm", "10111111ccccmmmm"}
-  },
-  ["ite_1"] = {
-    {"cM", "10111111cccc0100"}
-    -- {"cm", "10111111ccccmmmm"}
-  },
-
-
-  -- ["ldc_4"] = {
-  --   {"CCd{n}{i}", "111t110puDw1nnnn", "ddddCCCCffffffff"}
-  -- },
-  ["ldm_2"] = {
-    {"nr", "11001nnnrrrrrrrr"}
-  },
-  -- ["ldm.w_2"] = {
-  --   {"n<Hw:!>r", "1110100010w1nnnn", "rrrrrrrrrrrrrrrr"}
-  -- },
-  -- ["ldmdb_2"] = {
-  --   {"n<Hw:!>r", "1110100100w1nnnn", "rrrrrrrrrrrrrrrr"}
-  -- },
-
-  ["ldr_2"] = {
-    {"tL", "01101fffffnnnttt"},
-    {"tL", "10011tttffffffff"},
-    {"tL", "0101100mmmnnnttt"},
-    {"tB", "01001tttffffffff"},
-  },
-
-  ["ldr.w_2"] = {
-    {"tL",  "111110001101nnnn", "ttttiiiiiiiiiiii"},
-    {"tL",  "111110000101nnnn", "tttt1PUWiiiiiiii"},
-    {"tL",  "111110000101nnnn", "tttt000000iimmmm"},
-    {"tB",  "11111000u1011111", "ttttiiiiiiiiiiii"},
-  },
-  ["ldr.w_3"] = {
-    {"tL",  "111110000101nnnn", "tttt1PUWiiiiiiii"},
-  },
-  ["ldrb_2"] = {
-    {"tL", "01111iiiiinnnttt"},
-    {"tL", "0101110mmmnnnttt"},
-  },
-  ["ldrb.w_3"] = {
-    {"tL", "111110000001nnnn", "tttt1PUWffffffff"},
-    {"tL", "111110000001nnnn", "tttt000000iimmmm"}
-  },
-  ["ldrb.w_2"] = {
-    {"tL", "111110000001nnnn", "tttt1PUWffffffff"},
-    {"tL", "111110001001nnnn", "ttttiiiiiiiiiiii"},
-    {"tB", "11111000u0011111", "ttttiiiiiiiiiiii"}
-  },
-  ["ldrbt_2"] = {
-    {"tL", "111110000001nnnn", "tttt1110iiiiiiii"}
-  },
-  ["ldrex_2"] = {
-    {"tL", "111010000101nnnn", "tttt1111ffffffff"}
-  },
-  ["ldrexb_2"] = {
-    {"tL", "111010001101nnnn", "tttt111101001111"}
-  },
-  ["ldrexh_2"] = {
-    {"tL",   "111010001101nnnn", "tttt111101011111"}
-  },
-  ["ldrd_4"] = {
-    {"tdL",  "1110100PU1W1nnnn", "ttttddddffffffff"}
-  },
-  ["ldrd_3"] = {
-    {"tdLi", "1110100PU1W1nnnn", "ttttddddffffffff"},
-    {"tdB",  "1110100PU1W11111", "ttttddddiiiiiiii"}
-  },
-  ["ldrh_2"] = {
-    {"tL", "10001iiiiinnnttt"},
-    {"tL", "0101101mmmnnnttt"}
-  },
-  ["ldrh_3"] = {
-    {"tL", "10001iiiiinnnttt"},
-    {"tL", "0101101mmmnnnttt"}
-  },
-  ["ldrh.w_3"] = {
-    {"tL", "111110001011nnnn", "ttttiiiiiiiiiiii"},
-    {"tL", "111110000011nnnn", "tttt1PUWiiiiiiii"},
-    {"tL", "111110000011nnnn", "tttt000000iimmmm"}
-  },
-  ["ldrh.w_2"] = {
-    {"tL", "111110001011nnnn", "ttttiiiiiiiiiiii"},
-    {"tL", "111110000011nnnn", "tttt1PUWiiiiiiii"},
-    {"tL", "111110000011nnnn", "tttt000000iimmmm"},
-    {"tB", "11111000u0111111", "ttttiiiiiiiiiiii"},
-  },
-  ["ldrht_2"] = {
-    {"tL", "111110000011nnnn", "tttt1110iiiiiiii"}
-  },
-  ["ldrht_3"] = {
-    {"tL", "111110000011nnnn", "tttt1110iiiiiiii"}
-  },
-  ["ldrsb.w_3"] = {
-    {"tL", "111110011001nnnn", "ttttiiiiiiiiiiii"},
-    {"tL", "111110010001nnnn", "tttt1PUWiiiiiiii"},
-    {"tL", "111110010001nnnn", "tttt000000iimmmm"}
-  },
-  ["ldrsb.w_2"] = {
-    {"tL", "111110010001nnnn", "tttt1PUWiiiiiiii"},
-    {"tB", "11111001u0011111", "ttttiiiiiiiiiiii"}
-  },
-  ["ldrsb_3"] = {
-    {"tL", "0101011mmmnnnttt"}
-  },
-  ["ldrsbt_3"] = {
-    {"tL", "111110010001nnnn", "tttt1110iiiiiiii"}
-  },
-  ["ldrsh.w_3"] = {
-    {"tL", "111110010011nnnn", "tttt1PUWiiiiiiii"},
-  },
-  ["ldrsh.w_2"] = {
-    {"tL", "111110011011nnnn", "ttttiiiiiiiiiiii"},
-    {"tL", "111110010011nnnn", "tttt1PUWiiiiiiii"},
-    {"tL", "111110010011nnnn", "tttt000000iimmmm"},
-    {"tB", "11111001u0111111", "ttttiiiiiiiiiiii"},
-  },
-  ["ldrsh_3"] = {
-    {"tL", "0101111mmmnnnttt"}
-  },
-  ["ldrsht_2"] = {
-    {"tL", "111110010011nnnn", "tttt1110iiiiiiii"}
-  },
-  ["ldrsht_3"] = {
-    {"tL", "111110010011nnnn", "tttt1110iiiiiiii"}
-  },
-  ["ldrt_2"] = {
-    {"tL", "111110000101nnnn", "tttt1110iiiiiiii"}
-  },
-  ["lsl_3"] = {
-    {"sdmi", "00000iiiiimmmddd"}
-  },
-  ["lsl.w_3"] = {
-    {"sdmi", "11101010010s1111", "0iiiddddii00mmmm"},
-    {"sdnm", "11111010000snnnn", "1111dddd0000mmmm"}
-  },
-  ["lsl_2"] = {
-    {"sdm", "0100000010mmmddd"}
-  },
-  ["lsr_3"] = {
-    {"sdmi", "00001iiiiimmmddd"}
-  },
-  ["lsr.w_3"] = {
-    {"sdmi", "11101010010s1111", "0iiiddddii01mmmm"},
-    {"sdnm", "11111010001snnnn", "1111dddd0000mmmm"}
-  },
-  ["lsr_2"] = {
-    {"sdm", "0100000011mmmddd"}
-  },
-  -- ["mcr_6"] = {
-  --   {"CotCnCm{p}", "11101110ooo0nnnn", "ttttCCCCppp1mmmm"}
-  -- },
-  -- ["mcr2_6"] = {
-  --   {"CotCnCm{p}", "11111110ooo0nnnn", "ttttCCCCppp1mmmm"}
-  -- },
-  -- ["mcrr_5"] = {
-  --   {"cotucm", "111011000100uuuu", "ttttccccoooommmm"}
-  -- },
-  -- ["mcrr2_5"] = {
-  --   {"cotucm", "111111000100uuuu", "ttttccccoooommmm"}
-  -- },
-  ["mla_4"] = {
-    {"dnma", "111110110000nnnn", "aaaadddd0000mmmm"}
-  },
-  ["mls_4"] = {
-    {"dnma", "111110110000nnnn", "aaaadddd0001mmmm"}
-  },
-  ["mov_2"] = {
-    {"sdi", "00100dddiiiiiiii"},
-    {"sdm", "01000110dmmmmddd"}
-  },
-  ["mov.w_2"] = {
-    {"sdi", "11110H00010s1111", "0HHHddddHHHHHHHH"},
-    {"sdm", "11101010010s1111", "0000dddd0000mmmm"}
-  },
-  ["movw_2"] = {
-    {"di", "11110H100100kkkk", "0HHHddddHHHHHHHH"}
-  },
-  ["movt_2"] = {
-    {"di", "11110H101100kkkk", "0HHHddddHHHHHHHH"}
-  },
-  -- ["mrc_6"] = {
-  --   {"CotCnCm{p}", "11101110ooo1nnnn", "ttttCCCCppp1mmmm"}
-  -- },
-  -- ["mrc2_6"] = {
-  --   {"CotCnCm{p}", "11111110ooo1nnnn", "ttttCCCCppp1mmmm"}
-  -- },
-  -- ["mrrc_5"] = {
-  --   {"CotuCm", "111011000101uuuu", "ttttccccoooommmm"}
-  -- },
-  -- ["mrrc2_5"] = {
-  --   {"CotuCm", "111111000101uuuu", "ttttCCCCoooommmm"}
-  -- },
-  ["mrs_2"] = {
-    {"dz", "1111001111101111", "1000ddddssssssss"}
-  },
-  ["msr_2"] = {
-    {"yn", "111100111000nnnn", "1000mm00ssssssss"}
-  },
-  ["mul_3"] = {
-    {"snmn", "0100001101nnnmmm"}
-  },
-  ["mul.w_3"] = {
-    {"dnm", "111110110000nnnn", "1111dddd0000mmmm"}
-  },
-  ["mvn.w_2"] = {
-    {"sdi", "11110H00011s1111", "0HHHddddHHHHHHHH"},
-    {"sdmT", "11101010011s1111", "0iiiddddiiTTmmmm"}
-  },
-  ["mvn.w_3"] = {
-    {"sdmT", "11101010011s1111", "0iiiddddiiTTmmmm"}
-  },
-  ["mvn_2"] = {
-    {"sdm", "0100001111mmmddd"}
-  },
-  ["nop_0"] = {
-    {"", "1011111100000000"}
-  },
-  ["orn_3"] = {
-    {"sdni", "11110H00011snnnn", "0HHHddddHHHHHHHH"},
-    {"sdnmT", "11101010011snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["orn_4"] = {
-    {"sdnmT", "11101010011snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["orr.w_3"] = {
-    {"sdni", "11110H00010snnnn", "0HHHddddHHHHHHHH"},
-    {"sdnmT", "11101010010snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["orr.w_4"] = {
-    {"sdnmT", "11101010010snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["orr_2"] = {
-    {"sdm", "0100001100mmmddd"}
-  },
-  -- ["pld_2"] = {
-  --   {"{ni}", "111110001001nnnn", "1111iiiiiiiiiiii"},
-  --   {"{ni}", "111110000001nnnn", "11111100iiiiiiii"},
-  --   {"{nmt}", "111110000001nnnn", "1111000000ssmmmm"}
-  -- },
-  -- ["pld_1"] = {
-  --   {"B", "11111000u0011111", "1111iiiiiiiiiiii"}
-  -- },
-  -- ["pli_2"] = {
-  --   {"{ni}", "111110011001nnnn", "1111iiiiiiiiiiii"},
-  --   {"{ni}", "111110010001nnnn", "11111100iiiiiiii"},
-  --   {"{nmt}", "111110010001nnnn", "1111000000ssmmmm"}
-  -- },
-  -- ["pli_1"] = {
-  --   {"B", "11111001u0011111", "1111iiiiiiiiiiii"}
-  -- },
-  ["pop_1"] = {
-    {"r", "1011110prrrrrrrr"}
-  },
-  ["pop.w_1"] = {
-    {"r", "1110100010111101", "rrrrrrrrrrrrrrrr"},
-    {"t", "1111100001011101", "tttt101100000100"}
-  },
-  ["push_1"] = {
-    {"r", "1011010mrrrrrrrr"}
-  },
-  ["push.w_1"] = {
-    {"r", "1110100100101101", "rrrrrrrrrrrrrrrr"},
-    {"t", "1111100001001101", "tttt110100000100"}
-  },
-  ["rbit_2"] = {
-    {"dm", "111110101001mmmm", "1111dddd1010xxxx"}
-  },
-  ["rev_2"] = {
-    {"dm", "1011101000mmmddd"}
-  },
-  ["rev.w_2"] = {
-    {"dm", "111110101001mmmm", "1111dddd1000xxxx"}
-  },
-  ["rev16_2"] = {
-    {"dm", "1011101001mmmddd"}
-  },
-  ["rev16.w_2"] = {
-    {"dm", "111110101001mmmm", "1111dddd1001xxxx"}
-  },
-  ["revsh_2"] = {
-    {"dm", "1011101011mmmddd"}
-  },
-  ["revsh.w_2"] = {
-    {"dm", "111110101001mmmm", "1111dddd1011xxxx"}
-  },
-  ["ror.w_3"] = {
-    {"sdmi", "11101010010s1111", "0iiiddddii11mmmm"},
-    {"sdnm", "11111010011snnnn", "1111dddd0000mmmm"}
-  },
-  ["ror_2"] = {
-    {"sdm", "0100000111mmmddd"}
-  },
-  ["rrx_2"] = {
-    {"sdm", "11101010010s1111", "0000dddd0011mmmm"}
-  },
-  ["rsb_3"] = {
-    {"sdn0", "0100001001nnnddd"},
-    {"sdnmT", "11101011110snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["rsb_4"] = {
-    {"sdnmT", "11101011110snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["rsb.w_3"] = {
-    {"sdni", "11110H01110snnnn", "0HHHddddHHHHHHHH"}
-  },
-  ["sbc.w_3"] = {
-    {"sdni", "11110H01011snnnn", "0HHHddddHHHHHHHH"},
-    {"sdnmT", "11101011011snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["sbc.w_4"] = {
-    {"sdnmT", "11101011011snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["sbc_2"] = {
-    {"sdm", "0100000110mmmddd"}
-  },
-  ["sbfx_4"] = {
-    {"sdniw", "111100110100nnnn", "0iiiddddii0wwwww"}
-  },
-  ["sdiv_3"] = {
-    {"dnm", "111110111001nnnn", "1111dddd1111mmmm"}
-  },
-  ["sel_3"] = {
-    {"dnm", "111110101010nnnn", "1111dddd1000mmmm"}
-  },
-  ["smlal_4"] = {
-    {"lhnm", "111110111100nnnn", "llllhhhh0000mmmm"}
-  },
-  ["smull_4"] = {
-    {"lhnm", "111110111000nnnn", "llllhhhh0000mmmm"}
-  },
-  ["ssat_3"] = {
-    {"dknf", "1111001100f0nnnn", "0iiiddddii0kkkkk"}
-  },
-  -- ["stc_4"] = {
-  --   {"CCd{n}{i}", "1110110puNw0nnnn", "ddddCCCCiiiiiiii"}
-  -- },
-  -- ["stc2_4"] = {
-  --   {"CCd{n}{i}", "1111110puNw0nnnn", "ddddCCCCiiiiiiii"}
-  -- },
-  -- ["stm_2"] = {
-  --   {"n!{r}", "11000nnnrrrrrrrr"}
-  -- },
-  -- ["stm.w_2"] = {
-  --   {"n<Hw:!>{r}", "1110100010w0nnnn", "rrrrrrrrrrrrrrrr"}
-  -- },
-  -- ["stmdb_2"] = {
-  --   {"n<Hw:!>{r}", "1110100100w0nnnn", "rrrrrrrrrrrrrrrr"}
-  -- },
-  ["str_2"] = {
-    {"tL", "01100fffffnnnttt"},
-    {"tL", "10010tttffffffff"},
-    {"tL", "0101000mmmnnnttt"}
-  },
-  ["str.w_2"] = {
-    {"tL", "111110001100nnnn", "ttttiiiiiiiiiiii"},
-    {"tL", "111110000100nnnn", "tttt1PUWiiiiiiii"},
-    {"tL", "111110000100nnnn", "tttt000000iimmmm"}
-  },
-  ["str.w_3"] = {
-    {"tL", "111110000100nnnn", "tttt1PUWiiiiiiii"},
-  },
-  ["strb_2"] = {
-    {"tL", "01110iiiiinnnttt"},
-    {"tL", "0101010mmmnnnttt"}
-  },
-  ["strb.w_3"] = {
-    {"tL", "111110000000nnnn", "tttt1PUWiiiiiiii"},
-  },
-  ["strb.w_2"] = {
-    {"tL", "111110001000nnnn", "ttttiiiiiiiiiiii"},
-    {"tL", "111110000000nnnn", "tttt1PUWiiiiiiii"},
-    {"tL", "111110000000nnnn", "tttt000000iimmmm"},
-  },
-  ["strbt_3"] = {
-    {"tL", "111110000000nnnn", "tttt1110iiiiiiii"}
-  },
-  ["strex_3"] = {
-    {"dtL", "111010000100nnnn", "ttttddddffffffff"}
-  },
-  ["strexb_3"] = {
-    {"dtL", "111010001100nnnn", "tttt11110100dddd"}
-  },
-  ["strexh_3"] = {
-    {"dtL", "111010001100nnnn", "tttt11110101dddd"}
-  },
-  ["strd_3"] = {
-    {"tdL", "1110100PU1W0nnnn", "ttttddddffffffff"},
-  },
-  ["strd_4"] = {
-    {"tdL", "1110100PU1W0nnnn", "ttttddddffffffff"},
-  },
-  ["strh_3"] = {
-    {"tL", "10000iiiiinnnttt"},
-    {"tL", "0101001mmmnnnttt"}
-  },
-  ["strh.w_3"] = {
-    {"tL", "111110001010nnnn", "ttttiiiiiiiiiiii"},
-    {"tL", "111110000010nnnn", "tttt1PUWiiiiiiii"}
-  },
-  ["strht_3"] = {
-    {"tL", "111110000010nnnn", "tttt1110iiiiiiii"}
-  },
-  ["strt_3"] = {
-    {"tL", "111110000100nnnn", "tttt1110iiiiiiii"}
-  },
-  ["sub_3"] = {
-    {"sdni", "0001111iiinnnddd"},
-    {"sdnm", "0001101mmmnnnddd"}
-  },
-  ["sub_2"] = {
-    {"sdi", "00111dddiiiiiiii"},
-    {"spi", "101100001fffffff"}
-  },
-  ["sub.w_3"] = {
-    {"sdni",  "11110H01101snnnn", "0HHHddddHHHHHHHH"},
-    {"sdnmT", "11101011101snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["sub.w_4"] = {
-    {"sdnmT", "11101011101snnnn", "0iiiddddiiTTmmmm"}
-  },
-  ["subw_3"] = {
-    {"dni", "11110H101010nnnn", "0HHHddddHHHHHHHH"}
-  },
-  ["svc_1"] = {
-    {"i", "11011111iiiiiiii"}
-  },
-  ["sxtb_2"] = {
-    {"dm", "1011001001mmmddd"}
-  },
-  ["sxtb.w_2"] = {
-    {"dmr", "1111101001001111", "1111dddd10rrmmmm"}
-  },
-  ["sxth_2"] = {
-    {"dm", "1011001000mmmddd"}
-  },
-  ["sxth.w_2"] = {
-    {"dmr", "1111101000001111", "1111dddd10rrmmmm"}
-  },
-  ["teq_2"] = {
-    {"ni", "11110H001001nnnn", "0HHH1111HHHHHHHH"},
-    {"nmT", "111010101001nnnn", "0iii1111iiTTmmmm"}
-  },
-  ["teq_3"] = {
-    {"nmT", "111010101001nnnn", "0iii1111iiTTmmmm"}
-  },
-  -- TODO
-  -- ["tb_4"] = {
-  --   {"{nm<Hh:lsl#1>}", "111010001101nnnn", "11110000000hmmmm"}
-  -- },
-  ["tst.w_2"] = {
-    {"ni", "11110H000001nnnn", "0HHH1111HHHHHHHH"},
-    {"nmT", "111010100001nnnn", "0iii1111iiTTmmmm"}
-  },
-  ["tst.w_3"] = {
-    {"nmT", "111010100001nnnn", "0iii1111iiTTmmmm"}
-  },
-  ["tst_2"] = {
-    {"nm", "0100001000mmmnnn"}
-  },
-  ["ubfx_4"] = {
-    {"dniw", "111100111100nnnn", "0iiiddddii0wwwww"}
-  },
-  ["udiv_3"] = {
-    {"dnm", "111110111011nnnn", "1111dddd1111mmmm"}
-  },
-  ["umlal_4"] = {
-    {"lhnm", "111110111110nnnn", "llllhhhh0000mmmm"}
-  },
-  ["umull_4"] = {
-    {"lhnm", "111110111010nnnn", "llllhhhh0000mmmm"}
-  },
-  ["usat_3"] = {
-    {"dknf", "1111001110f0nnnn", "0iiiddddii0kkkkk"}
-  },
-  ["uxtb_2"] = {
-    {"dm", "1011001011mmmddd"}
-  },
-  ["uxtb.w_2"] = {
-    {"dmr", "1111101001011111", "1111dddd10rrmmmm"}
-  },
-  ["uxth_2"] = {
-    {"dm", "1011001010mmmddd"}
-  },
-  ["uxth.w_2"] = {
-    {"dmr", "1111101000011111", "1111dddd10rrmmmm"}
-  },
+  -- NYI
+  -- ["tb_4"] = "nm<Hh:lsl#1>:111010001101nnnn11110000000hmmmm",
+  -- ["cdp_6"] = "CoCdCnCmO:111t1110oooonnnnddddCCCCOOO0mmmm",
+  -- ["ldc_4"] = "CCdni:111t110puDw1nnnnddddCCCCffffffff",
+  -- ["ldm.w_2"] = "n<Hw:!>r:1110100010w1nnnnrrrrrrrrrrrrrrrr",
+  -- ["ldmdb_2"] = "n<Hw:!>r:1110100100w1nnnnrrrrrrrrrrrrrrrr",
+  -- ["mcr_6"] = "CotCnCmp:11101110ooo0nnnnttttCCCCppp1mmmm",
+  -- ["mcr2_6"] = "CotCnCmp:11111110ooo0nnnnttttCCCCppp1mmmm",
+  -- ["mcrr_5"] = "cotucm:111011000100uuuuttttccccoooommmm",
+  -- ["mcrr2_5"] = "cotucm:111111000100uuuuttttccccoooommmm",
+  -- ["mrc_6"] = "CotCnCmp:11101110ooo1nnnnttttCCCCppp1mmmm",
+  -- ["mrc2_6"] = "CotCnCmp:11111110ooo1nnnnttttCCCCppp1mmmm",
+  -- ["mrrc_5"] = "CotuCm:111011000101uuuuttttccccoooommmm",
+  -- ["mrrc2_5"] = "CotuCm:111111000101uuuuttttCCCCoooommmm",
+  -- ["pld_2"] = "ni:111110001001nnnn1111iiiiiiiiiiii|ni:111110000001nnnn11111100iiiiiiii|nmt:111110000001nnnn1111000000ssmmmm",
+  -- ["pld_1"] = "B:11111000u00111111111iiiiiiiiiiii",
+  -- ["pli_2"] = "ni:111110011001nnnn1111iiiiiiiiiiii|ni:111110010001nnnn11111100iiiiiiii|nmt:111110010001nnnn1111000000ssmmmm",
+  -- ["pli_1"] = "B:11111001u00111111111iiiiiiiiiiii",
+  -- ["stc_4"] = "CCdni:1110110puNw0nnnnddddCCCCiiiiiiii",
+  -- ["stc2_4"] = "CCdni:1111110puNw0nnnnddddCCCCiiiiiiii",
+  -- ["stm_2"] = "n!r:11000nnnrrrrrrrr",
+  -- ["stm.w_2"] = "n<Hw:!>r:1110100010w0nnnnrrrrrrrrrrrrrrrr",
+  -- ["stmdb_2"] = "n<Hw:!>r:1110100100w0nnnnrrrrrrrrrrrrrrrr",
 }
 
 function TCR_LOG (...)
@@ -906,24 +451,18 @@ do
   local addt = {}
   for k,v in pairs(map_op) do
     local s = k:gsub("([.]?w?)(_%d+)$", "s%1%2")
-    for _, i in pairs(v) do
-      if i[1]:find('s') then
-        local t = {i[1]}
-        for j=2,#i do
-          local word = i[j]:gsub('s', '1')
-          table.insert(t, word);
-        end
-        if #t > 1 then
-          if not addt[s] then
-            addt[s] = {}
-          end
-          table.insert(addt[s], t)
-        end
+    for i in gmatch(v, "[^:|]+:") do
+      if i:sub(1, 1) == 's' then
+        addt[s] = gsub(gsub(gsub(v, "^s", ""), "|s", "|"), "s", "1")
       end
     end
   end
   for k,v in pairs(addt) do
-    map_op[k] = v
+    if not map_op[k] then
+      map_op[k] = v
+    else
+      map_op[k] = map_op[k] .. '|' .. v
+    end
   end
 end
 
@@ -943,10 +482,9 @@ do
     if k:match("[.]w_(%d+)$") then
       local s = k:gsub("[.]w_(%d+)$", "_%1")
       if not map_op[s] then
-        map_op[s] = {}
-      end
-      for _, i in pairs(v) do
-        table.insert(map_op[s], i)
+        map_op[s] = v
+      else
+        map_op[s] = map_op[s] .. '|' .. v
       end
     end
   end
@@ -958,25 +496,19 @@ do
   for cond,c in pairs(map_cond) do
     for k,v in pairs(map_op) do
       local s = k:gsub("([.]?w?)(_%d+)$", cond .. "%1%2")
-      for _, i in pairs(v) do
-        local t = {i[1]}
-        for j=2,#i do
-          local word = i[j]:gsub('cccc', ('0000' .. tobitstr(c)):sub(-4))
-          table.insert(t, word);
-        end
-        if #t > 1 then
-          if not addt[s] then
-            addt[s] = {}
-          end
-          table.insert(addt[s], t)
-        end
-      end
+      addt[s] = v:gsub('cccc', ('0000' .. tobitstr(c)):sub(-4))
     end
   end
   for k,v in pairs(addt) do
-    map_op[k] = v
+    if not map_op[k] then
+      map_op[k] = v
+    else
+      map_op[k] = map_op[k] .. '|' .. v
+    end
   end
 end
+
+-- exit()
 
 
 -- Add mnemonics for "s" variants.
@@ -1170,10 +702,12 @@ end
 
 local function parse_template_new_subset(bits, shifts, values, params, templatestr, nparams)
   local n = 1
+  
   -- TCR_LOG('PARSETEMPLATE: ' .. templatestr)
-  for k,p in pairs(params) do
+  -- for k,p in pairs(params) do
     -- TCR_LOG(' ..> ', k, p)
-  end
+  -- end
+
   local pidx = 1
   while pidx <= #templatestr and n <= #params do
     local p = templatestr:sub(pidx, pidx)
@@ -1502,23 +1036,15 @@ map_op[".template__"] = function(params, template, nparams)
   local pos = wpos()
   local origpos, apos, spos = pos, #actargs, secpos
 
-  -- for k,v in pairs(params) do
-  --   TCR_LOG(' --> ' .. k .. ' ' .. v)
-  -- end
-
-  local ok, err
-  for i, t in pairs(template) do
-  -- for t_ in gmatch(template, "[^|]+") do
-  --   local donext = false
-  --   for t in gmatch(t_, "[^,]+") do
-  --     if donext then
-  --       pos = wpos()
-  --     end
-      ok, err = pcall(parse_template_new, params, t, nparams, pos)
-      -- TCR_LOG('error?:', t[1], err)
-    --   donext = true
-    -- end
+  for t_ in gmatch(template, "[^|]+") do
+    local t = {}
+    for v in gmatch(t_, "[^|:][^:]?[^:]?[^:]?[^:]?[^:]?[^:]?[^:]?[^:]?[^:]?[^:]?[^:]?[^:]?[^:]?[^:]?[^:]?") do
+      table.insert(t, v)
+    end
+    
+    ok, err = pcall(parse_template_new, params, t, nparams, pos)
     if ok then return end
+
     secpos = spos
     actargs[apos+1] = nil
     actargs[apos+2] = nil
