@@ -5,16 +5,16 @@
 ** DO NOT EDIT! The original file is in "biggy.dasc".
 */
 
-#if DASM_VERSION != 10300
-#error "Version mismatch between DynASM and included encoding engine"
-#endif
-
 #line 1 "biggy.dasc"
 //|// Low-level VM code for ARM CPUs.
 //|// Bytecode interpreter, fast functions and helper functions.
 //|// Copyright (C) 2005-2013 Mike Pall. See Copyright Notice in luajit.h
 //|
 //|.arch thumb
+#if DASM_VERSION != 10300
+#error "Version mismatch between DynASM and included encoding engine"
+#endif
+#line 6 "biggy.dasc"
 //|.section code_op, code_sub
 #define DASM_SECTION_CODE_OP	0
 #define DASM_SECTION_CODE_SUB	1
