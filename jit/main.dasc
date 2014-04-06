@@ -87,7 +87,7 @@ void A ## _jit (void) \
  	ASM; \
 \
 	code = jit_build(&state, &size); \
-	if (jit_compare((uint32_t) A - 1, code, size) != 0) \
+	if (jit_compare((void*) ((uint32_t) A - 1), code, size) != 0) \
 		jit_dump(code, size); \
 	printf("# JIT TEST.\n"); \
 	A ## _test(((T) (code+1))); \
@@ -112,7 +112,7 @@ void A ## _jit (void) \
 \
 	code = jit_build(&state, &size); \
 	volatile uint32_t ptr = (uint32_t) A; \
-	if (jit_compare(ptr - 1, code, size) != 0) \
+	if (jit_compare((void*) (ptr - 1), code, size) != 0) \
 		jit_dump(code, size); \
 	jit_free(code); \
 }
@@ -156,7 +156,7 @@ TEST_JIT(fib, int (*)(int),
 	| push {r4}
 	| cmp r0, #2
 	| it  le
-	| mov r1, #0
+	| movle r1, #0
 	| ble >2
 	| mov.w r2, #1
 	| mov.w r4, #0
@@ -202,8 +202,8 @@ TEST_JIT(cmp, int (*)(int),
   	|.type num, int, r0
 	| cmp num, #5
 	| ite le
-	| mov r0, #0
-	| mov r0, #1
+	| movle r0, #0
+	| movgt r0, #1
 	| bx  lr
 	| nop
 })
