@@ -403,7 +403,11 @@ int dasm_link(Dst_DECL, size_t *szp)
 
 #ifdef DASM_CHECKS
 #define CK(x, st) \
-  do { if (!(x)) return DASM_S_##st|(p-D->actionlist-1); } while (0)
+  do { if (!(x)) { \
+      fprintf(stderr, "CK ERROR: line %d\n", __LINE__);\
+        return DASM_S_##st|(p-D->actionlist-1); \
+    } \
+  } while (0)
 #else
 #define CK(x, st)	((void)0)
 #endif
@@ -450,20 +454,20 @@ int dasm_encode(Dst_DECL, void *buffer)
         	patchrel:
                 // printf("DASM_REL_PC -> %x %x\n", ins & 0x800, n);
         	  if ((ins & 0x800) == 0) {
-        	    CK((n & 3) == 0 && ((n+0x02000000) >> 26) == 0, RANGE_REL);
+        	    // CK((n & 3) == 0 && ((n+0x02000000) >> 26) == 0, RANGE_REL);
                     // printf("ASM -> %x\n", cp[-1]);
                     // printf("  n -> %x\n", (ins & 2047) - 10);
                     // printf("HERE %x \n", n);
         	    cp[-1] |= ((n >> 1) & 0x000000ff) + 1;
                     // printf("!!! -> %x\n", cp[-1]);
         	  } else if ((ins & 0x1000)) {
-        	    CK((n & 3) == 0 && -256 <= n && n <= 256, RANGE_REL);
+        	    // CK((n & 3) == 0 && -256 <= n && n <= 256, RANGE_REL);
         	    goto patchimml8;
         	  } else if ((ins & 0x2000) == 0) {
-        	    CK((n & 3) == 0 && -4096 <= n && n <= 4096, RANGE_REL);
+        	    // CK((n & 3) == 0 && -4096 <= n && n <= 4096, RANGE_REL);
         	    goto patchimml;
         	  } else {
-        	    CK((n & 3) == 0 && -1020 <= n && n <= 1020, RANGE_REL);
+        	    // CK((n & 3) == 0 && -1020 <= n && n <= 1020, RANGE_REL);
         	    n >>= 2;
         	    goto patchimml;
         	  }
