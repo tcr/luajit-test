@@ -1,4 +1,4 @@
-file main
+file test/main
 target remote localhost:1234
-break __cs3_reset
+break main
 cont
