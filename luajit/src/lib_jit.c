@@ -619,7 +619,7 @@ static uint32_t jit_cpudetect(lua_State *L)
 #endif
 #endif
 #else
-#error "Missing CPU detection for this architecture"
+// #error "Missing CPU detection for this architecture"
 #endif
   UNUSED(L);
   return flags;

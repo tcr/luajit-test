@@ -166,7 +166,9 @@ static LJ_AINLINE int CALL_MUNMAP(void *ptr, size_t size)
 #else
 
 #include <errno.h>
+#ifndef LJ_TARGET_THUMB
 #include <sys/mman.h>
+#endif
 
 #define MMAP_PROT		(PROT_READ|PROT_WRITE)
 #if !defined(MAP_ANONYMOUS) && defined(MAP_ANON)
@@ -251,6 +253,7 @@ static LJ_AINLINE void *CALL_MMAP(size_t size)
 #endif
 
 #else
+#ifndef LJ_TARGET_THUMB
 
 /* 32 bit mode is easy. */
 static LJ_AINLINE void *CALL_MMAP(size_t size)
@@ -260,8 +263,11 @@ static LJ_AINLINE void *CALL_MMAP(size_t size)
   errno = olderr;
   return ptr;
 }
+#endif
 
 #endif
+
+#ifndef LJ_TARGET_THUMB
 
 #define INIT_MMAP()		((void)0)
 #define DIRECT_MMAP(s)		CALL_MMAP(s)
@@ -273,6 +279,8 @@ static LJ_AINLINE int CALL_MUNMAP(void *ptr, size_t size)
   errno = olderr;
   return ret;
 }
+
+#endif
 
 #if LJ_TARGET_LINUX
 /* Need to define _GNU_SOURCE to get the mremap prototype. */
@@ -892,65 +900,6 @@ static void add_segment(mstate m, char *tbase, size_t tsize)
 
 /* -------------------------- System allocation -------------------------- */
 
-static void *alloc_sys(mstate m, size_t nb)
-{
-  char *tbase = CMFAIL;
-  size_t tsize = 0;
-
-  /* Directly map large chunks */
-  if (LJ_UNLIKELY(nb >= DEFAULT_MMAP_THRESHOLD)) {
-    void *mem = direct_alloc(nb);
-    if (mem != 0)
-      return mem;
-  }
-
-  {
-    size_t req = nb + TOP_FOOT_SIZE + SIZE_T_ONE;
-    size_t rsize = granularity_align(req);
-    if (LJ_LIKELY(rsize > nb)) { /* Fail if wraps around zero */
-      char *mp = (char *)(CALL_MMAP(rsize));
-      if (mp != CMFAIL) {
-	tbase = mp;
-	tsize = rsize;
-      }
-    }
-  }
-
-  if (tbase != CMFAIL) {
-    msegmentptr sp = &m->seg;
-    /* Try to merge with an existing segment */
-    while (sp != 0 && tbase != sp->base + sp->size)
-      sp = sp->next;
-    if (sp != 0 && segment_holds(sp, m->top)) { /* append */
-      sp->size += tsize;
-      init_top(m, m->top, m->topsize + tsize);
-    } else {
-      sp = &m->seg;
-      while (sp != 0 && sp->base != tbase + tsize)
-	sp = sp->next;
-      if (sp != 0) {
-	char *oldbase = sp->base;
-	sp->base = tbase;
-	sp->size += tsize;
-	return prepend_alloc(m, tbase, oldbase, nb);
-      } else {
-	add_segment(m, tbase, tsize);
-      }
-    }
-
-    if (nb < m->topsize) { /* Allocate from new or extended top space */
-      size_t rsize = m->topsize -= nb;
-      mchunkptr p = m->top;
-      mchunkptr r = m->top = chunk_plus_offset(p, nb);
-      r->head = rsize | PINUSE_BIT;
-      set_size_and_pinuse_of_inuse_chunk(m, p, nb);
-      return chunk2mem(p);
-    }
-  }
-
-  return NULL;
-}
-
 /* -----------------------  system deallocation -------------------------- */
 
 /* Unmap and unlink any mmapped segments that don't contain used chunks */
@@ -1251,7 +1200,8 @@ static LJ_NOINLINE void *lj_alloc_malloc(void *msp, size_t nsize)
     mem = chunk2mem(p);
     return mem;
   }
-  return alloc_sys(ms, nb);
+  return NULL;
+  // return alloc_sys(ms, nb);
 }
 
 static LJ_NOINLINE void *lj_alloc_free(void *msp, void *ptr)
