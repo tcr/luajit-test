@@ -165,6 +165,8 @@ static LJ_AINLINE int CALL_MUNMAP(void *ptr, size_t size)
 
 #else
 
+#ifndef LJ_TARGET_THUMB
+
 #include <errno.h>
 #include <sys/mman.h>
 
@@ -263,6 +265,10 @@ static LJ_AINLINE void *CALL_MMAP(size_t size)
 
 #endif
 
+#endif
+
+#ifndef LJ_TARGET_THUMB
+
 #define INIT_MMAP()		((void)0)
 #define DIRECT_MMAP(s)		CALL_MMAP(s)
 
@@ -295,10 +301,12 @@ static LJ_AINLINE void *CALL_MREMAP_(void *ptr, size_t osz, size_t nsz,
 #endif
 #endif
 
-#endif
-
 #ifndef CALL_MREMAP
 #define CALL_MREMAP(addr, osz, nsz, mv) ((void)osz, MFAIL)
+#endif
+
+#endif
+
 #endif
 
 /* -----------------------  Chunk representations ------------------------ */
@@ -735,6 +743,8 @@ static int has_segment_link(mstate m, msegmentptr ss)
 
 /* -----------------------  Direct-mmapping chunks ----------------------- */
 
+#ifndef LJ_TARGET_THUMB
+
 static void *direct_alloc(size_t nb)
 {
   size_t mmsize = mmap_align(nb + SIX_SIZE_T_SIZES + CHUNK_ALIGN_MASK);
@@ -1036,6 +1046,8 @@ static int alloc_trim(mstate m, size_t pad)
   return (released != 0)? 1 : 0;
 }
 
+#endif
+
 /* ---------------------------- malloc support --------------------------- */
 
 /* allocate a large request from the best fitting chunk in a treebin */
@@ -1251,7 +1263,11 @@ static LJ_NOINLINE void *lj_alloc_malloc(void *msp, size_t nsize)
     mem = chunk2mem(p);
     return mem;
   }
+#ifdef LJ_TARGET_THUMB
+  return NULL;
+#else
   return alloc_sys(ms, nb);
+#endif
 }
 
 static LJ_NOINLINE void *lj_alloc_free(void *msp, void *ptr)
