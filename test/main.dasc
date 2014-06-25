@@ -155,29 +155,26 @@ TEST_JIT(fib, int (*)(int),
 {
 	| push {r4}
 	| cmp r0, #2
-	| it  le
-	| movle r1, #0
 	| ble >2
-	| mov.w r2, #1
-	| mov.w r4, #0
-	| mov.w r3, #2
+	| movs r2, #1
+	| movs r4, #0
+	| movs r3, #2
 	|1:
 	| adds   r1, r4, r2
-	| add.w  r3, r3, #1
+	| adds  r3, #1
+	| cmp r3, r0
+	| beq >3
 	| mov r4, r2
 	| mov r2, r1
-	| cmp r3, r0
-	| bne <1
+	| b <1
 	|2:
+	| mov r1, #0
+	|3:
 	| mov r0, r1
-	| pop {r4}
+	| ldr r4, [sp], #4
 	| bx  lr
 	| nop
 })
-
-
-
-
 
 
 int cmp (int n)
