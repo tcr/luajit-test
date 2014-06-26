@@ -10,7 +10,7 @@ function collect (fn) {
 	return stream;
 }
 
-var ret = spawn('qemu-system-arm', ['-M', 'lm3s6965evb', '--kernel', 'main.bin', '-no-reboot', '-nographic'])
+var ret = spawn('qemu-system-arm', ['-M', 'lm3s6965evb', '--kernel', process.argv[2], '-no-reboot', '-nographic'])
 
 ret.on('error', function (err) {
 		console.error(err);
