@@ -1,17 +1,5 @@
-;;; b410 	# push	{r4}
-;;; 2802 	# cmp	r0, #2
-;;; dd09 	# ble.n	10ba <fib+0x1a>
-;;; 2201 	# movs	r2, #1
-;;; 2400 	# movs	r4, #0
-;;; 2302 	# movs	r3, #2
-;;; 18a1 	# adds	r1, r4, r2
-;;; 3301 	# adds	r3, #1
-;;; 4283 	# cmp	r3, r0
-;;; d003 	# beq.n	10bc <fib+0x1c>
-;;; 4614 	# mov	r4, r2
-;;; 460a 	# mov	r2, r1
-;;; e7f8 	# b.n	10ac <fib+0xc>
-;;; 2100 	# movs	r1, #0
-;;; 4608 	# mov	r0, r1
-;;; f85d 4b04 	# ldr.w	r4, [sp], #4
+;;; f100 0001 	# add.w	r0, r0, #1
+;;; f100 102c 	# add.w	r0, r0, #2883628	; 0x2c002c
+;;; f85f 000c 	# ldr.w	r0, [pc, #-12]	; 112c <immtest>
 ;;; 4770 	# bx	lr
+;;; bf00 	# nop
