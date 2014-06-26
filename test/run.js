@@ -10,15 +10,14 @@ function collect (fn) {
 	return stream;
 }
 
-var ret = spawn('qemu-system-arm', ['-M', 'lm3s6965evb', '--kernel', 'main.bin', '--serial', 'stdio', '-no-reboot'])
-ret.stdout.pipe(collect(function (buf) {
-	// String(buf).split(/\n/).forEach(function (line) {
-		// if (String(line).match(/^\d+:/)) {
-			// console.log(String(line).replace(/^\d+:\s+/, ''));
-		// }
-	// });
-	process.stdout.write(buf);
-}))
+var ret = spawn('qemu-system-arm', ['-M', 'lm3s6965evb', '--kernel', 'main.bin', '-no-reboot', '-nographic'])
+
+ret.on('error', function (err) {
+		console.error(err);
+		process.exit(1);
+});
+ret.stderr.pipe(process.stderr);
+ret.stdout.pipe(process.stdout);
 
 ret.stdout.once('data', function () {
 	setTimeout(function () {
