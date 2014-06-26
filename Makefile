@@ -1,7 +1,7 @@
 all: build
 
 build:
-	./build.sh test/main.dasc
+	
 
 biggy:
 	cd test; luajit ../luajit/dynasm/dynasm.lua biggy.dasc > biggy.c

@@ -1,0 +1,39 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+
+int mul (int a, int b)
+{
+  __asm__ (
+  "mul.w r0, r1, r0\n\t"
+  );
+  // return a * b;
+}
+
+void mul_test (int (*fn)(int, int))
+{
+  assert(fn(2, 3) == 6);
+  assert(fn(4, 12) == 48);
+}
+
+TEST_JIT(mul, int (*)(int, int),
+{
+  | mul.w r0, r1, r0
+  | bx    lr
+  | nop
+})
+
+
+int main ()
+{
+  printf("1..1\n");
+  mul_jit();
+  printf("# done\n");
+  return 0;
+}

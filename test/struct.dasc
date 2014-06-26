@@ -1,0 +1,40 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+
+
+
+
+
+
+typedef struct {
+  uint8_t number;
+} simple_t;
+
+void struct_jit()
+{
+  dasm_State *state;
+  simple_t a = { 0 };
+  simple_t* ptr = &a;
+  ptr->number = 5;
+
+  // |.type a,		simple_t,	r0
+  // | ldr r0, a->number
+}
+
+
+
+
+int main ()
+{
+  printf("1..1\n");
+  struct_jit();
+  printf("ok\n");
+  return 0;
+}

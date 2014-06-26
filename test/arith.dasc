@@ -1,0 +1,46 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+
+COMPARE_JIT(arith,
+__asm__ (
+  "add.w r2, r3, #1\n\t"
+  "add.w r2, r3, r4\n\t"
+  "adds.w r2, r3, #1\n\t"
+  "adds.w r2, r3, r4\n\t"
+  "mul.w r0, r1, r0\n\t"
+  "mul.w r2, r3, r2\n\t"
+  "mov r4, r2\n\t"
+  "subs r0, r1, #2\n\t"
+  "sub r0, r0, #8\n\t"
+  "add r1, r2, r3, lsl #2\n\t"
+  "sub r0, r2, #0x20000\n\t"
+  "sub r6, r11, #0x20000\n\t"
+), {
+  | add.w r2, r3, #1
+  | add.w r2, r3, r4
+  | adds.w r2, r3, #1
+  | adds.w r2, r3, r4
+  | mul.w r0, r1, r0
+  | mul.w r2, r3, r2
+  | mov r4, r2
+  | subs r0, r1, #2
+  | sub r0, r0, #8
+  | add r1, r2, r3, lsl #2
+  | sub r0, r2, #0x20000
+  | sub r6, r11, #0x20000
+})
+
+int main ()
+{
+  printf("1..1\n");
+  arith_jit();
+  printf("# done\n");
+  return 0;
+}
