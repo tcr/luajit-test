@@ -355,6 +355,7 @@ int main ()
 {
 	printf("# START.\n\n");
 
+	printf("1..6\n");
 	fib_jit();
 	cmp_jit();
 	mul_jit();
