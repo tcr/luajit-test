@@ -1,5 +1,0 @@
-;;; f100 0001 	# add.w	r0, r0, #1
-;;; f100 102c 	# add.w	r0, r0, #2883628	; 0x2c002c
-;;; f85f 000c 	# ldr.w	r0, [pc, #-12]	; 112c <immtest>
-;;; 4770 	# bx	lr
-;;; bf00 	# nop
