@@ -1,3 +1,4 @@
+#include <sys/times.h>
 #include <sys/stat.h>
 
 enum {
@@ -43,8 +44,7 @@ int _lseek(int file, int ptr, int dir) {
 }
 
 int _open(const char *name, int flags, int mode) {
-return -1;
-
+    return -1;
 }
 
 int _read(int file, char *ptr, int len) {
@@ -104,4 +104,25 @@ unsigned char* _sbrk ( int size ) {
         heap = next;
         return r;
     }
+}
+
+
+
+int _link (void)
+{
+    return -1;
+}
+
+int _unlink (void)
+{
+    return -1;
+}
+
+
+int _times(struct tms *buf) {
+    return -1;
+}
+
+int _gettimeofday () {
+    return -1;
 }
