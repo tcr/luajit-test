@@ -1,16 +1,16 @@
 MEMORY {
   rom (rx)  : ORIGIN = 0x00000000, LENGTH = 256K
-  ram (rwx) : ORIGIN = 0x20000000, LENGTH =  64K
+  ram (rwx) : ORIGIN = 0x20000000, LENGTH = 1024K
 }
 
 STACK_SIZE = 40k;
-HEAP_SIZE  = 64k;
+HEAP_SIZE  = 512K;
 
 EXTERN(_vector_table)
 ENTRY(_reset_handler)
 
 SECTIONS {
-  .vectors : {
+  .text : {
     *(.vectors)
     . = ALIGN (4);
   } > rom
@@ -103,6 +103,7 @@ SECTIONS {
   } >ram
 
   .stack (COPY): {
+    . = _eheap;
     . = ALIGN(8);
     . = . + STACK_SIZE;
     . = ALIGN(4);

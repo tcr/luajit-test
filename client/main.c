@@ -17,9 +17,14 @@ int lj_err_unwind_arm(int state, void *ucb, void *ctx)
     return -1;
 }
 
+#include <assert.h>
+#include <stdint.h>
+
 int
 main(void)
 {
+    printf("# start\n");
+
     int status, result, i;
     double sum;
     lua_State *L;
