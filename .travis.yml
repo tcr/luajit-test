@@ -8,4 +8,8 @@ before_script:
   - npm install -g tinytap
 
 script:
+  - ls ./bin
+  - chmod +x ./bin/qemu-system-arm || true
+  - ./bin/qemu-system-arm --version || true
+  - ./bin/qemu-system-arm || true
   - make test
