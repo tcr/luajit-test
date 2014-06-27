@@ -13,7 +13,7 @@
 
 /* Vector Table */
 
-    .section ".vectors"
+.section .vectors
     .globl  _vector_table
     .type   _vector_table, %object
 
