@@ -1,15 +1,22 @@
 language: node_js
-
 before_script:
-  - sudo add-apt-repository -y ppa:terry.guo/gcc-arm-embedded
-  - sudo apt-get -y update
-  - sudo apt-get -y install qemu qemu-kvm-extras gcc-arm-none-eabi luajit
-  - sudo ln -s /usr/bin/luajit-2.0.0-beta9 /usr/bin/luajit
-  - npm install -g tinytap
-
+- sudo apt-get -y install axel pkg-config libglib2.0-dev build-essential libtool automake
+  autoconf autotools-dev
+- axel -a http://wiki.qemu-project.org/download/qemu-2.0.0.tar.bz2
+- tar xvf qemu-2.0.0.tar.bz2
+- pushd qemu-2.0.0/hw/arm; patch -p0 < ../../../stellaris.patch; popd
 script:
-  - ls ./bin
-  - chmod +x ./bin/qemu-system-arm || true
-  - ./bin/qemu-system-arm --version || true
-  - ./bin/qemu-system-arm || true
-  - make test
+# - pushd qemu-2.0.0; ./configure; make; popd
+- mkdir -p qemu-2.0.0/arm-softmmu
+- echo "hello world" > qemu-2.0.0/arm-softmmu/hello.txt
+
+deploy:
+  provider: s3
+  access_key_id: AKIAJRITXQDILW5L3MLQ
+  secret_access_key:
+    secure: SBPSKOUKt9MmdQAfaCbbGFChw7cY8IG6H2EVatw5gHyv8umsE2RsogMJuwYP6V1jtfdnk+obp4nvXBQ2Pg4h2HWA+9hoANoHS30PgSAxQLJOtWtaKAfvtck4V0wa4WN4T33euuGZ4vhEiN/XiVbjQDnjckRXES+GnqJclThA1Yg=
+  bucket: tessel-debug
+  local-dir: qemu-2.0.0/arm-softmmu
+  on:
+    repo: tcr/jitwork
+    branch: tcr
