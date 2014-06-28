@@ -10,7 +10,7 @@ function collect (fn) {
 	return stream;
 }
 
-var ret = spawn(__dirname + '/bin/qemu-system-arm-' + process.platform, ['-M', 'lm3s6965evb', '--kernel', process.argv[2], '-no-reboot', '-nographic'].concat(process.argv[3] == '-d' ? ['-s', '-S'] : []));
+var ret = spawn(__dirname + '/bin/qemu-system-arm-' + process.platform, ['-M', 'lm3s6965evb', '--kernel', process.argv[2], '-no-reboot', '-nographic'].concat(process.argv[3] == '-d' ? ['-s', '-S', '-d', 'cpu,exec,in_asm'] : []));
 
 ret.on('error', function (err) {
 		console.error(err);
