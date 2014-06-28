@@ -1,0 +1,43 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+COMPARE_JIT(issue_1,
+__asm__ (
+  "issue_1:\r\n"
+  "  add r0, r1, r1\r\n"
+  "  bne issue_1\r\n"
+), {
+  |1:
+  | add.w r0, r1, r1
+  | bne <1
+})
+
+
+COMPARE_JIT(issue_2,
+__asm__ (
+  "issue_2:\r\n"
+  "  add r0, r1, r1\r\n"
+  "  add.n r0, r0, r0\r\n"
+  "  bne issue_2\r\n"
+), {
+  |1:
+  | add.w r0, r1, r1
+  | add r0, r0
+  | bne <1
+})
+
+
+int main ()
+{
+  printf("1..2\n");
+  issue_1_jit();
+  issue_2_jit();
+  printf("# done\n");
+  return 0;
+}

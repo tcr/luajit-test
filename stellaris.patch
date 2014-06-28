@@ -1,0 +1,25 @@
+--- stellaris.c.orig	2014-04-17 13:44:44.000000000 +0000
++++ stellaris.c	2014-04-17 13:44:44.000000000 +0000
+@@ -944,7 +944,7 @@
+ {
+     int head;
+ 
+-    /* TODO: Real hardware has limited size FIFOs.  We have a full 16 entry 
++    /* TODO: Real hardware has limited size FIFOs.  We have a full 16 entry
+        FIFO fir each sequencer.  */
+     head = (s->fifo[n].state >> 4) & 0xf;
+     if (s->fifo[n].state & STELLARIS_ADC_FIFO_FULL) {
+@@ -1186,7 +1186,7 @@
+   { "LM3S6965EVB",
+     0x10010002,
+     0x1073402e,
+-    0x00ff007f, /* dc0 */
++    0x0fff007f, /* dc0 */
+     0x001133ff,
+     0x030f5317,
+     0x0f0f87ff,
+@@ -1414,3 +1414,4 @@
+ }
+ 
+ type_init(stellaris_register_types)
++
