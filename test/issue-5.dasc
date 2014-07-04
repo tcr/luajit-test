@@ -7,20 +7,18 @@
 #include "test.h"
 
 
-COMPARE_JIT(issue_1,
+COMPARE_JIT(issue_5,
 __asm__ (
-  "vm_leave_cp: \r\n"
-  "   bl __aeabi_ddiv \r\n"
+  "  and.w r10, r4, lr, lsr #5 \r\n"
 ), {
-  |->vm_leave_cp:
-  |  bl extern __aeabi_ddiv
+  |  and.w r10, r4, lr, lsr #5
 })
 
 
 int main ()
 {
   printf("1..1\n");
-  issue_1_jit();
+  issue_5_jit();
   printf("# done\n");
   return 0;
 }
