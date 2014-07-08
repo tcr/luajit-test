@@ -35,7 +35,7 @@ clean: thumb-clean
 
 thumb:
 	cd luajit ;\
-		make HOST_CC="gcc-4.9 -m32" CROSS="arm-none-eabi-" TARGET_SYS=Other TARGET_CFLAGS="-mcpu=cortex-m3 -mthumb -gdwarf-2 -ggdb -mfloat-abi=softfp" TARGET_SYS=arm
+		make HOST_CC="gcc-4.9 -m32" CROSS="arm-none-eabi-" TARGET_SYS=Other TARGET_CFLAGS="-mcpu=cortex-m3 -mthumb -gdwarf-2 -ggdb -mfloat-abi=soft" TARGET_SYS=arm
 
 thumb-clean:
 	cd luajit ;\
