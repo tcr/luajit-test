@@ -18,7 +18,7 @@ typedef struct lfunc {
 
 COMPARE_JIT(issue_6,
 __asm__ (
-  "  ldr r6, [r3, #16] \r\n"
+  "  ldr.w r6, [r3, #16] \r\n"
 ), {
   |.type LFUNC,		lfunc_t
   |.define CARG3, r3
