@@ -48,19 +48,19 @@ main(void)
     /* Ask Lua to run our little script */
     result = lua_pcall(L, 0, 1, 0);
     if (result) {
-        fprintf(stderr, "Failed to run script: %s\n", lua_tostring(L, -1));
-        exit(1);
+        printf("Failed to run script: %s\n", lua_tostring(L, -1));
+        // exit(1);
+    } else {
+        printf("4\n");
+
+        /* Get the returned value at the top of the stack (index -1) */
+        sum = lua_tonumber(L, -1);
+
+        printf("Script returned: %.0f\n", sum);
+
+        lua_pop(L, 1);  /* Take the returned value out of the stack */
+        lua_close(L);   /* Cya, Lua */
     }
-
-    printf("4\n");
-
-    /* Get the returned value at the top of the stack (index -1) */
-    sum = lua_tonumber(L, -1);
-
-    printf("Script returned: %.0f\n", sum);
-
-    lua_pop(L, 1);  /* Take the returned value out of the stack */
-    lua_close(L);   /* Cya, Lua */
 
     return 0;
 }
