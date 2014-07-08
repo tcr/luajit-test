@@ -10,18 +10,31 @@
 
 
 
+int VALUE = 24;
 
 
-
+typedef struct {
+	uint32_t value_1;
+	uint32_t value_2;
+	uint32_t value_3;
+	uint32_t value_4;
+	uint32_t value_5;
+	uint32_t value_6;
+	uint32_t maxstack;
+} lua_State;
 
 
 COMPARE_JIT(immtest,
 __asm__ (
    " ldr r0, [r0, #4]\n\t"
    " ldr r0, [r8, #24]\n\t"
+   " ldr r0, [r8, #24]\n\t"
 ), {
+  |.type L, lua_State, r8
+  |.define CARG1, r0
   | ldr r0, [r0, #4]
   | ldr r0, [r8, #24]
+  | ldr CARG1, L->maxstack
 })
 
 
