@@ -19,6 +19,7 @@ int lj_err_unwind_arm(int state, void *ucb, void *ctx)
 
 #include <assert.h>
 #include <stdint.h>
+#include "lj_dispatch.h"
 
 int
 main(void)
