@@ -1,0 +1,38 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+
+
+
+
+
+
+
+
+COMPARE_JIT(immtest,
+__asm__ (
+   " ldr r0, [r0, #4]\n\t"
+   " ldr r0, [r8, #24]\n\t"
+), {
+  | ldr r0, [r0, #4]
+  | ldr r0, [r8, #24]
+})
+
+
+
+
+
+
+int main ()
+{
+	printf("1..1\n");
+	immtest_jit();
+	printf("# done\n");
+	return 0;
+}

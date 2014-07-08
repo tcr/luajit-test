@@ -30,7 +30,7 @@ debug: build
 dump: build
 	cd test; node dump.js fib | tee b.txt
 
-clean:
+clean: thumb-clean
 	cd test; rm *.bin main
 
 thumb:
