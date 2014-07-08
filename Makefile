@@ -30,12 +30,12 @@ debug: build
 dump: build
 	cd test; node dump.js fib | tee b.txt
 
-clean:
+clean: thumb-clean
 	cd test; rm *.bin main
 
 thumb:
 	cd luajit ;\
-		make HOST_CC="gcc-4.9 -m32" CROSS="arm-none-eabi-" TARGET_SYS=Other TARGET_CFLAGS="-mcpu=cortex-m3 -mthumb -gdwarf-2 -ggdb -mfloat-abi=softfp" TARGET_SYS=arm
+		make HOST_CC="gcc-4.9 -m32" CROSS="arm-none-eabi-" TARGET_SYS=Other TARGET_CFLAGS="-mcpu=cortex-m3 -mthumb -gdwarf-2 -ggdb -mfloat-abi=soft" TARGET_SYS=arm
 
 thumb-clean:
 	cd luajit ;\

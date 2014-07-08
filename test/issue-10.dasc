@@ -1,0 +1,39 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+
+
+
+
+
+
+
+
+
+int GG_G2DISP = 0xb08;
+
+COMPARE_JIT(immtest,
+__asm__ (
+	"add r7, r7, #0xb08\n\t"
+), {
+	| addw r7, r7, #GG_G2DISP
+})
+
+
+
+
+
+
+int main ()
+{
+	printf("1..1\n");
+	immtest_jit();
+	printf("# done\n");
+	return 0;
+}

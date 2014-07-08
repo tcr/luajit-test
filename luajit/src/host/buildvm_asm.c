@@ -78,12 +78,13 @@ err:
 static void emit_asm_words(BuildCtx *ctx, uint8_t *p, int n)
 {
   int i;
-  for (i = 0; i < n; i += 4) {
+  for (i = 0; i < n; i += 2) {
+    uint16_t ins = *(uint16_t *)(p+i);
     if ((i & 15) == 0)
-      fprintf(ctx->fp, "\t.long 0x%08x", *(uint32_t *)(p+i));
+      fprintf(ctx->fp, "\t.hword 0x%04x", ins);
     else
-      fprintf(ctx->fp, ",0x%08x", *(uint32_t *)(p+i));
-    if ((i & 15) == 12) putc('\n', ctx->fp);
+      fprintf(ctx->fp, ",0x%04x", ins);
+    if ((i & 15) == 14) putc('\n', ctx->fp);
   }
   if ((n & 15) != 0) putc('\n', ctx->fp);
 }
@@ -92,22 +93,37 @@ static void emit_asm_words(BuildCtx *ctx, uint8_t *p, int n)
 static void emit_asm_wordreloc(BuildCtx *ctx, uint8_t *p, int n,
 			       const char *sym)
 {
+#if LJ_TARGET_ARM
   uint32_t ins;
   emit_asm_words(ctx, p, n-4);
   ins = *(uint32_t *)(p+n-4);
-#if LJ_TARGET_ARM || LJ_TARGET_THUMB
   if ((ins & 0xff000000u) == 0xfa000000u) {
     fprintf(ctx->fp, "\tblx %s\n", sym);
   } else if ((ins & 0x0e000000u) == 0x0a000000u) {
     fprintf(ctx->fp, "\t%s%.2s %s\n", (ins & 0x01000000u) ? "bl" : "b",
 	    &"eqnecsccmiplvsvchilsgeltgtle"[2*(ins >> 28)], sym);
   } else {
-    // fprintf(stderr,
-	   //  "Error: unsupported opcode %08x for %s symbol relocation.\n",
-	   //  ins, sym);
-    // exit(1);
+    fprintf(stderr,
+	    "Error: unsupported opcode %08x for %s symbol relocation.\n",
+	    ins, sym);
+    exit(1);
+  }
+#elif LJ_TARGET_THUMB
+  uint32_t ins;
+  emit_asm_words(ctx, p, n-4);
+  ins = *(uint32_t *)(p+n-4);
+  if ((ins & 0xf800) == 0xf000 && ((ins >> 16) & 0xc000) == 0xc000) {
+    fprintf(ctx->fp, "\tbl %s\n", sym);
+  } else {
+    fprintf(stderr,
+      "Error: unsupported opcode %08x for %s symbol relocation.\n",
+      ins, sym);
+    exit(1);
   }
 #elif LJ_TARGET_PPC || LJ_TARGET_PPCSPE
+  uint32_t ins;
+  emit_asm_words(ctx, p, n-4);
+  ins = *(uint32_t *)(p+n-4);
 #if LJ_TARGET_PS3
 #define TOCPREFIX "."
 #else
@@ -310,4 +326,3 @@ void emit_asm(BuildCtx *ctx)
   }
   fprintf(ctx->fp, "\n");
 }
-

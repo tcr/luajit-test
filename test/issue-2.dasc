@@ -1,0 +1,66 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+/*
+COMPARE_JIT(issue_1,
+__asm__ (
+  " add sp, sp, #28 \r\n"
+  " add sp, sp, #28 \r\n"
+  " pop {r4, r5, r6, r7, r8, r9, r10, r11, pc} \r\n"
+  " mov r0, #5 \r\n"
+), {
+  |.define CFRAME_SPACE,	#28
+  |.macro restoreregs_ret
+  |  add sp, sp, CFRAME_SPACE
+  |  pop {r4, r5, r6, r7, r8, r9, r10, r11, pc}
+  |.endmacro
+  | add sp, #28
+  | restoreregs_ret
+  | mov.w r0, #5
+})
+*/
+
+
+COMPARE_JIT(issue_1,
+__asm__ (
+  " add sp, sp, #28 \r\n"
+  " pop {r4, r5, r6, r7, r8, r9, r10, r11, pc} \r\n"
+  " mov r0, #5 \r\n"
+), {
+  | add sp, #28
+  | pop {r4, r5, r6, r7, r8, r9, r10, r11, pc}
+  | mov.w r0, #5
+})
+
+
+COMPARE_JIT(issue_2,
+__asm__ (
+  " movs r0, #0 \r\n"
+  " add sp, sp, #28 \r\n"
+  " movs r0, #0 \r\n"
+), {
+  |->vm_leave_cp:
+  |   mov r0, #0			// Ok return status for vm_pcall.
+  |
+  |->vm_leave_unw:
+  |  add sp, sp, #28
+  |
+  |6:
+  |  mov r0, #0			// Ok return status for vm_pcall.
+})
+
+
+int main ()
+{
+  printf("1..2\n");
+  issue_1_jit();
+  issue_2_jit();
+  printf("# done\n");
+  return 0;
+}

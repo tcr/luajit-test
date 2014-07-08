@@ -1,0 +1,39 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+
+
+
+
+
+
+
+
+
+#define VAL -0xac
+
+COMPARE_JIT(immtest,
+__asm__ (
+	"str r1, [r7, #-0xac]\n\t"
+), {
+  | str r1, [r7, #VAL]
+})
+
+
+
+
+
+
+int main ()
+{
+	printf("1..1\n");
+	immtest_jit();
+	printf("# done\n");
+	return 0;
+}

@@ -1,0 +1,35 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+typedef struct lfunc {
+	uint32_t a;
+	uint32_t b;
+	uint32_t c;
+	uint32_t d;
+	uint32_t field_pc;
+} lfunc_t;
+
+
+COMPARE_JIT(issue_6,
+__asm__ (
+  "  ldr.w r6, [r3, #16] \r\n"
+), {
+  |.type LFUNC,		lfunc_t
+  |.define CARG3, r3
+  |  ldr r6, LFUNC:CARG3->field_pc
+})
+
+
+int main ()
+{
+  printf("1..1\n");
+  issue_6_jit();
+  printf("# done\n");
+  return 0;
+}

@@ -10,7 +10,7 @@ function collect (fn) {
 	return stream;
 }
 
-var ret = spawn(__dirname + '/bin/qemu-system-arm-' + process.platform, ['-M', 'lm3s6965evb', '--kernel', process.argv[2], '-no-reboot', '-nographic'].concat(process.argv[3] == '-d' ? ['-s', '-S'] : []));
+var ret = spawn(__dirname + '/bin/qemu-system-arm-' + process.platform, ['-M', 'lm3s6965evb', '--kernel', process.argv[2], '-no-reboot', '-nographic'].concat(process.argv[3] == '-d' ? ['-s', '-S', '-d', 'cpu,exec,in_asm'] : []));
 
 ret.on('error', function (err) {
 		console.error(err);
@@ -23,6 +23,6 @@ if (process.argv[3] != '-d') {
 	ret.stdout.once('data', function () {
 		setTimeout(function () {
 			spawn('kill', ['-9', ret.pid])
-		}, process.argv[2] ? Number(process.argv[2]) : 1000);
+		}, process.argv[3] ? Number(process.argv[3]) : 100);
 	})
 }

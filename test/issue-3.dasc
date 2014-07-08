@@ -1,0 +1,62 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+COMPARE_JIT(issue_1,
+__asm__ (
+  "vm_leave_cp: \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  " \r\n"
+  "vm_leave_unw: \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  "   movs r0, #0 \r\n"
+  " \r\n"
+  "now: \r\n"
+  "   b.w vm_leave_unw \r\n"
+), {
+  |->vm_leave_cp:
+  |   mov r0, #0
+  |   mov r0, #0
+  |   mov r0, #0
+  |   mov r0, #0
+  |   mov r0, #0
+  |   mov r0, #0
+
+  if (1) {
+    |->vm_leave_unw:
+    |   mov r0, #0
+    |   mov r0, #0
+    |   mov r0, #0
+    |   mov r0, #0
+    |   mov r0, #0
+    |   mov r0, #0
+    |   mov r0, #0
+  }
+
+  |->now:
+  |   b.w ->vm_leave_unw
+})
+
+
+int main ()
+{
+  printf("1..1\n");
+  issue_1_jit();
+  printf("# done\n");
+  return 0;
+}

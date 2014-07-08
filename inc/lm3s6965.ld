@@ -1,10 +1,10 @@
 MEMORY {
   rom (rx)  : ORIGIN = 0x00000000, LENGTH = 256K
-  ram (rwx) : ORIGIN = 0x20000000, LENGTH = 1024K
+  ram (rwx) : ORIGIN = 0x20000000, LENGTH = 4096K
 }
 
 STACK_SIZE = 40k;
-HEAP_SIZE  = 512K;
+HEAP_SIZE  = 2048K;
 
 EXTERN(_vector_table)
 ENTRY(_reset_handler)

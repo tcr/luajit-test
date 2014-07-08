@@ -1,0 +1,24 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+COMPARE_JIT(issue_5,
+__asm__ (
+  "  and.w r10, r4, lr, lsr #5 \r\n"
+), {
+  |  and.w r10, r4, lr, lsr #5
+})
+
+
+int main ()
+{
+  printf("1..1\n");
+  issue_5_jit();
+  printf("# done\n");
+  return 0;
+}

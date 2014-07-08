@@ -24,12 +24,13 @@ int
 main(void)
 {
     printf("# start\n");
+    printf("What does 1 + 1 equal?\n");
 
     int status, result, i;
     double sum;
     lua_State *L;
 
-    printf("1\n");
+    printf("... create state\n");
 
     /*
      * All Lua contexts are held in this structure. We work with it almost
@@ -37,21 +38,21 @@ main(void)
      */
     L = luaL_newstate();
 
-    printf("2\n");
+    printf("... open libs\n");
 
     luaL_openlibs(L); /* Load Lua libraries */
 
-    printf("3\n");
+    printf("... run script\n");
 
     luaL_loadstring(L, "return 1 + 1");
     /* Ask Lua to run our little script */
     result = lua_pcall(L, 0, 1, 0);
     if (result) {
-        fprintf(stderr, "Failed to run script: %s\n", lua_tostring(L, -1));
-        exit(1);
+        printf("Failed to run script: %s\n", lua_tostring(L, -1));
+        return 1;
     }
 
-    printf("4\n");
+    printf("... parse result\n");
 
     /* Get the returned value at the top of the stack (index -1) */
     sum = lua_tonumber(L, -1);
