@@ -44,7 +44,7 @@ main(void)
 
     printf("... run script\n");
 
-    luaL_loadstring(L, "return type(print)");
+    luaL_loadstring(L, "return print()");
     /* Ask Lua to run our little script */
     result = lua_pcall(L, 0, 1, 0);
     if (result) {
@@ -55,7 +55,7 @@ main(void)
     printf("... parse result\n");
 
     /* Get the returned value at the top of the stack (index -1) */
-    sum = lua_tonumber(L, -1);
+    sum = lua_type(L, -1);
 
     printf("Script returned: %.0f\n", sum);
 

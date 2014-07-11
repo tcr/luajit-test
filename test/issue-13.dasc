@@ -22,6 +22,7 @@ COMPARE_JIT(immtest,
 __asm__ (
    " ldrd r0, r1, [r11, #0] \n\t"
    " ldrd r2, r3, [r11, #4] \n\t"
+   " ldrd r2, r3, [r11, #4]! \n\t"
 ), {
   |.type NODE, lua_State
   |.define CARG1, r0
@@ -29,8 +30,11 @@ __asm__ (
   |.define CARG3, r2
   |.define CARG4, r3
   |.define INS, r11
+  |.define RA, r10
+  |.define BASE, r6
 	|  ldrd CARG1, CARG2, NODE:INS->key
 	|   ldrd CARG3, CARG4, NODE:INS->val
+	|  ldrd CARG3, CARG4, [INS, #4]!
 })
 
 
