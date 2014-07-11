@@ -44,7 +44,7 @@ main(void)
 
     printf("... run script\n");
 
-    luaL_loadstring(L, "return 1 + 1");
+    luaL_loadstring(L, "return type(print)");
     /* Ask Lua to run our little script */
     result = lua_pcall(L, 0, 1, 0);
     if (result) {
