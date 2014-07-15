@@ -20,13 +20,10 @@ int lj_err_unwind_arm(int state, void *ucb, void *ctx)
 #include <assert.h>
 #include <stdint.h>
 
-#include "test.c"
 
-int
-main(void)
+int test (const char *code, double returnvalue)
 {
     printf("# start\n");
-    printf("What does 1 + 1 equal?\n");
 
     int status, result, i;
     double sum;
@@ -46,7 +43,7 @@ main(void)
 
     printf("# run script\n");
 
-    luaL_loadstring(L, test_lua);
+    luaL_loadstring(L, code);
     /* Ask Lua to run our little script */
     result = lua_pcall(L, 0, 1, 0);
     if (result) {
@@ -64,5 +61,31 @@ main(void)
     lua_pop(L, 1);  /* Take the returned value out of the stack */
     lua_close(L);   /* Cya, Lua */
 
-    return 0;
+    if (sum == returnvalue) {
+        printf("ok\n");
+        return 0;
+    } else {
+        printf("not ok\n");
+        return 1;
+    }
+}
+
+
+int main (void)
+{
+    // printf("1..4\n");
+    // test("return 2 + 2", 4);
+    // test("return (56 * 24)/2", 1344/2);
+    // test("local a = 5; return a", 5);
+    // test("local a = 5 * 5; return a", 5*5);
+    // test("local function a () return 5; end; return a()", 5);
+    // test("local function a (b) return b; end; return a(10)", 10);
+    // test("local function a (b, c) return b * c; end; return a(10, 5)", 10 * 5);
+    // test("local function a (b, c)\n\treturn b * c\nend\n\nreturn a(10, 5)", 10 * 5);
+    // test("local a = {5}; return a[1]", 5);
+    // test("local a = {5, 10, 15}; return a[1] * a[2] * a[3]", 5*10*15);
+
+    test("local sqrt = math.sqrt; return sqrt(4)", 2);
+    
+    printf("\n# done\n");
 }
