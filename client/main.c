@@ -32,7 +32,7 @@ main(void)
     double sum;
     lua_State *L;
 
-    printf("... create state\n");
+    printf("# create state\n");
 
     /*
      * All Lua contexts are held in this structure. We work with it almost
@@ -40,11 +40,11 @@ main(void)
      */
     L = luaL_newstate();
 
-    printf("... open libs\n");
+    printf("# open libs\n");
 
     luaL_openlibs(L); /* Load Lua libraries */
 
-    printf("... run script\n");
+    printf("# run script\n");
 
     luaL_loadstring(L, test_lua);
     /* Ask Lua to run our little script */
@@ -54,12 +54,12 @@ main(void)
         return 1;
     }
 
-    printf("... parse result\n");
+    printf("# parse result\n");
 
     /* Get the returned value at the top of the stack (index -1) */
     sum = lua_tonumber(L, -1);
 
-    printf("Script returned: %.0f\n", sum);
+    printf("# returned: %.0f\n", sum);
 
     lua_pop(L, 1);  /* Take the returned value out of the stack */
     lua_close(L);   /* Cya, Lua */

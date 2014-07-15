@@ -47,12 +47,27 @@ static int jit_compare (void* fn, void* code, size_t size)
     return 0;
 }
 
+static void jit_dump_cmp (void* code, void* code2, size_t size)
+{
+    printf("# JIT_DUMP\n");
+    // Dump generated code.
+    for (int i = 0; i < size/2; i++) {
+        uint16_t a = ((uint16_t *) code)[i];
+        uint16_t b = ((uint16_t *) code2)[i];
+        if (a == b) {
+            printf("#  %04x - %04x\n", a, b);
+        } else {
+            printf("#  %04x ! %04x\n", a, b);
+        }
+    }
+}
+
 static void jit_dump (void* code, size_t size)
 {
     printf("# JIT_DUMP\n");
     // Dump generated code.
     for (int i = 0; i < size/2; i++) {
-        printf(";;; %04x\n", ((uint16_t *) code)[i]);
+        printf("# %04x\n", ((uint16_t *) code)[i]);
     }
 }
 
@@ -76,8 +91,9 @@ void A ## _jit (void) \
      ASM; \
 \
     code = jit_build(&state, &size); \
-    if (jit_compare((void*) ((uint32_t) A - 1), code, size) != 0) \
-        jit_dump(code, size); \
+    volatile uint32_t ptr = (uint32_t) A; \
+    if (jit_compare((void*) (ptr - 1), code, size) != 0) \
+        jit_dump_cmp(code, (void *) (ptr - 1), size); \
     printf("# JIT TEST.\n"); \
     A ## _test(((T) (code+1))); \
     jit_free(code); \
@@ -102,6 +118,6 @@ void A ## _jit (void) \
     code = jit_build(&state, &size); \
     volatile uint32_t ptr = (uint32_t) A; \
     if (jit_compare((void*) (ptr - 1), code, size) != 0) \
-        jit_dump(code, size); \
+        jit_dump_cmp(code, (void *) (ptr - 1), size); \
     jit_free(code); \
 }

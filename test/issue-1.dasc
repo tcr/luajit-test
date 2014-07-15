@@ -23,7 +23,7 @@ COMPARE_JIT(issue_2,
 __asm__ (
   "issue_2:\r\n"
   "  add r0, r1, r1\r\n"
-  "  add.n r0, r0, r0\r\n"
+  "  add r0, r0\r\n"
   "  bne issue_2\r\n"
 ), {
   |1:

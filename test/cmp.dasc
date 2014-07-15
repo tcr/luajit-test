@@ -26,8 +26,8 @@ void cmp_test (int (*fn)(int))
 TEST_JIT(cmp, int (*)(int),
 {
   // The run-time value of C variable "num" is substituted
-    // into the immediate value of the instruction.
-    |.type num, int, r0
+  // into the immediate value of the instruction.
+  |.type num, int, r0
   | cmp num, #5
   | ite le
   | movle r0, #0

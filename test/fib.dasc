@@ -81,7 +81,6 @@ TEST_JIT(fib, int (*)(int),
   | mov r0, r1
   | ldr r4, [sp], #4
   | bx  lr
-  | nop
 })
 
 

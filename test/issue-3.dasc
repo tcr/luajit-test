@@ -30,22 +30,22 @@ __asm__ (
   "   b.w vm_leave_unw \r\n"
 ), {
   |->vm_leave_cp:
-  |   mov r0, #0
-  |   mov r0, #0
-  |   mov r0, #0
-  |   mov r0, #0
-  |   mov r0, #0
-  |   mov r0, #0
+  |   movs r0, #0
+  |   movs r0, #0
+  |   movs r0, #0
+  |   movs r0, #0
+  |   movs r0, #0
+  |   movs r0, #0
 
   if (1) {
     |->vm_leave_unw:
-    |   mov r0, #0
-    |   mov r0, #0
-    |   mov r0, #0
-    |   mov r0, #0
-    |   mov r0, #0
-    |   mov r0, #0
-    |   mov r0, #0
+    |   movs r0, #0
+    |   movs r0, #0
+    |   movs r0, #0
+    |   movs r0, #0
+    |   movs r0, #0
+    |   movs r0, #0
+    |   movs r0, #0
   }
 
   |->now:
