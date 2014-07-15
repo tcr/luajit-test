@@ -1,0 +1,46 @@
+#include <stdint.h>
+
+// DynASM directives.
+|.arch thumb
+|.actionlist actions
+
+#include "test.h"
+
+
+
+
+int op = 3;
+
+
+COMPARE_JIT(immtest,
+__asm__ (
+   " cmp r0, r1 \r\n"
+   " it le \r\n"
+   " suble r6, r10, #0x20000 \r\n"
+   " nop \r\n"
+), {
+  if (1) {
+  |  cmp r0, r1
+  }
+    if (op == 1) {
+      |  mov r4, r10
+    } else if (op == 2) {
+      |  mov r1, r4
+    } else if (op == 3) {
+      |  suble r6, r10, #0x20000
+    }
+  |  nop
+})
+
+
+
+
+
+
+int main ()
+{
+	printf("1..1\n");
+	immtest_jit();
+	printf("# done\n");
+	return 0;
+}

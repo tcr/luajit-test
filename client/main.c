@@ -20,6 +20,8 @@ int lj_err_unwind_arm(int state, void *ucb, void *ctx)
 #include <assert.h>
 #include <stdint.h>
 
+#include "test.c"
+
 int
 main(void)
 {
@@ -44,7 +46,7 @@ main(void)
 
     printf("... run script\n");
 
-    luaL_loadstring(L, "return print('hi')");
+    luaL_loadstring(L, test_lua);
     /* Ask Lua to run our little script */
     result = lua_pcall(L, 0, 1, 0);
     if (result) {
@@ -55,7 +57,7 @@ main(void)
     printf("... parse result\n");
 
     /* Get the returned value at the top of the stack (index -1) */
-    sum = lua_type(L, -1);
+    sum = lua_tonumber(L, -1);
 
     printf("Script returned: %.0f\n", sum);
 
