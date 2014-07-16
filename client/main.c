@@ -96,5 +96,5 @@ int main (void)
 
     test(test_lua, 2);
     
-    printf("\n# done\n");
+    printf("\n# !EXIT\n");
 }
