@@ -1,0 +1,32 @@
+#include <stdint.h>
+
+|.arch thumb
+|.actionlist actions
+#include "test.h"
+
+
+
+
+COMPARE_JIT(immtest,
+__asm__ (
+   "start: \r\n"
+   " cmp r0, r1 \r\n"
+   " bhs start \r\n"
+), {
+  |1:
+  | cmp r0, r1
+  | bhs <1
+})
+
+
+
+
+
+
+int main ()
+{
+	printf("1..1\n");
+	immtest_jit();
+	printf("# done\n");
+	return 0;
+}

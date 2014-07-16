@@ -5,7 +5,7 @@ all: build
 build:
 
 client-build: thumb
-	cd client; xxd -i test.lua > test.c; cd ..
+	cd client; cat test.lua | xxd -i > test.h; cd ..
 	arm-none-eabi-gcc -mthumb -gdwarf-2 -ggdb -fno-inline-small-functions -march=armv7-m -msoft-float -mfix-cortex-m3-ldrd \
 		-std=c99 -Idynasm -DDASM_VERSION=10300 -Wno-overflow -O1 \
 		-I./luajit/dynasm -I ./client -o ./client/main \
