@@ -79,18 +79,21 @@ int test (const char *code, double returnvalue)
 int main (void)
 {
     printf("1..4\n");
-    test("return 2 + 2", 4);
-    test("return (56 * 24)/2", 1344/2);
-    test("local a = 5; return a", 5);
-    test("local a = 5 * 5; return a", 5*5);
-    test("local function a () return 5; end; return a()", 5);
-    test("local function a (b) return b; end; return a(10)", 10);
-    test("local function a (b, c) return b * c; end; return a(10, 5)", 10 * 5);
-    test("local function a (b, c)\n\treturn b * c\nend\n\nreturn a(10, 5)", 10 * 5);
-    test("local a = {5}; return a[1]", 5);
-    test("local a = {5, 10, 15}; return a[1] * a[2] * a[3]", 5*10*15);
-    test("return math.sqrt(4)", 2);
-    test("return math.sqrt(4.0)", 2);
+    // test("return 2 + 2", 4);
+    // test("return (56 * 24)/2", 1344/2);
+    // test("local a = 5; return a", 5);
+    // test("local a = 5 * 5; return a", 5*5);
+    // test("local function a () return 5; end; return a()", 5);
+    // test("local function a (b) return b; end; return a(10)", 10);
+    // test("local function a (b, c) return b * c; end; return a(10, 5)", 10 * 5);
+    // test("local function a (b, c)\n\treturn b * c\nend\n\nreturn a(10, 5)", 10 * 5);
+    // test("local a = {5}; return a[1]", 5);
+    // test("local a = {5, 10, 15}; return a[1] * a[2] * a[3]", 5*10*15);
+    // test("return math.sqrt(4)", 2);
+    // test("return math.sqrt(4.0)", 2);
+    // test("local sqrt = math.sqrt; return sqrt(16)", 4);
+    // test("local b = 16; local function a ()\nreturn b\nend;\nreturn a()", 4);
+
     test(test_lua, 2);
     
     printf("\n# done\n");
