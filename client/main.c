@@ -78,7 +78,7 @@ int test (const char *code, double returnvalue)
 
 int main (void)
 {
-    printf("1..4\n");
+    // printf("1..4\n");
     // test("return 2 + 2", 4);
     // test("return (56 * 24)/2", 1344/2);
     // test("local a = 5; return a", 5);

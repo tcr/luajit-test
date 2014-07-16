@@ -4,10 +4,19 @@ all: build
 
 build:
 
+lua-client-build:
+	cd client; cat test.lua | xxd -i > test.h; cd ..
+	arm-none-eabi-gcc -lm -mthumb -gdwarf-2 -ggdb -fno-inline-small-functions -march=armv7-m -msoft-float -mfix-cortex-m3-ldrd \
+		-std=c99 -Wno-overflow -Ofast \
+		-I./lua-5.1.5/src -I ./client -o ./client/main \
+		-T ./inc/lm3s6965.ld ./inc/startup_lpc1800.s ./client/main.c ./inc/startup.c ./inc/syscalls.c \
+		./lua-5.1.5/src/*.c -lm
+	arm-none-eabi-objcopy -O binary client/main client/main.bin
+
 client-build: thumb
 	cd client; cat test.lua | xxd -i > test.h; cd ..
 	arm-none-eabi-gcc -mthumb -gdwarf-2 -ggdb -fno-inline-small-functions -march=armv7-m -msoft-float -mfix-cortex-m3-ldrd \
-		-std=c99 -Idynasm -DDASM_VERSION=10300 -Wno-overflow -O1 \
+		-std=c99 -Idynasm -DDASM_VERSION=10300 -Wno-overflow -Ofast \
 		-I./luajit/dynasm -I ./client -o ./client/main \
 		-T ./inc/lm3s6965.ld ./inc/startup_lpc1800.s ./client/main.c ./inc/startup.c ./inc/syscalls.c \
 		-I./luajit/src ./luajit/src/libluajit.a -lm
