@@ -16,7 +16,7 @@ __asm__ (
 ), {
   |1:
   | cmn r0, #5
-  | moveq r11, r2
+  | moveq.w r11, r2
   | beq <1
   | nop
 })

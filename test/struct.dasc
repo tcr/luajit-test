@@ -35,4 +35,5 @@ void run_test ()
 {
   printf("1..1\n");
   struct_jit();
+  printf("ok\n");
 }
