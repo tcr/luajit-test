@@ -84,10 +84,8 @@ TEST_JIT(fib, int (*)(int),
 })
 
 
-int main ()
+void run_test ()
 {
   printf("1..1\n");
   fib_jit();
-  printf("# done\n");
-  return 0;
 }

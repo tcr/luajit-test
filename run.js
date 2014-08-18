@@ -21,7 +21,7 @@ ret.stdout.pipe(process.stdout);
 
 ret.stdout.on('data', function (d) {
 	d = String(d);
-	if (d.indexOf('!EXIT') > -1) {
+	if (d.indexOf('# terminate.') > -1) {
 		spawn('kill', ['-9', ret.pid]).on('exit', function (c) {
 			process.exit(0);
 		})
@@ -32,6 +32,6 @@ if (process.argv[3] != '-d') {
 	ret.stdout.once('data', function () {
 		setTimeout(function () {
 			spawn('kill', ['-9', ret.pid])
-		}, process.argv[3] ? Number(process.argv[3]) : 1000);
+		}, process.argv[3] ? Number(process.argv[3]) : 3e3);
 	})
 }

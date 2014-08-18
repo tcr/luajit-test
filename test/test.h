@@ -1,3 +1,5 @@
+#include <lm3s_cmsis.h>
+
 // Includes
 #include <stdint.h>
 #include <stdio.h>
@@ -120,4 +122,16 @@ void A ## _jit (void) \
     if (jit_compare((void*) (ptr - 1), code, size) != 0) \
         jit_dump_cmp(code, (void *) (ptr - 1), size); \
     jit_free(code); \
+}
+
+void run_test(void);
+
+int main ()
+{
+    SystemInit();
+
+    run_test();
+
+    printf("# terminate.\n");
+    return 0;
 }

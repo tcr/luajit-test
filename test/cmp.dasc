@@ -37,10 +37,8 @@ TEST_JIT(cmp, int (*)(int),
 })
 
 
-int main ()
+void run_test ()
 {
   printf("1..1\n");
   cmp_jit();
-  printf("# done\n");
-  return 0;
 }

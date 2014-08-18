@@ -56,11 +56,9 @@ __asm__ (
 })
 
 
-int main ()
+void run_test ()
 {
   printf("1..2\n");
   issue_1_jit();
   issue_2_jit();
-  printf("# done\n");
-  return 0;
 }
