@@ -52,6 +52,7 @@ static int jit_compare (void* fn, void* code, size_t size)
 static void jit_dump_cmp (void* code, void* code2, size_t size)
 {
     printf("# JIT_DUMP\n");
+    printf("# (dyn vs. gcc)\n");
     // Dump generated code.
     for (int i = 0; i < size/2; i++) {
         uint16_t a = ((uint16_t *) code)[i];
