@@ -32,6 +32,6 @@ if (process.argv[3] != '-d') {
 	ret.stdout.once('data', function () {
 		setTimeout(function () {
 			spawn('kill', ['-9', ret.pid])
-		}, process.argv[3] ? Number(process.argv[3]) : 1000000);
+		}, process.argv[3] ? Number(process.argv[3]) : 1000);
 	})
 }
