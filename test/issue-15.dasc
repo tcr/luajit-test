@@ -1,0 +1,28 @@
+#include <stdint.h>
+
+|.arch thumb
+|.actionlist actions
+#include "test.h"
+
+
+
+
+COMPARE_JIT(immtest,
+__asm__ (
+   " it eq \r\n"
+   " bicseq r0, r1, #255 \r\n"
+), {
+  | it eq
+  | bicseq.w r0, r1, #255
+})
+
+
+
+
+
+
+void run_test ()
+{
+	printf("1..1\n");
+	immtest_jit();
+}

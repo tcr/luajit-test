@@ -1,0 +1,33 @@
+#include <stdint.h>
+
+|.arch thumb
+|.actionlist actions
+#include "test.h"
+
+
+COMPARE_JIT(immtest,
+__asm__ (
+   "_begin: \r\n"
+   " cmp r0, #-5 \r\n"
+   " it eq \r\n"
+   " moveq.w r11, r2 \r\n"
+   " beq _begin \r\n"
+   " nop \r\n"
+), {
+  |1:
+  | cmn r0, #5
+  | moveq.w r11, r2
+  | beq <1
+  | nop
+})
+
+
+
+
+
+
+void run_test ()
+{
+	printf("1..1\n");
+	immtest_jit();
+}

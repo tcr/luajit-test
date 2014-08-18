@@ -81,14 +81,11 @@ TEST_JIT(fib, int (*)(int),
   | mov r0, r1
   | ldr r4, [sp], #4
   | bx  lr
-  | nop
 })
 
 
-int main ()
+void run_test ()
 {
   printf("1..1\n");
   fib_jit();
-  printf("# done\n");
-  return 0;
 }

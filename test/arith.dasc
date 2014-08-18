@@ -37,10 +37,8 @@ __asm__ (
   | sub r6, r11, #0x20000
 })
 
-int main ()
+void run_test ()
 {
   printf("1..1\n");
   arith_jit();
-  printf("# done\n");
-  return 0;
 }

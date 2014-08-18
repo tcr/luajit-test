@@ -1,0 +1,40 @@
+#include <stdint.h>
+
+|.arch thumb
+|.actionlist actions
+#include "test.h"
+
+
+
+typedef struct {
+  uint32_t key;
+  uint32_t val;
+  uint32_t other;
+  uint32_t other2;
+  uint32_t top;
+} lua_State;
+
+
+COMPARE_JIT(immtest,
+__asm__ (
+   " str r0, [r8, #16] \r\n"
+   " ldr r1, [r1, r12] \r\n"
+), {
+  |.define CARG1, r0
+  |.define CARG2, r1
+  |.define RC, r12
+  |.type L, lua_State, r8
+  |  str CARG1, L->top
+  | ldr CARG2, [CARG2, RC]
+})
+
+
+
+
+
+
+void run_test ()
+{
+	printf("1..1\n");
+	immtest_jit();
+}
