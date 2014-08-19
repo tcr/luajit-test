@@ -1,0 +1,21 @@
+#include <stdint.h>
+
+|.arch thumb
+|.actionlist actions
+#include "test.h"
+
+
+COMPARE_JIT(immtest,
+__asm__ (
+   " lsl r5, r5, #3 \r\n"
+), {
+  | lsl r5, r5, #3
+})
+
+
+
+void run_test ()
+{
+	printf("1..1\n");
+	immtest_jit();
+}
