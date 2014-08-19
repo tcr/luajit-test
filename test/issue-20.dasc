@@ -1,0 +1,30 @@
+#include <stdint.h>
+
+|.arch thumb
+|.actionlist actions
+#include "test.h"
+
+
+COMPARE_JIT(immtest,
+__asm__ (
+"  cmp r10, r12 \r\n"
+"   itet lo \r\n "
+"   ldrdlo r0, r1, [r10], #8 \r\n"
+"   movhs.w r1, r2 \r\n"
+"    strlo r2, [r10, #-4] \r\n"
+"   nop \r\n"
+), {
+|  cmp r10, r12
+|   ldrdlo r0, r1, [r10], #8
+|   movhs.w r1, r2
+|    strlo r2, [r10, #-4]
+|  nop
+})
+
+
+
+void run_test ()
+{
+	printf("1..1\n");
+	immtest_jit();
+}
